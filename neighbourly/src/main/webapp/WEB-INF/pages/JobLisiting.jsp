@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/JobListing.css" />
 </head>
 <body>
 <div class="main"> 
@@ -22,21 +24,21 @@
 <form>
 <div class="side">
 <label>Job Title</label>
-<input type="text" class="form-control" placeholder="e.g. Electrician">
+<input type="text" class="form-design" placeholder="e.g. Electrician">
 
 <label>Department</label>
-<input type="text" class="form-control" placeholder="e.g. Public ">
+<input type="text" class="form-design" placeholder="e.g. Public ">
 </div>
 
 <label>Job Description</label>
-<textarea class="form-control" placeholder="Describe the roles and responsibilities..."></textarea>
+<textarea class="form-design" placeholder="Describe the roles and responsibilities..."></textarea>
 
 <div class="side">
 <label>Contact Email</label>
-<input type="email" class="form-control" placeholder="abc@neighborly.com">
+<input type="email" class="form-design" placeholder="abc@neighborly.com">
 
 <label>Contact Phone</label>
-<input type="tel" class="form-control" placeholder="(+977) 000-0000">
+<input type="tel" class="form-design" placeholder="(+977) 000-0000">
 </div>
 
 <button type="button" class="form-button">Post Listing</button>
@@ -59,8 +61,8 @@
     </div>
 </div>
 <div class="listing-actions">
-    <button class="btn btn-action btn-edit">Edit</button>
-    <button class="btn btn-action btn-delete">Delete</button>
+    <button class="edit">Edit</button>
+    <button class="delete">Delete</button>
 </div>
 </div>
 
@@ -74,8 +76,8 @@
         </div>
     </div>
     <div class="listing-actions">
-        <button class="btn btn-action btn-edit">Edit</button>
-        <button class="btn btn-action btn-delete">Delete</button>
+        <button class="edit">Edit</button>
+        <button class="delete">Delete</button>
     </div>
 </div>
 
@@ -89,8 +91,8 @@
         </div>
     </div>
     <div class="listing-actions">
-        <button class="btn btn-action btn-edit">Edit</button>
-        <button class="btn btn-action btn-delete">Delete</button>
+        <button class="edit">Edit</button>
+        <button class="delete">Delete</button>
     </div>
 </div>
 
