@@ -64,16 +64,14 @@ form {
 
 .side {
     display: grid;
-    grid-template-rows: auto auto; 
+    grid-template-rows: auto auto;
     grid-auto-flow: column;
     column-gap: 16px;
     margin-top: 16px;
     align-items: center;
 }
 
-.side:first-child {
-    margin-top: 0;
-}
+
 
 .side label {
     margin-top: 0; 
@@ -89,12 +87,10 @@ form label {
     margin-top: 16px; 
 }
 
-form label:first-child {
-    margin-top: 0;
-}
+
 
 .form-design {
-    background-color: #212224;
+    background-color: #212224; 
     border: 1px solid #323639;
     border-radius: 8px;
     padding: 12px 16px;
@@ -105,16 +101,15 @@ form label:first-child {
     width: 100%;
 }
 
-.form-control:focus {
+.form-design:focus {
     border-color: #D35400;
 }
 
-textarea.form-design  {
+textarea.form-design {
     resize: vertical;
     min-height: 80px;
 }
 
-/* Form Buttons */
 .form-button {
     padding: 10px 20px;
     border-radius: 6px;
@@ -133,15 +128,13 @@ textarea.form-design  {
     background-color: #b94a00;
 }
 
-/* Manage Listings Section */
 .list-head h3 {
     font-size: 20px !important;
     font-weight: 600 !important;
-    /* Forced white because black is invisible on dark background */
     color: white !important; 
 }
 
-.listing-card {
+.list-card {
     background-color: #212224;
     border: 1px solid #323639;
     border-radius: 12px;
@@ -153,13 +146,13 @@ textarea.form-design  {
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.listing-card:hover {
+.list-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    border-color: rgba(255,255,255,0.2);
+    border-color: ffffff;
 }
 
-.listing-info h4 {
+.list-info h4 {
     font-size: 16px;
     font-weight: 600;
     display: flex;
@@ -168,7 +161,7 @@ textarea.form-design  {
     margin-bottom: 8px;
 }
 
-.status-badge {
+.status {
     font-size: 10px;
     font-weight: 700;
     padding: 3px 8px;
@@ -191,7 +184,7 @@ textarea.form-design  {
     gap: 10px;
 }
 
-.btn-action {
+.edit, .delete {
     padding: 8px 16px;
     font-size: 12px;
     border-radius: 6px;
@@ -201,20 +194,20 @@ textarea.form-design  {
     transition: all 0.2s;
 }
 
-.btn-edit {
+.edit {
     background-color: #374151;
     color: white;
 }
 
-.btn-edit:hover {
+.edit:hover {
     background-color: #4b5563;
 }
 
-.btn-delete {
+.delete {
     background-color: #7f1d1d;
     color: white;
 }
 
-.btn-delete:hover {
+.delete:hover {
     background-color: #991b1b;
 }
