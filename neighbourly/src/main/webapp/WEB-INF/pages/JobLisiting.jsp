@@ -43,6 +43,60 @@
  </form>
 </section>
 
+<section class="manage-listings">
+
+<div class="list-head">
+<h3 style="color: black; font-weight: 500;">Manage Listing</h3>
+</div>
+<div style="border-bottom: 1px solid #323639; margin-bottom: 24px;"></div>
+
+<div class="listing-card">
+<div class="listing-info">
+    <h4>Electrician <span class="status-badge">Active</span></h4>
+    <div class="listing-meta">
+        <span>TECHNICAL SERVICES</span>
+        <span>Posted Oct 12, 2025</span>
+    </div>
+</div>
+<div class="listing-actions">
+    <button class="btn btn-action btn-edit">Edit</button>
+    <button class="btn btn-action btn-delete">Delete</button>
+</div>
+</div>
+
+<!-- Listing 2 -->
+<div class="listing-card">
+    <div class="listing-info">
+<h4>Junior Data Analyst <span class="status-badge">Active</span></h4>
+<div class="listing-meta">
+<span>IT SERVICES</span>
+<span>Posted Sep 28, 2025</span>
+        </div>
+    </div>
+    <div class="listing-actions">
+        <button class="btn btn-action btn-edit">Edit</button>
+        <button class="btn btn-action btn-delete">Delete</button>
+    </div>
+</div>
+
+<!-- Listing 3 -->
+<div class="listing-card">
+    <div class="listing-info">
+        <h4>Health Nurse <span class="status-badge">Active</span></h4>
+        <div class="listing-meta">
+            <span>HEALTH SERVICES</span>
+            <span>Posted Oct 05, 2025</span>
+        </div>
+    </div>
+    <div class="listing-actions">
+        <button class="btn btn-action btn-edit">Edit</button>
+        <button class="btn btn-action btn-delete">Delete</button>
+    </div>
+</div>
+
+</section>
+
+
 </div>
 
 </body>
