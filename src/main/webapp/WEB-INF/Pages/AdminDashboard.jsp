@@ -145,6 +145,15 @@
                     <div class="stat-row"><span class="stat-row-label">Pending verification</span><span class="stat-row-value value-orange">14</span></div>
                     <div class="stat-row"><span class="stat-row-label">Verified</span><span class="stat-row-value value-green">393</span></div>
                 </div>
+                <div class="panel">
+                    <div class="panel-header">
+                        <span class="panel-title">Application Status</span>
+                        <a href="ApplicationList.jsp" class="view-all-link">View all</a>
+                    </div>
+                    <div class="stat-row"><span class="stat-row-label">Total Applications</span><span class="stat-row-value">10</span></div>
+                    <div class="stat-row"><span class="stat-row-label">Pending Applications</span><span class="stat-row-value value-orange">2</span></div>
+                    <div class="stat-row"><span class="stat-row-label">Verified Applications</span><span class="stat-row-value value-green">8</span></div>
+                </div>
             </div>
         </div>
     </main>
