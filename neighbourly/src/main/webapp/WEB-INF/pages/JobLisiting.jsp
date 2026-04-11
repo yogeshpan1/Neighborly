@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/JobListing.css" />
 </head>
 <body>
@@ -50,7 +49,7 @@
 <div class="list-head">
 <h3 style="color: black; font-weight: 500;">Manage Listing</h3>
 </div>
-<div style="border-bottom: 1px solid #323639; margin-bottom: 24px;"></div>
+<div style="border-bottom: 1px solid #323639; margin-top:20px; margin-bottom: 24px;"></div>
 
 <div class="list-card">
 <div class="list-info">

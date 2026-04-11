@@ -49,12 +49,16 @@ body {
 }
 
 .card-header {
-    display: flex;
+     display: flex;
     align-items: center;
     gap: 10px;
     margin-bottom: 24px;
-    border-bottom: 1px solid #323639;
+    border-bottom: 1px solid white;
     padding-bottom: 16px;
+    margin-left: -24px;
+    margin-right: -24px;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 form {
@@ -137,7 +141,7 @@ textarea.form-design {
 .list-card {
     background-color: #212224;
     border: 1px solid #323639;
-    border-radius: 12px;
+    border-radius: 6px;
     padding: 20px 24px;
     margin-bottom: 12px;
     display: flex;
