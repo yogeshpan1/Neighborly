@@ -1,10 +1,8 @@
-/* CSS/index.css */
-
 body,
 html {
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: 900px;
     font-family: 'Inter', sans-serif;
     background-color: #ffffff;
     overflow: hidden;
@@ -12,47 +10,41 @@ html {
 
 .LoginBox {
     display: flex;
-    min-height: 100vh;
+    min-height: 900px;
 }
 
-/* Left Side Styles */
 .loginQuote {
     flex: 1.15;
     background-color: #121212;
-    /* Black background */
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    padding: 32px;
     box-sizing: border-box;
 }
 
 .loginText {
     max-width: 500px;
-    width: 100%;
-    padding-left: 10%;
-    /* Adjust to match the slight offset in the image */
+    width: 500px;
+    padding-left: 60px;
 }
 
 .loginHeader {
     font-family: 'Playfair Display', serif;
     color: #ffffff;
-    font-size: 5rem;
-    /* Scale appropriately */
+    font-size: 80px;
     line-height: 1.1;
     font-weight: 700;
     margin: 0;
-    letter-spacing: -0.02em;
+    letter-spacing: -1px;
 }
 
 .loginHeader .loginHeader2 {
     color: #A04015;
-    /* Burnt orange/brown */
     font-style: italic;
     font-weight: 600;
 }
 
-/* Right Side Styles */
 .loginPanel {
     flex: 0.85;
     background-color: #ffffff;
@@ -63,75 +55,70 @@ html {
 }
 
 .loginForm {
-    width: 100%;
+    width: 360px;
     max-width: 360px;
-    /* Limits the width of the form naturally */
-    padding: 2rem;
+    padding: 32px;
+    box-sizing: border-box;
 }
 
 .loginPanel h2 {
-    font-size: 2.25rem;
+    font-size: 36px;
     color: #202020;
-    margin: 0 0 2.5rem 0;
+    margin: 0 0 40px 0;
     font-weight: 600;
-    letter-spacing: -0.02em;
+    letter-spacing: -1px;
 }
 
-.loginPanel .subtitle {
-    color: #606060;
-    font-size: 0.95rem;
-    margin: 0 0 2.5rem 0;
-    line-height: 1.5;
-}
-
-.error-message {
+.errorMessage {
     background-color: #fdf2f2;
     color: #A04015;
-    padding: 0.8rem;
+    padding: 13px;
     border-radius: 8px;
-    margin-bottom: 1.5rem;
-    font-size: 0.9rem;
+    margin-bottom: 24px;
+    font-size: 14px;
     font-weight: 600;
     text-align: center;
     border: 1px solid #f6d2d2;
 }
 
-/* Form Controls */
-.form-group {
-    margin-bottom: 1.5rem;
+.formGroup {
+    margin-bottom: 24px;
 }
 
-.form-label {
+.formLabel {
     display: flex;
     justify-content: space-between;
-    font-size: 0.875rem;
+    font-size: 14px;
     font-weight: 600;
     color: #333333;
-    margin-bottom: 0.5rem;
+    margin-bottom: 8px;
 }
 
-.form-label label {
+.formLabel label {
     margin: 0;
 }
 
-.form-label a.forgot-link {
+.forgotLink {
     color: #A04015;
     text-decoration: none;
     font-weight: 600;
+    font-size: 13px;
+    display: block;
+    margin-top: 8px;
+    text-align: right;
 }
 
-.form-label a.forgot-link:hover {
+.forgotLink:hover {
     text-decoration: underline;
 }
 
-.form-control {
-    width: 100%;
-    padding: 0.9rem 1rem;
+.formControl {
+    width: 296px;
+    padding: 14px 16px;
     border: none;
     background-color: #F8F8F8;
-    /* Light gray */
     border-radius: 12px;
-    font-size: 0.95rem;
+    font-size: 15px;
     font-family: inherit;
     color: #333333;
     outline: none;
@@ -139,44 +126,42 @@ html {
     box-sizing: border-box;
 }
 
-.form-control::placeholder {
+.formControl::placeholder {
     color: #A0A0A0;
 }
 
-.form-control:focus {
+.formControl:focus {
     background-color: #F0F0F0;
     box-shadow: 0 0 0 2px rgba(160, 64, 21, 0.2);
 }
 
-/* Checkbox */
-.checkbox-group {
+.checkboxGroup {
     display: flex;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 32px;
 }
 
-.checkbox-group input[type="checkbox"] {
-    width: 1.1rem;
-    height: 1.1rem;
-    margin: 0 0.6rem 0 0;
+.checkboxGroup input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 0 10px 0 0;
     accent-color: #A04015;
     cursor: pointer;
     border-radius: 4px;
 }
 
-.checkbox-group label {
-    font-size: 0.875rem;
+.checkboxGroup label {
+    font-size: 14px;
     color: #555555;
     cursor: pointer;
     font-weight: 500;
 }
 
-/* Buttons */
-.btn {
-    width: 100%;
-    padding: 1rem;
+.loginBtn {
+    width: 296px;
+    padding: 16px;
     border-radius: 12px;
-    font-size: 1rem;
+    font-size: 16px;
     font-family: inherit;
     font-weight: 600;
     cursor: pointer;
@@ -185,77 +170,61 @@ html {
     transition: all 0.2s ease;
 }
 
-.btn-primary {
+.loginBtnPrimary {
     background-color: #A04015;
     color: #ffffff;
     border: none;
 }
 
-.btn-primary:hover {
+.loginBtnPrimary:hover {
     background-color: #8C3610;
 }
 
-.btn-secondary {
+.loginBtnSecondary {
     background-color: #ffffff;
     color: #A04015;
     border: 1px solid #E5E5E5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 
-.btn-secondary:hover {
+.loginBtnSecondary:hover {
     background-color: #FAFAFA;
     border-color: #D0D0D0;
 }
 
-/* Divider */
-.divider {
+.loginDivider {
     display: flex;
     align-items: center;
     text-align: center;
-    margin: 2rem 0;
+    margin: 32px 0;
 }
 
-.divider::before,
-.divider::after {
+.loginDivider::before,
+.loginDivider::after {
     content: '';
     flex: 1;
     border-bottom: 1px solid #E5E5E5;
 }
 
-.divider span {
-    padding: 0 1rem;
-    font-size: 0.75rem;
+.loginDivider span {
+    padding: 0 16px;
+    font-size: 12px;
     font-weight: 600;
-    letter-spacing: 0.08em;
+    letter-spacing: 1px;
     color: #A0A0A0;
 }
 
-/* Terms and Conditions Text */
-.terms {
-    margin-top: 2.5rem;
-    font-size: 0.75rem;
-    color: #A0A0A0;
-    text-align: center;
-    line-height: 1.6;
-}
-
-.terms a {
-    color: #A0A0A0;
-    text-decoration: underline;
-}
-
-.terms a:hover {
-    color: #707070;
-}
-
-/* Responsive adjustments */
 @media screen and (max-width: 768px) {
     .LoginBox {
         flex-direction: column;
     }
 
     .loginQuote {
-        min-height: 40vh;
-        padding: 3rem 2rem;
+        min-height: 400px;
+        padding: 48px 32px;
     }
 
     .loginText {
@@ -264,10 +233,10 @@ html {
     }
 
     .loginHeader {
-        font-size: 3rem;
+        font-size: 48px;
     }
 
     .loginPanel {
-        padding: 2rem 0;
+        padding: 32px 0;
     }
 }
