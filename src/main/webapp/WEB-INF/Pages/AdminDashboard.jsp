@@ -15,7 +15,7 @@
 
         body {
             font-family: 'Inter', 'Segoe UI', sans-serif;
-            background-color: #141720;
+            background-color: #13171A;
             color: #ffffff;
         }
 
@@ -23,8 +23,8 @@
         .sidebar {
             width: 250px;
             min-width: 250px;
-            background-color: #10131a;
-            border-right: 1px solid #292d3b;
+            background-color: #151821;
+            border-right: 1px solid #323639;
             display: flex;
             flex-direction: column;
             position: fixed;
@@ -41,19 +41,24 @@
             padding: 24px;
             text-decoration: none;
             margin-bottom: 8px;
+            transition: opacity 0.2s;
+        }
+
+        .sidebar-logo:hover {
+            opacity: 0.8;
         }
 
         .logo-text {
             font-size: 26px;
             font-weight: 700;
-            color: #ea701b;
+            color: #D35400;
             letter-spacing: -0.5px;
         }
 
         .sidebar-section-label {
             font-size: 11px;
             font-weight: 600;
-            color: #6b7280;
+            color: #75787D;
             letter-spacing: 1px;
             text-transform: uppercase;
             padding: 20px 24px 8px 24px;
@@ -73,19 +78,23 @@
             border-radius: 8px;
             text-decoration: none;
             font-size: 14px;
-            color: #9ca3af;
-            transition: all 0.2s;
+            color: #75787D;
             font-weight: 500;
+        }
+        
+        .sidebar-nav li a:hover {
+            background-color: #212224;
+            color: #ffffff;
         }
 
         .sidebar-nav li a.active {
-            background-color: #faebd7;
-            color: #ea701b;
+            background-color: #323639;
+            color: #D35400;
         }
-
-        .sidebar-nav li a:hover:not(.active) {
-            background-color: #1a1e27;
-            color: #ffffff;
+        
+        .sidebar-nav li a.active:hover {
+            background-color: #323639;
+            color: #D35400;
         }
 
         .nav-icon {
@@ -105,8 +114,8 @@
 
         /* ===== TOPBAR ===== */
         .topbar {
-            background-color: #1b1e27;
-            border-bottom: 1px solid #292d3b;
+            background-color: #212224;
+            border-bottom: 1px solid #323639;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -136,18 +145,19 @@
         }
 
         .topbar-search input {
-            background: #11141c;
-            border: 1px solid #292d3b;
+            background-color: #13171A;
+            border: 1px solid #323639;
             border-radius: 8px;
             padding: 10px 16px 10px 42px;
             font-size: 14px;
             color: #ffffff;
             width: 100%;
             outline: none;
+            transition: border-color 0.2s;
         }
 
         .topbar-search input:focus {
-            border-color: #ea701b;
+            border-color: #D35400;
         }
 
         .topbar-search .search-icon {
@@ -155,7 +165,7 @@
             left: 14px;
             top: 50%;
             transform: translateY(-50%);
-            color: #9ca3af;
+            color: #75787D;
         }
 
         .topbar-right {
@@ -165,10 +175,10 @@
 
         .bell-icon {
             position: relative;
-            background: transparent;
+            background-color: transparent;
             border: none;
             cursor: pointer;
-            color: #9ca3af;
+            color: #75787D;
             margin-right: 20px;
             display: flex;
             align-items: center;
@@ -184,28 +194,35 @@
             right: 0;
             width: 8px;
             height: 8px;
-            background: #ea701b;
+            background-color: #D35400;
             border-radius: 50%;
-            border: 2px solid #1b1e27;
+            border: 2px solid #212224;
         }
 
         .user-info {
             display: flex;
             align-items: center;
             gap: 12px;
+            cursor: pointer;
+            padding: 6px 10px;
+            border-radius: 8px;
+        }
+
+        .user-info:hover {
+            background-color: #323639;
         }
 
         .user-avatar {
             width: 38px;
             height: 38px;
             border-radius: 50%;
-            background: #ea701b;
+            background-color: #D35400;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 14px;
             font-weight: bold;
-            color: white;
+            color: #ffffff;
         }
 
         .user-details {
@@ -221,7 +238,7 @@
 
         .user-role {
             font-size: 12px;
-            color: #9ca3af;
+            color: #75787D;
         }
 
         /* ===== DASHBOARD BODY ===== */
@@ -239,14 +256,20 @@
         }
 
         .stat-card {
-            background: #1b1e27;
-            border: 1px solid #292d3b;
+            background-color: #212224;
+            border: 1px solid #323639;
             border-radius: 10px;
             padding: 24px;
             display: flex;
             align-items: center;
             gap: 24px;
             height: 120px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        
+        .stat-card:hover {
+            border-color: #CFD3D6;
+            transform: translateY(-2px);
         }
 
         .stat-icon-wrap {
@@ -264,7 +287,7 @@
 
         .stat-label {
             font-size: 13px;
-            color: #9ca3af;
+            color: #75787D;
             margin-bottom: 6px;
         }
 
@@ -281,8 +304,13 @@
             font-weight: 500;
         }
 
-        .stat-trend.green { color: #10b981; }
-        .stat-trend.orange { color: #9ca3af; }
+        .stat-trend.green { 
+            color: #10b981; 
+        }
+        
+        .stat-trend.orange { 
+            color: #75787D; 
+        }
 
         /* Custom HTML/CSS Bar Charts */
         .stat-bars { 
@@ -297,17 +325,45 @@
             border-radius: 3px; 
         }
 
-        .bars-green .bar { background: #10b981; }
-        .bars-orange .bar { background: #ea701b; }
-        .bars-blue .bar { background: #3b82f6; }
-        .bars-yellow .bar { background: #f59e0b; }
+        .bars-green .bar { 
+            background-color: #10b981; 
+        }
+        
+        .bars-orange .bar { 
+            background-color: #D35400; 
+        }
+        
+        .bars-blue .bar { 
+            background-color: #3b82f6; 
+        }
+        
+        .bars-yellow .bar { 
+            background-color: #f59e0b; 
+        }
 
-        .h-40 { height: 40%; }
-        .h-50 { height: 50%; }
-        .h-60 { height: 60%; }
-        .h-70 { height: 70%; }
-        .h-80 { height: 80%; }
-        .h-100 { height: 100%; }
+        .h-40 { 
+            height: 40%; 
+        }
+        
+        .h-50 { 
+            height: 50%; 
+        }
+        
+        .h-60 { 
+            height: 60%; 
+        }
+        
+        .h-70 { 
+            height: 70%; 
+        }
+        
+        .h-80 { 
+            height: 80%; 
+        }
+        
+        .h-100 { 
+            height: 100%; 
+        }
 
         /* ===== MAIN GRID ===== */
         .dashboard-grid {
@@ -324,8 +380,8 @@
 
         /* ===== PANEL / CARD ===== */
         .panel {
-            background: #1b1e27;
-            border: 1px solid #292d3b;
+            background-color: #212224;
+            border: 1px solid #323639;
             border-radius: 10px;
             overflow: hidden;
         }
@@ -335,7 +391,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 20px 24px;
-            border-bottom: 1px solid #292d3b;
+            border-bottom: 1px solid #CFD3D6;
         }
 
         .panel-title {
@@ -346,7 +402,7 @@
 
         .view-all-link {
             font-size: 13px;
-            color: #ea701b;
+            color: #D35400;
             text-decoration: none;
             font-weight: 500;
         }
@@ -366,16 +422,24 @@
             padding: 14px 24px;
             font-size: 11px;
             font-weight: 600;
-            color: #9ca3af;
+            color: #75787D;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            border-bottom: 1px solid #292d3b;
+            border-bottom: 1px solid #CFD3D6;
         }
 
         .data-table td {
             padding: 18px 24px;
             font-size: 13px;
-            border-bottom: 1px solid #292d3b;
+            border-bottom: 1px solid #CFD3D6;
+        }
+        
+        .data-table tbody tr {
+            transition: background-color 0.2s;
+        }
+        
+        .data-table tbody tr:hover {
+            background-color: #323639;
         }
 
         .data-table tr:last-child td {
@@ -388,7 +452,7 @@
         }
 
         .data-table td.secondary-text {
-            color: #9ca3af;
+            color: #75787D;
         }
 
         /* ===== BADGES ===== */
@@ -398,13 +462,24 @@
             border-radius: 20px;
             font-size: 11px;
             font-weight: 600;
-            background: #ffffff; /* pure white pops nicely over dark gray */
+            background-color: #ffffff;
         }
 
-        .badge-pending  { color: #ea701b; }
-        .badge-progress { color: #3b82f6; }
-        .badge-resolved { color: #10b981; }
-        .badge-published{ color: #10b981; }
+        .badge-pending { 
+            color: #D35400; 
+        }
+        
+        .badge-progress { 
+            color: #3b82f6; 
+        }
+        
+        .badge-resolved { 
+            color: #10b981; 
+        }
+        
+        .badge-published { 
+            color: #10b981; 
+        }
         
         .type-badge {
             display: inline-block;
@@ -412,8 +487,8 @@
             border-radius: 20px;
             font-size: 11px;
             font-weight: 600;
-            background: #ffffff;
-            color: #ea701b;
+            background-color: #ffffff;
+            color: #D35400;
         }
 
         /* ===== ACTIVE POLLS ===== */
@@ -422,7 +497,12 @@
             align-items: center;
             gap: 16px;
             padding: 18px 24px;
-            border-bottom: 1px solid #292d3b;
+            border-bottom: 1px solid #CFD3D6;
+            transition: background-color 0.2s;
+        }
+        
+        .poll-item:hover {
+            background-color: #323639;
         }
 
         .poll-item:last-child {
@@ -432,7 +512,7 @@
         .poll-icon-box {
             width: 40px;
             height: 40px;
-            background: #ffffff;
+            background-color: #ffffff;
             border-radius: 6px;
             display: flex;
             align-items: center;
@@ -453,7 +533,7 @@
 
         .poll-meta {
             font-size: 12px;
-            color: #9ca3af;
+            color: #75787D;
             margin: 0;
         }
 
@@ -463,7 +543,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 16px 24px;
-            border-bottom: 1px solid #292d3b;
+            border-bottom: 1px solid #CFD3D6;
         }
 
         .stat-row:last-child {
@@ -472,7 +552,7 @@
 
         .stat-row-label {
             font-size: 13px;
-            color: #9ca3af;
+            color: #75787D;
         }
 
         .stat-row-value {
@@ -481,9 +561,17 @@
             color: #ffffff;
         }
 
-        .stat-row-value.value-orange { color: #ea701b; }
-        .stat-row-value.value-green  { color: #10b981; }
-        .stat-row-value.value-blue   { color: #3b82f6; }
+        .stat-row-value.value-orange { 
+            color: #D35400; 
+        }
+        
+        .stat-row-value.value-green { 
+            color: #10b981; 
+        }
+        
+        .stat-row-value.value-blue { 
+            color: #3b82f6; 
+        }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1200px) {
@@ -501,9 +589,11 @@
 <body>
 
 <%
+    // Server-side block checking user session
     HttpSession userSession = request.getSession(false);
-    String adminName = "Arjan Regmi";
+    String adminName = "Arjan Regmi"; // Default name
     String adminInitials = "AR";
+    
     if (userSession != null && userSession.getAttribute("adminName") != null) {
         adminName = (String) userSession.getAttribute("adminName");
         if (adminName.length() >= 2) {
@@ -560,8 +650,9 @@
         <li>
             <a href="NewsList.jsp">
                 <span class="nav-icon">
+                    <!-- New Updated Document Icon for News -->
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z"/>
+                        <path d="M20 3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h8v2zm3-4H7v-2h11v2zm0-4H7V7h11v2z"/>
                     </svg>
                 </span>
                 News
@@ -580,8 +671,9 @@
         <li>
             <a href="PollList.jsp">
                 <span class="nav-icon">
+                    <!-- New Updated Bar Chart Icon for Polls -->
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
                     </svg>
                 </span>
                 Polls
