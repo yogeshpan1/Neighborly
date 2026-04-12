@@ -10,14 +10,14 @@ import java.io.IOException;
 /**
  * Servlet implementation class FeedServlet
  */
-@WebServlet(asyncSupported = true, urlPatterns = { "/feed" })
-public class FeedServlet extends HttpServlet {
+@WebServlet(asyncSupported = true, urlPatterns = { "/userhome" })
+public class UserDashboard extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	    
 	 /**
 	  * @see HttpServlet#HttpServlet()
 	  */
-	 public FeedServlet() {
+	 public UserDashboard() {
 	     super();
 	     // TODO Auto-generated constructor stub
 	 }
@@ -28,7 +28,7 @@ public class FeedServlet extends HttpServlet {
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			// TODO Auto-generated method stub
 			response.getWriter().append("Served at: ").append(request.getContextPath());
-			request.getRequestDispatcher("/WEB-INF/Pages/feed.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/Pages/UserDashboard.jsp").forward(request, response);
 		}
 	
 		/**
