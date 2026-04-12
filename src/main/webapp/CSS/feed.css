@@ -1,0 +1,435 @@
+* { 
+  margin: 0; 
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  font-size: 14px;
+  color: #333;
+}
+
+/* ── LAYOUT ── */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: 190px;
+  background: white;
+  border-right: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0; bottom: 0; left: 0;
+  padding: 16px 0;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #e85d2f;
+  padding: 0 16px 16px;
+}
+
+.nav-label {
+  font-size: 10px;
+  color: #bbb;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 12px 16px 4px;
+}
+
+.nav-item {
+  display: block;
+  padding: 8px 16px;
+  color: #555;
+  text-decoration: none;
+  font-size: 13px;
+  border-radius: 6px;
+  margin: 1px 8px;
+}
+
+.nav-item:hover { 
+  background: #fff0ea; 
+  color: #e85d2f; 
+}
+
+.nav-item.active {
+  background: #fff0ea; 
+  color: #e85d2f; 
+  font-weight: bold; 
+}
+
+/* ── SIDEBAR USER ── */
+.sidebar-user {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-top: 1px solid #eee;
+}
+
+.avatar {
+  width: 34px; 
+  height: 34px;
+  background: #e85d2f;
+  color: white;
+  border-radius: 50%;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.user-name { 
+  font-size: 12px; 
+  font-weight: bold;
+}
+
+.user-role {
+  font-size: 11px; 
+  color: #999;  
+}
+
+/* ── MAIN ── */
+.main {
+  margin-left: 190px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── TOP BAR ── */
+.topbar {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 10px 20px;
+  background: #fff;
+}
+
+.page-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/*  Bell icon */
+.bell img {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+/* ── CONTENT ── */
+.content { 
+  padding: 20px 24px; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 14px;
+}
+
+/* ── SEARCH ── */
+.search-wrap { 
+  display: flex; 
+  justify-content: center; 
+}
+
+.search-input {
+  width: 420px;
+  padding: 9px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 13px;
+  outline: none;
+  background: white;
+}
+
+.search-input:focus { 
+  border-color: #e85d2f; 
+}
+
+/* ── SECTION HEADER ── */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 14px; 
+  font-weight: bold;
+}
+
+.view-all {
+  font-size: 12px; 
+  color: #888;
+  text-decoration: none; 
+}
+
+.view-all:hover { 
+  color: #e85d2f; 
+}
+
+/* ── SERVICES ── */
+.services-grid {
+  display: flex;
+  gap: 14px;
+}
+
+.service-card {
+  flex: 1;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 14px 8px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.service-card:hover {
+  border-color: #e85d2f;
+}
+
+.service-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+/* service images */
+.service-icon-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.service-label {
+  font-size: 11px; 
+  color: #555; 
+}
+
+/* ── PANEL ── */
+.panel {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* ── APPLICATION ── */
+.app-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 16px;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.app-item:last-child {
+  border-bottom: none;
+}
+
+.app-left { 
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+}
+
+.app-bar {
+  width: 4px; 
+  height: 36px;
+  border-radius: 4px;
+}
+
+.app-bar.yellow 
+{ 
+  background: #f5a623; 
+}
+
+.app-bar.green 
+{ 
+  background: #4caf50; 
+}
+
+.app-name {
+  font-size: 13px; 
+  font-weight: 600;
+  margin-bottom: 3px; 
+}
+
+.app-sub 
+{
+  font-size: 11px; 
+  color: #999; 
+}
+
+/* ── BADGES ── */
+.badge 
+{ 
+  font-size: 11px; 
+  padding: 4px 12px;
+  border-radius: 20px; 
+}
+
+.badge-review { 
+  background: #fff8e1; 
+  color: #e6a800; 
+  border: 1px solid #ffe082; 
+}
+
+.badge-approved { 
+  background: #e8f5e9; 
+  color: #4caf50; 
+  border: 1px solid #a5d6a7; 
+}
+
+/* ── FINES ── */
+.fine-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 13px 16px;
+}
+
+.fine-left {
+  display: flex;
+  gap: 12px;
+}
+
+.fine-bar {
+  width: 4px; 
+  height: 50px;
+  background: #e53935;
+  border-radius: 4px;
+}
+
+.fine-name {
+  font-size: 13px; 
+  font-weight: 600;
+}
+
+.fine-meta {
+  font-size: 11px;
+  color: #999;
+  margin-bottom: 6px;
+}
+
+.unpaid-badge {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #fde8e8;
+  color: #e53935;
+  border: 1px solid #ef9a9a;
+}
+
+.fine-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.fine-amount {
+  font-size: 15px;
+  font-weight: bold;
+  color: #e53935;
+}
+
+.pay-btn {
+  background: #e53935;
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* ── BOTTOM GRID ── */
+.bottom-grid {
+  display: flex;
+  gap: 14px;
+}
+
+/* ── POLL ── */
+.poll-panel {
+  flex: 2.3;
+  padding: 16px;
+}
+
+.poll-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+/* poll icon */
+.poll-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.poll-question {
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.poll-option {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+/* ── REPORT ── */
+.report-panel {
+  flex: 1;
+  padding: 24px 18px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* report icon */
+.report-icon-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.report-title {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.report-desc {
+  font-size: 12px;
+  color: #777;
+}
+
+.report-btn {
+  border: 2px solid #e85d2f;
+  color: #e85d2f;
+  background: white;
+  padding: 9px 22px;
+  border-radius: 7px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.report-btn:hover {
+  background: #fff0ea;
+}
