@@ -6,8 +6,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/JobListing.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Admin-Side.css">
 </head>
 <body>
+
+<jsp:include page="/components/admin-sidebar.jsp" />
 <div class="main"> 
 
 <div class ="header">
