@@ -11,6 +11,8 @@
 <body>
 
 <jsp:include page="/components/admin-sidebar.jsp" />
+<% request.setAttribute("pageTitle", "Job Listing"); %>
+<jsp:include page="/components/admin-topbar.jsp" />
 <div class="main"> 
 
 <div class ="header">
