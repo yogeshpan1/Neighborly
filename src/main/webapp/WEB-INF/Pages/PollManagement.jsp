@@ -1,4 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +7,70 @@
 
     <!-- Link to our unified Admin CSS with cache buster -->
     <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Admin-Side.css?v=<%= System.currentTimeMillis() %>">
+    <style>
+        .sub-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 24px;
+            margin-top: 24px;
+        }
+        
+        .pill-badge {
+            font-size: 11px;
+            padding: 4px 10px;
+            background-color: #323639;
+            border-radius: 12px;
+            color: #CFD3D6;
+            font-weight: 600;
+        }
+
+        .modal-header-danger {
+            background-color: #7f1d1d;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .modal-header-danger h2 {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .btn-cancel-dark {
+            background-color: #323639;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 20px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .btn-cancel-dark:hover { background-color: #4a4d51; }
+
+        .btn-danger-bright {
+            background-color: #ff3b3b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 20px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            box-shadow: 0 4px 12px rgba(255, 59, 59, 0.3);
+        }
+        .btn-danger-bright:hover { background-color: #e63535; }
+    </style>
 </head>
 <body>
 
@@ -79,6 +142,11 @@
 
             <hr class="divider">
 
+            <div class="sub-header">
+                Manage Polls
+                <span class="pill-badge">Total: 3</span>
+            </div>
+
             <!-- LIST OF POLLS (More spaced out and roomier) -->
             <div class="poll-list-container">
                 
@@ -99,7 +167,7 @@
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                             Edit
                         </button>
-                        <button class="btn btn-delete">
+                        <button class="btn btn-delete" onclick="openDeleteModal('Should the Singha Durbar be redeveloped as a National Heritage Site?', '1')">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                             Delete
                         </button>
@@ -123,7 +191,7 @@
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                             Edit
                         </button>
-                        <button class="btn btn-delete">
+                        <button class="btn btn-delete" onclick="openDeleteModal('New Bike Lanes: Main St.', '2')">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                             Delete
                         </button>
@@ -147,7 +215,7 @@
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                             Edit
                         </button>
-                        <button class="btn btn-delete">
+                        <button class="btn btn-delete" onclick="openDeleteModal('Annual Winter Festival Location', '3')">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                             Delete
                         </button>
@@ -221,6 +289,44 @@
     </div>
 </div>
 
+<!-- ==========================================
+     THE 'DELETE' MODAL OVERLAY
+     ========================================== -->
+<div class="modal-overlay" id="deletePollModal">
+    <div class="modal-box" style="padding: 0; max-width: 520px; overflow: hidden;">
+        
+        <div class="modal-header-danger">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #ffbba6;">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            <h2>Confirm Deletion</h2>
+        </div>
+
+        <form action="<%= request.getContextPath() %>/deletepoll" method="POST">
+            <input type="hidden" name="pollId" id="deletePollId">
+            
+            <div class="modal-body" style="padding: 24px 28px;">
+                <p style="color: #CFD3D6; font-size: 14px; margin-top: 0; margin-bottom: 24px; line-height: 1.5;">
+                    You are about to permanently delete the poll: <br>
+                    <strong id="deletePollTitle" style="color: #ffffff; font-weight: 700;">Poll Title</strong>. 
+                    For transparency please define the reason for deletion.
+                </p>
+
+                <div class="form-group">
+                    <label style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #75787D; font-weight: 700; margin-bottom: 2px;">Reason for Deletion</label>
+                    <textarea class="form-input" name="deletionReason" placeholder="Provide a detailed explanation for this deletion context." required style="min-height: 110px;"></textarea>
+                </div>
+            </div>
+
+            <div class="modal-footer" style="padding: 18px 28px; border-top: 1px solid #323639; display: flex; justify-content: flex-end; gap: 14px;">
+                <button type="button" class="btn-cancel-dark" onclick="closeDeleteModal()">Cancel</button>
+                <button type="submit" class="btn-danger-bright">Confirm Deletion</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 <!-- ==========================================
      THE 'EDIT' MODAL OVERLAY (Hidden by default)
@@ -293,6 +399,9 @@
 <script>
     const editModal = document.getElementById('editPollModal');
     const createModal = document.getElementById('createPollModal');
+    const deleteModal = document.getElementById('deletePollModal');
+    const deleteTitleSpan = document.getElementById('deletePollTitle');
+    const deleteIdInput = document.getElementById('deletePollId');
 
     // --- EDIT MODAL LOGIC ---
     function openEditModal() { editModal.style.display = 'flex'; }
@@ -302,10 +411,22 @@
     function openCreateModal() { createModal.style.display = 'flex'; }
     function closeCreateModal() { createModal.style.display = 'none'; }
 
+    // --- DELETE MODAL LOGIC ---
+    function openDeleteModal(pollTitle, pollId) {
+        deleteTitleSpan.textContent = pollTitle;
+        deleteIdInput.value = pollId;
+        deleteModal.style.display = 'flex';
+    }
+    function closeDeleteModal() {
+        deleteModal.style.display = 'none';
+        deleteModal.querySelector('textarea[name="deletionReason"]').value = '';
+    }
+
     // Close modals if user clicks on the dark background outside the boxes
     window.onclick = function(event) {
         if (event.target === editModal) { closeEditModal(); }
         if (event.target === createModal) { closeCreateModal(); }
+        if (event.target === deleteModal) { closeDeleteModal(); }
     }
 
     // Helper to keep the 1, 2, 3 numbering correct when deleting options in EDIT form
