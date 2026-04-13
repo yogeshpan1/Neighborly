@@ -54,7 +54,7 @@
             </a>
         </li>
         <li>
-            <a href="<%= request.getContextPath() %>/joblist" class="<%= requestURI.contains("joblist") ? "active" : "" %>">
+            <a href="<%= request.getContextPath() %>/joblisting" class="<%= requestURI.contains("joblisting") ? "active" : "" %>">
                 <span class="nav-icon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M20 6h-2.18c.07-.44.18-.86.18-1 0-2.21-1.79-4-4-4s-4 1.79-4 4c0 .14.11.56.18 1H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-3c1.1 0 2 .9 2 2 0 .14-.11.56-.18 1h-3.64c-.07-.44-.18-.86-.18-1 0-1.1.9-2 2-2zm0 10l-4-4 1.41-1.41L14 10.17l6.59-6.58L22 5l-8 8z"/>
