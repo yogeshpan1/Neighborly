@@ -12,13 +12,13 @@
     <style>
         /* Specific tweaks for Application Management */
         .btn-accept {
-            background-color: #19AC21;
+            background-color: #37C63F;
             color: #ffffff;
-            border: 1px solid #19AC21; 
+            border: 1px solid #37C63F; 
             font-size: 13px;
         }
         .btn-accept:hover {
-            background-color: #37C63F; 
+            background-color: #059669; 
             opacity: 1; 
         }
         
@@ -40,8 +40,8 @@
             font-size: 18px;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 24px;
             margin-top: 24px;
+            margin-bottom: 24px;
         }
         
         .pill-badge {
@@ -306,7 +306,7 @@
             <div class="modal-body" style="padding: 24px 28px;">
                 <!-- Description with dynamically injected name -->
                 <p style="color: #CFD3D6; font-size: 14px; margin-top: 0; margin-bottom: 24px; line-height: 1.5;">
-                    You are about to reject the application for <br>
+                    You are about to reject the application for
                     <strong id="rejectApplicantName" style="color: #ffffff; font-weight: 700;">Applicant Name</strong>. 
                     For transparency Please write your reason for rejection
                 </p>
@@ -349,7 +349,7 @@
             <div class="modal-body" style="padding: 24px 28px;">
                 <!-- Description with dynamically injected name -->
                 <p style="color: #CFD3D6; font-size: 14px; margin-top: 0; margin-bottom: 24px; line-height: 1.5;">
-                    You are about to approve the application for 
+                    You are about to approve the application for
                     <strong id="acceptApplicantName" style="color: #ffffff; font-weight: 700;">Applicant Name</strong>. 
                     This will officially verify and finalize their listing.
                 </p>
