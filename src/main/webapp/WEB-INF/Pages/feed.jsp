@@ -30,7 +30,7 @@
     
       <aside class="sidebar">
                     <a href="Home.jsp" class="sidebarLogo">
-                        <img src="<%=request.getContextPath()%>/images/Logo.png" alt="" class="sidebarLogoImg" />
+                        <img src="<%=request.getContextPath()%>/Images/Logo.png" alt="" class="sidebarLogoImg" />
                     </a>
       
       <p class="sidebarSectionLabel">MAIN</p>
@@ -159,10 +159,22 @@
     <!-- MAIN CONTENT - FEED -->
     <div class="main">
 
-      <div class="topbar">
-  <span class="page-title">Feed</span>
-  <img src="<%= request.getContextPath() %>/images/notification.jpg" class="bell-icon" alt="notifications">
-</div>
+         <!-- TOPBAR -->
+                <header class="topbar">
+                    <div class="topbarLeft">
+                        <h1>Feed</h1>
+                    </div>
+                    <div class="topbarRight">
+                        <button class="bellIcon" title="Notifications">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                            </svg>
+                            <span class="notifDot"></span>
+                        </button>
+                    </div>
+                </header>
 
       <div class="content">
         <div class="feed-center">
@@ -191,16 +203,16 @@
             <div class="post-title">Beautiful evening at Oak Ridge Park</div>
             <p class="post-body">Caught an incredible sunset at Oak Ridge Park today. It's so quiet and peaceful this time of year. We really are lucky to have such a great green space right in our backyard. Does anyone know if the city plans to install more benches near the pond area?</p>
             <div class="post-image">
-              <img src="<%= request.getContextPath() %>/images/nature.jpg" alt="Nature">
+              <img src="<%= request.getContextPath() %>/Images/nature.jpg" alt="Nature">
             </div>
             <div class="post-actions">
               <div class="vote">
                 <button class="vote-btn">
-                  <img src="<%= request.getContextPath() %>/images/up.png" alt="up" class="vote-img">
+                  <img src="<%= request.getContextPath() %>/Images/up.png" alt="up" class="vote-img">
                 </button>
                 <span>42</span>
                 <button class="vote-btn">
-                  <img src="<%= request.getContextPath() %>/images/down.png" alt="down" class="vote-img">
+                  <img src="<%= request.getContextPath() %>/Images/down.png" alt="down" class="vote-img">
                 </button>
               </div>
               <button class="action-btn">12 Comments</button>
@@ -225,11 +237,11 @@
             <div class="post-actions">
               <div class="vote">
                 <button class="vote-btn">
-                  <img src="<%= request.getContextPath() %>/images/up.png" alt="up" class="vote-img">
+                  <img src="<%= request.getContextPath() %>/Images/up.png" alt="up" class="vote-img">
                 </button>
                 <span>42</span>
                 <button class="vote-btn">
-                  <img src="<%= request.getContextPath() %>/images/down.png" alt="down" class="vote-img">
+                  <img src="<%= request.getContextPath() %>/Images/down.png" alt="down" class="vote-img">
                 </button>
               </div>
               <button class="action-btn">12 Comments</button>
@@ -252,11 +264,11 @@
             <div class="post-actions">
               <div class="vote">
                 <button class="vote-btn">
-                  <img src="<%= request.getContextPath() %>/images/up.png" alt="up" class="vote-img">
+                  <img src="<%= request.getContextPath() %>/Images/up.png" alt="up" class="vote-img">
                 </button>
                 <span>42</span>
                 <button class="vote-btn">
-                  <img src="<%= request.getContextPath() %>/images/down.png" alt="down" class="vote-img">
+                  <img src="<%= request.getContextPath() %>/Images/down.png" alt="down" class="vote-img">
                 </button>
               </div>
               <button class="action-btn">12 Comments</button>
