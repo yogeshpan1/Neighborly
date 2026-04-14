@@ -11,13 +11,13 @@ import java.io.IOException;
  * Servlet implementation class FeedServlet
  */
 @WebServlet(asyncSupported = true, urlPatterns = { "/home" })
-public class UserDashboard extends HttpServlet {
+public class UserHome extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	    
 	 /**
 	  * @see HttpServlet#HttpServlet()
 	  */
-	 public UserDashboard() {
+	 public UserHome() {
 	     super();
 	     // TODO Auto-generated constructor stub
 	 }
