@@ -202,7 +202,7 @@
                                 
                                 <!-- Featured Article -->
                                 <div class="featuredArticle">
-                                    <div class="featuredImage">
+                                    <div class="featuredImage" style="background: linear-gradient(to top, rgba(30, 60, 40, 0.9), rgba(50, 90, 60, 0.2)), url('<%=request.getContextPath()%>/Images/cleanup.jpg') center/cover;">
                                         <h2 class="featuredTitle">Ward 4 launches three-month Bagmati river corridor cleanup & restoration drive</h2>
                                     </div>
                                     <div class="featuredContent">
@@ -221,9 +221,9 @@
 
                                 <div class="storyList">
                                     <div class="storyCard">
-                                        <div class="storyBadge badgeOfficial">OFFICIAL</div>
+                                        <img src="<%=request.getContextPath()%>/Images/meeting.jpg" alt="Footpath repairs" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;">
                                         <div class="storyContent">
-                                            <div class="storyMeta">6h ago  3 min</div>
+                                            <div class="storyMeta"><span class="storyBadge badgeOfficial" style="display:inline-block; width:auto; min-width:auto; height:auto; padding:2px 8px; margin-right:8px;">OFFICIAL</span> 6h ago  3 min</div>
                                             <h3 class="storyTitle">Ward Committee approves NPR 12M budget for footpath repairs</h3>
                                             <p class="storyExcerpt">Caught an incredible sunset at Oak Ridge Park today. It's so quiet and peaceful this time of year. We really are lucky to have such a great green space right in our backyard. Does anyone know if the city.</p>
                                             <div class="storyFooter">
@@ -238,9 +238,9 @@
                                     </div>
 
                                     <div class="storyCard">
-                                        <div class="storyBadge badgeAlert">ALERT</div>
+                                        <img src="<%=request.getContextPath()%>/Images/traffic.jpg" alt="Traffic marshals" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;">
                                         <div class="storyContent">
-                                            <div class="storyMeta">6h ago  3 min</div>
+                                            <div class="storyMeta"><span class="storyBadge badgeAlert" style="display:inline-block; width:auto; min-width:auto; height:auto; padding:2px 8px; margin-right:8px;">ALERT</span> 6h ago  3 min</div>
                                             <h3 class="storyTitle">New traffic marshals deployed at Pulchowk intersection</h3>
                                             <p class="storyExcerpt">Caught an incredible sunset at Oak Ridge Park today. It's so quiet and peaceful this time of year. We really are lucky to have such a great green space right in our backyard. Does anyone know if the city.</p>
                                             <div class="storyFooter">
@@ -255,9 +255,9 @@
                                     </div>
 
                                     <div class="storyCard">
-                                        <div class="storyBadge badgeUpdate">UPDATE</div>
+                                        <img src="<%=request.getContextPath()%>/Images/water.jpg" alt="Water supply" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;">
                                         <div class="storyContent">
-                                            <div class="storyMeta">6h ago  3 min</div>
+                                            <div class="storyMeta"><span class="storyBadge badgeUpdate" style="display:inline-block; width:auto; min-width:auto; height:auto; padding:2px 8px; margin-right:8px;">UPDATE</span> 6h ago  3 min</div>
                                             <h3 class="storyTitle">Water supply restoration timeline revised — back online Apr 18</h3>
                                             <p class="storyExcerpt">Caught an incredible sunset at Oak Ridge Park today. It's so quiet and peaceful this time of year. We really are lucky to have such a great green space right in our backyard. Does anyone know if the city.</p>
                                             <div class="storyFooter">
@@ -272,9 +272,9 @@
                                     </div>
 
                                     <div class="storyCard">
-                                        <div class="storyBadge badgeCommunity">COMMUNITY</div>
+                                        <img src="<%=request.getContextPath()%>/Images/health.jpg" alt="Health camp" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;">
                                         <div class="storyContent">
-                                            <div class="storyMeta">6h ago  3 min</div>
+                                            <div class="storyMeta"><span class="storyBadge badgeCommunity" style="display:inline-block; width:auto; min-width:auto; height:auto; padding:2px 8px; margin-right:8px;">COMMUNITY</span> 6h ago  3 min</div>
                                             <h3 class="storyTitle">Community health camp at Patan Dhoka — free check-ups this Sat</h3>
                                             <p class="storyExcerpt">Caught an incredible sunset at Oak Ridge Park today. It's so quiet and peaceful this time of year. We really are lucky to have such a great green space right in our backyard. Does anyone know if the city.</p>
                                             <div class="storyFooter">
