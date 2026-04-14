@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1440">
     <title>Neighborly | Home</title>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/UserDashboard.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/UserHome.css">
 </head>
 
 <body>
