@@ -1,48 +1,40 @@
-/* ===== CSS VARIABLES (DEFINED) ===== */
+/* ===== VARIABLES ===== */
 :root {
-    --bg-sidebar: #FFFFFF;
-    --border-color: #E0E0E0;
-    --text-muted: #666666;
+    --bg-sidebar: #FAFAFA;
+    --bg-main: #FFFFFF;
     --text-primary: #333333;
-    --hover-bg: #F5F5F5;
-    --active-bg: #FEF3E9;
-    --brand-color: #E86A33;
-}
-
-/* ===== GENERAL ===== */
-* {
-    box-sizing: border-box;
+    --text-muted: #888888;
+    --brand-color: #E86A33; /* Orange color from logo */
+    --border-color: #E0E0E0;
+    --active-bg: #F0EAE1; /* Slightly beige active state */
+    --hover-bg: #F0F0F0;
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-    background-color: #FAFAFA;
-    color: #333333;
-}
-
-.layoutWrapper {
-    display: flex;
-    min-height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    font-family: var(--font-body);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
 }
 
 /* ===== SIDEBAR ===== */
 .sidebar {
-    width: 260px;
-    min-width: 260px;
+    width: 250px;
+    min-width: 250px;
     background-color: var(--bg-sidebar);
     border-right: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
     overflow-y: auto;
     z-index: 100;
 }
-
 
 .sidebarLogo {
     display: flex;
@@ -116,8 +108,6 @@ body {
     padding: 24px 16px;
 }
 
-
-
 .userProfile {
     display: flex;
     align-items: center;
@@ -142,7 +132,6 @@ body {
     color: #ffffff;
 }
 
-
 .userInfo {
     display: flex;
     flex-direction: column;
@@ -154,7 +143,6 @@ body {
     color: var(--text-primary);
 }
 
-
 .userRole {
     font-size: 11px;
     color: var(--text-muted);
@@ -162,33 +150,32 @@ body {
 
 /* ===== MAIN CONTENT ===== */
 .mainContent {
+    margin-left: 250px;
     flex: 1;
-    margin-left: 260px;
     display: flex;
     flex-direction: column;
-    background-color: #FFFFFF;
-    min-height: 100vh;
+    min-height: 1000px;
 }
 
 /* ===== TOPBAR ===== */
 .topbar {
-    background-color: #FAFAFA;
+    background-color: var(--bg-main);
     border-bottom: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 32px;
+    padding: 0px 32px;
     height: 70px;
     position: sticky;
-    top: 0;
-    z-index: 50;
+    top: 0px;
+    z-index: 99;
 }
 
 .topbarLeft h1 {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 600;
     color: var(--text-primary);
-    margin: 0;
+    margin: 0px;
 }
 
 .topbarRight {
@@ -201,28 +188,25 @@ body {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    color: var(--text-muted);
+    color: var(--text-primary);
     display: flex;
     align-items: center;
-    justify-content: center;
     padding: 8px;
-    border-radius: 9999px;
-    transition: background-color 0.2s;
 }
 
 .bellIcon:hover {
-    background-color: var(--hover-bg);
+    color: var(--brand-color);
 }
 
 .notifDot {
     position: absolute;
-    top: 4px;
-    right: 4px;
+    top: 6px;
+    right: 8px;
     width: 8px;
     height: 8px;
     background-color: var(--brand-color);
-    border-radius: 50%;
-    border: 2px solid #FAFAFA;
+    border-radius: 9999px;
+    border: 2px solid var(--bg-main);
 }
 
 /* ===== DASHBOARD AREA ===== */
@@ -657,4 +641,3 @@ body {
 .reportBtn:active {
     transform: scale(0.98);
 }
-
