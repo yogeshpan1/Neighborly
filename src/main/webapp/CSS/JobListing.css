@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@charset "UTF-8";
 * {
     box-sizing: border-box;
     margin: 0;
@@ -45,7 +44,6 @@ body {
     border-radius: 12px;
     border: 1px solid #323639;
     padding: 24px;
-    margin-left: 20px;
     margin-bottom: 40px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
@@ -146,7 +144,6 @@ textarea.form-design {
     border-radius: 6px;
     padding: 20px 24px;
     margin-bottom: 12px;
-    margin-left: 18px;
     display: flex;
     justify-content: space-between;
     align-items: center;

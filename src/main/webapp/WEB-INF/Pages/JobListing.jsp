@@ -9,12 +9,13 @@
 <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Admin-Side.css">
 </head>
 <body>
+<body>
 
+<% request.setAttribute("pageTitle", "Admin Joblisting"); %>
 <jsp:include page="/components/admin-sidebar.jsp" />
-<% request.setAttribute("pageTitle", "Job Listing"); %>
 <jsp:include page="/components/admin-topbar.jsp" />
-<div class="main"> 
 
+<div class="main">
 <div class ="header">
 	<h1>Job Cateogry</h1>
 	<p> Manage Community Employment Oppertunities. </p>
