@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/images/Logo.png" alt="Neighborly Logo" width="120"/>
+  <img src="/Images/Logo.png" alt="Neighborly Logo" width="120"/>
 </p>
 
 Neighborly is a Social Media platform that helps connect citizens with their local government. 
