@@ -146,6 +146,7 @@ textarea.form-design {
     border-radius: 6px;
     padding: 20px 24px;
     margin-bottom: 12px;
+    margin-left: 18px;
     display: flex;
     justify-content: space-between;
     align-items: center;
