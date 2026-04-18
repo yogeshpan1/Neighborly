@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Fine Management</title>
-<link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/AdminIssue.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/AdminFine.css">
 <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Admin-Side.css">
 </head>
 <body>
