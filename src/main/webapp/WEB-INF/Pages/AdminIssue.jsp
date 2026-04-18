@@ -22,18 +22,18 @@
     <hr>
   </div>
 
-  <div class="stats">
+  <div class="issue-stats">
     <div class="stat">
       <p>Total fines</p>
       <h2>142</h2>
     </div>
     <div class="stat">
       <p>Unpaid fines</p>
-      <h2 class="danger">38</h2>
+      <h2 class="unpaid">38</h2>
     </div>
     <div class="stat">
       <p>Paid fines</p>
-      <h2 class="success">104</h2>
+      <h2 class="paid">104</h2>
     </div>
   </div>
 

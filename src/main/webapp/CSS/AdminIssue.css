@@ -39,9 +39,9 @@ body {
     max-width: 600px;
 }
 
-.stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+.issue-stats {
+    display: flex;
+    flex-direction: row;
     gap: 12px;
     margin-bottom: 32px;
 }
@@ -51,8 +51,9 @@ body {
     border: 1px solid #323639;
     border-radius: 10px;
     padding: 16px 20px;
+    flex: 1;
+    min-width: 0;
 }
-
 .stat p {
     font-size: 12px;
     color: #75787D;
@@ -67,11 +68,11 @@ body {
     color: #f3f4f6;
 }
 
-.stat h2.danger {
+.stat h2.unpaid {
     color: #D35400;
 }
 
-.stat h2.success {
+.stat h2.paid {
     color: #22c55e;
 }
 
