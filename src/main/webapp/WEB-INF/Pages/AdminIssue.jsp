@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Fine Management</title>
-<link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/AdminIssue.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/FineManagement.css">
 <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Admin-Side.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
     <hr>
   </div>
 
-  <div class="issue-stats">
+  <div class="stats">
     <div class="stat">
       <p>Total fines</p>
       <h2>142</h2>

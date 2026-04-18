@@ -28,7 +28,7 @@ public class AdminIssueServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher("/WEB-INF/Pages/AdminIssue.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/Pages/AdminIssue").forward(request, response);
 	}
 
 	/**

@@ -39,9 +39,9 @@ body {
     max-width: 600px;
 }
 
-.issue-stats {
-    display: flex;
-    flex-direction: row;
+.stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 12px;
     margin-bottom: 32px;
 }
@@ -51,9 +51,8 @@ body {
     border: 1px solid #323639;
     border-radius: 10px;
     padding: 16px 20px;
-    flex: 1;
-    min-width: 0;
 }
+
 .stat p {
     font-size: 12px;
     color: #75787D;
