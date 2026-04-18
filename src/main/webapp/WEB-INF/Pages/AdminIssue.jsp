@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Fine Management</title>
-<link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/FineManagement.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/AdminIssue.css">
 <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Admin-Side.css">
 </head>
 <body>
@@ -51,7 +51,6 @@
           <label>Violation type</label>
           <select class="form-design">
             <option>Select violation type</option>
-            <option>Signal jump</option>
             <option>Speeding</option>
             <option>No helmet</option>
             <option>No seatbelt</option>
@@ -87,7 +86,7 @@
       <div class="list-info">
         <h4>Arjan Regmi <span class="status-unpaid">Unpaid</span></h4>
         <div class="listing-meta">
-          <span>SIGNAL JUMP</span>
+          <span>NO LICENSE</span>
           <span>Apr 01, 2025</span>
           <span class="amount">NPR 500</span>
         </div>
@@ -167,7 +166,7 @@
       <div class="list-info">
         <h4>Aashish Karki <span class="status-paid">Paid</span></h4>
         <div class="listing-meta">
-          <span>SIGNAL JUMP</span>
+          <span>NO LICENSE</span>
           <span>Apr 08, 2025</span>
           <span class="amount">NPR 500</span>
         </div>
