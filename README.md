@@ -1,1 +1,1 @@
-This branch is for the Admin Side where we will be pushing all the required resources for our project
+This branch is for the Admin Side Issues Page, This branch contains all the code related to the Issues page for the Admin Panel
