@@ -18,7 +18,7 @@
 
   <div class="header">
     <h1>Traffic Fine Management</h1>
-    <p>Issue and manage traffic fines for citizens.</p>
+    <p style = "padding-left: 5px; ">Issue and manage traffic fines for citizens.</p>
     <hr>
   </div>
 
