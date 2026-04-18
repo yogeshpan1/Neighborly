@@ -10,14 +10,14 @@ import java.io.IOException;
 /**
  * Servlet implementation class RegisterServlet
  */
-@WebServlet(asyncSupported = true, urlPatterns = { "/home" })
-public class HomeServlet extends HttpServlet {
+@WebServlet(asyncSupported = true, urlPatterns = { "/login" })
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HomeServlet() {
+    public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

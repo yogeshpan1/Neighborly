@@ -1,0 +1,58 @@
+/* ===== VARIABLES ===== */
+:root {
+    --bg-sidebar: #FAFAFA;
+    --bg-main: #FFFFFF;
+    --text-primary: #333333;
+    --text-muted: #888888;
+    --brand-color: #E86A33; /* Orange color from logo */
+    --border-color: #E0E0E0;
+    --active-bg: #F0EAE1; /* Slightly beige active state */
+    --hover-bg: #F0F0F0;
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Category Colors */
+    --color-official: #D5E5FA;
+    --color-official-text: #3763D9;
+    --color-alert: #FCDCDC;
+    --color-alert-text: #A72B31;
+    --color-update: #FEEFB5;
+    --color-update-text: #966114;
+    --color-community: #EADFF9;
+    --color-community-text: #613AB8;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: var(--font-body);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+}
+
+/* ===== MAIN CONTENT ===== */
+.mainContent {
+    margin-left: 250px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 1000px;
+}
+
+/* ===== CONTENT AREA ===== */
+.contentArea {
+    padding: 32px;
+    background-color: #f4f6f9; /* Note: news.css had var(--bg-main) here, but feed.css had #f4f6f9 which gives a clear card separation */
+    flex: 1;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-250px);
+    }
+
+    .mainContent {
+        margin-left: 0px;
+    }
+}
