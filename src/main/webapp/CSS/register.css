@@ -1,37 +1,105 @@
-.loginPanel {
+body, html {
+    margin: 0;
+    padding: 0;
     height: 900px;
-    overflow-y: auto;
-    align-items: flex-start;
-    display: flex;
-    position: relative;
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    overflow: hidden;
 }
 
-.loginForm {
-    max-width: 460px;
-    margin: 80px auto;
-    padding: 0 20px;
-    width: 460px;
+.LoginBox {
+    display: flex;
+    min-height: 900px;
+}
+
+.loginQuote {
+    flex: 1.15;
+    background-color: #121212;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
     box-sizing: border-box;
 }
 
-.formControl {
-    width: 420px;
+.loginText {
+    max-width: 500px;
+    width: 500px;
+    padding-left: 60px;
 }
 
-.loginBtn {
-    width: 420px;
+.loginHeader {
+    font-family: 'Playfair Display', serif;
+    color: #ffffff;
+    font-size: 80px;
+    line-height: 88px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -1px;
 }
 
-.formRow .formControl {
-    width: 202px;
+.loginHeader .loginHeader2 {
+    color: #A04015;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.loginPanel {
+    flex: 0.85;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: auto;
+    height: 900px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.loginForm {
+    width: 420px;
+    max-width: 420px;
+    padding: 32px;
+    margin: 60px 0;
+    box-sizing: border-box;
 }
 
 .loginPanel h2 {
-    margin: 0 0 24px 0;
+    font-size: 36px;
+    color: #202020;
+    margin: 0 0 32px 0;
+    font-weight: 600;
+    letter-spacing: -1px;
+    text-align: center;
+}
+
+.errorMessage {
+    background-color: #fdf2f2;
+    color: #A04015;
+    padding: 13px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid #f6d2d2;
 }
 
 .formGroup {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+}
+
+.formLabel {
+    display: flex;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 8px;
+}
+
+.formLabel label {
+    margin: 0;
 }
 
 .formRow {
@@ -41,7 +109,33 @@
 
 .formRow .formGroup {
     flex: 1;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+}
+
+.formControl {
+    width: 356px;
+    padding: 14px 16px;
+    border: none;
+    background-color: #F8F8F8;
+    border-radius: 12px;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    color: #333333;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.formRow .formControl {
+    width: 170px;
+}
+
+.formControl::placeholder {
+    color: #A0A0A0;
+}
+
+.formControl:focus {
+    background-color: #F0F0F0;
+    box-shadow: 0 0 0 2px rgba(160, 64, 21, 0.2);
 }
 
 select.formControl {
@@ -50,21 +144,42 @@ select.formControl {
     height: 48px;
 }
 
-.backLink {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    color: #606060;
-    text-decoration: none;
-    font-size: 15px;
+.loginBtn {
+    width: 356px;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
-    transition: color 0.2s;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
 }
 
-.backLink:hover {
-    color: #A04015;
+.loginBtnPrimary {
+    background-color: #A04015;
+    color: #ffffff;
+    border: none;
+}
+
+.loginBtnPrimary:hover {
+    background-color: #8C3610;
 }
 
 .registerSubmitBtn {
     margin-top: 8px;
+}
+
+.backLink {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    color: #888888;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.backLink:hover {
+    color: #A04015;
 }

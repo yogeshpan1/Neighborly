@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neighborly</title>
     
-    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/login.css">
 </head>
 
 <body>
@@ -60,7 +60,7 @@
                         <span>NEW TO NEIGHBORLY?</span>
                     </div>
 
-					<a href="${pageContext.request.contextPath}/register.jsp" class="loginBtn loginBtnSecondary">Create new account</a>
+					<a href="${pageContext.request.contextPath}/register" class="loginBtn loginBtnSecondary">Create new account</a>
                 </form>
 
             </div>

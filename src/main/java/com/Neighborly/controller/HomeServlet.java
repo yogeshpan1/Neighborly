@@ -28,7 +28,7 @@ public class HomeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher("/WEB-INF/Pages/login.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/Pages/home.jsp").forward(request, response);
 	}
 
 	/**
