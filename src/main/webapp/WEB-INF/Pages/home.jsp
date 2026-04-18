@@ -12,17 +12,6 @@
 
 <body>
 
-    <% String userName=(String) session.getAttribute("userName"); String userRole=(String)
-        session.getAttribute("userRole"); if (userName==null) userName="Guest" ; if (userRole==null)
-        userRole="Visitor" ; String userInitials="G" ; if (userName !=null && !userName.trim().isEmpty()) { String[]
-        parts=userName.trim().split("\\s+"); if (parts.length> 1) {
-        userInitials = parts[0].substring(0, 1) + parts[1].substring(0, 1);
-        } else {
-        userInitials = userName.substring(0, 1);
-        }
-        }
-        %>
-
                 <jsp:include page="/Components/sidebar.jsp" />
         <!-- ===== MAIN CONTENT ===== -->
         <div class="mainContent">

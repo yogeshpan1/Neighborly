@@ -1,6 +1,6 @@
 <%@ page isELIgnored="false" %>
     <aside class="sidebar">
-        <a href="${pageContext.request.contextPath}/Home.jsp" class="sidebarLogo">
+        <a href="${pageContext.request.contextPath}/home" class="sidebarLogo">
             <img src="${pageContext.request.contextPath}/Images/Logo.png" alt="" class="sidebarLogoImg" />
         </a>
 
@@ -133,11 +133,11 @@
                 </div>
                 <div class="userInfo">
                     <span class="userName">
-                        ${not empty sessionScope.userName ? sessionScope.userName : 'Guest'}
+                        ${user.userName}
                     </span>
-                    <span class="userRole">
-                        ${not empty sessionScope.userRole ? sessionScope.userRole : 'Visitor'}
-                    </span>
+					<span class="userRole">
+					    Citizen
+					</span>
                 </div>
             </div>
         </div>
