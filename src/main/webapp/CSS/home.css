@@ -1,154 +1,15 @@
-/* ===== VARIABLES ===== */
-:root {
-    --bg-sidebar: #FAFAFA;
-    --bg-main: #FFFFFF;
-    --text-primary: #333333;
-    --text-muted: #888888;
-    --brand-color: #E86A33; /* Orange color from logo */
-    --border-color: #E0E0E0;
-    --active-bg: #F0EAE1; /* Slightly beige active state */
-    --hover-bg: #F0F0F0;
-    --font-heading: 'Outfit', sans-serif;
-    --font-body: 'Inter', sans-serif;
+* {
+    box-sizing: border-box;
 }
 
 body {
     margin: 0px;
     padding: 0px;
-    font-family: var(--font-body);
-    background-color: var(--bg-main);
-    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    background-color: #FFFFFF;
+    color: #333333;
 }
 
-/* ===== SIDEBAR ===== */
-.sidebar {
-    width: 250px;
-    min-width: 250px;
-    background-color: var(--bg-sidebar);
-    border-right: 1px solid var(--border-color);
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    overflow-y: auto;
-    z-index: 100;
-}
-
-.sidebarLogo {
-    display: flex;
-    align-items: center;
-    padding: 24px 24px 0px 24px;
-    text-decoration: none;
-    margin-bottom: 32px;
-    transition: opacity 0.2s;
-}
-
-.sidebarLogo:hover {
-    opacity: 0.8;
-}
-
-.sidebarLogoImg {
-    width: 180px;
-    height: auto;
-    object-fit: contain;
-}
-
-.sidebarSectionLabel {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--text-muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 20px 24px 8px 24px;
-    margin: 0px;
-}
-
-.sidebarNav {
-    list-style: none;
-    padding: 0px 16px;
-    margin: 0px;
-}
-
-.sidebarNav li a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 16px;
-    margin-bottom: 4px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 14px;
-    color: var(--text-muted);
-    font-weight: 500;
-    transition: all 0.2s;
-}
-
-.sidebarNav li a:hover {
-    background-color: var(--hover-bg);
-    color: var(--text-primary);
-}
-
-.sidebarNav li a.active {
-    background-color: var(--active-bg);
-    color: var(--text-primary);
-    font-weight: 600;
-}
-
-.navIcon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: inherit;
-}
-
-.sidebarFooter {
-    margin-top: auto;
-    padding: 24px 16px;
-}
-
-.userProfile {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px;
-    border-radius: 30px;
-    background-color: var(--hover-bg);
-    cursor: pointer;
-    border: 1px solid var(--border-color);
-}
-
-.userAvatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 9999px;
-    background-color: var(--brand-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: bold;
-    color: #ffffff;
-}
-
-.userInfo {
-    display: flex;
-    flex-direction: column;
-}
-
-.userName {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text-primary);
-}
-
-.userRole {
-    font-size: 11px;
-    color: var(--text-muted);
-}
-
-/* ===== MAIN CONTENT ===== */
 .mainContent {
     margin-left: 250px;
     flex: 1;
@@ -157,65 +18,15 @@ body {
     min-height: 1000px;
 }
 
-/* ===== TOPBAR ===== */
-.topbar {
-    background-color: var(--bg-main);
-    border-bottom: 1px solid var(--border-color);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px 32px;
-    height: 70px;
-    position: sticky;
-    top: 0px;
-    z-index: 99;
+@media (max-width: 768px) {
+    .mainContent { margin-left: 0px; }
 }
 
-.topbarLeft h1 {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0px;
-}
-
-.topbarRight {
-    display: flex;
-    align-items: center;
-}
-
-.bellIcon {
-    position: relative;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    padding: 8px;
-}
-
-.bellIcon:hover {
-    color: var(--brand-color);
-}
-
-.notifDot {
-    position: absolute;
-    top: 6px;
-    right: 8px;
-    width: 8px;
-    height: 8px;
-    background-color: var(--brand-color);
-    border-radius: 9999px;
-    border: 2px solid var(--bg-main);
-}
-
-/* ===== DASHBOARD AREA ===== */
 .dashboardArea {
     padding: 32px 48px;
     max-width: 1400px;
 }
 
-/* ===== SEARCH ===== */
 .searchContainer {
     display: flex;
     justify-content: center;
@@ -229,14 +40,14 @@ body {
     width: 100%;
     max-width: 560px;
     padding: 12px 18px;
-    border: 1px solid var(--border-color);
+    border: 1px solid #E0E0E0;
     border-radius: 48px;
     background-color: #FFFFFF;
     transition: box-shadow 0.2s, border-color 0.2s;
 }
 
 .searchWrapper:focus-within {
-    border-color: var(--brand-color);
+    border-color: #E86A33;
     box-shadow: 0 0 0 3px rgba(232, 106, 51, 0.1);
 }
 
@@ -250,7 +61,7 @@ body {
     border: none;
     outline: none;
     font-size: 14px;
-    color: var(--text-primary);
+    color: #333333;
     background: transparent;
 }
 
@@ -258,7 +69,6 @@ body {
     color: #AAAAAA;
 }
 
-/* ===== SERVICES ===== */
 .servicesSection {
     margin-bottom: 56px;
 }
@@ -266,7 +76,7 @@ body {
 .sectionTitle {
     font-size: 18px;
     font-weight: 700;
-    color: var(--text-primary);
+    color: #333333;
     margin: 0 0 20px 0;
 }
 
@@ -311,11 +121,10 @@ body {
 .serviceLabel {
     font-size: 13px;
     font-weight: 500;
-    color: var(--text-primary);
+    color: #333333;
     text-align: center;
 }
 
-/* ===== APPLICATIONS ===== */
 .applicationsSection {
     margin-bottom: 40px;
 }
@@ -333,7 +142,7 @@ body {
 
 .viewAllLink {
     font-size: 13px;
-    color: var(--brand-color);
+    color: #E86A33;
     text-decoration: none;
     font-weight: 500;
     transition: opacity 0.2s;
@@ -347,7 +156,7 @@ body {
 .appList {
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--border-color);
+    border: 1px solid #E0E0E0;
     border-radius: 16px;
     background-color: #FFFFFF;
     overflow: hidden;
@@ -397,7 +206,7 @@ body {
 .appTitle {
     font-size: 14px;
     font-weight: 600;
-    color: var(--text-primary);
+    color: #333333;
     margin-bottom: 6px;
 }
 
@@ -428,7 +237,6 @@ body {
     color: #C62828;
 }
 
-/* ===== FINES ===== */
 .finesSection {
     margin-bottom: 56px;
 }
@@ -437,7 +245,7 @@ body {
     display: flex;
     align-items: center;
     padding: 20px 24px;
-    border: 1px solid var(--border-color);
+    border: 1px solid #E0E0E0;
     border-radius: 16px;
     background-color: #FFFFFF;
     transition: box-shadow 0.2s;
@@ -456,7 +264,7 @@ body {
 .fineTitle {
     font-size: 14px;
     font-weight: 600;
-    color: var(--text-primary);
+    color: #333333;
     margin-bottom: 6px;
 }
 
@@ -504,7 +312,6 @@ body {
     background-color: #B71C1C;
 }
 
-/* ===== BOTTOM CARDS ===== */
 .bottomCards {
     display: flex;
     gap: 32px;
@@ -514,7 +321,7 @@ body {
 .pollCard {
     flex: 2;
     min-width: 280px;
-    border: 1px solid var(--border-color);
+    border: 1px solid #E0E0E0;
     border-radius: 20px;
     padding: 28px;
     background-color: #FFFFFF;
@@ -535,14 +342,14 @@ body {
 .cardTitle {
     font-size: 16px;
     font-weight: 700;
-    color: var(--brand-color);
+    color: #E86A33;
     margin: 0;
 }
 
 .pollQuestion {
     font-size: 15px;
     font-weight: 500;
-    color: var(--text-primary);
+    color: #333333;
     margin: 0 0 20px 0;
     line-height: 1.4;
 }
@@ -558,7 +365,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 14px 18px;
-    border: 1px solid var(--border-color);
+    border: 1px solid #E0E0E0;
     border-radius: 12px;
     cursor: pointer;
     transition: background-color 0.2s, border-color 0.2s;
@@ -566,12 +373,12 @@ body {
 
 .pollOption:hover {
     background-color: #FEFCFA;
-    border-color: var(--brand-color);
+    border-color: #E86A33;
 }
 
 .pollOptionText {
     font-size: 14px;
-    color: var(--text-primary);
+    color: #333333;
 }
 
 .radioCircle {
@@ -583,13 +390,13 @@ body {
 }
 
 .pollOption:hover .radioCircle {
-    border-color: var(--brand-color);
+    border-color: #E86A33;
 }
 
 .reportCard {
     flex: 1;
     min-width: 260px;
-    border: 1px solid var(--border-color);
+    border: 1px solid #E0E0E0;
     border-radius: 20px;
     padding: 32px 28px;
     background-color: #FFFFFF;
@@ -611,7 +418,7 @@ body {
 .reportTitle {
     font-size: 18px;
     font-weight: 700;
-    color: var(--text-primary);
+    color: #333333;
     margin: 0 0 12px 0;
 }
 
@@ -623,7 +430,7 @@ body {
 }
 
 .reportBtn {
-    background-color: var(--brand-color);
+    background-color: #E86A33;
     color: #FFFFFF;
     border: none;
     padding: 12px 28px;
