@@ -126,8 +126,8 @@
             </li>
         </ul>
 
-        <div class="sidebarFooter">
-            <div class="userProfile">
+        <div class="menuWrapper" id="userMenuWrapper">
+            <div class="userProfile" id="userMenuToggle">
                 <div class="userAvatar" style="background-color: #E86A33;">
                     G
                 </div>
@@ -139,6 +139,57 @@
 					    Citizen
 					</span>
                 </div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto"><polyline points="18 15 12 9 6 15"></polyline></svg>
+            </div>
+            
+            <div class="menuDropdown" id="userDropdownMenu">
+                <ul>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/settings">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 12px;"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                            Account settings
+                        </a>
+                    </li>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/about">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 12px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                            About us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/contact">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 12px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            Contact up
+                        </a>
+                    </li>
+                    <li style="border-top: 1px solid #E0E0E0; margin-top: 4px; padding-top: 4px;">
+                        <a href="${pageContext.request.contextPath}/logout" style="color: #D32F2F;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 12px;"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
+
+        <script>
+            (function() {
+                const toggle = document.getElementById('userMenuToggle');
+                const dropdown = document.getElementById('userDropdownMenu');
+                const wrapper = document.getElementById('userMenuWrapper');
+
+                if (toggle && dropdown) {
+                    toggle.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        dropdown.classList.toggle('active');
+                    });
+
+                    document.addEventListener('click', function(e) {
+                        if (wrapper && !wrapper.contains(e.target)) {
+                            dropdown.classList.remove('active');
+                        }
+                    });
+                }
+            })();
+        </script>
     </aside>
