@@ -28,7 +28,7 @@
                             <div class="feedCard composer">
                                 <div class="composerTop">
                                     <div class="composerAvatar" style="background-color: #E86A33;">
-                                        <%= userInitials %>
+                                             US
                                     </div>
                                     <input type="text" class="composerInput"
                                         placeholder="Start a conversation with your neighbors..." />
