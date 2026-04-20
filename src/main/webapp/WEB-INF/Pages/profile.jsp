@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title> Neighborly</title>
+    <title>Neighborly | ${user.userName}</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/sidebar.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/navbar.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/profile.css">
@@ -33,6 +33,7 @@
                 </div>
                 
                 <div class="profileInfo">
+                    <p class="profile-label">My Profile</p>
                     <h2>${user.userName}</h2>
                     <div class="handle-info">u/${user.userName} • 0 followers</div>
                 </div>
@@ -41,33 +42,45 @@
             <div class="profileTabs">
                 <div class="tab active" onclick="openTab(event, 'postsSection')">Posts</div>
                 <div class="tab" onclick="openTab(event, 'savedSection')">Saved</div>
+                <div class="tab" onclick="openTab(event, 'historySection')">History</div>
             </div>
 
             <div id="postsSection" class="tab-content active-content">
-                <c:choose>
-                    <c:when test="${not empty userPosts}">
-                        <div class="postsGrid">
-                            <c:forEach var="post" items="${userPosts}">
-                                <div class="postCard">
-                                    <p>${post.content}</p>
-                                </div>
-                            </c:forEach>
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                        <div class="emptyState">
-                            <h2>You don't have any posts yet</h2>
-                            <p>Once you post to a community, it'll show up here.</p>
-                            <button class="custom-btn btn-primary">Update Settings</button>
-                        </div>
-                    </c:otherwise>
-                </c:choose>
+                <div class="orange-card-box">
+                    <c:choose>
+                        <c:when test="${not empty userPosts}">
+                            <div class="postsGrid">
+                                <c:forEach var="post" items="${userPosts}">
+                                    <div class="postCard"><p>${post.content}</p></div>
+                                </c:forEach>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <div class="emptyState">
+                                <h2>No posts yet</h2>
+                                <p>When you post something, it will appear here.</p>
+                                <button class="custom-btn btn-primary">Create Post</button>
+                            </div>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
             </div>
 
             <div id="savedSection" class="tab-content">
-                <div class="emptyState">
-                    <h2>Nothing saved yet</h2>
-                    <p>Posts you save will appear here for easy access.</p>
+                <div class="orange-card-box">
+                    <div class="emptyState">
+                        <h2>Nothing saved</h2>
+                        <p>Posts you save will be shown here.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="historySection" class="tab-content">
+                <div class="orange-card-box">
+                    <div class="emptyState">
+                        <h2>No history</h2>
+                        <p>Your recent activity will appear here.</p>
+                    </div>
                 </div>
             </div>
         </div>
