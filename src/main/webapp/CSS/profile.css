@@ -1,5 +1,6 @@
+/* --- Root Colors & Reset --- */
 :root {
-    --primary-color: #FF4500; /* Vibrant Orange */
+    --primary-blue: #0079D3;
     --text-main: #1C1C1C;
     --text-meta: #7C7C7C;
     --border-light: #EDEFF1;
@@ -9,22 +10,25 @@
 body {
     background-color: var(--white);
     margin: 0;
-    font-family: "Segoe UI", sans-serif;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
+/* --- Banner: Pure White --- */
 .profileBanner {
     height: 160px;
-    background: var(--white);
+    background: var(--white); /* Removed blue gradient */
     width: 100%;
-    border-bottom: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light); /* Added subtle line since it is white on white */
 }
 
+/* --- Centered Wrapper --- */
 .profileContainer {
     max-width: 980px;
     margin: 0 auto;
     padding: 0 24px;
 }
 
+/* --- Header Row with Avatar Overlap --- */
 .headerTopRow {
     display: flex;
     justify-content: space-between;
@@ -36,7 +40,7 @@ body {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    background-color: var(--primary-color); /* Orange Avatar */
+    background-color: #E86A33; 
     border: 4px solid var(--white);
     display: flex;
     align-items: center;
@@ -46,10 +50,11 @@ body {
     font-weight: bold;
 }
 
-.profile-label {
-    color: var(--primary-color);
-    font-weight: bold;
-    margin-bottom: 5px;
+/* --- Buttons: Pill Shaped --- */
+.actionButtons {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
 }
 
 .custom-btn {
@@ -62,16 +67,20 @@ body {
 }
 
 .btn-primary {
-    background: var(--primary-color); /* Orange Button */
+    background: var(--primary-blue);
     color: var(--white);
     border: none;
 }
 
 .btn-secondary {
     background: var(--white);
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+    color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
 }
+
+/* --- User Info & Tabs --- */
+.profileInfo h2 { margin: 15px 0 2px; font-size: 24px; }
+.handle-info { color: var(--text-meta); font-size: 13px; margin-bottom: 24px; }
 
 .profileTabs {
     display: flex;
@@ -90,38 +99,31 @@ body {
 
 .tab.active {
     color: var(--text-main);
-    border-bottom: 2px solid var(--primary-color); /* Orange underline */
+    border-bottom: 2px solid var(--text-main); 
 }
 
-/* Overview section custom styles */
-.overview-block {
-    text-align: left;
-    padding: 20px 0;
-}
-
-.overview-block h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.empty-text {
-    color: var(--text-meta);
-}
-
-.section-divider {
-    border: 0;
-    border-top: 1px solid var(--border-light);
-}
-
+/* --- Empty State --- */
 .tab-content {
     display: none;
+    text-align: center;
+    padding: 100px 0;
 }
 
 .tab-content.active-content {
     display: block;
 }
 
-.emptyState {
-    text-align: center;
-    padding: 80px 0;
+.emptyState h2 { font-size: 20px; margin-bottom: 8px; }
+.emptyState p { color: var(--text-meta); margin-bottom: 24px; }
+
+/* --- Responsive Sidebar Logic --- */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+  .sidebar.open { transform: translateX(0); }
+  .mainContent { margin-left: 0 !important; }
 }
