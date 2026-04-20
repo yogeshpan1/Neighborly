@@ -1,0 +1,174 @@
+/* ===== NEIGHBORLY PROFILE PAGE CSS ===== */
+
+.profileContentArea {
+    background-color: #f4f6f9; /* Matches feed background */
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+.profileContainer {
+    max-width: 935px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Section */
+.profileHeader {
+    display: flex;
+    margin-bottom: 44px;
+    align-items: center;
+    gap: 60px;
+}
+
+.profileAvatarLarge {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffffff;
+    flex-shrink: 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profileDetails {
+    flex-grow: 1;
+}
+
+.profileUsernameRow {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.profileUsername {
+    font-size: 28px;
+    font-weight: 300;
+    margin: 0;
+    color: #262626;
+}
+
+.badge {
+    color: #E86A33; /* Neighborly Orange */
+    display: flex;
+    align-items: center;
+}
+
+/* Actions */
+.profileActions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.profileBtn {
+    background-color: #ffffff;
+    border: 1px solid #dbdbdb;
+    color: #262626;
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.profileBtn:hover {
+    background-color: #fafafa;
+}
+
+/* Stats and Bio */
+.profileStats {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.profileName {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.profileLink a {
+    color: #00376b;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Tabs System */
+.profileTabs {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #dbdbdb;
+    gap: 60px;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 15px 0;
+    color: #8e8e8e;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tab.active {
+    color: #262626;
+    border-top: 1px solid #262626;
+    margin-top: -1px; /* Aligns with the border */
+}
+
+/* Empty State */
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.emptyStateIcon {
+    width: 62px;
+    height: 62px;
+    border: 2px solid #262626;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.shareLink {
+    color: #E86A33;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profileHeader {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    .profileUsernameRow {
+        justify-content: center;
+    }
+    .profileStats {
+        justify-content: center;
+    }
+}
