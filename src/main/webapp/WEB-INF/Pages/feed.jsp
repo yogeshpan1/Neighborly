@@ -1,101 +1,134 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page isELIgnored="false" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="jakarta.servlet.http.HttpSession" %>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${user.userName} | Neighborly</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Neighborly</title>
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/feed.css">
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/sidebar.css">
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/navbar.css">
+    </head>
     
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/sidebar.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/navbar.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/profile.css">
-</head>
-<body>
-    <jsp:include page="/Components/sidebar.jsp" />
-    
-    <div class="mainContent">
-        <jsp:include page="/Components/navbar.jsp" />
-        
-        <div class="profileContainer">
-            <div class="profileBanner"></div>
+    <body>
 
-            <div class="profileHeader">
-                <div class="headerTopRow">
-                    <div class="profileAvatarLarge">
-                        ${fn:toUpperCase(fn:substring(user.userName, 0, 1))}
-                    </div>
-                    
-                    <div class="actionButtons">
-                        <button class="custom-btn btn-secondary">Edit</button>
-                        <button class="custom-btn btn-primary">+ Create</button>
-                    </div>
-                </div>
-                
-                <div class="profileInfo">
-                    <h2>${user.userName}</h2>
-                    <div class="handle-info">u/${user.userName} • 0 followers</div>
-                </div>
-            </div>
-
-            <div class="profileTabs">
-                <div class="tab active" onclick="openTab(event, 'postsSection')">Posts</div>
-                <div class="tab" onclick="openTab(event, 'savedSection')">Saved</div>
-            </div>
-
-            <div id="postsSection" class="tab-content active-content">
-                <c:choose>
-                    <c:when test="${not empty userPosts}">
-                        <div class="postsGrid">
-                            <c:forEach var="post" items="${userPosts}">
-                                <div class="postCard">
-                                    <p>${post.content}</p>
-                                </div>
-                            </c:forEach>
+        <jsp:include page="/Components/sidebar.jsp" />
+        <div class="mainContent">
+            <jsp:include page="/Components/navbar.jsp" />
+            <div class="contentArea">
+                <div class="feedCenter">
+                    <div class="feedCard composer">
+                        <div class="composerTop">
+                            <div class="composerAvatar" style="background-color: #E86A33;">
+                                US
+                            </div>
+                            <input type="text" class="composerInput"
+                                placeholder="Start a conversation with your neighbors..." />
                         </div>
-                    </c:when>
-                    <c:otherwise>
-                        <div class="emptyState">
-                            <h2>You don't have any posts yet</h2>
-                            <p>Once you post to a community, it'll show up here.</p>
-                            <button class="custom-btn btn-primary">Update Settings</button>
+                        <div class="composerBottom">
+                            <button class="photoBtn">Add Photo</button>
+                            <button class="postBtn">Post</button>
                         </div>
-                    </c:otherwise>
-                </c:choose>
-            </div>
+                    </div>
+                    <div class="feedCard post">
+                        <div class="postHeader">
+                            <div class="postAvatar" style="background: #2e7d32; color: white;">PS</div>
+                            <div class="postMetaInfo">
+                                <div class="postAuthor">Prayush Shrestha</div>
+                                <div class="postTime">2h ago</div>
+                            </div>
+                        </div>
+                        <div class="postTitle">Beautiful evening at Oak Ridge Park</div>
+                        <p class="postBody">Caught an incredible sunset at Oak Ridge Park today. It's so quiet
+                            and peaceful this time of year. We really are lucky to have such a great green space
+                            right in our backyard. Does anyone know if the city plans to install more benches
+                            near the pond area?</p>
+                        <div class="postImage">
+                            <img src="<%= request.getContextPath() %>/Images/nature.jpg" alt="Nature">
+                        </div>
+                        <div class="postActions">
+                            <div class="vote">
+                                <button class="voteBtn">
+                                    <img src="<%= request.getContextPath() %>/Images/up.png" alt="up"
+                                        class="voteImg">
+                                </button>
+                                <span>42</span>
+                                <button class="voteBtn">
+                                    <img src="<%= request.getContextPath() %>/Images/down.png" alt="down"
+                                        class="voteImg">
+                                </button>
+                            </div>
+                            <button class="actionBtn">12 Comments</button>
+                            <button class="actionBtn">Repost</button>
+                            <button class="actionBtn saveBtn">Save</button>
+                        </div>
+                    </div>
+                    <div class="feedCard post">
+                        <div class="postHeader">
+                            <div class="postAvatar" style="background: #1976d2; color: white;">AR</div>
+                            <div class="postMetaInfo">
+                                <div class="postAuthor">Arjan Regmi</div>
+                                <div class="postTime">5h ago</div>
+                            </div>
+                        </div>
+                        <div class="postTitle urgent">URGENT: Lost Golden Retriever</div>
+                        <div class="alertBox">
+                            Found near Main & 4th — currently safe, no collar or tags
+                        </div>
+                        <div class="postActions">
+                            <div class="vote">
+                                <button class="voteBtn">
+                                    <img src="<%= request.getContextPath() %>/Images/up.png" alt="up"
+                                        class="voteImg">
+                                </button>
+                                <span>42</span>
+                                <button class="voteBtn">
+                                    <img src="<%= request.getContextPath() %>/Images/down.png" alt="down"
+                                        class="voteImg">
+                                </button>
+                            </div>
+                            <button class="actionBtn">12 Comments</button>
+                            <button class="actionBtn">Repost</button>
+                            <button class="actionBtn saveBtn">Save</button>
+                        </div>
+                    </div>
+                    <div class="feedCard post">
+                        <div class="postHeader">
+                            <div class="postAvatar" style="background: #00897b; color: white;">YP</div>
+                            <div class="postMetaInfo">
+                                <div class="postAuthor">Yogesh Pant</div>
+                                <div class="postTime">Yesterday</div>
+                            </div>
+                        </div>
+                        <div class="postTitle linkTitle">Thoughts on proposed KTM Street bike lanes?</div>
+                        <p class="postBody">The Metropolitan is discussing the proposal for protected bike
+                            lanes on Durbar Marg next Tuesday's meeting. This would mean losing about 20% of the
+                            current street parking.</p>
+                        <div class="postActions">
+                            <div class="vote">
+                                <button class="voteBtn">
+                                    <img src="<%= request.getContextPath() %>/Images/up.png" alt="up"
+                                        class="voteImg">
+                                </button>
+                                <span>42</span>
+                                <button class="voteBtn">
+                                    <img src="<%= request.getContextPath() %>/Images/down.png" alt="down"
+                                        class="voteImg">
+                                </button>
+                            </div>
+                            <button class="actionBtn">12 Comments</button>
+                            <button class="actionBtn">Repost</button>
+                            <button class="actionBtn saveBtn">Save</button>
+                        </div>
+                    </div>
 
-            <div id="savedSection" class="tab-content">
-                <div class="emptyState">
-                    <h2>Nothing saved yet</h2>
-                    <p>Posts you save will appear here for easy access.</p>
                 </div>
             </div>
+
         </div>
-    </div>
 
-    <script>
-        function openTab(evt, sectionId) {
-            // 1. Hide all content sections
-            const tabcontent = document.getElementsByClassName("tab-content");
-            for (let i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove("active-content");
-            }
+    </body>
 
-            // 2. Reset all tab button styles
-            const tablinks = document.getElementsByClassName("tab");
-            for (let i = 0; i < tablinks.length; i++) {
-                tablinks[i].classList.remove("active");
-            }
-
-            // 3. Show the clicked section and highlight the button
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.add("active-content");
-                evt.currentTarget.classList.add("active");
-            }
-        }
-    </script>
-</body>
 </html>
