@@ -1,6 +1,6 @@
 <header class="topbar">
     <div class="topbarLeft">
-        <h1>Dashboard</h1>
+        <h1>Feed</h1>
     </div>
     <div class="topbarRight">
         <a href="${pageContext.request.contextPath}/home" class="sidebarLogo">
@@ -15,5 +15,18 @@
             </svg>
             <span class="notifDot"></span>
         </button>
+        <div class="profileTopRight"
+             onclick="window.location.href='${pageContext.request.contextPath}/profile'">
+
+            <div class="profileAvatarTop">PS</div>
+
+            <div class="profileInfoTop">
+                <div class="profileUsername">_prayush_</div>
+                <div class="profileName">Prayush Shrestha</div>
+            </div>
+
+            <div class="profileSwitch">View</div>
+
+        </div>
     </div>
 </header>
