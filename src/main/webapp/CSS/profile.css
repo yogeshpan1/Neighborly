@@ -1,6 +1,6 @@
 /* --- Root Colors & Reset --- */
 :root {
-    --primary-blue: #0079D3;
+    --primary-color: #0079D3;
     --text-main: #1C1C1C;
     --text-meta: #7C7C7C;
     --border-light: #EDEFF1;
@@ -16,12 +16,12 @@ body {
 /* --- Banner: Pure White --- */
 .profileBanner {
     height: 160px;
-    background: var(--white); /* Removed blue gradient */
+    background: var(--white);
     width: 100%;
-    border-bottom: 1px solid var(--border-light); /* Added subtle line since it is white on white */
+    border-bottom: 1px solid var(--border-light);
 }
 
-/* --- Centered Wrapper --- */
+/* --- Centered Wrapper (The "Non-Box" Look) --- */
 .profileContainer {
     max-width: 980px;
     margin: 0 auto;
@@ -67,15 +67,15 @@ body {
 }
 
 .btn-primary {
-    background: var(--primary-blue);
+    background: var(--primary-color);
     color: var(--white);
     border: none;
 }
 
 .btn-secondary {
     background: var(--white);
-    color: var(--primary-blue);
-    border: 1px solid var(--primary-blue);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
 }
 
 /* --- User Info & Tabs --- */
@@ -102,7 +102,7 @@ body {
     border-bottom: 2px solid var(--text-main); 
 }
 
-/* --- Empty State --- */
+/* --- Empty State (Clean Text Only) --- */
 .tab-content {
     display: none;
     text-align: center;
