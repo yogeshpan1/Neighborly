@@ -29,7 +29,7 @@ public class GuestFilter extends HttpFilter {
 		boolean isLoggedIn = SessionUtil.getAttribute(httpRequest, "user") != null;
 
         if (isLoggedIn) {
-            httpResponse.sendRedirect(httpRequest.getContextPath() + "/dashboard");
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/home");
         } else {
             chain.doFilter(request, response);
         }
