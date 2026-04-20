@@ -1,21 +1,17 @@
-/* --- Root Colors & Reset --- */
 :root {
-    --primary-color: #2E7D32;
-    --primary-hover: #E03E00;
+    --primary-color: #FF4500; /* Vibrant Orange */
     --text-main: #1C1C1C;
     --text-meta: #7C7C7C;
     --border-light: #EDEFF1;
     --white: #FFFFFF;
-    --bg-orange-light: #FFF5F0;
 }
 
 body {
     background-color: var(--white);
-    margin: 0px;
-    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
 }
 
-/* --- Banner --- */
 .profileBanner {
     height: 160px;
     background: var(--white);
@@ -23,16 +19,12 @@ body {
     border-bottom: 1px solid var(--border-light);
 }
 
-/* --- Centered Wrapper --- */
 .profileContainer {
     max-width: 980px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 24px;
-    padding-right: 24px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
-/* --- Header Row with Avatar Overlap --- */
 .headerTopRow {
     display: flex;
     justify-content: space-between;
@@ -43,8 +35,8 @@ body {
 .profileAvatarLarge {
     width: 120px;
     height: 120px;
-    border-radius: 60px; /* Half of width/height for perfect circle */
-    background-color: var(--primary-color); 
+    border-radius: 50%;
+    background-color: var(--primary-color); /* Orange Avatar */
     border: 4px solid var(--white);
     display: flex;
     align-items: center;
@@ -54,19 +46,15 @@ body {
     font-weight: bold;
 }
 
-/* --- Buttons: Pill Shaped --- */
-.actionButtons {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 12px;
+.profile-label {
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
 .custom-btn {
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 500px; /* Large px value for pill shape */
+    padding: 8px 20px;
+    border-radius: 999px;
     font-weight: 700;
     cursor: pointer;
     font-size: 14px;
@@ -74,36 +62,15 @@ body {
 }
 
 .btn-primary {
-    background: var(--primary-color);
+    background: var(--primary-color); /* Orange Button */
     color: var(--white);
     border: none;
-}
-
-.btn-primary:hover {
-    background: var(--primary-hover);
 }
 
 .btn-secondary {
     background: var(--white);
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
-}
-
-.btn-secondary:hover {
-    background: var(--bg-orange-light);
-}
-
-/* --- User Info & Tabs --- */
-.profileInfo h2 { 
-    margin-top: 15px; 
-    margin-bottom: 2px; 
-    font-size: 24px; 
-}
-
-.handle-info { 
-    color: var(--text-meta); 
-    font-size: 13px; 
-    margin-bottom: 24px; 
 }
 
 .profileTabs {
@@ -122,60 +89,39 @@ body {
 }
 
 .tab.active {
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--primary-color); 
+    color: var(--text-main);
+    border-bottom: 2px solid var(--primary-color); /* Orange underline */
 }
 
-.tab:hover:not(.active) {
-    background-color: var(--bg-orange-light);
+/* Overview section custom styles */
+.overview-block {
+    text-align: left;
+    padding: 20px 0;
 }
 
-/* --- Content Sections --- */
+.overview-block h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.empty-text {
+    color: var(--text-meta);
+}
+
+.section-divider {
+    border: 0;
+    border-top: 1px solid var(--border-light);
+}
+
 .tab-content {
     display: none;
-    text-align: center;
-    padding-top: 100px;
-    padding-bottom: 100px;
 }
 
 .tab-content.active-content {
     display: block;
 }
 
-.emptyState h2 { 
-    font-size: 20px; 
-    margin-bottom: 8px; 
-}
-
-.emptyState p { 
-    color: var(--text-meta); 
-    margin-bottom: 24px; 
-}
-
-/* --- Responsive Sidebar Logic --- */
-@media (max-width: 768px) {
-  .sidebar {
-    position: fixed;
-    transform: translateX(-300px); /* Move back by sidebar width */
-    transition: 0.3s ease;
-    z-index: 1000;
-  }
-  .sidebar.open { 
-    transform: translateX(0px); 
-  }
-  .mainContent { 
-    margin-left: 0px !important; 
-  }
-}
-
-/* --- Responsive Sidebar Logic --- */
-@media (max-width: 768px) {
-  .sidebar {
-    position: fixed;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    z-index: 1000;
-  }
-  .sidebar.open { transform: translateX(0); }
-  .mainContent { margin-left: 0 !important; }
+.emptyState {
+    text-align: center;
+    padding: 80px 0;
 }
