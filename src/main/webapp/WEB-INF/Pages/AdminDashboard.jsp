@@ -44,6 +44,45 @@
 <span class = "statLabel">Total citizens</span>
 <span class = "statValue">1, 342</span>
 <span class = "statTrend green"> +22 this week</span>
+
+<div class="statCard">
+<div class="statIconWrap">
+     <div class="statBars barsOrange">
+<div class="bar h50"></div><div class="bar h80"></div><div class="bar h100"></div><div class="bar h60"></div>
+</div>
+    </div>
+    <div class="statInfo">
+        <span class="statLabel">Open civic issues</span>
+        <span class="statValue">8</span>
+        <span class="statTrend orange">Needs attention</span>
+    </div>
+</div>
+<div class="statCard">
+    <div class="statIconWrap">
+         <div class="statBars barsBlue">
+            <div class="bar h70"></div><div class="bar h50"></div><div class="bar h100"></div>
+        </div>
+    </div>
+    <div class="statInfo">
+        <span class="statLabel">Documents pending</span>
+        <span class="statValue">14</span>
+        <span class="statTrend orange">Awaiting review</span>
+    </div>
+    </div>
+    <div class="statCard">
+        <div class="statIconWrap">
+             <div class="statBars barsYellow">
+                <div class="bar h100"></div><div class="bar h80"></div>
+            </div>
+        </div>
+        <div class="statInfo">
+            <span class="statLabel">Active polls</span>
+            <span class="statValue">3</span>
+            <span class="statTrend orange">On track</span>
+        </div>
+    </div>
+</div>
+
 </div>
 
 </div>
@@ -68,8 +107,6 @@
 </div>
 
 </main>
-
-</div>
 
 </body>
 </html>
