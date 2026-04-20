@@ -1,0 +1,267 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Inter', sans-serif;
+    background-color: #FFFFFF;
+    color: #333333;
+}
+
+.mainContent {
+    margin-left: 250px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 1000px;
+}
+
+@media (max-width: 768px) {
+    .mainContent { margin-left: 0px; }
+}
+
+.contentArea {
+    padding: 32px;
+    background-color: #f4f6f9;
+    flex: 1;
+}
+
+.feedCenter {
+
+    max-width: 800px;
+    margin: 0px auto;
+}
+
+.feedCard {
+    background: #FFFFFF;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    padding: 32px;
+    border: none;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.composer {
+    margin-bottom: 32px;
+}
+
+.composerTop {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.composerAvatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.composerInput {
+    flex: 1;
+    border: 1px solid #E2E8F0;
+    border-radius: 40px;
+    padding: 12px 20px;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.2s;
+    background: #FAFAFA;
+}
+
+.composerInput:focus {
+    border-color: #E86A33;
+    background: #FFFFFF;
+}
+
+.composerBottom {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.photoBtn {
+    background: none;
+    border: 1px solid #E2E8F0;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 14px;
+    color: #333333;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.photoBtn:hover {
+    background: #F0F0F0;
+}
+
+.postBtn {
+    background: #E86A33;
+    color: white;
+    border: none;
+    padding: 8px 24px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.postBtn:hover {
+    background: #d15622;
+}
+
+.postHeader {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.postAvatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.postMetaInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.postAuthor {
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 2px;
+    font-size: 15px;
+}
+
+.postTime {
+    font-size: 12px;
+    color: #888888;
+}
+
+.postTitle {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #333333;
+    font-family: 'Outfit', sans-serif;
+}
+
+.postTitle.urgent {
+    color: #e53935;
+}
+
+.linkTitle {
+    color: #1976d2;
+    cursor: pointer;
+}
+
+.postBody {
+    color: #475569;
+    line-height: 24px;
+    margin-bottom: 16px;
+    font-size: 15px;
+}
+
+.postImage {
+    margin: 16px 0px 12px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.postImage img {
+    width: 736px;
+    height: auto;
+    display: block;
+    max-height: 420px;
+    object-fit: cover;
+}
+
+.alertBox {
+    background: #FFF8E7;
+    border-left: 4px solid #FF9800;
+    padding: 12px 16px;
+    margin: 12px 0px;
+    border-radius: 12px;
+    color: #BF5E00;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.postActions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #E0E0E0;
+}
+
+.vote {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #FAFAFA;
+    padding: 6px 12px;
+    border-radius: 40px;
+    border: 1px solid #E0E0E0;
+}
+
+.voteBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.1s;
+}
+
+.voteBtn:hover {
+    transform: scale(1.1);
+}
+
+.voteImg {
+    width: 16px;
+    height: 16px;
+    display: block;
+    opacity: 0.8;
+}
+
+.actionBtn {
+    background: none;
+    border: none;
+    color: #64748B;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 30px;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.actionBtn:hover {
+    background: #F0F0F0;
+    color: #333333;
+}
+
+.saveBtn:hover {
+    color: #2E7D32;
+}
+
