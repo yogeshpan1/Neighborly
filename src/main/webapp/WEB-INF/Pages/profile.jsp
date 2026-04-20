@@ -42,7 +42,6 @@
             <div class="profileTabs">
                 <div class="tab active" onclick="openTab(event, 'postsSection')">Posts</div>
                 <div class="tab" onclick="openTab(event, 'savedSection')">Saved</div>
-                <div class="tab" onclick="openTab(event, 'historySection')">History</div>
             </div>
 
             <div id="postsSection" class="tab-content active-content">
@@ -71,15 +70,6 @@
                     <div class="emptyState">
                         <h2>Nothing saved</h2>
                         <p>Posts you save will be shown here.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div id="historySection" class="tab-content">
-                <div class="orange-card-box">
-                    <div class="emptyState">
-                        <h2>No history</h2>
-                        <p>Your recent activity will appear here.</p>
                     </div>
                 </div>
             </div>
