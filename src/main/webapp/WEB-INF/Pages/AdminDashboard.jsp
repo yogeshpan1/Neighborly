@@ -122,19 +122,4 @@
                         <div class="pollIconBox">
                             <div class="statBars barsBlue" style="height: 16px; gap: 2px;"><div class="bar h60" style="width: 3px;"></div><div class="bar h100" style="width: 3px;"></div><div class="bar h80" style="width: 3px;"></div></div>
                         </div>
-                        <div class="pollDetails">
-                            <h4>New bus route — Kalanki</h4>
-                            <p class="pollMeta">142 votes &middot; Closes Apr 15</p>
-                        </div>
-                    </div>
-                    <div class="pollItem">
-                        <div class="pollIconBox">
-                             <div class="statBars barsBlue" style="height: 16px; gap: 2px;"><div class="bar h60" style="width: 3px;"></div><div class="bar h100" style="width: 3px;"></div><div class="bar h80" style="width: 3px;"></div></div>
-                        </div>
-                        <div class="pollDetails">
-                            <h4>Footpaths or speed bumps?</h4>
-                            <p class="pollMeta">89 votes &middot; Closes Apr 18</p>
-                        </div>
-                    </div>
-                </div>
 </html>
