@@ -1,116 +1,118 @@
 :root {
-    --primary-orange: #FF4500;
-    --light-orange-bg: #FFF8F0;
-    --orange-border: #FFDAB9;
+    /* Yellow Color Palette */
+    --primary-yellow: #FFB800;      /* Vibrant Golden Yellow */
+    --light-yellow-bg: #FFFDF0;    /* Very light cream/yellow for boxes */
+    --yellow-border: #FFE5A3;     /* Soft yellow for borders */
+    --dark-bar: #2D2D2D;          /* Dark top strip (from your image) */
     --text-main: #1C1C1C;
-    --text-meta: #7C7C7C;
+    --text-meta: #5F5F5F;
     --white: #FFFFFF;
 }
 
 body {
-    background-color: var(--white);
+    background-color: #F4F4F4; /* Light grey so the yellow boxes stand out */
     margin: 0;
     font-family: "Segoe UI", sans-serif;
 }
 
+/* THE MAIN PROFILE BOX */
+.profileContainer {
+    max-width: 980px;
+    margin: 40px auto;
+    background: var(--white);
+    border-radius: 4px; /* Square/Boxy look */
+    overflow: hidden;
+    border: 1px solid var(--yellow-border);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* TOP STRIPS (Based on your image) */
 .profileBanner {
-    height: 160px;
-    background: var(--primary-orange);
+    height: 12px;
+    background: var(--dark-bar); 
     width: 100%;
 }
 
-.profileContainer {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 0 24px;
+.profile-status-bar {
+    height: 40px;
+    background: var(--primary-yellow); 
+    width: 100%;
+}
+
+/* HEADER SECTION */
+.profileHeader {
+    padding: 20px 30px;
 }
 
 .headerTopRow {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    margin-top: -60px; 
+    align-items: center;
+    margin-top: -10px;
 }
 
 .profileAvatarLarge {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background-color: #E86A33;
-    border: 4px solid var(--white);
+    width: 100px;
+    height: 100px;
+    border-radius: 4px; /* Boxy Avatar */
+    background-color: #E6A600; /* Slightly darker yellow for contrast */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 48px;
+    font-size: 40px;
     color: var(--white);
     font-weight: bold;
+    border: 3px solid var(--white);
 }
 
+/* TEXT STYLES */
 .profile-label {
-    color: var(--primary-orange);
+    color: #CC9300; /* Darker yellow for text readability */
     font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
 }
 
-.custom-btn {
-    padding: 8px 20px;
-    border-radius: 999px;
-    font-weight: 700;
-    cursor: pointer;
-    font-size: 14px;
-    transition: 0.2s;
-}
+h2 { margin: 10px 0 5px 0; color: var(--text-main); }
+.handle-info { color: var(--text-meta); font-size: 14px; }
 
-.btn-primary { background: var(--primary-orange); color: var(--white); border: none; }
-.btn-secondary { background: var(--white); color: var(--primary-orange); border: 1px solid var(--primary-orange); }
-
+/* TABS */
 .profileTabs {
     display: flex;
-    border-bottom: 1px solid var(--orange-border);
-    margin: 20px 0;
+    background: var(--light-yellow-bg);
+    border-top: 1px solid var(--yellow-border);
+    border-bottom: 1px solid var(--yellow-border);
 }
 
 .tab {
-    padding: 12px 16px;
-    font-size: 14px;
+    padding: 15px 25px;
     font-weight: 600;
-    color: var(--text-meta);
     cursor: pointer;
+    color: var(--text-meta);
 }
 
 .tab.active {
-    color: var(--primary-orange);
-    border-bottom: 2px solid var(--primary-orange);
+    color: var(--text-main);
+    background: var(--white); /* White background for active tab */
+    border-bottom: 3px solid var(--primary-yellow);
 }
 
-.orange-card-box {
-    background-color: var(--light-orange-bg);
-    border: 1px solid var(--orange-border);
-    border-radius: 8px;
+/* BUTTONS */
+.custom-btn {
+    padding: 10px 22px;
+    border-radius: 4px; /* Boxy buttons */
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-primary { background: var(--primary-yellow); color: #000; }
+.btn-secondary { background: #EEE; color: #333; margin-right: 8px; }
+
+/* CONTENT AREA */
+.orange-card-box { /* Keeping your class name so you don't have to change HTML */
     padding: 30px;
-    margin-bottom: 40px;
+    background: var(--white);
 }
 
-.tab-content { display: none; }
-.tab-content.active-content { display: block; }
-
-.emptyState {
-    text-align: center;
-    padding: 40px 0;
-}
-
-.emptyState h2 { 
-	color: var(--primary-orange); 
-	margin-bottom: 10px; 
-	}
-	
-/* --- Responsive Sidebar Logic --- */
-@media (max-width: 768px) {
-  .sidebar {
-    position: fixed;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    z-index: 1000;
-  }
-  .sidebar.open { transform: translateX(0); }
-  .mainContent { margin-left: 0 !important; }
-}
+.emptyState h2 { color: var(--primary-yellow); }
