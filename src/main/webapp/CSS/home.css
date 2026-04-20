@@ -3,8 +3,8 @@
 }
 
 body {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     font-family: 'Inter', sans-serif;
     background-color: #FFFFFF;
     color: #333333;
@@ -19,7 +19,7 @@ body {
 }
 
 @media (max-width: 768px) {
-    .mainContent { margin-left: 0px; }
+    .mainContent { margin-left: 0; }
 }
 
 .dashboardArea {
@@ -27,6 +27,7 @@ body {
     max-width: 1400px;
 }
 
+/* Search */
 .searchContainer {
     display: flex;
     justify-content: center;
@@ -54,6 +55,7 @@ body {
 .searchIcon {
     margin-right: 12px;
     color: #999999;
+    flex-shrink: 0;
 }
 
 .searchInput {
@@ -69,6 +71,7 @@ body {
     color: #AAAAAA;
 }
 
+/* Services */
 .servicesSection {
     margin-bottom: 56px;
 }
@@ -85,7 +88,6 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 24px;
-    padding: 0;
 }
 
 .serviceItem {
@@ -111,6 +113,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #C05A2A;
     transition: background-color 0.2s;
 }
 
@@ -125,6 +128,7 @@ body {
     text-align: center;
 }
 
+/* Applications */
 .applicationsSection {
     margin-bottom: 40px;
 }
@@ -183,19 +187,12 @@ body {
     height: 44px;
     border-radius: 4px;
     margin-right: 18px;
+    flex-shrink: 0;
 }
 
-.lineYellow {
-    background-color: #F5B042;
-}
-
-.lineGreen {
-    background-color: #4CAF50;
-}
-
-.lineRed {
-    background-color: #F44336;
-}
+.lineYellow { background-color: #F5B042; }
+.lineGreen  { background-color: #4CAF50; }
+.lineRed    { background-color: #F44336; }
 
 .appInfo {
     display: flex;
@@ -222,21 +219,11 @@ body {
     font-weight: 500;
 }
 
-.badgeYellow {
-    background-color: #FFF8E1;
-    color: #B76E0A;
-}
+.badgeYellow { background-color: #FFF8E1; color: #B76E0A; }
+.badgeGreen  { background-color: #E8F5E9; color: #2E7D32; }
+.badgeRed    { background-color: #FFEBEE; color: #C62828; }
 
-.badgeGreen {
-    background-color: #E8F5E9;
-    color: #2E7D32;
-}
-
-.badgeRed {
-    background-color: #FFEBEE;
-    color: #C62828;
-}
-
+/* Fines */
 .finesSection {
     margin-bottom: 56px;
 }
@@ -312,6 +299,7 @@ body {
     background-color: #B71C1C;
 }
 
+/* Bottom Cards */
 .bottomCards {
     display: flex;
     gap: 32px;
@@ -337,6 +325,10 @@ body {
     align-items: center;
     gap: 12px;
     margin-bottom: 20px;
+}
+
+.cardIcon {
+    color: #8C4020;
 }
 
 .cardTitle {
@@ -413,6 +405,10 @@ body {
 
 .reportIconWrapper {
     margin-bottom: 20px;
+}
+
+.reportIcon {
+    color: #C05A2A;
 }
 
 .reportTitle {

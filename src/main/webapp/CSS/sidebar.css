@@ -3,6 +3,7 @@
     margin-top: auto;
     padding: 24px 16px;
 }
+
 .menuDropdown {
     position: absolute;
     bottom: 86px;
@@ -11,7 +12,6 @@
     background-color: #F0F0F0;
     border: 1px solid #E0E0E0;
     border-radius: 16px;
-    margin-bottom: 0px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     z-index: 100;
     font-size: 14px;
@@ -22,16 +22,19 @@
     transition: opacity 0.15s ease, transform 0.15s ease;
     pointer-events: none;
 }
+
 .menuDropdown.active {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
 }
+
 .menuDropdown ul {
     list-style: none;
     padding: 8px;
     margin: 0;
 }
+
 .menuDropdown li a {
     display: flex;
     align-items: center;
@@ -42,12 +45,10 @@
     cursor: pointer;
     border-radius: 8px;
 }
+
 .menuDropdown li a:hover {
     background-color: #E6E6E6;
     color: #E86A33;
-}
-.userProfile {
-    cursor: pointer;
 }
 
 .sidebar {
@@ -58,9 +59,9 @@
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
+    top: 0;
+    bottom: 0;
+    left: 0;
     overflow-y: auto;
     z-index: 100;
 }
@@ -68,7 +69,7 @@
 .sidebarLogo {
     display: flex;
     align-items: center;
-    padding: 24px 24px 0px 24px;
+    padding: 24px 24px 0 24px;
     text-decoration: none;
     margin-bottom: 32px;
     transition: opacity 0.2s;
@@ -91,13 +92,13 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     padding: 20px 24px 8px 24px;
-    margin: 0px;
+    margin: 0;
 }
 
 .sidebarNav {
     list-style: none;
-    padding: 0px 16px;
-    margin: 0px;
+    padding: 0 16px;
+    margin: 0;
 }
 
 .sidebarNav li a {
@@ -115,12 +116,12 @@
 }
 
 .sidebarNav li a:hover {
-    background-color: #F0F0F0;
+    background-color: #E86A33;
     color: #333333;
 }
 
 .sidebarNav li a.active {
-    background-color: #F0EAE1;
+    background-color: #E86A33;
     color: #333333;
     font-weight: 600;
 }
@@ -130,11 +131,7 @@
     align-items: center;
     justify-content: center;
     color: inherit;
-}
-
-.sidebarFooter {
-    margin-top: auto;
-    padding: 24px 16px;
+    flex-shrink: 0;
 }
 
 .userProfile {
@@ -178,11 +175,11 @@
 }
 
 @media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-  }
-  .sidebar.open {
-    transform: translateX(0);
-  }
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+    .sidebar.open {
+        transform: translateX(0);
+    }
 }
