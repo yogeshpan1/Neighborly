@@ -1,21 +1,19 @@
-/* --- Root Colors & Reset --- */
 :root {
-    --primary-color: #FF4500; /* International Orange */
-    --primary-hover: #E03E00;
+    --primary-color: #FF4500; /* Orange */
+    --page-bg: #DAE0E6;      /* Light gray page background */
     --text-main: #1C1C1C;
     --text-meta: #7C7C7C;
-    --border-light: #EDEFF1;
+    --border-light: #CCCED0;
     --white: #FFFFFF;
-    --bg-orange-light: #FFF5F0;
 }
 
 body {
-    background-color: var(--white);
+    background-color: var(--page-bg); /* Now the whole page is gray */
     margin: 0;
-    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Segoe UI", sans-serif;
 }
 
-/* --- Banner: Pure White --- */
+/* --- Banner --- */
 .profileBanner {
     height: 160px;
     background: var(--white);
@@ -23,14 +21,20 @@ body {
     border-bottom: 1px solid var(--border-light);
 }
 
-/* --- Centered Wrapper (The "Non-Box" Look) --- */
+/* --- Main Box Container --- */
 .profileContainer {
     max-width: 980px;
-    margin: 0 auto;
-    padding: 0 24px;
+    margin: 20px auto; /* Centered with top margin */
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 4px; /* Slight round corners for the box */
+    overflow: hidden;
 }
 
-/* --- Header Row with Avatar Overlap --- */
+.profileHeader {
+    padding: 0 24px 20px;
+}
+
 .headerTopRow {
     display: flex;
     justify-content: space-between;
@@ -42,7 +46,7 @@ body {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    background-color: var(--primary-color); 
+    background-color: var(--primary-color);
     border: 4px solid var(--white);
     display: flex;
     align-items: center;
@@ -52,13 +56,7 @@ body {
     font-weight: bold;
 }
 
-/* --- Buttons: Pill Shaped & Orange --- */
-.actionButtons {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 12px;
-}
-
+/* --- Buttons --- */
 .custom-btn {
     padding: 8px 20px;
     border-radius: 999px;
@@ -68,36 +66,24 @@ body {
     transition: 0.2s ease;
 }
 
-/* Create & Update Settings */
 .btn-primary {
     background: var(--primary-color);
     color: var(--white);
     border: none;
 }
 
-.btn-primary:hover {
-    background: var(--primary-hover);
-}
-
-/* Edit Button */
 .btn-secondary {
     background: var(--white);
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
 }
 
-.btn-secondary:hover {
-    background: var(--bg-orange-light);
-}
-
-/* --- User Info & Tabs --- */
-.profileInfo h2 { margin: 15px 0 2px; font-size: 24px; }
-.handle-info { color: var(--text-meta); font-size: 13px; margin-bottom: 24px; }
-
+/* --- Tabs --- */
 .profileTabs {
     display: flex;
+    background-color: var(--white);
+    padding: 0 15px;
     border-bottom: 1px solid var(--border-light);
-    margin-bottom: 20px;
 }
 
 .tab {
@@ -106,53 +92,39 @@ body {
     font-weight: 600;
     color: var(--text-meta);
     cursor: pointer;
-    border-bottom: 2px solid transparent;
 }
 
-/* Active Tab State (Posts or Saved) */
 .tab.active {
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--primary-color); 
+    color: var(--text-main);
+    border-bottom: 3px solid var(--primary-color); /* Orange line at bottom */
 }
 
-.tab:hover:not(.active) {
-    background-color: var(--bg-orange-light);
-}
-
-/* --- Content Sections --- */
+/* --- Content Section Box --- */
 .tab-content {
     display: none;
-    text-align: center;
-    padding: 100px 0;
+    background: var(--white);
+    min-height: 300px;
+    padding: 20px;
 }
 
 .tab-content.active-content {
     display: block;
 }
 
-.emptyState h2 { font-size: 20px; margin-bottom: 8px; }
-.emptyState p { color: var(--text-meta); margin-bottom: 24px; }
-
-/* --- Responsive Logic --- */
-@media (max-width: 768px) {
-  .sidebar {
-    position: fixed;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    z-index: 1000;
-  }
-  .sidebar.open { transform: translateX(0); }
-  .mainContent { margin-left: 0 !important; }
+.overview-block {
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
 }
 
-/* --- Responsive Sidebar Logic --- */
-@media (max-width: 768px) {
-  .sidebar {
-    position: fixed;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    z-index: 1000;
-  }
-  .sidebar.open { transform: translateX(0); }
-  .mainContent { margin-left: 0 !important; }
+.emptyState {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.section-divider {
+    border: 0;
+    border-top: 1px solid var(--border-light);
+    margin: 20px 0;
 }
