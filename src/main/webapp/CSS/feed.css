@@ -271,6 +271,7 @@ body {
     cursor: pointer;
 }
 
+
 @media (max-width: 768px) {
     .sidebar {
         transform: translateX(-100%);
