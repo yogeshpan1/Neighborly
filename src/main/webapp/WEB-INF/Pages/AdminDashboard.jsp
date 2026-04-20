@@ -122,4 +122,42 @@
                         <div class="pollIconBox">
                             <div class="statBars barsBlue" style="height: 16px; gap: 2px;"><div class="bar h60" style="width: 3px;"></div><div class="bar h100" style="width: 3px;"></div><div class="bar h80" style="width: 3px;"></div></div>
                         </div>
+                        <div class="pollDetails">
+                            <h4>New bus route — Kalanki</h4>
+                            <p class="pollMeta">142 votes &middot; Closes Apr 15</p>
+                        </div>
+                    </div>
+                    <div class="pollItem">
+                        <div class="pollIconBox">
+                             <div class="statBars barsBlue" style="height: 16px; gap: 2px;"><div class="bar h60" style="width: 3px;"></div><div class="bar h100" style="width: 3px;"></div><div class="bar h80" style="width: 3px;"></div></div>
+                        </div>
+                        <div class="pollDetails">
+                            <h4>Footpaths or speed bumps?</h4>
+                            <p class="pollMeta">89 votes &middot; Closes Apr 18</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panelHeader">
+                        <span class="panelTitle">Document vault</span>
+                        <a href="DocumentList.jsp" class="viewAllLink">View all</a>
+                    </div>
+                    <div class="statRow"><span class="statRowLabel">Total documents</span><span class="statRowValue">407</span></div>
+                    <div class="statRow"><span class="statRowLabel">Pending verification</span><span class="statRowValue valueOrange">14</span></div>
+                    <div class="statRow"><span class="statRowLabel">Verified</span><span class="statRowValue valueGreen">393</span></div>
+                </div>
+                <div class="panel">
+                    <div class="panelHeader">
+                        <span class="panelTitle">Application Status</span>
+                        <a href="ApplicationList.jsp" class="viewAllLink">View all</a>
+                    </div>
+                    <div class="statRow"><span class="statRowLabel">Total Applications</span><span class="statRowValue">10</span></div>
+                    <div class="statRow"><span class="statRowLabel">Pending Applications</span><span class="statRowValue valueOrange">2</span></div>
+                    <div class="statRow"><span class="statRowLabel">Verified Applications</span><span class="statRowValue valueGreen">8</span></div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
 </html>
