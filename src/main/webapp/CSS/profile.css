@@ -1,52 +1,46 @@
 :root {
-    --primary-color: #FF4500; /* Orange */
-    --page-bg: #DAE0E6;      /* Light gray page background */
+    --primary-orange: #FF4500; /* Vibrant Orange for accents */
+    --light-orange-bg: #FFF8F0; /* Soft, very pale orange for box backgrounds */
+    --orange-border: #FFDAB9; /* Light orange for borders */
     --text-main: #1C1C1C;
     --text-meta: #7C7C7C;
-    --border-light: #CCCED0;
     --white: #FFFFFF;
 }
 
 body {
-    background-color: var(--page-bg); /* Now the whole page is gray */
+    background-color: var(--white); /* Page background is white */
     margin: 0;
-    font-family: "Segoe UI", sans-serif;
+    font-family: "Segoe UI", Roboto, sans-serif;
 }
 
 /* --- Banner --- */
 .profileBanner {
     height: 160px;
-    background: var(--white);
+    background: var(--primary-orange); /* Solid orange banner */
     width: 100%;
-    border-bottom: 1px solid var(--border-light);
 }
 
 /* --- Main Box Container --- */
 .profileContainer {
     max-width: 980px;
-    margin: 20px auto; /* Centered with top margin */
+    margin: 0 auto;
+    padding: 0 24px 40px;
     background: var(--white);
-    border: 1px solid var(--border-light);
-    border-radius: 4px; /* Slight round corners for the box */
-    overflow: hidden;
 }
 
-.profileHeader {
-    padding: 0 24px 20px;
-}
-
+/* --- Profile Header Overlap --- */
 .headerTopRow {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-top: -60px; 
+    margin-top: -60px; /* Overlaps the avatar onto the banner */
 }
 
 .profileAvatarLarge {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    background-color: var(--primary-color);
+    background-color: #E86A33; /* Darker orange avatar */
     border: 4px solid var(--white);
     display: flex;
     align-items: center;
@@ -67,23 +61,36 @@ body {
 }
 
 .btn-primary {
-    background: var(--primary-color);
+    background: var(--primary-orange);
     color: var(--white);
     border: none;
 }
 
-.btn-secondary {
-    background: var(--white);
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+.btn-primary:hover {
+    background: #E03E00; /* Darker orange on hover */
 }
 
-/* --- Tabs --- */
+.btn-secondary {
+    background: var(--white);
+    color: var(--primary-orange);
+    border: 1px solid var(--primary-orange);
+}
+
+/* --- Profile Info and Label --- */
+.profile-label {
+    color: var(--primary-orange);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.profileInfo h2 { margin: 15px 0 2px; font-size: 24px; }
+.handle-info { color: var(--text-meta); font-size: 13px; margin-bottom: 24px; }
+
+/* --- Orange Navigation Tabs --- */
 .profileTabs {
     display: flex;
-    background-color: var(--white);
-    padding: 0 15px;
-    border-bottom: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--orange-border);
+    margin-bottom: 20px;
 }
 
 .tab {
@@ -92,39 +99,14 @@ body {
     font-weight: 600;
     color: var(--text-meta);
     cursor: pointer;
+    border-bottom: 2px solid transparent;
 }
+
+.tab:hover { color: var(--primary-orange); }
 
 .tab.active {
-    color: var(--text-main);
-    border-bottom: 3px solid var(--primary-color); /* Orange line at bottom */
+    color: var(--primary-orange);
+    border-bottom: 2px solid var(--primary-orange); /* Underline is orange */
 }
 
-/* --- Content Section Box --- */
-.tab-content {
-    display: none;
-    background: var(--white);
-    min-height: 300px;
-    padding: 20px;
-}
-
-.tab-content.active-content {
-    display: block;
-}
-
-.overview-block {
-    border: 1px solid var(--border-light);
-    border-radius: 4px;
-    padding: 15px;
-    margin-bottom: 15px;
-}
-
-.emptyState {
-    text-align: center;
-    padding: 60px 0;
-}
-
-.section-divider {
-    border: 0;
-    border-top: 1px solid var(--border-light);
-    margin: 20px 0;
-}
+/* --- Content Areas
