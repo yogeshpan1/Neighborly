@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <!DOCTYPE html>
@@ -11,13 +12,7 @@
         <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/navbar.css">
     </head>
     
-    
     <body>
-    <h2>Prayush Shrestha</h2>
-<p>Username: _prayush_</p>
-
-<h3>My Posts</h3>
-<p>(Show posts here later from DB)</p>
 
         <jsp:include page="/Components/sidebar.jsp" />
         <div class="mainContent">
