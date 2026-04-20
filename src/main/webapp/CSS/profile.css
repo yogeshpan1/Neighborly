@@ -1,16 +1,16 @@
 :root {
-    /* Yellow Color Palette */
-    --primary-yellow: #FFB800;      /* Vibrant Golden Yellow */
-    --light-yellow-bg: #FFFDF0;    /* Very light cream/yellow for boxes */
-    --yellow-border: #FFE5A3;     /* Soft yellow for borders */
-    --dark-bar: #2D2D2D;          /* Dark top strip (from your image) */
+    /* Blue Color Palette */
+    --primary-blue: #0079D3;
+    --light-blue-bg: #F0F8FF;
+    --blue-border: #D1E1F0;
+    --dark-bar: #333333; /* Dark top strip from your image */
     --text-main: #1C1C1C;
     --text-meta: #5F5F5F;
     --white: #FFFFFF;
 }
 
 body {
-    background-color: #F4F4F4; /* Light grey so the yellow boxes stand out */
+    background-color: #DAE0E6; /* Grey background makes the white box stand out */
     margin: 0;
     font-family: "Segoe UI", sans-serif;
 }
@@ -20,22 +20,22 @@ body {
     max-width: 980px;
     margin: 40px auto;
     background: var(--white);
-    border-radius: 4px; /* Square/Boxy look */
+    border-radius: 4px; /* Square/Boxy shape */
     overflow: hidden;
-    border: 1px solid var(--yellow-border);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 1px solid var(--blue-border);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 /* TOP STRIPS (Based on your image) */
 .profileBanner {
-    height: 12px;
+    height: 10px;
     background: var(--dark-bar); 
     width: 100%;
 }
 
 .profile-status-bar {
-    height: 40px;
-    background: var(--primary-yellow); 
+    height: 35px;
+    background: var(--primary-blue); 
     width: 100%;
 }
 
@@ -48,14 +48,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: -10px;
+    margin-top: 0;
 }
 
 .profileAvatarLarge {
     width: 100px;
     height: 100px;
-    border-radius: 4px; /* Boxy Avatar */
-    background-color: #E6A600; /* Slightly darker yellow for contrast */
+    border-radius: 8px; /* Boxy Avatar */
+    background-color: #005FA3; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,25 +63,27 @@ body {
     color: var(--white);
     font-weight: bold;
     border: 3px solid var(--white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* TEXT STYLES */
 .profile-label {
-    color: #CC9300; /* Darker yellow for text readability */
+    color: var(--primary-blue);
     font-weight: bold;
     font-size: 13px;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-h2 { margin: 10px 0 5px 0; color: var(--text-main); }
+h2 { margin: 10px 0 5px 0; color: var(--text-main); font-size: 28px; }
 .handle-info { color: var(--text-meta); font-size: 14px; }
 
 /* TABS */
 .profileTabs {
     display: flex;
-    background: var(--light-yellow-bg);
-    border-top: 1px solid var(--yellow-border);
-    border-bottom: 1px solid var(--yellow-border);
+    background: var(--light-blue-bg);
+    border-top: 1px solid var(--blue-border);
+    border-bottom: 1px solid var(--blue-border);
 }
 
 .tab {
@@ -89,12 +91,13 @@ h2 { margin: 10px 0 5px 0; color: var(--text-main); }
     font-weight: 600;
     cursor: pointer;
     color: var(--text-meta);
+    transition: 0.3s;
 }
 
 .tab.active {
-    color: var(--text-main);
-    background: var(--white); /* White background for active tab */
-    border-bottom: 3px solid var(--primary-yellow);
+    color: var(--primary-blue);
+    background: var(--white);
+    border-bottom: 3px solid var(--primary-blue);
 }
 
 /* BUTTONS */
@@ -104,15 +107,17 @@ h2 { margin: 10px 0 5px 0; color: var(--text-main); }
     border: none;
     font-weight: bold;
     cursor: pointer;
+    font-size: 14px;
 }
 
-.btn-primary { background: var(--primary-yellow); color: #000; }
-.btn-secondary { background: #EEE; color: #333; margin-right: 8px; }
+.btn-primary { background: var(--primary-blue); color: var(--white); }
+.btn-secondary { background: #E2E8F0; color: #4A5568; margin-right: 8px; }
 
 /* CONTENT AREA */
-.orange-card-box { /* Keeping your class name so you don't have to change HTML */
+.orange-card-box { 
     padding: 30px;
     background: var(--white);
+    min-height: 200px;
 }
 
-.emptyState h2 { color: var(--primary-yellow); }
+.emptyState h2 { color: var(--primary-blue); }
