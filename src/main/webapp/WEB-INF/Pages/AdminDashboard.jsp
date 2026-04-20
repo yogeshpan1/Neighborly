@@ -31,15 +31,20 @@
 <div class = "statIconWrap">
 <div class = "statbars barsGreen">
 <div class = "bar h40">
-<div class = " bar h50">
-<div class = " bar h50"> 
+<div class = "bar h50">
+<div class = "bar h50"> 
 
-<div class = " bar h60"> 
+<div class = "bar h60"> 
 
-<div class = " bar h80"> 
+<div class = "bar h80"> 
 
-<div class = " bar h100"> 
+<div class = "bar h100"> 
 
+<div class = "statInfo">
+<span class = "statLabel">Total citizens</span>
+<span class = "statValue">1, 342</span>
+<span class = "statTrend green"> +22 this week</span>
+</div>
 
 </div>
 
