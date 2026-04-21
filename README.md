@@ -8,4 +8,3 @@ The platform also enables users to report local issues such as infrastructure pr
 In addition, Neighborly fosters stronger communities by offering a social feed where users can share news, updates, and important announcements. This helps keep residents engaged, aware of local developments, and connected with one another. By combining civic services with social interaction, Neighborly creates a more transparent, responsive, and community-driven local governance experience.
 
 
-akjdadbakjbas
