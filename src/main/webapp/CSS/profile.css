@@ -1,101 +1,121 @@
-/* Color Variables */
 :root {
     --primary-orange: #FF4500;
-    --light-orange-bg: #FFF8F0;
-    --orange-border: #FFDAB9;
     --text-main: #1C1C1C;
     --text-meta: #7C7C7C;
+    --orange-border: #FFDAB9;
     --white: #FFFFFF;
 }
 
-/* Main Layout - Centers the entire container on the screen */
-.profileContainer {
-    max-width: 800px;
-    margin: 60px auto; /* 'auto' centers the block horizontally */
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers all children vertically */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Header Section - Centers Avatar, Name, and Buttons */
+/* 1. Header Layout: Avatar on left, Info on right */
 .profileHeader {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    flex-direction: row; 
+    align-items: flex-start;
+    gap: 40px; /* Space between avatar and text */
+    margin-bottom: 40px;
     width: 100%;
 }
 
 .profileAvatarLarge {
     width: 140px;
     height: 140px;
-    border-radius: 50%;
     background-color: #E86A33;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    border: 5px solid var(--white);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 50%;
+    flex-shrink: 0; /* Prevents avatar from getting squeezed */
 }
 
-.profileInfo h1 {
+/* 2. Right Side column */
+.profileInfoSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
+}
+
+.profileText h1 {
     font-size: 32px;
-    margin: 5px 0;
+    margin: 0;
     color: var(--text-main);
 }
 
-.profileInfo p {
+.sub-text {
+    font-size: 16px;
     color: var(--text-meta);
+    margin: 5px 0 20px 0;
+}
+
+/* 3. BIO BOX STYLING */
+.bioContainer {
+    width: 100%;
+    max-width: 550px; /* Limits width for better readability */
     margin-bottom: 25px;
 }
 
-/* Action Buttons - Centered Row */
+.bioContainer label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--primary-orange);
+    margin-bottom: 8px;
+}
+
+.bioContainer textarea {
+    width: 100%;
+    height: 90px;
+    padding: 12px;
+    border: 1px solid var(--orange-border);
+    border-radius: 12px;
+    background-color: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.5;
+    resize: none; /* Keeps the box size consistent */
+    outline: none;
+    transition: 0.3s border-color;
+}
+
+.bioContainer textarea:focus {
+    border-color: var(--primary-orange);
+    box-shadow: 0 0 5px rgba(255, 69, 0, 0.1);
+}
+
+/* 4. Buttons row */
 .actionButtons {
     display: flex;
     gap: 15px;
-    justify-content: center;
-    margin-bottom: 40px;
 }
 
 .custom-btn {
-    padding: 10px 25px;
+    padding: 10px 24px;
     border-radius: 25px;
-    font-weight: 700;
+    font-weight: bold;
     cursor: pointer;
-    font-size: 15px;
-    transition: transform 0.2s;
     border: none;
+    font-size: 14px;
 }
 
-.custom-btn:active { transform: scale(0.95); }
-
-.btn-primary { background: var(--primary-orange); color: var(--white); }
+.btn-primary { background: var(--primary-orange); color: white; }
 .btn-secondary { 
-    background: var(--white); 
+    background: white; 
     color: var(--primary-orange); 
-    border: 2px solid var(--primary-orange); 
+    border: 1px solid var(--primary-orange); 
 }
 
-/* Tabs Navigation - Centered Row */
 .profileTabs {
     display: flex;
     justify-content: center;
     gap: 40px;
-    width: 100%;
     border-bottom: 1px solid var(--orange-border);
-    margin-bottom: 30px;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .tab {
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 12px 20px;
+    cursor: pointer;
     font-weight: 600;
     color: var(--text-meta);
-    cursor: pointer;
-    transition: 0.3s;
+    border-bottom: 3px solid transparent;
 }
 
 .tab.active {
@@ -103,14 +123,13 @@
     border-bottom: 3px solid var(--primary-orange);
 }
 
-/* Content Areas */
 .orange-card-box {
     background-color: var(--light-orange-bg);
     border: 1px solid var(--orange-border);
-    border-radius: 15px;
+    border-radius: 12px;
     padding: 40px;
     width: 100%;
-    box-sizing: border-box;
+    min-height: 200px;
 }
 
 .tab-content { display: none; width: 100%; }
@@ -118,9 +137,8 @@
 
 .emptyState {
     text-align: center;
+    color: var(--text-meta);
 }
-
-.emptyState h2 { color: var(--primary-orange); }
 
 /* Responsive Sidebar */
 @media (max-width: 768px) {

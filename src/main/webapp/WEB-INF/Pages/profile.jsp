@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/profile.css">
         <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/sidebar.css">
         <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/navbar.css">
-
 </head>
 <body>
     <jsp:include page="/Components/sidebar.jsp" />
@@ -18,20 +17,26 @@
         <jsp:include page="/Components/navbar.jsp" />
         
         <div class="profileContainer">
-            <div class="profileHeader">
-                <div class="profileAvatarLarge">
-                    </div>
+    <div class="profileHeader">
+        <div class="profileAvatarLarge"></div>
+        
+        <div class="profileInfoSection">
+            <div class="profileText">
+                <h1>Guest</h1>
+             
                 
-                <div class="profileInfo">
-                    <h1>My Profile</h1>
-                    <p>Manage your posts and interactions</p>
-                </div>
-
-                <div class="actionButtons">
-                    <button class="custom-btn btn-secondary">Edit Profile</button>
-                    <button class="custom-btn btn-primary">+ Create</button>
+                <div class="bioContainer">
+                    <textarea id="userBio" placeholder="Tell about yourself..."></textarea>
                 </div>
             </div>
+
+            <div class="actionButtons">
+                <button class="custom-btn btn-secondary">Edit Profile</button>
+                <button class="custom-btn btn-primary">+ Create</button>
+            </div>
+        </div>
+    </div>
+
 
             <div class="profileTabs">
                 <div class="tab active" onclick="openTab(event, 'postsSection')">Posts</div>
@@ -44,7 +49,9 @@
                         <c:when test="${not empty userPosts}">
                             <div class="postsGrid">
                                 <c:forEach var="post" items="${userPosts}">
-                                    <div class="postCard"><p>${post.content}</p></div>
+                                    <div class="postCard">
+                                        <p>${post.content}</p>
+                                    </div>
                                 </c:forEach>
                             </div>
                         </c:when>
@@ -71,19 +78,16 @@
 
     <script>
         function openTab(evt, sectionId) {
-            // Hide all tab content
             const tabcontent = document.getElementsByClassName("tab-content");
             for (let i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].classList.remove("active-content");
             }
 
-            // Remove 'active' class from all tabs
             const tablinks = document.getElementsByClassName("tab");
             for (let i = 0; i < tablinks.length; i++) {
                 tablinks[i].classList.remove("active");
             }
 
-            // Show the current tab content and add 'active' class to the clicked tab
             document.getElementById(sectionId).classList.add("active-content");
             evt.currentTarget.classList.add("active");
         }
