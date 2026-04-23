@@ -1,3 +1,4 @@
+/* Color Variables */
 :root {
     --primary-orange: #FF4500;
     --light-orange-bg: #FFF8F0;
@@ -7,108 +8,127 @@
     --white: #FFFFFF;
 }
 
-body {
-    background-color: var(--white);
-    margin: 0;
-    font-family: "Segoe UI", sans-serif;
+/* Main Layout - Centers the entire container on the screen */
+.profileContainer {
+    max-width: 800px;
+    margin: 60px auto; /* 'auto' centers the block horizontally */
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers all children vertically */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.profileBanner {
-    height: 160px;
-    background: var(--primary-orange);
+/* Header Section - Centers Avatar, Name, and Buttons */
+.profileHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     width: 100%;
 }
 
-.profileContainer {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 0 24px;
-}
-
-.headerTopRow {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-top: -60px; 
-}
-
 .profileAvatarLarge {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     background-color: #E86A33;
-    border: 4px solid var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 48px;
-    color: var(--white);
-    font-weight: bold;
+    margin-bottom: 20px;
+    border: 5px solid var(--white);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-.profile-label {
-    color: var(--primary-orange);
-    font-weight: bold;
+.profileInfo h1 {
+    font-size: 32px;
+    margin: 5px 0;
+    color: var(--text-main);
+}
+
+.profileInfo p {
+    color: var(--text-meta);
+    margin-bottom: 25px;
+}
+
+/* Action Buttons - Centered Row */
+.actionButtons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 40px;
 }
 
 .custom-btn {
-    padding: 8px 20px;
-    border-radius: 999px;
+    padding: 10px 25px;
+    border-radius: 25px;
     font-weight: 700;
     cursor: pointer;
-    font-size: 14px;
-    transition: 0.2s;
+    font-size: 15px;
+    transition: transform 0.2s;
+    border: none;
 }
 
-.btn-primary { background: var(--primary-orange); color: var(--white); border: none; }
-.btn-secondary { background: var(--white); color: var(--primary-orange); border: 1px solid var(--primary-orange); }
+.custom-btn:active { transform: scale(0.95); }
 
+.btn-primary { background: var(--primary-orange); color: var(--white); }
+.btn-secondary { 
+    background: var(--white); 
+    color: var(--primary-orange); 
+    border: 2px solid var(--primary-orange); 
+}
+
+/* Tabs Navigation - Centered Row */
 .profileTabs {
     display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
     border-bottom: 1px solid var(--orange-border);
-    margin: 20px 0;
+    margin-bottom: 30px;
 }
 
 .tab {
-    padding: 12px 16px;
-    font-size: 14px;
+    padding: 10px 20px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--text-meta);
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .tab.active {
     color: var(--primary-orange);
-    border-bottom: 2px solid var(--primary-orange);
+    border-bottom: 3px solid var(--primary-orange);
 }
 
+/* Content Areas */
 .orange-card-box {
     background-color: var(--light-orange-bg);
     border: 1px solid var(--orange-border);
-    border-radius: 8px;
-    padding: 30px;
-    margin-bottom: 40px;
+    border-radius: 15px;
+    padding: 40px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.tab-content { display: none; }
-.tab-content.active-content { display: block; }
+.tab-content { display: none; width: 100%; }
+.active-content { display: block; }
 
 .emptyState {
     text-align: center;
-    padding: 40px 0;
 }
 
-.emptyState h2 { 
-	color: var(--primary-orange); 
-	margin-bottom: 10px; 
-	}
-	
+.emptyState h2 { color: var(--primary-orange); }
+
+/* Responsive Sidebar */
 @media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-  }
-  .sidebar.open {
-    transform: translateX(0);
-  }
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+    .sidebar.open {
+        transform: translateX(0);
+    }
 }
