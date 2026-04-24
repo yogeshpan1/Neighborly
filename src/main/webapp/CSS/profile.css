@@ -1,12 +1,42 @@
-/* Page Layout */
-.profileWrapper {
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+/* --- 0. Global Reset & Variables --- */
+:root {
+    --primary-orange: #FF4500;
+    --primary-orange-hover: #e63e00;
+    --light-orange-bg: #FFF9F6;
+    --orange-border: #FFDAB9;
+    --text-main: #1C1C1C;
+    --text-body: #333333;
+    --text-meta: #7C7C7C;
+    --white: #FFFFFF;
+    --bg-gray: #DAE0E6; /* Standard UI background */
 }
 
-/* 1. Header Layout */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-gray);
+    color: var(--text-body);
+    line-height: 1.5;
+}
+
+/* --- 1. Main Wrapper --- */
+.profileWrapper {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* --- 2. Header Layout --- */
 .profileHeader {
     display: flex;
     flex-direction: row; 
@@ -25,12 +55,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #FFFFFF;
+    color: var(--white);
     font-size: 36px;
     font-weight: bold;
+    border: 4px solid var(--white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* 2. Info column */
+/* --- 3. Info Section --- */
 .profileInfoSection {
     display: flex;
     flex-direction: column;
@@ -41,152 +73,165 @@
 .profileText h1 {
     font-size: 24px;
     margin: 0;
-    color: #FF4500;
+    color: var(--primary-orange);
 }
 
 .sub-text {
     font-size: 14px;
-    color: #7C7C7C;
+    color: var(--text-meta);
     margin: 2px 0 15px 0;
 }
 
-/* 3. BIO BOX STYLING & INTERACTION */
+/* --- 4. Bio Box --- */
 .bioContainer {
     width: 100%;
     max-width: 500px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .bioContainer label {
     display: block;
     font-size: 12px;
     font-weight: bold;
-    color: #FF4500;
-    margin-bottom: 5px;
+    color: var(--primary-orange);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .bioContainer textarea {
     width: 100%;
-    height: 70px;
-    padding: 10px;
-    border: 1px solid #FFDAB9;
+    height: 80px;
+    padding: 12px;
+    border: 1px solid var(--orange-border);
     border-radius: 10px;
-    background-color: #FFFFFF;
-    font-size: 13px;
+    background-color: var(--white);
+    font-size: 14px;
     line-height: 1.4;
     resize: none;
     outline: none;
-    transition: all 0.3s ease; /* Smooth transition for hover */
+    transition: all 0.3s ease;
+    color: var(--text-main);
 }
 
 .bioContainer textarea:hover {
-    border-color: #FF4500; /* Darker border on hover */
-    background-color: #FFF9F6; 
+    border-color: var(--primary-orange);
+    background-color: var(--light-orange-bg);
 }
 
 .bioContainer textarea:focus {
-    border-color: #FF4500;
+    border-color: var(--primary-orange);
     box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.1);
 }
 
-/* 4. BUTTONS & INTERACTION */
+/* --- 5. Buttons --- */
 .actionButtons {
     display: flex;
-    gap: 10px;
+    gap: 12px;
 }
 
 .custom-btn {
-    padding: 7px 18px;
+    padding: 8px 20px;
     border-radius: 20px;
     font-weight: bold;
     cursor: pointer;
     border: none;
-    font-size: 13px;
+    font-size: 14px;
     transition: all 0.2s ease;
 }
 
 .btn-primary { 
-    background: #FF4500; 
-    color: #FFFFFF; 
+    background: var(--primary-orange); 
+    color: var(--white); 
 }
 
 .btn-primary:hover {
-    background-color: #e63e00; /* Subtle darken */
-    transform: translateY(-2px); /* Lift effect */
+    background-color: var(--primary-orange-hover); 
+    transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(255, 69, 0, 0.2);
 }
 
 .btn-secondary { 
-    background: #FFFFFF; 
-    color: #FF4500; 
-    border: 1px solid #FF4500; 
+    background: var(--white); 
+    color: var(--primary-orange); 
+    border: 1px solid var(--primary-orange); 
 }
 
 .btn-secondary:hover {
-    background-color: #FF4500;
-    color: #FFFFFF;
-    transform: translateY(-2px);
+    background-color: var(--light-orange-bg);
+    transform: translateY(-1px);
 }
 
-/* 5. TABS */
+/* --- 6. Tabs Layout --- */
 .profileTabs {
     display: flex;
     justify-content: flex-start;
-    gap: 30px;
-    border-bottom: 1px solid #FFDAB9;
+    gap: 10px;
+    border-bottom: 1px solid var(--orange-border);
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .tab {
-    padding: 8px 15px;
+    padding: 12px 20px;
     cursor: pointer;
     font-weight: 600;
-    color: #7C7C7C;
+    color: var(--text-meta);
     border-bottom: 3px solid transparent;
     font-size: 14px;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .tab.active {
-    color: #FF4500 !important;
-    border-bottom: 3px solid #FF4500 !important; /* The Orange Line */
+    color: var(--primary-orange) !important;
+    border-bottom: 3px solid var(--primary-orange) !important;
 }
 
 .tab:hover {
-    color: #FF4500;
+    color: var(--primary-orange);
+    background-color: var(--light-orange-bg);
 }
 
-/* 6. EMPTY STATE CARD */
-.orange-card-box {
-    background-color: #FFF9F6;
-    border: 1px solid #FFDAB9;
-    border-radius: 12px;
-    padding: 40px 20px;
+/* --- 7. Content Display --- */
+.tab-content {
+    display: none; 
     width: 100%;
-    min-height: 180px;
+    animation: fadeIn 0.3s ease;
+}
+
+.active-content {
+    display: block !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 8. Empty State Styling --- */
+.orange-card-box {
+    background-color: var(--light-orange-bg);
+    border: 1px dashed var(--orange-border);
+    border-radius: 12px;
+    padding: 60px 20px;
+    width: 100%;
+    min-height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.emptyState {
+    text-align: center;
+}
+
 .emptyTitle {
-    color: #FF4500;
-    font-size: 22px;
-    margin-bottom: 8px;
+    color: var(--primary-orange);
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .emptyState p {
-    color: #1C1C1C;
+    color: var(--text-meta);
     font-size: 14px;
-}
-
-/* Tab content logic */
-.tab-content {
-    display: none; 
-    width: 100%;
-}
-
-.active-content {
-    display: block !important; /* Ensures clicking Saved only shows Saved items */
 }
