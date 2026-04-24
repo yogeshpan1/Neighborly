@@ -1,152 +1,144 @@
-:root {
-    --primary-orange: #FF4500;
-    --text-main: #1C1C1C;
-    --text-meta: #7C7C7C;
-    --orange-border: #FFDAB9;
-    --white: #FFFFFF;
-}
-
-/* 1. Header Layout: Avatar on left, Info on right */
-.profileHeader {
-    display: flex;
-    flex-direction: row; 
-    align-items: flex-start;
-    gap: 40px; /* Space between avatar and text */
-    margin-bottom: 40px;
-    width: 100%;
-}
-
-.profileAvatarLarge {
-    width: 140px;
-    height: 140px;
-    background-color: #E86A33;
-    border-radius: 50%;
-    flex-shrink: 0; /* Prevents avatar from getting squeezed */
-}
-
-/* 2. Right Side column */
-.profileInfoSection {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex-grow: 1;
-}
-
-.profileText h1 {
-    font-size: 32px;
-    margin: 0;
-    color: var(--text-main);
-}
-
-.sub-text {
-    font-size: 16px;
-    color: var(--text-meta);
-    margin: 5px 0 20px 0;
-}
-
-/* 3. BIO BOX STYLING */
-.bioContainer {
-    width: 100%;
-    max-width: 550px; /* Limits width for better readability */
-    margin-bottom: 25px;
-}
-
-.bioContainer label {
-    display: block;
-    font-size: 14px;
-    font-weight: bold;
-    color: var(--primary-orange);
-    margin-bottom: 8px;
-}
-
-.bioContainer textarea {
-    width: 100%;
-    height: 90px;
-    padding: 12px;
-    border: 1px solid var(--orange-border);
+/* Container for the profile page to keep it contained but wide */
+.profileCenter {
+    max-width: 900px;
+    margin: 0px auto;
+    background: #FFFFFF;
     border-radius: 12px;
-    background-color: #fff;
-    font-family: inherit;
-    font-size: 14px;
-    line-height: 1.5;
-    resize: none; /* Keeps the box size consistent */
-    outline: none;
-    transition: 0.3s border-color;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);
+    overflow: hidden; /* Keeps the cover photo corners rounded if needed */
 }
 
-.bioContainer textarea:focus {
-    border-color: var(--primary-orange);
-    box-shadow: 0 0 5px rgba(255, 69, 0, 0.1);
+/* Header Section */
+.profileHeader {
+    position: relative;
+    margin-bottom: 10px;
 }
 
-/* 4. Buttons row */
-.actionButtons {
+.coverPhoto {
+    height: 220px;
+    background-color: #FF4500; /* Bright orange cover from image */
+    width: 100%;
+}
+
+.avatarWrapper {
+    position: absolute;
+    bottom: -50px;
+    left: 40px;
+}
+
+.profileAvatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-color: #DF7649; /* Slightly muted orange for avatar circle */
+    border: 4px solid #FFFFFF;
+}
+
+.profileActions {
     display: flex;
-    gap: 15px;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 16px 40px 0;
 }
 
-.custom-btn {
-    padding: 10px 24px;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
+/* Button Styling */
+.btnEdit {
+    background: #FFFFFF;
+    border: 1px solid #FF4500;
+    color: #FF4500;
+    padding: 8px 24px;
+    border-radius: 30px;
     font-size: 14px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
 }
 
-.btn-primary { background: var(--primary-orange); color: white; }
-.btn-secondary { 
-    background: white; 
-    color: var(--primary-orange); 
-    border: 1px solid var(--primary-orange); 
+.btnEdit:hover {
+    background: #FFF5F0;
 }
 
+.btnCreate, .btnCreatePost {
+    background: #FF4500;
+    border: none;
+    color: #FFFFFF;
+    padding: 8px 24px;
+    border-radius: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btnCreate:hover, .btnCreatePost:hover {
+    background: #E03E00;
+}
+
+/* Profile Text */
+.profileDetails {
+    padding: 30px 40px 10px; /* Extra top padding to clear the avatar */
+}
+
+.profileName {
+    color: #FF4500;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Tabs */
 .profileTabs {
     display: flex;
-    justify-content: center;
-    gap: 40px;
-    border-bottom: 1px solid var(--orange-border);
-    width: 100%;
-    margin-bottom: 20px;
+    gap: 32px;
+    padding: 0 40px;
+    border-bottom: 1px solid #E2E8F0;
+    margin-bottom: 32px;
 }
 
 .tab {
-    padding: 12px 20px;
+    background: none;
+    border: none;
+    padding: 12px 0;
+    font-size: 15px;
+    color: #888888;
     cursor: pointer;
-    font-weight: 600;
-    color: var(--text-meta);
-    border-bottom: 3px solid transparent;
+    font-weight: 500;
+    position: relative;
 }
 
 .tab.active {
-    color: var(--primary-orange);
-    border-bottom: 3px solid var(--primary-orange);
+    color: #FF4500;
 }
 
-.orange-card-box {
-    background-color: var(--light-orange-bg);
-    border: 1px solid var(--orange-border);
-    border-radius: 12px;
-    padding: 40px;
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
     width: 100%;
-    min-height: 200px;
+    height: 2px;
+    background-color: #FF4500;
 }
 
-.tab-content { display: none; width: 100%; }
-.active-content { display: block; }
-
-.emptyState {
+/* Empty State Card */
+.emptyStateCard {
+    background: #FFF9F6; /* Light cream background */
+    border-radius: 8px;
+    padding: 80px 20px;
     text-align: center;
-    color: var(--text-meta);
+    margin: 0 40px 40px;
 }
 
-/* Responsive Sidebar */
-@media (max-width: 768px) {
-    .sidebar {
-        transform: translateX(-100%);
-        transition: transform 0.3s ease-in-out;
-    }
-    .sidebar.open {
-        transform: translateX(0);
-    }
+.emptyTitle {
+    color: #FF4500;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+}
+
+.emptySubtext {
+    color: #64748B;
+    font-size: 15px;
+    margin: 0 0 24px 0;
 }
