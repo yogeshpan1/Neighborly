@@ -32,6 +32,7 @@
                         <div class="bioContainer">
                             <label>BIO</label>
                             <textarea placeholder="Tell your neighbors about yourself..."></textarea>
+                            <button class="save-bio-btn">Save</button>
                         </div>
 
                         <div class="actionButtons">
