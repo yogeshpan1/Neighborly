@@ -1,144 +1,177 @@
-/* Container for the profile page to keep it contained but wide */
-.profileCenter {
-    max-width: 900px;
-    margin: 0px auto;
-    background: #FFFFFF;
-    border-radius: 12px;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);
-    overflow: hidden; /* Keeps the cover photo corners rounded if needed */
+:root {
+    --primary-orange: #FF4500;
+    --text-main: #1C1C1C;
+    --text-meta: #7C7C7C;
+    --orange-border: #FFDAB9;
+    --light-orange-bg: #FFF9F6;
+    --white: #FFFFFF;
 }
 
-/* Header Section */
+/* Page Layout */
+.profileWrapper {
+    max-width: 800px; /* Reduced from 900px */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 1. Header Layout */
 .profileHeader {
-    position: relative;
-    margin-bottom: 10px;
-}
-
-.coverPhoto {
-    height: 220px;
-    background-color: #FF4500; /* Bright orange cover from image */
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-start;
+    gap: 30px; /* Reduced from 40px */
+    margin-bottom: 30px; /* Reduced from 40px */
     width: 100%;
 }
 
-.avatarWrapper {
-    position: absolute;
-    bottom: -50px;
-    left: 40px;
-}
-
-.profileAvatar {
-    width: 130px;
-    height: 130px;
+.profileAvatarLarge {
+    width: 110px; /* Reduced from 140px */
+    height: 110px; /* Reduced from 140px */
+    background-color: #E86A33;
     border-radius: 50%;
-    background-color: #DF7649; /* Slightly muted orange for avatar circle */
-    border: 4px solid #FFFFFF;
-}
-
-.profileActions {
+    flex-shrink: 0;
     display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-    padding: 16px 40px 0;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 36px; /* Scaled down */
+    font-weight: bold;
 }
 
-/* Button Styling */
-.btnEdit {
-    background: #FFFFFF;
-    border: 1px solid #FF4500;
-    color: #FF4500;
-    padding: 8px 24px;
-    border-radius: 30px;
-    font-size: 14px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.2s;
+/* 2. Info column */
+.profileInfoSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
 }
 
-.btnEdit:hover {
-    background: #FFF5F0;
-}
-
-.btnCreate, .btnCreatePost {
-    background: #FF4500;
-    border: none;
-    color: #FFFFFF;
-    padding: 8px 24px;
-    border-radius: 30px;
-    font-size: 14px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background 0.2s;
-}
-
-.btnCreate:hover, .btnCreatePost:hover {
-    background: #E03E00;
-}
-
-/* Profile Text */
-.profileDetails {
-    padding: 30px 40px 10px; /* Extra top padding to clear the avatar */
-}
-
-.profileName {
-    color: #FF4500;
-    font-size: 18px;
-    font-weight: 600;
+.profileText h1 {
+    font-size: 24px; /* Reduced from 32px */
     margin: 0;
-    font-family: 'Outfit', sans-serif;
+    color: var(--primary-orange);
 }
 
-/* Tabs */
+.sub-text {
+    font-size: 14px; /* Scaled down */
+    color: var(--text-meta);
+    margin: 2px 0 15px 0;
+}
+
+/* 3. BIO BOX STYLING */
+.bioContainer {
+    width: 100%;
+    max-width: 500px; /* Slightly narrower */
+    margin-bottom: 15px; /* Reduced padding */
+}
+
+.bioContainer label {
+    display: block;
+    font-size: 12px; /* Smaller label */
+    font-weight: bold;
+    color: var(--primary-orange);
+    margin-bottom: 5px;
+}
+
+.bioContainer textarea {
+    width: 100%;
+    height: 70px; /* Reduced from 90px */
+    padding: 10px;
+    border: 1px solid var(--orange-border);
+    border-radius: 10px;
+    background-color: #fff;
+    font-size: 13px; /* Smaller text */
+    line-height: 1.4;
+    resize: none;
+    outline: none;
+}
+
+/* 4. Buttons */
+.actionButtons {
+    display: flex;
+    gap: 10px;
+}
+
+.custom-btn {
+    padding: 7px 18px; /* Reduced padding for smaller buttons */
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    font-size: 13px; /* Smaller font */
+    transition: 0.2s;
+}
+
+.btn-primary { background: var(--primary-orange); color: white; }
+.btn-secondary { 
+    background: white; 
+    color: var(--primary-orange); 
+    border: 1px solid var(--primary-orange); 
+}
+
+/* 5. TABS */
 .profileTabs {
     display: flex;
-    gap: 32px;
-    padding: 0 40px;
-    border-bottom: 1px solid #E2E8F0;
-    margin-bottom: 32px;
-}
-
-.tab {
-    background: none;
-    border: none;
-    padding: 12px 0;
-    font-size: 15px;
-    color: #888888;
-    cursor: pointer;
-    font-weight: 500;
-    position: relative;
-}
-
-.tab.active {
-    color: #FF4500;
-}
-
-.tab.active::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
+    justify-content: flex-start;
+    gap: 30px;
+    border-bottom: 1px solid var(--orange-border);
     width: 100%;
-    height: 2px;
-    background-color: #FF4500;
+    margin-bottom: 15px;
 }
 
-/* Empty State Card */
-.emptyStateCard {
-    background: #FFF9F6; /* Light cream background */
-    border-radius: 8px;
-    padding: 80px 20px;
-    text-align: center;
-    margin: 0 40px 40px;
+/* 1. Base style for all tabs */
+.tab {
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-meta); /* Gray color for inactive tabs */
+    border-bottom: 3px solid transparent; /* Keeps layout stable */
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+/* 2. Style specifically for the ACTIVE tab */
+.tab.active {
+    color: var(--primary-orange) !important; /* Forces text to Orange */
+    border-bottom: 3px solid var(--primary-orange) !important; /* The Orange Line */
+}
+
+/* 3. Hover effect (Optional but recommended) */
+.tab:hover {
+    color: var(--primary-orange);
+}
+
+/* 6. EMPTY STATE CARD */
+.orange-card-box {
+    background-color: var(--light-orange-bg);
+    border: 1px solid var(--orange-border);
+    border-radius: 12px;
+    padding: 40px 20px; /* Reduced from 60px */
+    width: 100%;
+    min-height: 180px; /* Lower minimum height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .emptyTitle {
-    color: #FF4500;
-    font-size: 22px;
-    font-weight: 600;
-    margin: 0 0 12px 0;
+    color: var(--primary-orange);
+    font-size: 22px; /* Reduced from 28px */
+    margin-bottom: 8px;
 }
 
-.emptySubtext {
-    color: #64748B;
-    font-size: 15px;
-    margin: 0 0 24px 0;
+.emptyState p {
+    color: var(--text-main);
+    font-size: 14px;
+}
+/* Hide all tab contents by default */
+.tab-content {
+    display: none; 
+    width: 100%;
+}
+
+/* Only show the content with the active class */
+.active-content {
+    display: block !important;
 }
