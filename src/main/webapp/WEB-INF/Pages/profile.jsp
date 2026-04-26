@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neighborly</title>
-    
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/sidebar.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/navbar.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/profile.css">
@@ -17,70 +16,70 @@
     <div class="mainContent">
         <jsp:include page="/Components/navbar.jsp" />
 
-        <div class="contentArea">
-            <div class="profileWrapper">
-                
-                <div class="profileHeader">
-                    <div class="profileAvatarLarge">U</div>
-                    
-                    <div class="profileInfoSection">
-                        <div class="profileText">
-                            <h1>My Profile</h1>
-                            <p class="sub-text">Welcome to your profile</p>
-                        </div>
-                        
-                        <div class="bioContainer">
-                            <label>BIO</label>
-                            <textarea placeholder="Tell your neighbors about yourself..."></textarea>
-                            <button class="save-bio-btn">Save</button>
-                        </div>
-
-                        <div class="actionButtons">
-                            <button class="custom-btn btn-secondary">Edit Profile</button>
-                            <button class="custom-btn btn-primary">+ Create Post</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="profileTabs">
-                    <div class="tab active" onclick="switchTab(event, 'postsTab')">Posts</div>
-                    <div class="tab" onclick="switchTab(event, 'savedTab')">Saved</div>
-                </div>
-
-                <div id="postsTab" class="tab-content active-content">
-                    <div class="orange-card-box">
-                        <div class="emptyState">
-                            <h2 class="emptyTitle">No posts yet</h2>
-                            <p>When you post something, it will appear here.</p>
-                            
-                        </div>
-                    </div>
-                </div>
-
-                <div id="savedTab" class="tab-content">
-    <div class="orange-card-box">
-        <div class="emptyState">
-            <h2 class="emptyTitle">No saved items</h2>
-            <p>Posts you save will appear here for easy access.</p>
+        <div class="profileWrapper">
+            
+     <div class="profileWrapper">
+    <header class="profileHeader">
+        <div class="profileAvatarLarge">
+            <div class="avatarCircle">G</div>
+        </div>
+        
+        <div class="profileInfoSection">
+            <div class="profileUserRow">
+                <h2 class="username">Guest</h2>
+                <button class="edit-btn">Edit profile</button>
+                <button class="archive-btn">View archive</button>
             </div>
+            
+            <div class="profileBio">
+                <span class="fullName">Guest Name</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="profileTabs">
+        <div class="tab active" onclick="switchTab(event, 'postsTab')">
+            <span class="css-icon grid-icon"></span> POSTS
+        </div>
+        <div class="tab" onclick="switchTab(event, 'savedTab')">
+            <span class="css-icon bookmark-icon"></span> SAVED
+        </div>
     </div>
-</div>
+    
+    </div>
 
-            </div> </div> </div> <script>
+            <div id="postsTab" class="tab-content active-content">
+                <div class="emptyState">
+                    <div class="icon-circle">
+                        <span class="css-icon camera-icon"></span>
+                    </div>
+                    <h2 class="emptyTitle">Share Photos</h2>
+                    <p>When you share photos, they will appear on your profile.</p>
+                    <a href="#" class="orange-link">Share your first photo</a>
+                </div>
+            </div>
+
+            <div id="savedTab" class="tab-content">
+                <div class="emptyState">
+                    <div class="icon-circle">
+                        <span class="css-icon bookmark-icon large"></span>
+                    </div>
+                    <h2 class="emptyTitle">Save for later</h2>
+                    <p>Items you save will appear here.</p>
+                </div>
+            </div>
+
+        </div> 
+    </div>
+
+    <script>
         function switchTab(evt, tabId) {
-            // 1. Hide all tab content sections
             const contents = document.querySelectorAll(".tab-content");
-            contents.forEach(content => {
-                content.classList.remove("active-content");
-            });
+            contents.forEach(content => content.classList.remove("active-content"));
 
-            // 2. Remove "active" class from all tab buttons
             const tabs = document.querySelectorAll(".tab");
-            tabs.forEach(tab => {
-                tab.classList.remove("active");
-            });
+            tabs.forEach(tab => tab.classList.remove("active"));
 
-            // 3. Show the specific tab content and set the button to active
             document.getElementById(tabId).classList.add("active-content");
             evt.currentTarget.classList.add("active");
         }

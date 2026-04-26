@@ -1,245 +1,215 @@
-/* --- 1. Global Reset & Layout --- */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #FFFFFF !important; 
-    color: #333333;
-    line-height: 1.5;
-    min-height: 100vh;
-}
-
-/* --- 2. Centering Logic --- */
+/* --- General Layout --- */
 .mainContent {
-    display: flex;
-    flex-direction: column;
+    background-color: #ffffff; /* Pure White Theme */
     min-height: 100vh;
     width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    color: #262626;
 }
 
-.contentArea {
-    display: flex;
-    flex: 1;
-    justify-content: center; 
-    align-items: center;     
-    padding: 40px 20px;
-    background-color: #FFFFFF !important;
-}
-
-/* --- 3. Profile Box Wrapper --- */
 .profileWrapper {
-    width: 100%;
-    max-width: 800px;
-    padding: 40px;
-    background-color: #FFFFFF;
-    border-radius: 12px;
-    border: 1px solid #EEEEEE; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
+    max-width: 935px;
+    margin: 40px auto 0; /* Centers the profile on the page */
+    padding: 0 20px;
 }
 
-/* --- 4. Profile Header Section --- */
+/* --- Header Section --- */
 .profileHeader {
     display: flex;
-    flex-direction: row; 
+    margin-bottom: 44px;
     align-items: flex-start;
-    gap: 30px; 
-    margin-bottom: 30px;
-    width: 100%;
-    flex-wrap: wrap; 
 }
 
 .profileAvatarLarge {
-    width: 110px;
-    height: 110px;
-    background-color: #E86A33;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.avatarCircle {
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    flex-shrink: 0;
+    background-color: #E86A33; /* Solid Orange Background */
+    color: #ffffff;           /* White Letter */
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #FFFFFF;
-    font-size: 40px;
+    font-size: 80px;          /* Big Letter */
     font-weight: bold;
 }
 
 .profileInfoSection {
-    flex: 1;
-    min-width: 300px;
+    flex: 2;
 }
 
-.profileText h1 {
-    font-size: 28px;
-    color: #FF4500;
+/* --- User Row (Username & Buttons) --- */
+.profileUserRow {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.username {
+    font-size: 32px; /* Increased size as requested */
+    font-weight: 400;
+    color: #262626;
+}
+
+/* FIXED: Changed .edit-bt to .edit-btn */
+.edit-btn, .archive-btn {
+    background-color: #efefef;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.edit-btn:hover, .archive-btn:hover {
+    background-color: #E86A33; /* Turns Orange on hover */
+    color: #ffffff;
+}
+
+/* --- Bio Section --- */
+.profileBio {
+    line-height: 1.5;
+}
+
+.profileBio .fullName {
+    display: block;
+    font-weight: 700;
     margin-bottom: 5px;
 }
 
-.sub-text {
-    font-size: 15px;
-    color: #7C7C7C;
-    margin-bottom: 20px;
-}
-
-/* --- 5. Bio Section & Save Button --- */
-.bioContainer {
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.bioContainer label {
-    font-size: 12px;
-    font-weight: bold;
-    color: #FF4500;
-    text-transform: uppercase;
-}
-
-.bioContainer textarea {
-    width: 100%;
-    height: 90px;
-    padding: 12px;
-    border: 1px solid #FFDAB9; 
-    border-radius: 10px;
-    background-color: #FFFFFF;
-    font-size: 14px;
-    resize: none;
-    outline: none;
-    margin-bottom: 10px;
-    transition: all 0.3s ease; 
-    color: #333;
-}
-
-/* Bio Textarea Hover & Focus */
-.bioContainer textarea:hover {
-    border-color: #FF4500; 
-}
-
-.bioContainer textarea:focus {
-    border-color: #FF4500;
-    box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.1); 
-    background-color: #FFF9F6; 
-}
-
-.save-bio-btn {
-    background-color: #FF4500;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 6px;
-    padding: 6px 16px;
-    font-size: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.save-bio-btn:hover {
-    background-color: #E63E00; 
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(255, 69, 0, 0.2);
-}
-
-/* --- 6. Action Buttons Hover Effects --- */
-.actionButtons {
-    display: flex;
-    gap: 12px;
-}
-
-.custom-btn {
-    padding: 10px 24px;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 14px;
-    transition: all 0.3s ease; /* Smooth hover transition */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Create Post (+ icon) */
-.btn-primary { 
-    background: #FF4500; 
-    color: #FFFFFF; 
-    border: none;
-}
-
-.btn-primary:hover {
-    background-color: #E63E00; /* Darker orange */
-    transform: translateY(-2px); /* Slight lift */
-    box-shadow: 0 6px 15px rgba(255, 69, 0, 0.3);
-}
-
-/* Edit Profile (Outline style) */
-.btn-secondary { 
-    background: #FFFFFF; 
-    color: #FF4500; 
-    border: 1px solid #FF4500; 
-}
-
-.btn-secondary:hover {
-    background-color: #FFF9F6; /* Very light tint */
-    border-color: #E63E00;
-    color: #E63E00;
-    transform: translateY(-1px);
-}
-
-.custom-btn:active {
-    transform: translateY(0); /* Pressed effect */
-}
-
-/* --- 7. Tabs --- */
+/* --- Navigation Tabs --- */
 .profileTabs {
     display: flex;
-    gap: 20px;
-    border-bottom: 1px solid #EEEEEE;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    justify-content: center;
+    border-top: 1px solid #dbdbdb;
+    gap: 60px;
 }
 
 .tab {
-    padding: 10px 15px;
-    cursor: pointer;
+    padding: 15px 0;
+    font-size: 12px;
     font-weight: 600;
-    color: #7C7C7C;
-    border-bottom: 3px solid transparent;
-    transition: color 0.3s ease;
-}
-
-.tab:hover {
-    color: #FF4500;
+    color: #8e8e8e;
+    cursor: pointer;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
 }
 
 .tab.active {
-    color: #FF4500 !important;
-    border-bottom: 3px solid #FF4500 !important;
+    color: #E86A33; /* Orange Active Text */
+    border-top: 2px solid #E86A33; /* Orange Top Border */
+    margin-top: -1px;
 }
 
-/* --- 8. Empty State Button Hover --- */
-.orange-card-box {
-    background-color: #FFF9F6;
-    border: 1px dashed #FFDAB9;
-    border-radius: 12px;
-    padding: 50px 20px;
+/* --- Content Visibility --- */
+.tab-content {
+    display: none;
+    padding-top: 60px;
+}
+
+.active-content {
+    display: block;
+}
+
+/* --- Empty States & Custom CSS Icons --- */
+.emptyState {
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    max-width: 350px;
+    margin: 0 auto;
 }
 
-/* Targets the 'Create Post' button specifically inside the empty state box */
-.orange-card-box .btn-primary {
-    margin-top: 15px;
-    padding: 12px 32px; /* Slightly larger for emphasis */
+.icon-circle {
+    width: 70px;
+    height: 70px;
+    border: 2px solid #262626;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+/* Custom CSS Grid Icon */
+.grid-icon {
+    width: 12px;
+    height: 12px;
+    border: 1.5px solid currentColor;
+    position: relative;
+}
+.grid-icon::before {
+    content: "";
+    position: absolute;
+    top: 3.5px; left: -1.5px;
+    width: 12px; height: 1.5px;
+    background: currentColor;
+}
+.grid-icon::after {
+    content: "";
+    position: absolute;
+    left: 3.5px; top: -1.5px;
+    width: 1.5px; height: 12px;
+    background: currentColor;
+}
+
+/* Custom CSS Bookmark Icon */
+.bookmark-icon {
+    width: 10px;
+    height: 14px;
+    border: 1.5px solid currentColor;
+    border-bottom: none;
+    position: relative;
+}
+.bookmark-icon::after {
+    content: "";
+    position: absolute;
+    bottom: -5px; left: -1.5px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid white; /* Matches page background */
+}
+
+/* Custom CSS Camera Icon */
+.camera-icon {
+    width: 30px;
+    height: 22px;
+    border: 2px solid #262626;
+    border-radius: 3px;
+    position: relative;
+}
+.camera-icon::before {
+    content: "";
+    position: absolute;
+    top: 4px; left: 7px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    border: 2px solid #262626;
 }
 
 .emptyTitle {
-    color: #FF4500;
-    font-size: 22px;
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 10px;
 }
 
-.tab-content { display: none; }
-.active-content { display: block; }
+.orange-link {
+    color: #E86A33;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.orange-link:hover {
+    text-decoration: underline;
+}
