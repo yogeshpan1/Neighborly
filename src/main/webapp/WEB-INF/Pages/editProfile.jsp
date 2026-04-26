@@ -17,10 +17,6 @@
             <div class="profile-card">
                 <div class="user-info">
                     <img src="images/profile-pic.jpg" alt="Profile" class="avatar">
-                    <div class="user-details">
-                        <span class="display-username">Guest</span>
-                        <span class="display-name">Guest Name</span>
-                    </div>
                 </div>
                 <button type="button" class="btn-change-photo">Change photo</button>
             </div>
@@ -46,15 +42,9 @@
             <div class="input-group">
                 <label for="bio">Bio</label>
                 <textarea id="bio" name="bio" placeholder="Bio" maxlength="150"></textarea>
-                <span class="char-count" id="charCounter">0 / 150</span>
+                <span class="char-count" id="charCounter">0 / 250</span>
             </div>
 
-            <div class="toggle-group">
-                <div class="toggle-text">
-                    <label>Show Threads badge</label>
-                </div>
-                <input type="checkbox" name="showThreads" class="ios-switch">
-            </div>
 
             <div class="input-group">
                 <label for="gender">Gender</label>
@@ -77,8 +67,7 @@
         const charCountDisplay = document.getElementById('charCounter');
 
         bioInput.addEventListener('input', () => {
-            const currentLength = bioInput.value.length;
-            charCountDisplay.textContent = `${currentLength} / 150`;
+            charCountDisplay.textContent = `${bioInput.value.length} / 250`;
         });
     </script>
 </body>
