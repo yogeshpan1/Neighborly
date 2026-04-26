@@ -52,20 +52,19 @@
                         <div class="emptyState">
                             <h2 class="emptyTitle">No posts yet</h2>
                             <p>When you post something, it will appear here.</p>
-                            <button class="custom-btn btn-primary" style="margin-top: 15px;">Create Post</button>
+                            
                         </div>
                     </div>
                 </div>
 
                 <div id="savedTab" class="tab-content">
-                    <div class="orange-card-box">
-                        <div class="emptyState">
-                            <h2 class="emptyTitle">No saved items</h2>
-                            <p>Posts you save will appear here for easy access.</p>
-                            <button class="custom-btn btn-secondary" style="margin-top: 15px;">Browse Feed</button>
-                        </div>
-                    </div>
-                </div>
+    <div class="orange-card-box">
+        <div class="emptyState">
+            <h2 class="emptyTitle">No saved items</h2>
+            <p>Posts you save will appear here for easy access.</p>
+            </div>
+    </div>
+</div>
 
             </div> </div> </div> <script>
         function switchTab(evt, tabId) {
