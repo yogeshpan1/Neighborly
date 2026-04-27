@@ -25,7 +25,7 @@
 .menuDropdown.active {
     opacity: 1;
     transform: translateY(0);
-    pointer-events: auto;
+    pointer-events: auto; /* This correctly allows clicking */
 }
 .menuDropdown ul {
     list-style: none;
