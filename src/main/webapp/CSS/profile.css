@@ -1,31 +1,23 @@
+
 body {
-    background-color: #ffffff; /* Consistent White Theme */
+    background-color: #ffffff;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     color: #262626;
     margin: 0;
     padding: 0;
-    line-height: 1.5;
-    
-}
-
-/* Layout Container */
-.mainContent {
-    background-color: #ffffff;
-    min-height: 100vh;
-    width: 100%;
 }
 
 .profileWrapper {
     max-width: 935px;
-    margin: 40px auto 0; /* Centers the profile on the page */
+    margin: 40px auto 0;
     padding: 0 20px;
 }
 
 /* --- Header Section --- */
 .profileHeader {
     display: flex;
-    margin-bottom: 44px;
-    align-items: flex-start;
+    margin-bottom: 20px;
+    align-items: center; 
 }
 
 .profileAvatarLarge {
@@ -38,66 +30,106 @@ body {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background-color: #E86A33; /* Solid Orange Background */
-    color: #ffffff;           /* White Letter */
+    background-color: #E86A33;
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 80px;          /* Big Letter */
+    font-size: 80px;
     font-weight: bold;
 }
 
+/* --- Info Section Layout --- */
 .profileInfoSection {
     flex: 2;
-}
-
-/* --- User Row (Username & Buttons) --- */
-.profileUserRow {
     display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
+    flex-direction: column;
 }
 
 .username {
-    font-size: 32px; /* Increased size as requested */
+    font-size: 32px;
     font-weight: 400;
-    color: #262626;
+    margin: 0;
+    line-height: 1.1;
 }
 
-
-.edit-btn {
-    display: inline-block;
-    background-color: #efefef;
-    color: #262626;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 14px;
-    text-decoration: none; /* Removes the underline */
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-}
-
-.edit-btn:hover {
-    background-color: #E86A33; /* Turns Orange on hover */
-    color: #ffffff;
-}
-
-
-/* --- Bio Section --- */
 .profileBio {
-    line-height: 1.5;
+    
+    margin-top: 12px; 
+    margin-bottom: 0; 
 }
 
 .profileBio .fullName {
     display: block;
     font-weight: 700;
-    margin-bottom: 5px;
+    font-size: 16px;
 }
 
-/* --- Navigation Tabs --- */
+/* --- Edit Button (Moved lower) --- */
+.profileActionRow {
+    margin-top: 25px; /* This pushes the button lower from the Guest Name */
+}
+
+.edit-btn {
+    display: inline-block;
+    background-color: #efefef;
+    color: #262626;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    width: fit-content;
+}
+
+.edit-btn:hover {
+    background-color: #E86A33;
+    color: #ffffff;
+}
+
+/* --- Plus Icon CSS (Fixed to show inside circle) --- */
+.plus-icon {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    display: inline-block;
+}
+
+.plus-icon::before, .plus-icon::after {
+    content: ""; /* Necessary to show the lines */
+    position: absolute;
+    background-color: #262626;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Vertical line */
+.plus-icon::before {
+    width: 2px;
+    height: 20px;
+}
+
+/* Horizontal line */
+.plus-icon::after {
+    width: 20px;
+    height: 2px;
+}
+
+/* Circle around the plus sign */
+.icon-circle {
+    width: 70px;
+    height: 70px;
+    border: 2px solid #262626;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+/* --- Tabs & Content --- */
 .profileTabs {
     display: flex;
     justify-content: center;
@@ -111,115 +143,33 @@ body {
     font-weight: 600;
     color: #8e8e8e;
     cursor: pointer;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
     text-transform: uppercase;
 }
 
 .tab.active {
-    color: #E86A33; /* Orange Active Text */
-    border-top: 2px solid #E86A33; /* Orange Top Border */
+    color: #E86A33;
+    border-top: 2px solid #E86A33;
     margin-top: -1px;
 }
 
-/* --- Content Visibility --- */
-.tab-content {
-    display: none;
-    padding-top: 60px;
+.tab-content { 
+    display: none; 
+    padding-top: 60px; 
 }
 
-.active-content {
-    display: block;
+.active-content { 
+    display: block; 
 }
 
-/* --- Empty States & Custom CSS Icons --- */
-.emptyState {
-    text-align: center;
-    max-width: 350px;
-    margin: 0 auto;
+.emptyState { 
+    text-align: center; 
+    margin: 0 auto; 
 }
 
-.icon-circle {
-    width: 70px;
-    height: 70px;
-    border: 2px solid #262626;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-}
-
-/* Custom CSS Grid Icon */
-.grid-icon {
-    width: 12px;
-    height: 12px;
-    border: 1.5px solid currentColor;
-    position: relative;
-}
-.grid-icon::before {
-    content: "";
-    position: absolute;
-    top: 3.5px; left: -1.5px;
-    width: 12px; height: 1.5px;
-    background: currentColor;
-}
-.grid-icon::after {
-    content: "";
-    position: absolute;
-    left: 3.5px; top: -1.5px;
-    width: 1.5px; height: 12px;
-    background: currentColor;
-}
-
-/* Custom CSS Bookmark Icon */
-.bookmark-icon {
-    width: 10px;
-    height: 14px;
-    border: 1.5px solid currentColor;
-    border-bottom: none;
-    position: relative;
-}
-.bookmark-icon::after {
-    content: "";
-    position: absolute;
-    bottom: -5px; left: -1.5px;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid white; /* Matches page background */
-}
-
-/* Custom CSS Camera Icon */
-.camera-icon {
-    width: 30px;
-    height: 22px;
-    border: 2px solid #262626;
-    border-radius: 3px;
-    position: relative;
-}
-.camera-icon::before {
-    content: "";
-    position: absolute;
-    top: 4px; left: 7px;
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    border: 2px solid #262626;
-}
-
-.emptyTitle {
-    font-size: 30px;
-    font-weight: 800;
-    margin-bottom: 10px;
-}
-
-.orange-link {
-    color: #E86A33;
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-block;
-    margin-top: 15px;
+.orange-link { 
+    color: #E86A33; 
+    text-decoration: none; 
+    font-weight: 600; 
 }
 
 .orange-link:hover {

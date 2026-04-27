@@ -23,13 +23,14 @@
                 </div>
                 
                 <div class="profileInfoSection">
-                    <div class="profileUserRow">
-                        <h2 class="username">Guest</h2>
-                        <a href="editProfile" class="edit-btn">Edit profile</a>
-                    </div>
+                    <h2 class="username">Guest</h2>
                     
                     <div class="profileBio">
                         <span class="fullName">Guest Name</span>
+                    </div>
+
+                    <div class="profileActionRow">
+                        <a href="${pageContext.request.contextPath}/editProfile" class="edit-btn">Edit profile</a>
                     </div>
                 </div>
             </header>
@@ -46,18 +47,18 @@
             <div id="postsTab" class="tab-content active-content">
                 <div class="emptyState">
                     <div class="icon-circle">
-                        <span class="css-icon camera-icon"></span>
+                        <span class="plus-icon"></span>
                     </div>
                     <h2 class="emptyTitle">Share Posts</h2>
                     <p>When you share photos, they will appear on your profile.</p>
-                    <a href="#" class="orange-link">Share your first Posts</a>
+                   
                 </div>
             </div>
 
             <div id="savedTab" class="tab-content">
                 <div class="emptyState">
                     <div class="icon-circle">
-                        <span class="css-icon bookmark-icon large"></span>
+                        <span class=" bookmark-icon"></span>
                     </div>
                     <h2 class="emptyTitle">Save for later</h2>
                     <p>Items you save will appear here.</p>
