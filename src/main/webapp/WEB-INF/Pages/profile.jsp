@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neighborly</title>
+    <title>Neighborly - Profile</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/sidebar.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/navbar.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/profile.css">
@@ -17,45 +17,40 @@
         <jsp:include page="/Components/navbar.jsp" />
 
         <div class="profileWrapper">
-            
-     <div class="profileWrapper">
-    <header class="profileHeader">
-        <div class="profileAvatarLarge">
-            <div class="avatarCircle">G</div>
-        </div>
-        
-        <div class="profileInfoSection">
-            <div class="profileUserRow">
-                <h2 class="username">Guest</h2>
-                <button class="edit-btn">Edit profile</button>
-                <button class="archive-btn">View archive</button>
-            </div>
-            
-            <div class="profileBio">
-                <span class="fullName">Guest Name</span>
-            </div>
-        </div>
-    </header>
+            <header class="profileHeader">
+                <div class="profileAvatarLarge">
+                    <div class="avatarCircle">G</div>
+                </div>
+                
+                <div class="profileInfoSection">
+                    <div class="profileUserRow">
+                        <h2 class="username">Guest</h2>
+                        <a href="editProfile" class="edit-btn">Edit profile</a>
+                    </div>
+                    
+                    <div class="profileBio">
+                        <span class="fullName">Guest Name</span>
+                    </div>
+                </div>
+            </header>
 
-    <div class="profileTabs">
-        <div class="tab active" onclick="switchTab(event, 'postsTab')">
-            <span class="css-icon grid-icon"></span> POSTS
-        </div>
-        <div class="tab" onclick="switchTab(event, 'savedTab')">
-            <span class="css-icon bookmark-icon"></span> SAVED
-        </div>
-    </div>
-    
-    </div>
+            <div class="profileTabs">
+                <div class="tab active" onclick="switchTab(event, 'postsTab')">
+                    <span class="css-icon grid-icon"></span> POSTS
+                </div>
+                <div class="tab" onclick="switchTab(event, 'savedTab')">
+                    <span class="css-icon bookmark-icon"></span> SAVED
+                </div>
+            </div>
 
             <div id="postsTab" class="tab-content active-content">
                 <div class="emptyState">
                     <div class="icon-circle">
                         <span class="css-icon camera-icon"></span>
                     </div>
-                    <h2 class="emptyTitle">Share Photos</h2>
+                    <h2 class="emptyTitle">Share Posts</h2>
                     <p>When you share photos, they will appear on your profile.</p>
-                    <a href="#" class="orange-link">Share your first photo</a>
+                    <a href="#" class="orange-link">Share your first Posts</a>
                 </div>
             </div>
 
@@ -68,7 +63,6 @@
                     <p>Items you save will appear here.</p>
                 </div>
             </div>
-
         </div> 
     </div>
 

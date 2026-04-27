@@ -13,10 +13,10 @@
     <div class="edit-profile-container">
         <h2>Edit profile</h2>
         
-        <form action="EditProfileServlet" method="POST">
+        <form action="editProfile" method="POST">
             <div class="profile-card">
                 <div class="user-info">
-                    <img src="images/profile-pic.jpg" alt="Profile" class="avatar">
+                    <img src="" alt="Profile" class="avatar">
                 </div>
                 <button type="button" class="btn-change-photo">Change photo</button>
             </div>
@@ -57,7 +57,7 @@
             </div>
 
             <div class="form-footer">
-                <button type="submit" class="btn-submit">Submit Changes</button>
+                <button type="submit" class="btn-submit">Submit</button>
             </div>
         </form>
     </div>

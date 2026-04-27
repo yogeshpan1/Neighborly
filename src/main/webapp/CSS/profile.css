@@ -65,22 +65,26 @@ body {
     color: #262626;
 }
 
-/* FIXED: Changed .edit-bt to .edit-btn */
-.edit-btn, .archive-btn {
+
+.edit-btn {
+    display: inline-block;
     background-color: #efefef;
+    color: #262626;
     border: none;
     padding: 8px 16px;
     border-radius: 8px;
     font-weight: 600;
     font-size: 14px;
+    text-decoration: none; /* Removes the underline */
     cursor: pointer;
     transition: background 0.2s, color 0.2s;
 }
 
-.edit-btn:hover, .archive-btn:hover {
+.edit-btn:hover {
     background-color: #E86A33; /* Turns Orange on hover */
     color: #ffffff;
 }
+
 
 /* --- Bio Section --- */
 .profileBio {
