@@ -30,15 +30,15 @@
                     </div>
 
                     <div class="profileActionRow">
-                        <a href="${pageContext.request.contextPath}/editProfile" class="edit-btn">Edit profile</a>
+                        <a href="<%=request.getContextPath()%>/editProfile" class="edit-btn">Edit profile</a>
                     </div>
                 </div>
             </header>
 
             <div class="profileTabs">
                 <div class="tab active" onclick="switchTab(event, 'postsTab')">
-                    <span class="css-icon grid-icon"></span> POSTS
-                </div>
+    POSTS
+</div>
                 <div class="tab" onclick="switchTab(event, 'savedTab')">
                     <span class="css-icon bookmark-icon"></span> SAVED
                 </div>
@@ -51,19 +51,18 @@
                     </div>
                     <h2 class="emptyTitle">Share Posts</h2>
                     <p>When you share photos, they will appear on your profile.</p>
-                   
                 </div>
             </div>
 
-            <div id="savedTab" class="tab-content">
-                <div class="emptyState">
-                    <div class="icon-circle">
-                        <span class=" bookmark-icon"></span>
-                    </div>
-                    <h2 class="emptyTitle">Save for later</h2>
-                    <p>Items you save will appear here.</p>
-                </div>
-            </div>
+          <div id="savedTab" class="tab-content">
+    <div class="emptyState">
+        <div class="icon-circle">
+            <span class="large-bookmark-icon"></span> 
+        </div>
+        <h2 class="emptyTitle">Save for later</h2>
+        <p>Items you save will appear here.</p>
+    </div>
+</div>
         </div> 
     </div>
 
