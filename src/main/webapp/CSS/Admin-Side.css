@@ -327,4 +327,46 @@ body {
     border-bottom: none;
 }
 
+.statRowLabel {
+	font-size: 15px;
+	font-weight: 700;
+	color: #ffffff;
+}
 
+.statRowValue.valueOrange {
+    color: #D35400;
+}
+
+.statRowValue.valueGreen {
+    color: #10b981;
+}
+
+.statRowValue.valueBlue {
+    color: #3b82f6;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 12000px) {
+    .statsFlex {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .dashboardFlex {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .mainContent {
+        margin-left: 0;
+    }
+
+    .topbarSearch {
+        display: none;
+    }
+}
