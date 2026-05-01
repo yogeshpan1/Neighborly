@@ -20,13 +20,16 @@
             <div class="contentArea">
                 <div class="feedCenter">
                     <div class="feedCard composer">
-                        <div class="composerTop">
-                            <div class="composerAvatar" style="background-color: #E86A33;">
-                                US
-                            </div>
-                            <input type="text" class="composerInput"
-                                placeholder="Start a conversation with your neighbors..." />
-                        </div>
+                       <div class="composerTop">
+    <!-- Points to the @WebServlet("/profile") mapping -->
+    <a href="<%=request.getContextPath()%>/profile" style="text-decoration: none;">
+        <div class="composerAvatar" style="background-color: #E86A33; cursor: pointer;">
+            G
+        </div>
+    </a>
+    <input type="text" class="composerInput"
+        placeholder="Start a conversation with your neighbors..." />
+</div>
                         <div class="composerBottom">
                             <button class="photoBtn">Add Photo</button>
                             <button class="postBtn">Post</button>
