@@ -313,3 +313,12 @@ body {
     color: #75787D;
     margin: 0;
 }
+
+/* ===== STAT ROWS ===== */
+.statRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid #CFD3D6;
+}
