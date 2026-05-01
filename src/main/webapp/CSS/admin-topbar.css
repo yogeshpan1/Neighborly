@@ -26,3 +26,20 @@
     text-decoration: none;
     transition: opacity 0.2s;
 }
+
+.topbarLogo:hover {
+    opacity: 0.8;
+}
+
+.topbarLeft h1 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+.topbarCenter {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
