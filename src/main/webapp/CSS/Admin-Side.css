@@ -322,3 +322,9 @@ body {
     padding: 16px 24px;
     border-bottom: 1px solid #CFD3D6;
 }
+
+.statRow:last-child {
+    border-bottom: none;
+}
+
+
