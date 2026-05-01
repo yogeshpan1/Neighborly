@@ -6,7 +6,10 @@
 <meta charset="UTF-8">
 <title>Fine Management</title>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/AdminFine.css">
-<link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Admin-Side.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Admin-sidebar.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Admin-topbar.css">
+
+
 </head>
 <body>
 
