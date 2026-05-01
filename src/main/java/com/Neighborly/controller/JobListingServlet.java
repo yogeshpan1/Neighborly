@@ -8,16 +8,16 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Servlet implementation class AdminFineServlet
+ * Servlet implementation class JobListingServlet
  */
-@WebServlet(asyncSupported = true, urlPatterns = { "/issuefine" })
-public class AdminFineServlet extends HttpServlet {
+@WebServlet(asyncSupported = true, urlPatterns = { "/joblisting" })
+public class JobListingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminFineServlet() {
+    public JobListingServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,7 +28,7 @@ public class AdminFineServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher("/WEB-INF/Pages/AdminFine.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/Pages/JobListing.jsp").forward(request, response);
 	}
 
 	/**
