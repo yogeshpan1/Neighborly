@@ -156,5 +156,80 @@ body {
     gap: 24px;
 }
 
+/* ===== PANEL / CARD ===== */
+.panel {
+    background-color: #212224;
+    border: 1px solid #323639;
+    border-radius: 10px;
+    overflow: hidden;
+}
 
+.panelHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid #CFD3D6;
+}
+
+.panelTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.viewAllLink {
+    font-size: 13px;
+    color: #D35400;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.viewAllLink:hover {
+    text-decoration: underline;
+}
+
+/* ===== DATA TABLE ===== */
+.dataTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dataTable th {
+    text-align: left;
+    padding: 14px 24px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #75787D;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #CFD3D6;
+}
+
+.dataTable td {
+    padding: 18px 24px;
+    font-size: 13px;
+    border-bottom: 1px solid #CFD3D6;
+}
+
+.dataTable tbody tr {
+    transition: background-color 0.2s;
+}
+
+.dataTable tbody tr:hover {
+    background-color: #323639;
+}
+
+.dataTable tr:last-child td {
+    border-bottom: none;
+}
+
+.dataTable td.primaryText {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.dataTable td.secondaryText {
+    color: #75787D;
+}
 
