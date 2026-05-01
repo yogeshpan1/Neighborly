@@ -89,5 +89,72 @@ body {
 }
 
 .statTrend.orange {
-    color: #75787D;
+    color: #75787d;
 }
+
+.statsBars {
+	display: flex;
+	align-items: flex-end;
+	gap: 5px;
+	height: 40px;
+}
+
+.statBars .bar {
+    width: 5px;
+    border-radius: 3px;
+}
+
+.barsGreen .bar {
+    background-color: #10b981;
+}
+
+.barsOrange .bar {
+    background-color: #D35400;
+}
+
+.barsBlue .bar {
+    background-color: #3b82f6;
+}
+
+.barsYellow .bar {
+    background-color: #f59e0b;
+}
+
+.h40 {
+    height: 40%;
+}
+
+.h50 {
+    height: 50%;
+}
+
+.h60 {
+    height: 60%;
+}
+
+.h70 {
+    height: 70%;
+}
+
+.h80 {
+    height: 80%;
+}
+
+.h100 {
+    height: 100%;
+}
+
+/* ===== MAIN GRID ===== */
+.dashboardFlex {
+    display: flex;
+    gap: 24px;
+}
+
+.leftCol, .rightCol {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+
+
