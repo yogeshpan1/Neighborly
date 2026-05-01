@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%
-    // Standard defaults
     String name = "Arjan Regmi";
     String initials = "AR";
     
@@ -14,7 +13,6 @@
         }
     }
 
-    // Get the page title, default to Admin Dashboard
     String title = (String) request.getAttribute("pageTitle");
     if (title == null) {
         title = "Admin Dashboard";
