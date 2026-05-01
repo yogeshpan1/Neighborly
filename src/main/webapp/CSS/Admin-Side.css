@@ -233,3 +233,81 @@ body {
     color: #75787D;
 }
 
+.badge {
+    display: inline-block;
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    background-color: #ffffff;
+}
+
+.badgePending {
+    color: #D35400;
+}
+
+.badgeProgress {
+    color: #3b82f6;
+}
+
+.badgeResolved {
+    color: #10b981;
+}
+
+.badgePublished {
+    color: #10b981;
+}
+
+.typeBadge {
+    display: inline-block;
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    background-color: #ffffff;
+    color: #D35400;
+}
+
+/* ===== ACTIVE POLLS ROW ===== */
+.pollItem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 24px;
+    border-bottom: 1px solid #CFD3D6;
+    transition: background-color 0.2s;
+}
+
+.pollItem:hover {
+    background-color: #323639;
+}
+
+.pollItem:last-child {
+    border-bottom: none;
+}
+
+.pollIconBox {
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.pollDetails {
+    flex: 1;
+}
+
+.pollDetails h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 4px 0;
+}
+
+.pollMeta {
+    font-size: 12px;
+   
