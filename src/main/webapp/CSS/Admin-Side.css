@@ -1,4 +1,5 @@
-charset "UTF-8";
+@charset "UTF-8";
+
 * {
     margin: 0;
     padding: 0;
@@ -11,25 +12,22 @@ body {
     color: #ffffff;
 }
 
-/* ===== MAIN CONTENT ===== */
 .mainContent {
     margin-left: 250px;
     flex: 1;
     display: flex;
     flex-direction: column;
-    margin-top: 70px;
     min-height: 100vh;
+    padding-top: 70px;
 }
 
-/* ===== DASHBOARD BODY ===== */
 .dashboardBody {
     padding: 32px;
     flex: 1;
 }
 
-/* ===== STAT CARDS ===== */
 .statsFlex {
-    display: flex; 
+    display: flex;
     justify-content: space-between;
     gap: 24px;
     margin-bottom: 32px;
@@ -89,14 +87,14 @@ body {
 }
 
 .statTrend.orange {
-    color: #75787d;
+    color: #75787D;
 }
 
-.statsBars {
-	display: flex;
-	align-items: flex-end;
-	gap: 5px;
-	height: 40px;
+.statBars {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    height: 40px;
 }
 
 .statBars .bar {
@@ -144,7 +142,6 @@ body {
     height: 100%;
 }
 
-/* ===== MAIN GRID ===== */
 .dashboardFlex {
     display: flex;
     gap: 24px;
@@ -156,7 +153,6 @@ body {
     gap: 24px;
 }
 
-/* ===== PANEL / CARD ===== */
 .panel {
     background-color: #212224;
     border: 1px solid #323639;
@@ -189,7 +185,6 @@ body {
     text-decoration: underline;
 }
 
-/* ===== DATA TABLE ===== */
 .dataTable {
     width: 100%;
     border-collapse: collapse;
@@ -268,7 +263,6 @@ body {
     color: #D35400;
 }
 
-/* ===== ACTIVE POLLS ROW ===== */
 .pollItem {
     display: flex;
     align-items: center;
@@ -314,7 +308,6 @@ body {
     margin: 0;
 }
 
-/* ===== STAT ROWS ===== */
 .statRow {
     display: flex;
     justify-content: space-between;
@@ -328,9 +321,14 @@ body {
 }
 
 .statRowLabel {
-	font-size: 15px;
-	font-weight: 700;
-	color: #ffffff;
+    font-size: 13px;
+    color: #75787D;
+}
+
+.statRowValue {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
 }
 
 .statRowValue.valueOrange {
@@ -346,7 +344,7 @@ body {
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 12000px) {
+@media (max-width: 1200px) {
     .statsFlex {
         flex-wrap: wrap;
         justify-content: center;
@@ -371,9 +369,7 @@ body {
     }
 }
 
-/* ==========================================
-   POLLS MANAGEMENT SPECIFIC STYLES
-   ========================================== */
+/* POLLS MANAGEMENT SPECIFIC STYLES*/
 .pollPageWrapper {
     max-width: 1040px;
     margin: 0 auto;
@@ -410,7 +406,6 @@ body {
 
 .statCardPoll {
     flex: 1;
-    /* Automatically stretches */
     background-color: #212224;
     border: 1px solid #323639;
     border-radius: 10px;
@@ -520,7 +515,7 @@ body {
     opacity: 1;
 }
 
-/* EDIT/CREATE POLL MODAL STYLES*/
+/*EDIT/CREATE POLL MODAL STYLES*/
 .modalOverlay {
     position: fixed;
     top: 0;
@@ -604,7 +599,6 @@ body {
 
 textarea.formInput {
     resize: none;
-    /* FIX: disabled resize */
     min-height: 80px;
     font-family: inherit;
 }
@@ -704,7 +698,6 @@ textarea.formInput {
     color: #ffffff;
 }
 
-/* Replaced Grid Flex additions */
 .statsFlex .statCard {
     flex: 1;
 }
