@@ -29,5 +29,36 @@
     padding: 0 12px;
 }
 
-fy-content: center;
+.sidebarNav li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    margin-bottom: 4px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #75787D;
+    font-weight: 500;
+}
+
+.sidebarNav li a:hover {
+    background-color: #212224;
+    color: #ffffff;
+}
+
+.sidebarNav li a.active {
+    background-color: #323639;
+    color: #D35400;
+}
+
+.sidebarNav li a.active:hover {
+    background-color: #323639;
+    color: #D35400;
+}
+
+.navIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
