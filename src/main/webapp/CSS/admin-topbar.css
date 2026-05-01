@@ -43,3 +43,39 @@
     display: flex;
     justify-content: center;
 }
+
+.topbarSearch {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+}
+
+.topbarSearch input {
+    background-color: #13171A;
+    border: 1px solid #323639;
+    border-radius: 8px;
+    padding: 10px 16px 10px 42px;
+    font-size: 14px;
+    color: #ffffff;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.topbarSearch input:focus {
+    border-color: #D35400;
+}
+
+.topbarSearch .searchIcon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #75787D;
+}
+
+.topbarRight {
+    display: flex;
+    align-items: center;
+    position: relative; 
+}
