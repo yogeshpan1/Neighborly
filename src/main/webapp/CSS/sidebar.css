@@ -25,11 +25,7 @@
 .menuDropdown.active {
     opacity: 1;
     transform: translateY(0);
-<<<<<<< HEAD
-    pointer-events: auto;
-=======
     pointer-events: auto; /* This correctly allows clicking */
->>>>>>> User-Profile
 }
 .menuDropdown ul {
     list-style: none;
@@ -180,15 +176,12 @@
     font-size: 11px;
     color: #888888;
 }
-<<<<<<< HEAD
-=======
 .view-btn {
     color: #0095f6;
     text-decoration: none;
     font-weight: bold;
     cursor: pointer;
 }
->>>>>>> User-Profile
 
 @media (max-width: 768px) {
   .sidebar {

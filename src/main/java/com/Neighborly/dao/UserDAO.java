@@ -21,8 +21,8 @@ public class UserDAO {
 
         Connection con = DBconfig.getConnection();
 
-        String sql = "INSERT INTO users (first_name, last_name, username, dob, gender, email, number, password, program_id) "
-                   + "VALUES (?,?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO users (first_name, last_name, username, dob, gender, email, number, password) "
+                   + "VALUES (?,?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement pst = con.prepareStatement(sql);
         
         pst.setString(1, firstName);

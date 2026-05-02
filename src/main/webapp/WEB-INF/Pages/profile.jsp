@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -123,46 +123,21 @@
 
 
     <script>
-        function switchTab(evt, tabId) {
-            const contents = document.querySelectorAll(".tab-content");
-            contents.forEach(content => content.classList.remove("active-content"));
+        const switchTab = (e, id) => {
+            document.querySelectorAll(".tab-content, .tab").forEach(el => el.classList.remove("active-content", "active"));
+            document.getElementById(id).classList.add("active-content");
+            e.currentTarget.classList.add("active");
+        };
 
-            const tabs = document.querySelectorAll(".tab");
-            tabs.forEach(tab => tab.classList.remove("active"));
-
-            document.getElementById(tabId).classList.add("active-content");
-            evt.currentTarget.classList.add("active");
-        }
-
-        /* Modal Logic */
         const modal = document.getElementById("editProfileModal");
-        
-        function openEditModal() {
-            modal.classList.add("show");
-            document.body.style.overflow = "hidden"; // Prevent scrolling
-        }
+        const toggleModal = (show) => {
+            modal.classList.toggle("show", show);
+            document.body.style.overflow = show ? "hidden" : "auto";
+        };
 
-        function closeEditModal() {
-            modal.classList.remove("show");
-            document.body.style.overflow = "auto";
-        }
-
-        // Close when clicking outside of modal content
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeEditModal();
-            }
-        }
-
-        // Bio character counter
-        const bioInput = document.getElementById('bio');
-        const charCountDisplay = document.getElementById('charCounter');
-        
-        if(bioInput && charCountDisplay) {
-            bioInput.addEventListener('input', () => {
-                charCountDisplay.textContent = `${bioInput.value.length} / 250`;
-            });
-        }
+        const openEditModal = () => toggleModal(true);
+        const closeEditModal = () => toggleModal(false);
+        window.onclick = (e) => e.target === modal && toggleModal(false);
     </script>
 </body>
 </html>
