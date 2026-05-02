@@ -19,14 +19,14 @@
         <div class="profileWrapper">
             <header class="profileHeader">
                 <div class="profileAvatarLarge">
-                    <div class="avatarCircle">G</div>
+                    <div class="avatarCircle">${user != null ? user.firstName.substring(0,1).toUpperCase() : 'G'}</div>
                 </div>
                 
                 <div class="profileInfoSection">
-                    <h2 class="username">Guest</h2>
+                    <h2 class="username">${user != null ? user.username : 'Guest'}</h2>
                     
                     <div class="profileBio">
-                        <span class="fullName">Guest Name</span>
+                        <span class="fullName">${user != null ? user.firstName : 'Guest'} ${user != null ? user.lastName : 'Name'}</span>
                     </div>
 
                     <div class="profileActionRow">
@@ -75,41 +75,47 @@
             
             <form action="editProfile" method="POST">
                 <div class="input-group">
-                    <label for="fullName">Name</label>
-                    <input type="text" id="fullName" name="fullName" placeholder="Name" value="Guest Name">
-                    <p class="helper-text">Help people discover your account by using the name you're known by.</p>
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="First Name" value="${user != null ? user.firstName : 'Guest'}">
+                </div>
+
+                <div class="input-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Last Name" value="${user != null ? user.lastName : 'Name'}">
                 </div>
 
                 <div class="input-group">
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" placeholder="Username" value="Guest">
+                    <input type="text" id="username" name="username" placeholder="Username" value="${user != null ? user.username : 'Guest'}">
                     <p class="helper-text">This is your unique handle on Neighborly.</p>
                 </div>
 
                 <div class="input-group">
-                    <label for="website">Website</label>
-                    <input type="text" id="website" name="website" placeholder="Website">
-                    <p class="helper-text">Editing your links is only available on mobile.</p>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Email" value="${user != null ? user.email : ''}" style="width: 540px; padding: 12px 16px; border: 1px solid #dbdbdb; border-radius: 12px; background: #fafafa; font-size: 16px; box-sizing: border-box; transition: border 0.2s ease;">
                 </div>
 
                 <div class="input-group">
-                    <label for="bio">Bio</label>
-                    <textarea id="bio" name="bio" placeholder="Bio" maxlength="150"></textarea>
-                    <span class="char-count" id="charCounter">0 / 250</span>
+                    <label for="number">Phone Number</label>
+                    <input type="tel" id="number" name="number" placeholder="Phone Number" value="${user != null ? user.number : ''}" style="width: 540px; padding: 12px 16px; border: 1px solid #dbdbdb; border-radius: 12px; background: #fafafa; font-size: 16px; box-sizing: border-box; transition: border 0.2s ease;">
+                </div>
+
+                <div class="input-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" value="${user != null ? user.dob : ''}" style="width: 540px; padding: 12px 16px; border: 1px solid #dbdbdb; border-radius: 12px; background: #fafafa; font-size: 16px; box-sizing: border-box; transition: border 0.2s ease;">
                 </div>
 
                 <div class="input-group">
                     <label for="gender">Gender</label>
                     <select id="gender" name="gender">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="prefer_not_to_say" selected>Prefer not to say</option>
+                        <option value="Male" ${user != null && user.gender == 'Male' ? 'selected' : ''}>Male</option>
+                        <option value="Female" ${user != null && user.gender == 'Female' ? 'selected' : ''}>Female</option>
+                        <option value="Other" ${user != null && user.gender == 'Other' ? 'selected' : ''}>Other</option>
                     </select>
-                    <p class="helper-text">This won't be part of your public profile.</p>
                 </div>
 
                 <div class="form-footer">
-                    <button type="submit" class="btn-submit">Submit</button>
+                    <button type="submit" class="btn-submit">Save Changes</button>
                 </div>
             </form>
         </div>
