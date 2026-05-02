@@ -11,23 +11,23 @@
     
     <style>
     
-.btnAccept {
+.buttonAccept {
             background-color: #37C63F;
             color: #ffffff;
             border: 1px solid #37C63F; 
             font-size: 13px;
         }
-.btnAccept:hover {
+.buttonAccept:hover {
             background-color: #059669; 
             opacity: 1; 
         }
-.btnReject {
+.buttonReject {
             background-color: #7f1d1d;
             color: #ffffff;
             border: 1px solid #991b1b;
             font-size: 13px;
         }
-.btnReject:hover {
+.buttonReject:hover {
             background-color: #991b1b;
             opacity: 1;
         }
@@ -75,7 +75,7 @@
             font-weight: 600;
             margin: 0;
         }
-.btnCancelDark {
+.buttonCancelDark {
             background-color: #323639;
             color: white;
             border: none;
@@ -86,10 +86,10 @@
             cursor: pointer;
             transition: background-color 0.2s;
         }
-.btnCancelDark:hover {
+.buttonCancelDark:hover {
             background-color: #4a4d51;
         }
-.btnDangerBright {
+.buttonDangerBright {
             background-color: #ff3b3b;
             color: white;
             border: none;
@@ -101,7 +101,7 @@
             transition: background-color 0.2s;
             box-shadow: 0 4px 12px rgba(255, 59, 59, 0.3);
         }
-.btnDangerBright:hover {
+.buttonDangerBright:hover {
             background-color: #e63535;
         }
 
@@ -119,7 +119,7 @@
             font-weight: 600;
             margin: 0;
         }
-.btnSuccessBright {
+.buttonSuccessBright {
             background-color: #10b981;
             color: white;
             border: none;
@@ -131,7 +131,7 @@
             transition: background-color 0.2s;
             box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
         }
-.btnSuccessBright:hover {
+.buttonSuccessBright:hover {
             background-color: #059669;
         }
     </style>
@@ -216,8 +216,8 @@
                         <p>Submitted 2 days ago</p>
                     </div>
                     <div class="pollActions">
-                        <button class="btn btnAccept" onclick="openAcceptModal('Rikesh Adhikari', '1')">Accept</button>
-                        <button class="btn btnReject" onclick="openRejectModal('Rikesh Adhikari', '1')">Reject</button>
+                        <button class="button buttonAccept" onclick="openAcceptModal('Rikesh Adhikari', '1')">Accept</button>
+                        <button class="button buttonReject" onclick="openRejectModal('Rikesh Adhikari', '1')">Reject</button>
                     </div>
                 </div>
 
@@ -234,8 +234,8 @@
                         <p>Submitted 10 days ago</p>
                     </div>
                     <div class="pollActions">
-                        <button class="btn btnAccept" onclick="openAcceptModal('Yogesh Pant', '2')">Accept</button>
-                        <button class="btn btnReject" onclick="openRejectModal('Yogesh Pant', '2')">Reject</button>
+                        <button class="button buttonAccept" onclick="openAcceptModal('Yogesh Pant', '2')">Accept</button>
+                        <button class="button buttonReject" onclick="openRejectModal('Yogesh Pant', '2')">Reject</button>
                     </div>
                 </div>
 
@@ -252,8 +252,8 @@
                         <p>Submitted 10 hours ago</p>
                     </div>
                     <div class="pollActions">
-                        <button class="btn btnAccept" onclick="openAcceptModal('Prayush Shrestha', '3')">Accept</button>
-                        <button class="btn btnReject" onclick="openRejectModal('Prayush Shrestha', '3')">Reject</button>
+                        <button class="button buttonAccept" onclick="openAcceptModal('Prayush Shrestha', '3')">Accept</button>
+                        <button class="button buttonReject" onclick="openRejectModal('Prayush Shrestha', '3')">Reject</button>
                     </div>
                 </div>
 
@@ -298,8 +298,8 @@
 
             <!-- Footer Buttons -->
             <div class="modalFooter" style="padding: 18px 28px; border-top: 1px solid #323639; display: flex; justify-content: flex-end; gap: 14px;">
-                <button type="button" class="btnCancelDark" onclick="closeRejectModal()">Cancel</button>
-                <button type="submit" class="btnDangerBright">Confirm Rejection</button>
+                <button type="button" class="buttonCancelDark" onclick="closeRejectModal()">Cancel</button>
+                <button type="submit" class="buttonDangerBright">Confirm Rejection</button>
             </div>
         </form>
     </div>
@@ -339,8 +339,8 @@
 
             <!-- Footer Buttons -->
             <div class="modalFooter" style="padding: 18px 28px; border-top: 1px solid #323639; display: flex; justify-content: flex-end; gap: 14px;">
-                <button type="button" class="btnCancelDark" onclick="closeAcceptModal()">Cancel</button>
-                <button type="submit" class="btnSuccessBright">Confirm Approval</button>
+                <button type="button" class="buttonCancelDark" onclick="closeAcceptModal()">Cancel</button>
+                <button type="submit" class="buttonSuccessBright">Confirm Approval</button>
             </div>
         </form>
     </div>

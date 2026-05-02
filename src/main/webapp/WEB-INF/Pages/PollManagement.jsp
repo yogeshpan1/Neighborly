@@ -41,7 +41,7 @@
             font-weight: 600;
             margin: 0;
         }
-.btnCancelDark {
+.buttonCancelDark {
             background-color: #323639;
             color: white;
             border: none;
@@ -52,10 +52,10 @@
             cursor: pointer;
             transition: background-color 0.2s;
         }
-.btnCancelDark:hover { 
+.buttonCancelDark:hover { 
 			background-color: #4a4d51; 
 }
-.btnDangerBright {
+.buttonDangerBright {
             background-color: #ff3b3b;
             color: white;
             border: none;
@@ -67,7 +67,7 @@
             transition: background-color 0.2s;
             box-shadow: 0 4px 12px rgba(255, 59, 59, 0.3);
         }
-.btnDangerBright:hover { background-color: #e63535; }
+.buttonDangerBright:hover { background-color: #e63535; }
     </style>
 </head>
 <body>
@@ -87,7 +87,7 @@
             
             <div class="pageHeader">
                 <h1 class="pageTitle">Polls Management</h1>
-                <button class="btn btnPrimary" onclick="openCreateModal()">
+                <button class="button buttonPrimary" onclick="openCreateModal()">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                     Create New Poll
                 </button>
@@ -159,11 +159,11 @@
                         <p>Started 2 days ago &middot; 142 votes</p>
                     </div>
                     <div class="pollActions">
-                        <button class="btn btnEdit" onclick="openEditModal()">
+                        <button class="button buttonEdit" onclick="openEditModal()">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                             Edit
                         </button>
-                        <button class="btn btnDelete" onclick="openDeleteModal('Should the Singha Durbar be redeveloped as a National Heritage Site?', '1')">
+                        <button class="button buttonDelete" onclick="openDeleteModal('Should the Singha Durbar be redeveloped as a National Heritage Site?', '1')">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                             Delete
                         </button>
@@ -183,11 +183,11 @@
                         <p>Started 5 days ago &middot; 892 votes</p>
                     </div>
                     <div class="pollActions">
-                        <button class="btn btnEdit" onclick="openEditModal()">
+                        <button class="button buttonEdit" onclick="openEditModal()">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                             Edit
                         </button>
-                        <button class="btn btnDelete" onclick="openDeleteModal('New Bike Lanes: Main St.', '2')">
+                        <button class="button buttonDelete" onclick="openDeleteModal('New Bike Lanes: Main St.', '2')">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                             Delete
                         </button>
@@ -207,11 +207,11 @@
                         <p>Started 12 hours ago &middot; 45 votes</p>
                     </div>
                     <div class="pollActions">
-                        <button class="btn btnEdit" onclick="openEditModal()">
+                        <button class="button buttonEdit" onclick="openEditModal()">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                             Edit
                         </button>
-                        <button class="btn btnDelete" onclick="openDeleteModal('Annual Winter Festival Location', '3')">
+                        <button class="button buttonDelete" onclick="openDeleteModal('Annual Winter Festival Location', '3')">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                             Delete
                         </button>
@@ -251,7 +251,7 @@
                             <span class="optionNumber">1</span>
                             <div class="optionInputWrap">
                                 <input type="text" name="option_1" placeholder="First option (e.g., Yes)">
-                                <button type="button" class="btnIconDelete" onclick="this.parentElement.parentElement.remove(); renumberCreateOptions();">
+                                <button type="button" class="buttonIconDelete" onclick="this.parentElement.parentElement.remove(); renumberCreateOptions();">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                                 </button>
                             </div>
@@ -261,14 +261,14 @@
                             <span class="optionNumber">2</span>
                             <div class="optionInputWrap">
                                 <input type="text" name="option_2" placeholder="Second option (e.g., No)">
-                                <button type="button" class="btnIconDelete" onclick="this.parentElement.parentElement.remove(); renumberCreateOptions();">
+                                <button type="button" class="buttonIconDelete" onclick="this.parentElement.parentElement.remove(); renumberCreateOptions();">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                                 </button>
                             </div>
                         </div>
                     </div>
                     
-                    <button type="button" class="btnTextOrange" onclick="addNewCreateOption()">
+                    <button type="button" class="buttonTextOrange" onclick="addNewCreateOption()">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                         Add Option
                     </button>
@@ -276,8 +276,8 @@
             </div>
 
             <div class="modalFooter">
-                <button type="button" class="btnGhost" onclick="closeCreateModal()">Cancel</button>
-                <button type="submit" class="btn btnPrimary">Create Poll</button>
+                <button type="button" class="buttonGhost" onclick="closeCreateModal()">Cancel</button>
+                <button type="submit" class="button buttonPrimary">Create Poll</button>
             </div>
         </form>
     </div>
@@ -313,8 +313,8 @@
             </div>
 
             <div class="modalFooter" style="padding: 18px 28px; border-top: 1px solid #323639; display: flex; justify-content: flex-end; gap: 14px;">
-                <button type="button" class="btnCancelDark" onclick="closeDeleteModal()">Cancel</button>
-                <button type="submit" class="btnDangerBright">Confirm Deletion</button>
+                <button type="button" class="buttonCancelDark" onclick="closeDeleteModal()">Cancel</button>
+                <button type="submit" class="buttonDangerBright">Confirm Deletion</button>
             </div>
         </form>
     </div>
@@ -351,7 +351,7 @@
                             <span class="optionNumber">1</span>
                             <div class="optionInputWrap">
                                 <input type="text" name="option_1" value="Yes, preserve the heritage">
-                                <button type="button" class="btnIconDelete" onclick="this.parentElement.parentElement.remove(); renumberOptions();">
+                                <button type="button" class="buttonIconDelete" onclick="this.parentElement.parentElement.remove(); renumberOptions();">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                                 </button>
                             </div>
@@ -361,14 +361,14 @@
                             <span class="optionNumber">2</span>
                             <div class="optionInputWrap">
                                 <input type="text" name="option_2" value="No, leave it as it is">
-                                <button type="button" class="btnIconDelete" onclick="this.parentElement.parentElement.remove(); renumberOptions();">
+                                <button type="button" class="buttonIconDelete" onclick="this.parentElement.parentElement.remove(); renumberOptions();">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                                 </button>
                             </div>
                         </div>
                     </div>
                     
-                    <button type="button" class="btnTextOrange" onclick="addNewOption()">
+                    <button type="button" class="buttonTextOrange" onclick="addNewOption()">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                         Add Option
                     </button>
@@ -376,8 +376,8 @@
             </div>
 
             <div class="modalFooter">
-                <button type="button" class="btnGhost" onclick="closeEditModal()">Cancel</button>
-                <button type="submit" class="btn btnPrimary">Update Poll</button>
+                <button type="button" class="buttonGhost" onclick="closeEditModal()">Cancel</button>
+                <button type="submit" class="button buttonPrimary">Update Poll</button>
             </div>
         </form>
     </div>
@@ -435,7 +435,7 @@
                 <span class="optionNumber">${nextNum}</span>
                 <div class="optionInputWrap">
                     <input type="text" name="option_${nextNum}" value="New option text..." onfocus="this.select()">
-                    <button type="button" class="btnIconDelete" onclick="this.parentElement.parentElement.remove(); renumberOptions();">
+                    <button type="button" class="buttonIconDelete" onclick="this.parentElement.parentElement.remove(); renumberOptions();">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                     </button>
                 </div>
@@ -462,7 +462,7 @@
                 <span class="optionNumber">${nextNum}</span>
                 <div class="optionInputWrap">
                     <input type="text" name="option_${nextNum}" placeholder="New option text...">
-                    <button type="button" class="btnIconDelete" onclick="this.parentElement.parentElement.remove(); renumberCreateOptions();">
+                    <button type="button" class="buttonIconDelete" onclick="this.parentElement.parentElement.remove(); renumberCreateOptions();">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                     </button>
                 </div>

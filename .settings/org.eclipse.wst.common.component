@@ -2,7 +2,7 @@
                 
     
     
-    <wb-module deploy-name="Neighborly">
+    <wb-module deploy-name="NeighborlyReportIssue">
                                 
         
         
@@ -23,7 +23,7 @@
         
         
         <property name="java-output-path" value="/Neighborly/target/classes"/>
-        <property name="context-root" value="Neighborly"/>
+        <property name="context-root" value="NeighborlyReportIssue"/>
                             
     
     
