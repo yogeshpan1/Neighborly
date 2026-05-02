@@ -49,34 +49,25 @@ public class CreatePollServlet extends HttpServlet {
 	    protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	            throws ServletException, IOException {
 
-	        request.setCharacterEncoding("UTF-8");
+	    	request.setCharacterEncoding("UTF-8");
 
 	        String title = request.getParameter("title");
 	        String description = request.getParameter("description");
+	        String option1 = request.getParameter("option_1");
+	        String option2 = request.getParameter("option_2");
+	        String option3 = request.getParameter("option_3");
+	        String option4 = request.getParameter("option_4");
 
-	        if (title == null || title.trim().isEmpty()) 
-	        {
+	        if (title == null || title.trim().isEmpty()) {
 	            response.sendRedirect(request.getContextPath() + "/pollmanagement");
 	            return;
 	        }
 
-	        StringBuilder options = new StringBuilder();
-	        int i = 1;
-	        String opt;
-	        while ((opt = request.getParameter("option_" + i)) != null)
-	        {
-	            if (!opt.trim().isEmpty())
-	            {
-	                if (options.length() > 0) options.append(",");
-	                options.append(opt.trim());
-	            }
-	            i++;
-	        }
-
 	        try {
 	            PollDAO dao = new PollDAO();
-	            dao.insertPoll(title.trim(), description, options.toString(), "Active", DEFAULT_ADMIN_USER_ID);
-	        } catch (Exception e) {
+	            dao.insertPoll(title.trim(), description, option1, option2, option3, option4, "Active", DEFAULT_ADMIN_USER_ID);
+	        } catch (Exception e) 
+	        {
 	            e.printStackTrace();
 	        }
 

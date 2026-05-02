@@ -186,48 +186,34 @@
             <h2 class="modalTitle">Create New Poll</h2>
             <p class="modalSubtitle">Set up a new civic issue poll and define choices.</p>
         </div>
-        
+
         <form action="<%= request.getContextPath() %>/createpoll" method="POST" id="createPollForm">
             <div class="modalBody">
                 <div class="formGroup">
                     <label class="formLabel">Poll Title</label>
                     <input type="text" class="formInput" id="createPollTitle" name="title" placeholder="e.g., Should we install new bike lanes?">
                 </div>
-                
+
                 <div class="formGroup">
                     <label class="formLabel">Brief Description</label>
                     <textarea class="formInput" id="createPollDesc" name="description" placeholder="Provide some context for the citizens..."></textarea>
                 </div>
 
                 <div class="formGroup">
-                    <label class="formLabel">Poll Options</label>
-                    <div class="optionsList" id="createOptionsList">
-                        <!-- Option 1 -->
-                        <div class="optionItem">
-                            <span class="optionNumber">1</span>
-                            <div class="optionInputWrap">
-                                <input type="text" name="option_1" placeholder="First option (e.g., Yes)">
-                                <button type="button" class="btnIconDelete" onclick="this.parentElement.parentElement.remove(); renumberCreateOptions();">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-                                </button>
-                            </div>
-                        </div>
-                        <!-- Option 2 -->
-                        <div class="optionItem">
-                            <span class="optionNumber">2</span>
-                            <div class="optionInputWrap">
-                                <input type="text" name="option_2" placeholder="Second option (e.g., No)">
-                                <button type="button" class="btnIconDelete" onclick="this.parentElement.parentElement.remove(); renumberCreateOptions();">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <button type="button" class="btnTextOrange" onclick="addNewCreateOption()">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                        Add Option
-                    </button>
+                    <label class="formLabel">Option 1</label>
+                    <input type="text" class="formInput" name="option_1" placeholder="e.g., Yes">
+                </div>
+                <div class="formGroup">
+                    <label class="formLabel">Option 2</label>
+                    <input type="text" class="formInput" name="option_2" placeholder="e.g., No">
+                </div>
+                <div class="formGroup">
+                    <label class="formLabel">Option 3</label>
+                    <input type="text" class="formInput" name="option_3" placeholder="e.g., Maybe">
+                </div>
+                <div class="formGroup">
+                    <label class="formLabel">Option 4</label>
+                    <input type="text" class="formInput" name="option_4" placeholder="Optional">
                 </div>
             </div>
 

@@ -2,84 +2,116 @@ package com.Neighborly.model;
 
 public class PollModel 
 {
-	 private int pollId;
-	 private String question;
-	 private String status;
-	 private String createdAt;
-	 private int userId;
-	 private String description;
-	 private String options;
-	 
-	// Getters
-	public int getPollId() 
-	{ 
-	    return pollId; 
-	}
+    private int pollId;
+    private String question;
+    private String status;
+    private String createdAt;
+    private int userId;
+    private String description;
+    private String option1;
+    private String option2;
+    private String option3;
+    private String option4;
 
-	public String getQuestion() 
-	{ 
-	    return question; 
-	}
+    // Getters
+    public int getPollId() 
+    { 
+        return pollId; 
+    }
 
-	public String getStatus() 
-	{ 
-	    return status; 
-	}
-	
-	public String getDescription()
-	{
-		return description;
-	}
-	
-	public String getOptions()
-	{
-		return options;
-	}
+    public String getQuestion() 
+    { 
+        return question; 
+    }
 
-	public String getCreatedAt() 
-	{ 
-	    return createdAt; 
-	}
+    public String getStatus() 
+    { 
+        return status; 
+    }
 
-	public int getUserId() 
-	{ 
-	    return userId;
-	}
+    public String getDescription() 
+    {
+        return description;
+    }
 
-	// Setters
-	public void setPollId(int pollId) 
-	{ 
-	    this.pollId = pollId; 
-	}
+    public String getOption1() 
+    {
+        return option1;
+    }
 
-	public void setQuestion(String question) 
-	{ 
-	    this.question = question; 
-	}
+    public String getOption2() 
+    {
+        return option2;
+    }
 
-	public void setStatus(String status) 
-	{ 
-	    this.status = status;
-	}
-	
-	public void setDescription(String description)
-	{
-		this.description = description;
-	}
-	
-	public void setOptions(String description)
-	{
-		this.options = options;
-	}
+    public String getOption3() 
+    {
+        return option3;
+    }
 
-	public void setCreatedAt(String createdAt) 
-	{ 
-	    this.createdAt = createdAt; 
-	}
+    public String getOption4() 
+    {
+        return option4;
+    }
 
-	public void setUserId(int userId) 
-	{
-	    this.userId = userId;
-	}
+    public String getCreatedAt() 
+    { 
+        return createdAt; 
+    }
 
+    public int getUserId() 
+    { 
+        return userId;
+    }
+
+    // Setters
+    public void setPollId(int pollId) 
+    { 
+        this.pollId = pollId; 
+    }
+
+    public void setQuestion(String question) 
+    { 
+        this.question = question; 
+    }
+
+    public void setStatus(String status) 
+    { 
+        this.status = status;
+    }
+
+    public void setDescription(String description) 
+    {
+        this.description = description;
+    }
+
+    public void setOption1(String option1) 
+    {
+        this.option1 = option1;
+    }
+
+    public void setOption2(String option2) 
+    {
+        this.option2 = option2;
+    }
+
+    public void setOption3(String option3) 
+    {
+        this.option3 = option3;
+    }
+
+    public void setOption4(String option4) 
+    {
+        this.option4 = option4;
+    }
+
+    public void setCreatedAt(String createdAt) 
+    { 
+        this.createdAt = createdAt; 
+    }
+
+    public void setUserId(int userId) 
+    {
+        this.userId = userId;
+    }
 }
