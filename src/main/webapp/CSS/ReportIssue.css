@@ -43,6 +43,6 @@
     border-radius: 10px;
     padding: 24px 28px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
