@@ -39,10 +39,79 @@
 .issueStatCard {
     flex: 1;
     background-color: #212224;
-    border: 1px;
+    border: 1px solid #323639;
     border-radius: 10px;
     padding: 24px 28px;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    gap: 20px;
+    height: 120px;
+    transition: transform 0.2s;
 }
+
+.issueStatCard:hover {
+    transform: translateY(-2px);
+    border-color: #CFD3D6;
+}
+
+.sectionTitle {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 24px;
+}
+
+.issueList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.issueRow {
+    background-color: #212224;
+    border: 1px solid #323639;
+    border-radius: 10px;
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: border-color 0.2s;
+}
+
+.issueRow:hover {
+    border-color: #75787D;
+}
+
+.issueAvatar {
+    width: 44px;
+    height: 44px;
+    background-color: #323639;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.issueAvatar svg {
+    color: #D35400;
+}
+
+.issueDetails {
+    flex: 1;
+}
+
+.issueMeta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+
+.reporterName {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
 
