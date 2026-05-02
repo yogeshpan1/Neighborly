@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,7 +54,7 @@
             transition: background-color 0.2s;
         }
 .btnCancelDark:hover { 
-			background-color: #4a4d51; 
+            background-color: #4a4d51; 
 }
 .btnDangerBright {
             background-color: #ff3b3b;
@@ -105,7 +106,7 @@
                     </div>
                     <div class="statInfo">
                         <span class="statLabel">Total Polls</span>
-                        <span class="statValue">3</span>
+                        <span class="statValue">${totalPolls}</span>
                     </div>
                 </div>
 
@@ -118,7 +119,7 @@
                     </div>
                     <div class="statInfo">
                         <span class="statLabel">Active Polls</span>
-                        <span class="statValue">2</span>
+                        <span class="statValue">${activePolls}</span>
                     </div>
                 </div>
 
@@ -145,78 +146,33 @@
 
             <!-- LIST OF POLLS -->
             <div class="pollListContainer">
+            	<c:forEach var="p" items="${polls}">
+			    <div class="pollRow">
+			        <div class="pollIconBox">
+			            <div class="statBars barsBlue" style="height: 20px; gap: 3px;">
+			                <div class="bar h60" style="width: 4px;"></div>
+			                <div class="bar h100" style="width: 4px;"></div>
+			                <div class="bar h80" style="width: 4px;"></div>
+			            </div>
+			        </div>
+			        <div class="pollInfo">
+			            <h4><c:out value="${p.question}" /></h4>
+			            <p>Created ${p.createdAt}</p>
+			        </div>
+			        <div class="pollActions">
+			        	<button class="btn btnEdit" onclick="openEditModal()">
+    	                	<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+			                Edit
+			            </button>
+			            <button class="btn btnDelete" onclick="openDeleteModalFromBtn(this)" data-deletePollId="${p.pollId}">
+			                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+			                Delete
+			            </button>
+			        </div>
+			    </div>
+			</c:forEach>
+	                
                 
-                <div class="pollRow">
-                    <div class="pollIconBox">
-                        <div class="statBars barsBlue" style="height: 20px; gap: 3px;">
-                            <div class="bar h60" style="width: 4px;"></div>
-                            <div class="bar h100" style="width: 4px;"></div>
-                            <div class="bar h80" style="width: 4px;"></div>
-                        </div>
-                    </div>
-                    <div class="pollInfo">
-                        <h4>Should the Singha Durbar be redeveloped as a National Heritage Site?</h4>
-                        <p>Started 2 days ago &middot; 142 votes</p>
-                    </div>
-                    <div class="pollActions">
-                        <button class="btn btnEdit" onclick="openEditModal()">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                            Edit
-                        </button>
-                        <button class="btn btnDelete" onclick="openDeleteModal('Should the Singha Durbar be redeveloped as a National Heritage Site?', '1')">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-                            Delete
-                        </button>
-                    </div>
-                </div>
-
-                <div class="pollRow">
-                    <div class="pollIconBox">
-                         <div class="statBars barsBlue" style="height: 20px; gap: 3px;">
-                            <div class="bar h60" style="width: 4px;"></div>
-                            <div class="bar h100" style="width: 4px;"></div>
-                            <div class="bar h80" style="width: 4px;"></div>
-                        </div>
-                    </div>
-                    <div class="pollInfo">
-                        <h4>New Bike Lanes: Main St.</h4>
-                        <p>Started 5 days ago &middot; 892 votes</p>
-                    </div>
-                    <div class="pollActions">
-                        <button class="btn btnEdit" onclick="openEditModal()">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                            Edit
-                        </button>
-                        <button class="btn btnDelete" onclick="openDeleteModal('New Bike Lanes: Main St.', '2')">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-                            Delete
-                        </button>
-                    </div>
-                </div>
-
-                <div class="pollRow">
-                    <div class="pollIconBox">
-                         <div class="statBars barsBlue" style="height: 20px; gap: 3px;">
-                            <div class="bar h60" style="width: 4px;"></div>
-                            <div class="bar h100" style="width: 4px;"></div>
-                            <div class="bar h80" style="width: 4px;"></div>
-                        </div>
-                    </div>
-                    <div class="pollInfo">
-                        <h4>Annual Winter Festival Location</h4>
-                        <p>Started 12 hours ago &middot; 45 votes</p>
-                    </div>
-                    <div class="pollActions">
-                        <button class="btn btnEdit" onclick="openEditModal()">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                            Edit
-                        </button>
-                        <button class="btn btnDelete" onclick="openDeleteModal('Annual Winter Festival Location', '3')">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-                            Delete
-                        </button>
-                    </div>
-                </div>
 
             </div>
         </div>
@@ -392,7 +348,13 @@
     const deleteIdInput = document.getElementById('deletePollId');
 
     // --- EDIT MODAL LOGIC ---
-    function openEditModal() { editModal.style.display = 'flex'; }
+    function openEditModal(pollId, question, description)
+    {
+	    document.getElementById('editPollId').value = pollId;
+	    document.getElementById('editPollTitle').value = question;
+	    document.getElementById('editPollDesc').value = description;
+	    editModal.style.display = 'flex';
+    }
     function closeEditModal() { editModal.style.display = 'none'; }
 
     // --- CREATE MODAL LOGIC ---
@@ -473,4 +435,3 @@
 </script>
 
 </body>
-</html>

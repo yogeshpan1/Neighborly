@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
 public class DBconfig
 {
-	private static final String URL = "jdbc:mysql://localhost:3306/week_five";
+	private static final String URL = "jdbc:mysql://localhost:3306/neighborly";
     private static final String USER = "root";
     private static final String PASSWORD = "";
 
