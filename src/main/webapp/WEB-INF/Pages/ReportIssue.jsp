@@ -102,7 +102,7 @@
                         <div class="issueDetails">
                             <div class="issueMeta">
                                 <span class="reporterName">Prayush Shrestha</span>
-                                <span class="issueTitle">Senior Architect</span>
+                                <span class="issueTitle">Asan Traffic Problem</span>
                             </div>
                             <p class="submittedTime">Submitted 2 days ago</p>
                         </div>
