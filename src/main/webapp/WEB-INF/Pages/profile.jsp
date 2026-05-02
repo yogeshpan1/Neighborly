@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="profileActionRow">
-                        <button onclick="openEditModal()" class="edit-btn" style="border:none; cursor:pointer;">Edit profile</button>
+                        <button onclick="openEditModal()" class="edit-btn">Edit profile</button>
                     </div>
                 </div>
             </header>
@@ -72,7 +72,19 @@
             <span class="close-btn" onclick="closeEditModal()">&times;</span>
             <h2>Edit profile</h2>
             
-            <form action="editProfile" method="POST">
+            <form action="editProfile" method="POST" enctype="multipart/form-data">
+                <div class="preview-container">
+                    <i class="fas fa-user preview-placeholder" id="placeholderIcon"></i>
+                    <img id="imagePreview" src="#" alt="Preview">
+                </div>
+
+                <div class="file-input-wrapper">
+                    <label for="profilePicture" class="custom-file-upload">
+                        <i class="fas fa-camera"></i> Change Photo
+                    </label>
+                    <input type="file" id="profilePicture" name="profilePicture" accept="image/*" onchange="previewFile()">
+                </div>
+
                 <div class="input-group">
                     <label for="firstName">First Name</label>
                     <input type="text" id="firstName" name="firstName" placeholder="First Name" value="${user != null ? user.firstName : 'Guest'}">
@@ -91,17 +103,17 @@
 
                 <div class="input-group">
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="Email" value="${user != null ? user.email : ''}" style="width: 540px; padding: 12px 16px; border: 1px solid #dbdbdb; border-radius: 12px; background: #fafafa; font-size: 16px; box-sizing: border-box; transition: border 0.2s ease;">
+                    <input type="email" id="email" name="email" placeholder="Email" value="${user != null ? user.email : ''}">
                 </div>
 
                 <div class="input-group">
                     <label for="number">Phone Number</label>
-                    <input type="tel" id="number" name="number" placeholder="Phone Number" value="${user != null ? user.number : ''}" style="width: 540px; padding: 12px 16px; border: 1px solid #dbdbdb; border-radius: 12px; background: #fafafa; font-size: 16px; box-sizing: border-box; transition: border 0.2s ease;">
+                    <input type="tel" id="number" name="number" placeholder="Phone Number" value="${user != null ? user.number : ''}">
                 </div>
 
                 <div class="input-group">
                     <label for="dob">Date of Birth</label>
-                    <input type="date" id="dob" name="dob" value="${user != null ? user.dob : ''}" style="width: 540px; padding: 12px 16px; border: 1px solid #dbdbdb; border-radius: 12px; background: #fafafa; font-size: 16px; box-sizing: border-box; transition: border 0.2s ease;">
+                    <input type="date" id="dob" name="dob" value="${user != null ? user.dob : ''}">
                 </div>
 
                 <div class="input-group">
@@ -137,6 +149,23 @@
         const openEditModal = () => toggleModal(true);
         const closeEditModal = () => toggleModal(false);
         window.onclick = (e) => e.target === modal && toggleModal(false);
+
+        function previewFile() {
+            const preview = document.getElementById('imagePreview');
+            const file = document.getElementById('profilePicture').files[0];
+            const reader = new FileReader();
+            const placeholder = document.getElementById('placeholderIcon');
+
+            reader.onloadend = function () {
+                preview.src = reader.result;
+                preview.style.display = 'block';
+                placeholder.style.display = 'none';
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
     </script>
 </body>
 </html>
