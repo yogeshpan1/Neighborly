@@ -11,7 +11,6 @@
     z-index: 99;
 }
 
-
 .topbarCenter {
     position: absolute;
     left: 50%;
@@ -20,20 +19,16 @@
 
 .topbarCenter h1 {
     font-size: 18px;
-    margin: 0;
-}
-
-.topbarLeft h1 {
-    font-size: 18px;
     font-weight: 600;
-    color: #333333;
-    margin: 0px;
+    color: grey;
+    margin: 0;
 }
 
 .topbarRight {
     display: flex;
     align-items: center;
     position: relative;
+    margin-left: auto;
 }
 
 .bellIcon {
@@ -49,17 +44,6 @@
 
 .bellIcon:hover {
     color: #E86A33;
-}
-
-.notifDot {
-    position: absolute;
-    top: 6px;
-    right: 8px;
-    width: 8px;
-    height: 8px;
-    background-color: #E86A33;
-    border-radius: 9999px;
-    border: 2px solid #FFFFFF;
 }
 
 .notificationDropdown {

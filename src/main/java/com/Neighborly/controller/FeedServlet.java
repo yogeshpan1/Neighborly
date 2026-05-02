@@ -26,8 +26,7 @@ public class FeedServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
-    	request.setAttribute("activePage", "feed");
-    	request.setAttribute("pageTitle", "Feed"); // change as the page changes
+    	request.setAttribute("activePage", "Feed");
         // Forwards to JSP
         request.getRequestDispatcher("/WEB-INF/Pages/feed.jsp").forward(request, response);
     }
