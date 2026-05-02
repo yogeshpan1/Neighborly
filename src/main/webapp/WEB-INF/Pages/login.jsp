@@ -25,9 +25,9 @@
                 <div class="loginForm">
                     <h2>Welcome back</h2>
 
-                    <% if (request.getAttribute("errorMessage") != null) { %>
+                    <% if (request.getAttribute("error") != null) { %>
                         <div class="errorMessage">
-                            <%= request.getAttribute("errorMessage") %>
+                            <%= request.getAttribute("error") %>
                         </div>
                     <% } %>
 
@@ -36,14 +36,16 @@
                             <div class="formLabel">
                                 <label for="username">USERNAME</label>
                             </div>
-                            <input type="text" id="username" name="username" class="formControl" placeholder="Enter your username" required>
+                            <input type="text" id="username" name="username" class="formControl"
+                                   placeholder="Enter your username"
+                                   value="<%= request.getAttribute("typedUser") != null ? request.getAttribute("typedUser") : "" %>">
                         </div>
 
                         <div class="formGroup">
                             <div class="formLabel">
                                 <label for="password">PASSWORD</label>
                             </div>
-                            <input type="password" id="password" name="password" class="formControl" placeholder="........" required>
+                            <input type="password" id="password" name="password" class="formControl" placeholder="........">
                             <a href="forgotPassword.jsp" class="forgotLink">Forgot password?</a>
                         </div>
 
@@ -62,7 +64,7 @@
                     </form>
 
                 </div>
-            </div>	
+            </div>
         </div>
     </body>
 </html>
