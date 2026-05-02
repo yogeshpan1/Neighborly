@@ -19,7 +19,13 @@ body {
 }
 
 @media (max-width: 768px) {
+<<<<<<< HEAD
     .mainContent { margin-left: 0px; }
+=======
+    .mainContent {
+        margin-left: 0px;
+    }
+>>>>>>> User-Profile
 }
 
 .contentArea {
@@ -34,6 +40,7 @@ body {
     margin: 0px auto;
 }
 
+<<<<<<< HEAD
 .feedCard {
     background: #FFFFFF;
     border-radius: 16px;
@@ -45,10 +52,29 @@ body {
 
 .composer {
     margin-bottom: 32px;
+=======
+.composer {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.post {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.02);
+>>>>>>> User-Profile
 }
 
 .composerTop {
     display: flex;
+<<<<<<< HEAD
     gap: 16px;
     margin-bottom: 16px;
 }
@@ -57,6 +83,16 @@ body {
     width: 44px;
     height: 44px;
     border-radius: 9999px;
+=======
+    align-items: center;
+    gap: 12px;
+}
+
+.composerAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+>>>>>>> User-Profile
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,6 +104,7 @@ body {
 
 .composerInput {
     flex: 1;
+<<<<<<< HEAD
     border: 1px solid #E2E8F0;
     border-radius: 40px;
     padding: 12px 20px;
@@ -80,11 +117,42 @@ body {
 .composerInput:focus {
     border-color: #E86A33;
     background: #FFFFFF;
+=======
+    border: none;
+    border-radius: 20px;
+    padding: 12px 20px;
+    font-size: 15px;
+    outline: none;
+    background: #f0f2f5;
+    color: #050505;
+}
+
+.composerInput:hover,
+.composerInput:focus {
+    background: #e4e6e9;
+}
+
+.photoActionBtn {
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.photoActionBtn:hover {
+    background: #f0f2f5;
+>>>>>>> User-Profile
 }
 
 .composerBottom {
     display: flex;
     justify-content: flex-end;
+<<<<<<< HEAD
     gap: 12px;
 }
 
@@ -101,6 +169,10 @@ body {
 
 .photoBtn:hover {
     background: #F0F0F0;
+=======
+    align-items: center;
+    margin-top: 12px;
+>>>>>>> User-Profile
 }
 
 .postBtn {
@@ -108,9 +180,15 @@ body {
     color: white;
     border: none;
     padding: 8px 24px;
+<<<<<<< HEAD
     border-radius: 30px;
     font-size: 14px;
     font-weight: 500;
+=======
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+>>>>>>> User-Profile
     cursor: pointer;
     transition: background 0.2s;
 }
@@ -121,6 +199,7 @@ body {
 
 .postHeader {
     display: flex;
+<<<<<<< HEAD
     gap: 16px;
     margin-bottom: 16px;
 }
@@ -153,11 +232,66 @@ body {
 .postTime {
     font-size: 12px;
     color: #888888;
+=======
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.postHeaderLeft,
+.postHeaderRight {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.postAvatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.postAuthor {
+    font-weight: 600;
+    color: #1a1a1b;
+    font-size: 13px;
+}
+
+.postTime {
+    font-size: 13px;
+    color: #787c7e;
+}
+
+.moreBtn {
+    background: none;
+    border: none;
+    color: #1a1a1b;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    border-radius: 20px;
+}
+
+.moreBtn:hover {
+    background: #eaedef;
+}
+
+.postTextContent {
+    flex: 1;
+>>>>>>> User-Profile
 }
 
 .postTitle {
     font-size: 18px;
     font-weight: 600;
+<<<<<<< HEAD
     margin-bottom: 12px;
     color: #333333;
     font-family: 'Outfit', sans-serif;
@@ -202,11 +336,24 @@ body {
     color: #BF5E00;
     font-weight: 500;
     font-size: 14px;
+=======
+    margin-bottom: 8px;
+    color: #1a1a1b;
+}
+
+.postBody {
+    color: #1a1a1b;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 16px;
+    margin-top: 0px;
+>>>>>>> User-Profile
 }
 
 .postActions {
     display: flex;
     align-items: center;
+<<<<<<< HEAD
     gap: 20px;
     margin-top: 16px;
     padding-top: 16px;
@@ -221,11 +368,40 @@ body {
     padding: 6px 12px;
     border-radius: 40px;
     border: 1px solid #E0E0E0;
+=======
+    gap: 8px;
+    margin-top: 8px;
+    padding-top: 0px;
+    border-top: none;
+}
+
+.actionPill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #eaedef;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a1b;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.actionPill:hover {
+    background: #e2e7e9;
+}
+
+.voteGroup {
+    padding: 4px 12px;
+>>>>>>> User-Profile
 }
 
 .voteBtn {
     background: none;
     border: none;
+<<<<<<< HEAD
     cursor: pointer;
     padding: 4px;
     display: inline-flex;
@@ -235,11 +411,28 @@ body {
 
 .voteBtn:hover {
     transform: scale(1.1);
+=======
+    padding: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.voteBtn:hover {
+    background: #d4d7d9;
+}
+
+.voteCount {
+    min-width: 24px;
+    text-align: center;
+>>>>>>> User-Profile
 }
 
 .voteImg {
     width: 16px;
     height: 16px;
+<<<<<<< HEAD
     display: block;
     opacity: 0.8;
 }
@@ -265,3 +458,6 @@ body {
     color: #2E7D32;
 }
 
+=======
+}
+>>>>>>> User-Profile

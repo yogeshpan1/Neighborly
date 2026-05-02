@@ -1,4 +1,5 @@
 .topbar {
+<<<<<<< HEAD
     position: relative;
     display: flex;
     align-items: center;
@@ -42,6 +43,8 @@
 }
 
 .topbar {
+=======
+>>>>>>> User-Profile
     background-color: #FFFFFF;
     border-bottom: 1px solid #E0E0E0;
     display: flex;
@@ -54,6 +57,20 @@
     z-index: 99;
 }
 
+<<<<<<< HEAD
+=======
+.topbarCenter {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.topbarCenter h1 {
+    font-size: 18px;
+    margin: 0;
+}
+
+>>>>>>> User-Profile
 .topbarLeft h1 {
     font-size: 18px;
     font-weight: 600;
@@ -64,6 +81,10 @@
 .topbarRight {
     display: flex;
     align-items: center;
+<<<<<<< HEAD
+=======
+    position: relative;
+>>>>>>> User-Profile
 }
 
 .bellIcon {
@@ -91,3 +112,26 @@
     border-radius: 9999px;
     border: 2px solid #FFFFFF;
 }
+<<<<<<< HEAD
+=======
+
+.notificationDropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    margin-top: 10px;
+    width: 220px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.notificationText {
+    padding: 16px;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+}
+>>>>>>> User-Profile
