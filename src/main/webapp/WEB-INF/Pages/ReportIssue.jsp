@@ -5,16 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Issue Management - Neighborly</title>
-   </head>
+</head>
 <body>
-
-    <div class="mainContent">
-
+<div class="mainContent">
 
         <div class="dashboardBody">
             <div class="issuePageWrapper">
                 
-                <!-- Header -->
                 <div class="issuePageHeader">
                     <h1 class="issuePageTitle">Issue Management</h1>
                     <p class="issuePageSubtitle">Manage community raised Issues</p>
@@ -22,7 +19,6 @@
 
                 <hr class="issueDivider">
 
-                <!-- Stats Row -->
                 <div class="issueStatsContainer">
                     <div class="issueStatCard">
                         <div class="statIconWrap">
@@ -75,38 +71,46 @@
                         </div>
                     </div>
                 </div>
-                
-                <h2 class="sectionTitle">Manage Issues</h2>
+					<h2 class="sectionTitle">Manage Issues</h2>
 
                 <div class="issueList">
 
                     <div class="issueRow">
-                        <div class="issueAvatar"></div>
+                        <div class="issueAvatar">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        </div>
                         <div class="issueDetails">
                             <div class="issueMeta">
                                 <span class="reporterName">Prayush Shrestha</span>
                                 <span class="metaDivider">|</span>
-                                <span class="issueTitle">Issue with Light</span>
+                                <span class="issueTitle">Senior Architect</span>
                             </div>
                             <p class="submittedTime">Submitted 2 days ago</p>
                         </div>
                         <span class="statusBadge completed">Completed</span>
-                </div>
+                        <button class="buttonReview" onclick="openModerateModal()">Review</button>
+                    </div>
 
                     <div class="issueRow">
                         <div class="issueAvatar">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        </div>
                         <div class="issueDetails">
                             <div class="issueMeta">
                                 <span class="reporterName">Rikesh Adhikari</span>
-      							</div>
+                                <span class="metaDivider">|</span>
+                                <span class="issueTitle">Pot Hole detected at Patan</span>
+                            </div>
                             <p class="submittedTime">Submitted 2 days ago</p>
                         </div>
                         <span class="statusBadge inProgress">In Progress</span>
-                       </div>
+                        <button class="buttonReview" onclick="openModerateModal()">Review</button>
+                    </div>
 
                     <div class="issueRow">
                         <div class="issueAvatar">
-                            </div>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        </div>
                         <div class="issueDetails">
                             <div class="issueMeta">
                                 <span class="reporterName">Yogesh Pant</span>
@@ -116,11 +120,13 @@
                             <p class="submittedTime">Submitted 2 days ago</p>
                         </div>
                         <span class="statusBadge pending">Pending</span>
-                         </div>
+                        <button class="buttonReview" onclick="openModerateModal()">Review</button>
+                    </div>
 
                     <div class="issueRow">
                         <div class="issueAvatar">
-                           </div>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        </div>
                         <div class="issueDetails">
                             <div class="issueMeta">
                                 <span class="reporterName">Arjan Regmi</span>
@@ -130,7 +136,14 @@
                             <p class="submittedTime">Submitted 2 days ago</p>
                         </div>
                         <span class="statusBadge completed">Completed</span>
-                        </div>
+                        <button class="buttonReview" onclick="openModerateModal()">Review</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
                 </div>
             </div>
         </div>
