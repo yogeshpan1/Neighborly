@@ -22,6 +22,14 @@
 		<div class = "issueStatsContainer">
 			<div class = "statIconWrap">
 				<div class = "statBars">
+					<div class = "bar h50">
+					<div class = "bar h80">
+					<div class = "bar h100">
+					<div class = "bar h60">
+					</div>
+					</div>
+					</div>
+					</div>
 				</div>
 			</div>
 		</div>
