@@ -19,11 +19,11 @@
         <div class="profileWrapper">
             <header class="profileHeader">
                 <div class="profileAvatarLarge">
-                    <div class="avatarCircle">${user != null ? user.firstName.substring(0,1).toUpperCase() : 'G'}</div>
+                    <div class="avatarCircle">${user != null && not empty user.firstName ? user.firstName.substring(0,1).toUpperCase() : 'G'}</div>
                 </div>
                 
                 <div class="profileInfoSection">
-                    <h2 class="username">${user != null ? user.username : 'Guest'}</h2>
+                    <h2 class="username">${user != null ? user.userName : 'Guest'}</h2>
                     
                     <div class="profileBio">
                         <span class="fullName">${user != null ? user.firstName : 'Guest'} ${user != null ? user.lastName : 'Name'}</span>
@@ -64,8 +64,7 @@
     </div>
 </div>
         </div> 
-        </div> 
-    </div>
+        </div>
 
     <!-- Edit Profile Modal -->
     <div id="editProfileModal" class="modal">
@@ -86,7 +85,7 @@
 
                 <div class="input-group">
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" placeholder="Username" value="${user != null ? user.username : 'Guest'}">
+                    <input type="text" id="username" name="username" placeholder="Username" value="${user != null ? user.userName : 'Guest'}">
                     <p class="helper-text">This is your unique handle on Neighborly.</p>
                 </div>
 
