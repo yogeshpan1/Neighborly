@@ -12,7 +12,7 @@ body {
 }
 .mainContent {
     margin-left: 250px; 
-    width: calc(100% - 250px);
+    flex: 1;
     min-height: 1000px;
     transition: margin-left 0.3s ease; 
 }
@@ -26,20 +26,22 @@ body {
 /* --- Header Section --- */
 .profileHeader {
     display: flex;
+    flex-direction: column;
     margin-bottom: 40px;
     align-items: center; 
+    text-align: center;
 }
 
 .profileAvatarLarge {
-    flex: 1;
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 .avatarCircle {
     width: 150px;
     height: 150px;
-    border-radius: 50%;
+    border-radius: 8px;
     background-color: #E86A33;
     color: #ffffff;
     display: flex;
@@ -50,25 +52,26 @@ body {
 }
 
 .profileInfoSection {
-    flex: 2;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .username {
-    font-size: 32px;
-    font-weight: 400;
+    font-size: 36px;
+    font-weight: 700;
     margin: 0;
 }
 
 .profileBio {
-    margin-top: 12px; 
+    margin-top: 4px; 
 }
 
 .profileBio .fullName {
     display: block;
-    font-weight: 700;
-    font-size: 16px;
+    font-weight: 400;
+    font-size: 18px;
+    color: #8e8e8e;
 }
 
 .profileActionRow {
@@ -184,11 +187,11 @@ body {
 
 .plus-icon::before { 
 	width: 2px; 
-	height: 100%; 
+	height: 18px; 
 }
 
 .plus-icon::after {
-	width: 100%; 
+	width: 18px; 
 	height: 2px; 
 }
 
@@ -217,6 +220,128 @@ body {
 @media (max-width: 768px) {
     .mainContent {
         margin-left: 0;
-        width: 100%;
     }
+}
+
+/* --- Modal Styles --- */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.5); 
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 600px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.modal-content h2 {
+    font-size: 24px; 
+    font-weight: 700; 
+    margin-top: 0;
+    margin-bottom: 30px; 
+}
+
+/* Form Groups & Inputs inside Modal */
+.input-group { 
+    margin-bottom: 24px; 
+    position: relative; 
+}
+
+.input-group label { 
+    display: block; 
+    font-weight: 700; 
+    margin-bottom: 8px; 
+    font-size: 16px;
+}
+
+.modal-content input[type="text"], 
+.modal-content textarea, 
+.modal-content select {
+    width: 540px;
+    padding: 12px 16px;
+    border: 1px solid #dbdbdb;
+    border-radius: 12px;
+    background: #fafafa;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border 0.2s ease;
+}
+
+.modal-content input:focus, 
+.modal-content textarea:focus, 
+.modal-content select:focus {
+    outline: none;
+    border-color: #E86A33; 
+}
+
+.modal-content textarea { 
+    height: 100px; 
+    resize: none; 
+}
+
+.helper-text { 
+    font-size: 12px; 
+    color: #737373; 
+    margin-top: 6px; 
+    line-height: 1.4;
+}
+
+.char-count {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    font-size: 12px;
+    color: #737373;
+}
+
+.btn-submit {
+    background-color: #E86A33;
+    color: white;
+    border: none;
+    width: 540px;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: opacity 0.2s;
+}
+
+.btn-submit:hover { 
+    opacity: 0.9; 
 }
