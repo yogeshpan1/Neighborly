@@ -66,21 +66,26 @@
         </div> 
         </div>
 
-    <!-- Edit Profile Modal -->
     <div id="editProfileModal" class="modal">
+        <span class="close-btn" onclick="closeEditModal()">&times;</span>
         <div class="modal-content">
-            <span class="close-btn" onclick="closeEditModal()">&times;</span>
             <h2>Edit profile</h2>
             
             <form action="editProfile" method="POST" enctype="multipart/form-data">
                 <div class="preview-container">
-                    <i class="fas fa-user preview-placeholder" id="placeholderIcon"></i>
+                    <svg id="placeholderIcon" class="preview-placeholder" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4-4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
                     <img id="imagePreview" src="#" alt="Preview">
                 </div>
 
                 <div class="file-input-wrapper">
                     <label for="profilePicture" class="custom-file-upload">
-                        <i class="fas fa-camera"></i> Change Photo
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: text-bottom; margin-right: 4px;">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                            <circle cx="12" cy="13" r="4"></circle>
+                        </svg> Change Photo
                     </label>
                     <input type="file" id="profilePicture" name="profilePicture" accept="image/*" onchange="previewFile()">
                 </div>
@@ -148,7 +153,11 @@
 
         const openEditModal = () => toggleModal(true);
         const closeEditModal = () => toggleModal(false);
-        window.onclick = (e) => e.target === modal && toggleModal(false);
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                toggleModal(false);
+            }
+        });
 
         function previewFile() {
             const preview = document.getElementById('imagePreview');

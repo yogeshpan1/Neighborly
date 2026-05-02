@@ -1,4 +1,3 @@
-/* --- General Layout --- */
 body {
     background-color: #ffffff;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -6,7 +5,6 @@ body {
     margin: 0;
     padding: 0;
 }
-
 * {
     box-sizing: border-box;
 }
@@ -16,14 +14,11 @@ body {
     min-height: 1000px;
     transition: margin-left 0.3s ease; 
 }
-
 .profileWrapper {
     max-width: 935px;
     margin: 40px auto 0;
     padding: 0 20px;
 }
-
-/* --- Header Section --- */
 .profileHeader {
     display: flex;
     flex-direction: column;
@@ -31,13 +26,11 @@ body {
     align-items: center; 
     text-align: center;
 }
-
 .profileAvatarLarge {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
 }
-
 .avatarCircle {
     width: 150px;
     height: 150px;
@@ -50,40 +43,34 @@ body {
     font-size: 80px;
     font-weight: bold;
 }
-
 .profileInfoSection {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 .username {
     font-size: 36px;
     font-weight: 700;
     margin: 0;
 }
-
 .profileBio {
     margin-top: 0; 
 }
-
 .profileBio .fullName {
     display: block;
     font-weight: 400;
     font-size: 18px;
     color: #8e8e8e;
 }
-
 .profileActionRow {
     margin-top: 25px;
 }
-
 .edit-btn {
     display: inline-block;
     background-color: #efefef;
     color: #262626;
     padding: 8px 16px;
-    border-radius: 8px;
+    border-radius: 50px;
     font-weight: 600;
     font-size: 14px;
     text-decoration: none;
@@ -92,42 +79,32 @@ body {
     border: none;
     cursor: pointer;
 }
-
 .edit-btn:hover {
 	background-color: #E86A33;
 	color: #ffffff;
 }
-
-/* --- Tabs Styling --- */
 .profileTabs {
     display: flex;
     justify-content: center;
     border-top: 1px solid #dbdbdb;
     gap: 60px;
 }
-
 .tab {
     padding: 15px 0;
     font-size: 12px;
     font-weight: 600;
-    color: #8e8e8e; /* Default gray color */
+    color: #8e8e8e; 
     cursor: pointer;
     text-transform: uppercase;
     display: flex;
     align-items: center;
-    transition: color 0.2s ease; /* Smooth color change */
+    transition: color 0.2s ease; 
 }
-
-
-/* Active State */
 .tab.active {
     color: #E86A33;
     border-top: 1px solid #E86A33;
     margin-top: -1px;
 }
-
-
-/* Tab Icon (Grid) */
 .grid-icon {
     display: inline-block;
     width: 12px;
@@ -136,30 +113,23 @@ body {
     margin-right: 6px;
     position: relative;
 }
-
-/* --- Content Areas --- */
 .tab-content { 
     display: none; 
     padding-top: 60px; 
 }
-
 .active-content { 
     display: block; 
 }
-
 .emptyState { 
     text-align: center; 
     max-width: 350px;
     margin: 0 auto; 
 }
-
 .emptyTitle {
     font-size: 28px;
     font-weight: 400;
     margin: 20px 0 10px;
 }
-
-/* --- Center Icons & Circles --- */
 .icon-circle {
     width: 62px;
     height: 62px;
@@ -170,14 +140,11 @@ body {
     justify-content: center;
     margin: 0 auto;
 }
-
-/* Plus Icon (Posts Tab) */
 .plus-icon {
     width: 18px;
     height: 18px;
     position: relative;
 }
-
 .plus-icon::before, .plus-icon::after {
     content: "";
     position: absolute;
@@ -186,18 +153,14 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 .plus-icon::before { 
 	width: 2px; 
 	height: 18px; 
 }
-
 .plus-icon::after {
 	width: 18px; 
 	height: 2px; 
 }
-
-/* Large Bookmark Icon (Saved Tab) */
 .large-bookmark-icon {
     width: 22px;
     height: 28px;
@@ -206,7 +169,6 @@ body {
     position: relative;
     box-sizing: border-box;
 }
-
 .large-bookmark-icon::after {
     content: "";
     position: absolute;
@@ -216,16 +178,13 @@ body {
     height: 0;
     border-left: 11px solid transparent;
     border-right: 11px solid transparent;
-    border-bottom: 8px solid white; /* Matches page background */
+    border-bottom: 8px solid white; 
 }
-
 @media (max-width: 768px) {
     .mainContent {
         margin-left: 0;
     }
 }
-
-/* --- Modal Styles --- */
 .modal {
     display: none; 
     position: fixed; 
@@ -239,11 +198,9 @@ body {
     align-items: center;
     justify-content: center;
 }
-
 .modal.show {
     display: flex;
 }
-
 .modal-content {
     background-color: #fefefe;
     padding: 30px;
@@ -255,43 +212,37 @@ body {
     position: relative;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
-
 .close-btn {
     position: absolute;
     top: 20px;
-    right: 20px;
-    color: #aaa;
-    font-size: 28px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
     font-weight: bold;
     cursor: pointer;
+    transition: color 0.2s;
 }
-
 .close-btn:hover,
 .close-btn:focus {
-    color: black;
+    color: #ddd;
     text-decoration: none;
 }
-
 .modal-content h2 {
     font-size: 24px; 
     font-weight: 700; 
     margin-top: 0;
     margin-bottom: 30px; 
 }
-
-/* Form Groups & Inputs inside Modal */
 .input-group { 
     margin-bottom: 24px; 
     position: relative; 
 }
-
 .input-group label { 
     display: block; 
     font-weight: 700; 
     margin-bottom: 8px; 
     font-size: 16px;
 }
-
 .modal-content input[type="text"],
 .modal-content input[type="email"],
 .modal-content input[type="tel"],
@@ -308,30 +259,25 @@ body {
     box-sizing: border-box;
     transition: border 0.2s ease;
 }
-
 .modal-content input[type="file"] {
     display: none;
 }
-
 .modal-content input:focus, 
 .modal-content textarea:focus, 
 .modal-content select:focus {
     outline: none;
     border-color: #E86A33; 
 }
-
 .modal-content textarea { 
     height: 100px; 
     resize: none; 
 }
-
 .helper-text { 
     font-size: 12px; 
     color: #737373; 
     margin-top: 6px; 
     line-height: 1.4;
 }
-
 .char-count {
     position: absolute;
     right: 0;
@@ -339,7 +285,6 @@ body {
     font-size: 12px;
     color: #737373;
 }
-
 .btn-submit {
     background-color: #E86A33;
     color: white;
@@ -353,12 +298,9 @@ body {
     margin-top: 10px;
     transition: opacity 0.2s;
 }
-
 .btn-submit:hover { 
     opacity: 0.9; 
 }
-
-/* --- Image Preview Area --- */
 .preview-container {
     width: 110px;
     height: 110px;
@@ -373,25 +315,20 @@ body {
     position: relative;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
-
 #imagePreview {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: none;
 }
-
 .preview-placeholder {
     color: #cbd5e1;
     font-size: 2.2rem;
 }
-
-/* --- File Input Styling --- */
 .file-input-wrapper {
     margin-bottom: 2rem;
     text-align: center;
 }
-
 .custom-file-upload {
     display: inline-block;
     padding: 10px 15px;
@@ -406,7 +343,6 @@ body {
     width: 100%;
     box-sizing: border-box;
 }
-
 .custom-file-upload:hover {
     background: #e2e8f0;
 }
