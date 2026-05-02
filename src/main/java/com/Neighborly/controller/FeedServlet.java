@@ -26,8 +26,9 @@ public class FeedServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
-        
-        // Forward to JSP - make sure path matches EXACTLY with your file structure
+    	request.setAttribute("activePage", "feed");
+    	request.setAttribute("pageTitle", "Feed"); // change as the page changes
+        // Forwards to JSP
         request.getRequestDispatcher("/WEB-INF/Pages/feed.jsp").forward(request, response);
     }
     

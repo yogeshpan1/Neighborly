@@ -27,6 +27,7 @@ public class ProfileServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setAttribute("activePage", "Profile");
 		request.getRequestDispatcher("/WEB-INF/Pages/profile.jsp").forward(request, response);
 	}
 
