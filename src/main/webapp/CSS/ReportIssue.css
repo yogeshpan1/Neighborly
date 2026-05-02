@@ -17,15 +17,15 @@
 }
 
 .issuePageSubtitle {
-    font-size: 14px;
+    font-size: 25px;
     color: #D35400;
-    font-weight: 500;
+    font-weight: 800;
 }
 
 .issueDivider {
     border: 0;
-    height: 1px;
+    height: 10px;
     background-color: #323639;
-    margin-bottom: 32px;
-    width: 100%;
+    margin-bottom: 50px;
+    width: 100px;
 }
