@@ -160,7 +160,14 @@
 			            <p>Created ${p.createdAt}</p>
 			        </div>
 			        <div class="pollActions">
-			        	<button class="btn btnEdit" onclick="openEditModal()">
+			        	<button class="btn btnEdit" onclick="openEditModal(this)"
+								    data-pollid="${p.pollId}"
+								    data-question="<c:out value='${p.question}'/>"
+								    data-description="<c:out value='${p.description}'/>"
+								    data-option1="<c:out value='${p.option1}'/>"
+								    data-option2="<c:out value='${p.option2}'/>"
+								    data-option3="<c:out value='${p.option3}'/>"
+								    data-option4="<c:out value='${p.option4}'/>">
     	                	<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
 			                Edit
 			            </button>
@@ -269,54 +276,34 @@
             <h2 class="modalTitle">Edit Poll</h2>
             <p class="modalSubtitle">Modify poll details and update available choices.</p>
         </div>
-        
         <form action="<%= request.getContextPath() %>/updatepoll" method="POST" id="editPollForm">
-            <!-- Hidden field for backend -->
-            <input type="hidden" name="pollId" id="editPollId" value="1">
-
+            <input type="hidden" name="pollId" id="editPollId">
             <div class="modalBody">
                 <div class="formGroup">
                     <label class="formLabel">Poll Title</label>
-                    <input type="text" class="formInput" id="editPollTitle" name="title" value="Should the Singha Durbar be redeveloped as a National Heritage Site?">
+                    <input type="text" class="formInput" id="editPollTitle" name="title">
                 </div>
-                
                 <div class="formGroup">
                     <label class="formLabel">Brief Description</label>
-                    <textarea class="formInput" id="editPollDesc" name="description">Should the Singha Durbar be redeveloped as a National Heritage Site?</textarea>
+                    <textarea class="formInput" id="editPollDesc" name="description"></textarea>
                 </div>
-
                 <div class="formGroup">
-                    <label class="formLabel">Editable Options</label>
-                    <div class="optionsList" id="editOptionsList">
-                        <!-- Option 1 -->
-                        <div class="optionItem">
-                            <span class="optionNumber">1</span>
-                            <div class="optionInputWrap">
-                                <input type="text" name="option_1" value="Yes, preserve the heritage">
-                                <button type="button" class="btnIconDelete" onclick="this.parentElement.parentElement.remove(); renumberOptions();">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-                                </button>
-                            </div>
-                        </div>
-                        <!-- Option 2 -->
-                        <div class="optionItem">
-                            <span class="optionNumber">2</span>
-                            <div class="optionInputWrap">
-                                <input type="text" name="option_2" value="No, leave it as it is">
-                                <button type="button" class="btnIconDelete" onclick="this.parentElement.parentElement.remove(); renumberOptions();">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <button type="button" class="btnTextOrange" onclick="addNewOption()">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                        Add Option
-                    </button>
+                    <label class="formLabel">Option 1</label>
+                    <input type="text" class="formInput" id="editOption1" name="option_1" placeholder="Option 1">
+                </div>
+                <div class="formGroup">
+                    <label class="formLabel">Option 2</label>
+                    <input type="text" class="formInput" id="editOption2" name="option_2" placeholder="Option 2">
+                </div>
+                <div class="formGroup">
+                    <label class="formLabel">Option 3</label>
+                    <input type="text" class="formInput" id="editOption3" name="option_3" placeholder="Option 3 (optional)">
+                </div>
+                <div class="formGroup">
+                    <label class="formLabel">Option 4</label>
+                    <input type="text" class="formInput" id="editOption4" name="option_4" placeholder="Option 4 (optional)">
                 </div>
             </div>
-
             <div class="modalFooter">
                 <button type="button" class="btnGhost" onclick="closeEditModal()">Cancel</button>
                 <button type="submit" class="btn btnPrimary">Update Poll</button>
@@ -334,12 +321,15 @@
     const deleteIdInput = document.getElementById('deletePollId');
 
     // --- EDIT MODAL LOGIC ---
-    function openEditModal(pollId, question, description)
-    {
-	    document.getElementById('editPollId').value = pollId;
-	    document.getElementById('editPollTitle').value = question;
-	    document.getElementById('editPollDesc').value = description;
-	    editModal.style.display = 'flex';
+     function openEditModal(btn) {
+        document.getElementById('editPollId').value = btn.getAttribute('data-pollid');
+        document.getElementById('editPollTitle').value = btn.getAttribute('data-question');
+        document.getElementById('editPollDesc').value = btn.getAttribute('data-description');
+        document.getElementById('editOption1').value = btn.getAttribute('data-option1') || '';
+        document.getElementById('editOption2').value = btn.getAttribute('data-option2') || '';
+        document.getElementById('editOption3').value = btn.getAttribute('data-option3') || '';
+        document.getElementById('editOption4').value = btn.getAttribute('data-option4') || '';
+        editModal.style.display = 'flex';
     }
     function closeEditModal() { editModal.style.display = 'none'; }
 

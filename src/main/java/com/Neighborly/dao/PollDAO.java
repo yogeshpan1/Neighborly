@@ -28,22 +28,6 @@ public class PollDAO
         con.close();
     }
 
-    public void updatePoll(int pollId, String question, String description, String option1, String option2, String option3, String option4) throws Exception {
-        Connection con = DBconfig.getConnection();
-        String sql = "UPDATE polls SET Poll_Question = ?, Poll_Description = ?, Poll_Option1 = ?, Poll_Option2 = ?, Poll_Option3 = ?, Poll_Option4 = ? WHERE Poll_ID = ?";
-        PreparedStatement pst = con.prepareStatement(sql);
-        pst.setString(1, question);
-        pst.setString(2, description);
-        pst.setString(3, option1);
-        pst.setString(4, option2);
-        pst.setString(5, option3);
-        pst.setString(6, option4);
-        pst.setInt(7, pollId);
-        pst.executeUpdate();
-        pst.close();
-        con.close();
-    }
-
     public List<PollModel> getAllPolls() throws Exception
     {
         List<PollModel> polls = new ArrayList<>();
@@ -77,7 +61,22 @@ public class PollDAO
         pst.close();
         con.close();
         return polls;
-    }	 
-	 
+    }	
+    
+    public void updatePoll(int pollId, String question, String description, String option1, String option2, String option3, String option4) throws Exception {
+        Connection con = DBconfig.getConnection();
+        String sql = "UPDATE polls SET Poll_Question = ?, Poll_Description = ?, Poll_Option1 = ?, Poll_Option2 = ?, Poll_Option3 = ?, Poll_Option4 = ? WHERE Poll_ID = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, question);
+        pst.setString(2, description);
+        pst.setString(3, option1);
+        pst.setString(4, option2);
+        pst.setString(5, option3);
+        pst.setString(6, option4);
+        pst.setInt(7, pollId);
+        pst.executeUpdate();
+        pst.close();
+        con.close();
+    }
 	
 }
