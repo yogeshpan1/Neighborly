@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,14 +20,19 @@
         <div class="profileWrapper">
             <header class="profileHeader">
                 <div class="profileAvatarLarge">
-                    <div class="avatarCircle">${user != null && not empty user.firstName ? user.firstName.substring(0,1).toUpperCase() : 'G'}</div>
+                            <div class="avatarCircle">
+                                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4-4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
                 </div>
                 
                 <div class="profileInfoSection">
-                    <h2 class="username">${user != null ? user.userName : 'Guest'}</h2>
+                    <h2 class="username">${user.userName}</h2>
                     
                     <div class="profileBio">
-                        <span class="fullName">${user != null ? user.firstName : 'Guest'} ${user != null ? user.lastName : 'Name'}</span>
+                        <span class="fullName">${user.firstName} ${user.lastName}</span>
                     </div>
 
                     <div class="profileActionRow">
@@ -69,7 +75,8 @@
     <div id="editProfileModal" class="modal">
         <span class="closeButton" onclick="closeEditModal()">&times;</span>
         <div class="modal-content">
-            <h2>Edit profile</h2>
+            <h2>Update Profile</h2>
+            <p class="subtitle">Personalize your Neighborly account</p>
             
             <form action="editProfile" method="POST" enctype="multipart/form-data">
                 <div class="preview-container">
@@ -92,46 +99,46 @@
 
                 <div class="input-group">
                     <label for="firstName">First Name</label>
-                    <input type="text" id="firstName" name="firstName" placeholder="First Name" value="${user != null ? user.firstName : 'Guest'}">
+                    <input type="text" id="firstName" name="firstName" placeholder="First Name" value="${user.firstName}">
                 </div>
 
                 <div class="input-group">
                     <label for="lastName">Last Name</label>
-                    <input type="text" id="lastName" name="lastName" placeholder="Last Name" value="${user != null ? user.lastName : 'Name'}">
+                    <input type="text" id="lastName" name="lastName" placeholder="Last Name" value="${user.lastName}">
                 </div>
 
                 <div class="input-group">
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" placeholder="Username" value="${user != null ? user.userName : 'Guest'}">
+                    <input type="text" id="username" name="username" placeholder="Username" value="${user.userName}">
                     <p class="helper-text">This is your unique handle on Neighborly.</p>
                 </div>
 
                 <div class="input-group">
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="Email" value="${user != null ? user.email : ''}">
+                    <input type="email" id="email" name="email" placeholder="Email" value="${user.email}">
                 </div>
 
                 <div class="input-group">
                     <label for="number">Phone Number</label>
-                    <input type="tel" id="number" name="number" placeholder="Phone Number" value="${user != null ? user.number : ''}">
+                    <input type="tel" id="number" name="number" placeholder="Phone Number" value="${user.number}">
                 </div>
 
                 <div class="input-group">
                     <label for="dob">Date of Birth</label>
-                    <input type="date" id="dob" name="dob" value="${user != null ? user.dob : ''}">
+                    <input type="date" id="dob" name="dob" value="${user.dob}">
                 </div>
 
                 <div class="input-group">
                     <label for="gender">Gender</label>
                     <select id="gender" name="gender">
-                        <option value="Male" ${user != null && user.gender == 'Male' ? 'selected' : ''}>Male</option>
-                        <option value="Female" ${user != null && user.gender == 'Female' ? 'selected' : ''}>Female</option>
-                        <option value="Other" ${user != null && user.gender == 'Other' ? 'selected' : ''}>Other</option>
+                        <option value="Male" ${user.gender == 'Male' ? 'selected' : ''}>Male</option>
+                        <option value="Female" ${user.gender == 'Female' ? 'selected' : ''}>Female</option>
+                        <option value="Other" ${user.gender == 'Other' ? 'selected' : ''}>Other</option>
                     </select>
                 </div>
 
                 <div class="form-footer">
-                    <button type="submit" class="btn-submit">Save Changes</button>
+                    <button type="submit" class="submitButton">Save Changes</button>
                 </div>
             </form>
         </div>
