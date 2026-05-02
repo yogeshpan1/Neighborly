@@ -5,13 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Issue Management - Neighborly</title>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Admin-Side.css?v=<%= System.currentTimeMillis() %>">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/ReportIssue.css?v=<%= System.currentTimeMillis() %>">
 </head>
 <body>
-<div class="mainContent">
+
+    <!-- Sidebar Component -->
+    <jsp:include page="/components/admin-sidebar.jsp" />
+
+    <div class="mainContent">
+        
+        <!-- Topbar Component -->
+        <% request.setAttribute("pageTitle", "Admin Dashboard"); %>
+        <jsp:include page="/components/admin-topbar.jsp" />
 
         <div class="dashboardBody">
             <div class="issuePageWrapper">
                 
+                <!-- Header -->
                 <div class="issuePageHeader">
                     <h1 class="issuePageTitle">Issue Management</h1>
                     <p class="issuePageSubtitle">Manage community raised Issues</p>
@@ -19,11 +30,15 @@
 
                 <hr class="issueDivider">
 
+                <!-- Stats Row -->
                 <div class="issueStatsContainer">
                     <div class="issueStatCard">
                         <div class="statIconWrap">
                             <div class="statBars barsGreen">
-                                <div class="bar h50"></div><div class="bar h80"></div><div class="bar h100"></div><div class="bar h60"></div>
+                                <div class="bar h50"></div>
+                                <div class="bar h80"></div>
+                                <div class="bar h100"></div>
+                                <div class="bar h60"></div>
                             </div>
                         </div>
                         <div class="statInfo" style="align-items: flex-start; text-align: left;">
@@ -48,7 +63,9 @@
                     <div class="issueStatCard">
                         <div class="statIconWrap">
                             <div class="statBars barsBlue">
-                                <div class="bar h70"></div><div class="bar h100"></div><div class="bar h50"></div>
+                                <div class="bar h70"></div>
+                                <div class="bar h100"></div>
+                                <div class="bar h50"></div>
                             </div>
                         </div>
                         <div class="statInfo" style="align-items: flex-start; text-align: left;">
@@ -71,10 +88,13 @@
                         </div>
                     </div>
                 </div>
-					<h2 class="sectionTitle">Manage Issues</h2>
+
+                <!-- Manage Section -->
+                <h2 class="sectionTitle">Manage Issues</h2>
 
                 <div class="issueList">
-
+                    
+                    <!-- Row 1 -->
                     <div class="issueRow">
                         <div class="issueAvatar">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
@@ -82,7 +102,6 @@
                         <div class="issueDetails">
                             <div class="issueMeta">
                                 <span class="reporterName">Prayush Shrestha</span>
-                                <span class="metaDivider">|</span>
                                 <span class="issueTitle">Senior Architect</span>
                             </div>
                             <p class="submittedTime">Submitted 2 days ago</p>
@@ -91,6 +110,7 @@
                         <button class="buttonReview" onclick="openModerateModal()">Review</button>
                     </div>
 
+                    <!-- Row 2 -->
                     <div class="issueRow">
                         <div class="issueAvatar">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
@@ -98,7 +118,6 @@
                         <div class="issueDetails">
                             <div class="issueMeta">
                                 <span class="reporterName">Rikesh Adhikari</span>
-                                <span class="metaDivider">|</span>
                                 <span class="issueTitle">Pot Hole detected at Patan</span>
                             </div>
                             <p class="submittedTime">Submitted 2 days ago</p>
@@ -107,6 +126,7 @@
                         <button class="buttonReview" onclick="openModerateModal()">Review</button>
                     </div>
 
+                    <!-- Row 3 -->
                     <div class="issueRow">
                         <div class="issueAvatar">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
@@ -114,46 +134,7 @@
                         <div class="issueDetails">
                             <div class="issueMeta">
                                 <span class="reporterName">Yogesh Pant</span>
-                                <span class="metaDivider">|</span>
-                                <span class="issueTitle">Toka Energy Crisis</span>
-                            </div>
-                            <p class="submittedTime">Submitted 2 days ago</p>
-                        </div>
-                        <span class="statusBadge pending">Pending</span>
-                        <button class="buttonReview" onclick="openModerateModal()">Review</button>
-                    </div>
-
-                    <div class="issueRow">
-                        <div class="issueAvatar">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                        </div>
-                        <div class="issueDetails">
-                            <div class="issueMeta">
-                                <span class="reporterName">Arjan Regmi</span>
-                                <span class="metaDivider">|</span>
-                                <span class="issueTitle">Shankamul Thieft Status</span>
-                            </div>
-                            <p class="submittedTime">Submitted 2 days ago</p>
-                        </div>
-                        <span class="statusBadge completed">Completed</span>
-                        <button class="buttonReview" onclick="openModerateModal()">Review</button>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-		                  <!-- Row 3 -->
-                    <div class="issueRow">
-                        <div class="issueAvatar">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                        </div>
-                        <div class="issueDetails">
-                            <div class="issueMeta">
-                                <span class="reporterName">Yogesh Pant</span>
-                                <span class="metaDivider">|</span>
-                                <span class="issueTitle">Toka Energy Crisis</span>
+                            	<span class="issueTitle">Toka Energy Crisis</span>
                             </div>
                             <p class="submittedTime">Submitted 2 days ago</p>
                         </div>
@@ -169,7 +150,6 @@
                         <div class="issueDetails">
                             <div class="issueMeta">
                                 <span class="reporterName">Arjan Regmi</span>
-                                <span class="metaDivider">|</span>
                                 <span class="issueTitle">Shankamul Thieft Status</span>
                             </div>
                             <p class="submittedTime">Submitted 2 days ago</p>
@@ -178,6 +158,13 @@
                         <button class="buttonReview" onclick="openModerateModal()">Review</button>
                     </div>
 
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Moderate Modal Overlay -->
     <div class="moderateModalOverlay" id="moderateModalOverlay">
         <div class="moderateModal">
             <button class="modalClose" onclick="closeModerateModal()">
@@ -187,6 +174,8 @@
                 <h2>Moderate Issue</h2>
                 <p>Apply administrative Actions</p>
             </div>
+
+            <form action="<%= request.getContextPath() %>/moderateissue" method="POST">
                 <div class="modalBody">
                     <div class="formGroup">
                         <label class="formLabel">Category</label>
@@ -194,8 +183,16 @@
                         <input type="hidden" name="category" id="hiddenCategory" value="sanitation">
                     </div>
 
+                    <div class="formGroup">
+                        <label class="formLabel">Attachments</label>
+                        <div id="attachmentArea">
+                            <div class="attachmentStatus none">
+                                No attachment found
+                            </div>
+                        </div>
+                    </div>
 
-                    <!-- Issue Description (Conditional) -->
+                    <!-- Issue Description -->
                     <div class="formGroup" id="userDescriptionGroup">
                         <label class="formLabel">User Description</label>
                         <div class="userDescriptionBox">
@@ -243,7 +240,7 @@
         </div>
     </div>
 
-    <!-- Confirm Delete Modal Overlay -->
+    <!-- Confirm Delete Modal Overlay-->
     <div class="moderateModalOverlay" id="deleteModalOverlay">
         <div class="dangerModal">
             <div class="dangerModalHeader">
@@ -268,7 +265,8 @@
             </form>
         </div>
     </div>
-		 <script>
+
+    <script>
         function openModerateModal() {
             document.getElementById('moderateModalOverlay').style.display = 'flex';
         }
@@ -317,7 +315,6 @@
 
         function viewAttachment() {
             alert("Opening attachment: issue_photo_01.jpg");
-            // In a real app, this would open a lightbox or new tab
         }
 
         // Close modal on background click
@@ -332,6 +329,7 @@
                 closeDeleteModal();
             }
         }
-    </script>		
+    </script>
+
 </body>
 </html>
