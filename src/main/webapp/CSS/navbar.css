@@ -1,20 +1,64 @@
 .topbar {
-    background-color: #FFFFFF;
+    background-color: #FAFAFA;
     border-bottom: 1px solid #E0E0E0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0px 32px;
     height: 70px;
-    position: sticky;
+    position: fixed;
     top: 0px;
-    z-index: 99;
+    left: 0px;
+    width: 100vw;
+    z-index: 200;
+}
+
+.topbarLeft {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.sidebarToggleButton {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.sidebarToggleButton:hover {
+    background: #EAEAEA;
+}
+
+.navbarLogo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.navbarLogo:hover {
+    opacity: 0.8;
+}
+
+.navbarLogoImage {
+    width: 140px;
+    height: auto;
+    object-fit: contain;
 }
 
 .topbarCenter {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: fixed;
+    left: 50vw;
+    top: 35px;
+    transform: translate(-50%, -50%);
+    z-index: 100;
 }
 
 .topbarCenter h1 {

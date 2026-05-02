@@ -63,7 +63,7 @@
                                                 anyone know if the city.</p>
                                             <div class="storyFooter">
                                                 <span class="storySource">Ward 4 Bulletin</span>
-                                                <button class="bookmarkBtn">
+                                                <button class="bookmarkButton">
                                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                                                         stroke="currentColor" stroke-width="2"
                                                         stroke-linecap="round" stroke-linejoin="round">
@@ -91,7 +91,7 @@
                                                 anyone know if the city.</p>
                                             <div class="storyFooter">
                                                 <span class="storySource">Kathmandu Post</span>
-                                                <button class="bookmarkBtn">
+                                                <button class="bookmarkButton">
                                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                                                         stroke="currentColor" stroke-width="2"
                                                         stroke-linecap="round" stroke-linejoin="round">
@@ -118,7 +118,7 @@
                                                 anyone know if the city.</p>
                                             <div class="storyFooter">
                                                 <span class="storySource">KUKL Notice</span>
-                                                <button class="bookmarkBtn">
+                                                <button class="bookmarkButton">
                                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                                                         stroke="currentColor" stroke-width="2"
                                                         stroke-linecap="round" stroke-linejoin="round">
@@ -145,7 +145,7 @@
                                                 anyone know if the city.</p>
                                             <div class="storyFooter">
                                                 <span class="storySource">Ward 4 Health Desk</span>
-                                                <button class="bookmarkBtn">
+                                                <button class="bookmarkButton">
                                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                                                         stroke="currentColor" stroke-width="2"
                                                         stroke-linecap="round" stroke-linejoin="round">

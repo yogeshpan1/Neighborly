@@ -12,6 +12,7 @@ body {
     margin-left: 250px; 
     flex: 1;
     min-height: 1000px;
+    padding-top: 70px;
     transition: margin-left 0.3s ease; 
 }
 .profileWrapper {
@@ -65,7 +66,7 @@ body {
 .profileActionRow {
     margin-top: 25px;
 }
-.edit-btn {
+.editButton {
     display: inline-block;
     background-color: #efefef;
     color: #262626;
@@ -79,7 +80,7 @@ body {
     border: none;
     cursor: pointer;
 }
-.edit-btn:hover {
+.editButton:hover {
 	background-color: #E86A33;
 	color: #ffffff;
 }
@@ -212,7 +213,7 @@ body {
     position: relative;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
-.close-btn {
+.closeButton {
     position: absolute;
     top: 20px;
     right: 30px;
@@ -222,8 +223,8 @@ body {
     cursor: pointer;
     transition: color 0.2s;
 }
-.close-btn:hover,
-.close-btn:focus {
+.closeButton:hover,
+.closeButton:focus {
     color: #ddd;
     text-decoration: none;
 }

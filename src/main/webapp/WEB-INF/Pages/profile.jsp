@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="profileActionRow">
-                        <button onclick="openEditModal()" class="edit-btn">Edit profile</button>
+                        <button onclick="openEditModal()" class="editButton">Edit profile</button>
                     </div>
                 </div>
             </header>
@@ -67,7 +67,7 @@
         </div>
 
     <div id="editProfileModal" class="modal">
-        <span class="close-btn" onclick="closeEditModal()">&times;</span>
+        <span class="closeButton" onclick="closeEditModal()">&times;</span>
         <div class="modal-content">
             <h2>Edit profile</h2>
             

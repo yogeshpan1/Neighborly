@@ -16,6 +16,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 1000px;
+    padding-top: 70px;
 }
 
 @media (max-width: 768px) {
@@ -296,7 +297,7 @@ body {
     color: #D32F2F;
 }
 
-.payFineBtn {
+.payFineButton {
     background-color: #D32F2F;
     color: #FFFFFF;
     border: none;
@@ -308,7 +309,7 @@ body {
     transition: background-color 0.2s;
 }
 
-.payFineBtn:hover {
+.payFineButton:hover {
     background-color: #B71C1C;
 }
 
@@ -429,7 +430,7 @@ body {
     margin: 0 0 28px 0;
 }
 
-.reportBtn {
+.reportButton {
     background-color: #E86A33;
     color: #FFFFFF;
     border: none;
@@ -441,10 +442,11 @@ body {
     transition: background-color 0.2s, transform 0.1s;
 }
 
-.reportBtn:hover {
+.reportButton:hover {
     background-color: #CC5520;
 }
 
-.reportBtn:active {
+.reportButton:active {
     transform: scale(0.98);
 }
+

@@ -27,7 +27,7 @@
                             </a>
                             <input type="text" class="composerInput"
                                 placeholder="What's on your mind, Prayush?" />
-                            <button class="photoActionBtn" title="Add Photo" style="padding: 8px;">
+                            <button class="photoActionButton" title="Add Photo" style="padding: 8px;">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#65676B"
                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
@@ -37,7 +37,7 @@
                             </button>
                         </div>
                         <div class="composerBottom">
-                            <button class="postBtn">Post</button>
+                            <button class="postButton">Post</button>
                         </div>
                     </div>
 
@@ -49,7 +49,7 @@
                                 <div class="postTime">• 2 hr. ago</div>
                             </div>
                             <div class="postHeaderRight">
-                                <button class="moreBtn">
+                                <button class="moreButton">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -71,7 +71,7 @@
 
                         <div class="postActions" style="justify-content: space-between;">
                             <div class="actionPill voteGroup" style="padding: 4px 8px;">
-                                <button class="voteBtn">
+                                <button class="voteButton">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -79,7 +79,7 @@
                                     </svg>
                                 </button>
                                 <span class="voteCount">42</span>
-                                <button class="voteBtn">
+                                <button class="voteButton">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -106,7 +106,7 @@
                                 <div class="postTime">• 5 hr. ago</div>
                             </div>
                             <div class="postHeaderRight">
-                                <button class="moreBtn">
+                                <button class="moreButton">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -128,7 +128,7 @@
 
                         <div class="postActions" style="justify-content: space-between;">
                             <div class="actionPill voteGroup" style="padding: 4px 8px;">
-                                <button class="voteBtn">
+                                <button class="voteButton">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -136,7 +136,7 @@
                                     </svg>
                                 </button>
                                 <span class="voteCount">42</span>
-                                <button class="voteBtn">
+                                <button class="voteButton">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -163,7 +163,7 @@
                                 <div class="postTime">• Yesterday</div>
                             </div>
                             <div class="postHeaderRight">
-                                <button class="moreBtn">
+                                <button class="moreButton">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -185,7 +185,7 @@
 
                         <div class="postActions" style="justify-content: space-between;">
                             <div class="actionPill voteGroup" style="padding: 4px 8px;">
-                                <button class="voteBtn">
+                                <button class="voteButton">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -193,7 +193,7 @@
                                     </svg>
                                 </button>
                                 <span class="voteCount">42</span>
-                                <button class="voteBtn">
+                                <button class="voteButton">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                         stroke-linejoin="round">

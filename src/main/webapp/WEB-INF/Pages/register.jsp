@@ -108,7 +108,7 @@
                                 placeholder="........">
                         </div>
 
-                        <button type="submit" class="loginBtn loginBtnPrimary registerSubmitBtn">REGISTER</button>
+                        <button type="submit" class="loginButton loginBtnPrimary registerSubmitButton">REGISTER</button>
 
                     </form>
                 </div>

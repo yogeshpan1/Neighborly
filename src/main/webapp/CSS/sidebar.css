@@ -3,6 +3,7 @@
     margin-top: auto;
     padding: 24px 16px;
 }
+
 .menuDropdown {
     position: absolute;
     bottom: 86px;
@@ -12,7 +13,7 @@
     border: 1px solid #E0E0E0;
     border-radius: 16px;
     margin-bottom: 0px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     z-index: 100;
     font-size: 14px;
     font-weight: 500;
@@ -22,30 +23,35 @@
     transition: opacity 0.15s ease, transform 0.15s ease;
     pointer-events: none;
 }
+
 .menuDropdown.active {
     opacity: 1;
     transform: translateY(0);
-    pointer-events: auto; /* This correctly allows clicking */
+    pointer-events: auto;
 }
+
 .menuDropdown ul {
     list-style: none;
     padding: 8px;
     margin: 0;
 }
+
 .menuDropdown li a {
     display: flex;
     align-items: center;
     padding: 10px 12px;
     color: #666666;
     text-decoration: none;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
     cursor: pointer;
     border-radius: 8px;
 }
+
 .menuDropdown li a:hover {
     background-color: #E6E6E6;
     color: #E86A33;
 }
+
 .userProfile {
     cursor: pointer;
 }
@@ -58,7 +64,7 @@
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 0px;
+    top: 70px;
     bottom: 0px;
     left: 0px;
     overflow-y: auto;
@@ -78,7 +84,7 @@
     opacity: 0.8;
 }
 
-.sidebarLogoImg {
+.sidebarLogoImage {
     width: 180px;
     height: auto;
     object-fit: contain;
@@ -92,15 +98,17 @@
     text-transform: uppercase;
     padding: 20px 24px 8px 24px;
     margin: 0px;
+    height: 39px;
+    box-sizing: border-box;
 }
 
-.sidebarNav {
+.sidebarNavigation {
     list-style: none;
     padding: 0px 16px;
     margin: 0px;
 }
 
-.sidebarNav li a {
+.sidebarNavigation li a {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -111,25 +119,27 @@
     font-size: 14px;
     color: #888888;
     font-weight: 500;
-    transition: all 0.2s;
+    height: 40px;
+    box-sizing: border-box;
+    transition: background-color 0.2s, color 0.2s;
 }
 
-.sidebarNav li a:hover {
+.sidebarNavigation li a:hover {
     background-color: #F0F0F0;
     color: #333333;
 }
 
-.sidebarNav li a.active {
+.sidebarNavigation li a.active {
     background-color: #F0EAE1;
     color: #333333;
     font-weight: 600;
 }
 
-.sidebarNav li a.active .navIcon svg {
+.sidebarNavigation li a.active .navigationIcon svg {
     stroke: #C05A2A;
 }
 
-.navIcon {
+.navigationIcon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -180,7 +190,8 @@
     font-size: 11px;
     color: #888888;
 }
-.view-btn {
+
+.viewButton {
     color: #0095f6;
     text-decoration: none;
     font-weight: bold;
@@ -188,13 +199,72 @@
 }
 
 @media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-  }
-  .sidebar.open {
-    transform: translateX(0);
-  }
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
 }
 
+body.sidebar-collapsed .sidebar {
+    width: 80px;
+    min-width: 80px;
+}
 
+body.sidebar-collapsed .sidebarSectionLabel {
+    display: none;
+}
+
+body.sidebar-collapsed .sidebarSectionLabel:first-of-type {
+    display: block;
+    visibility: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+body.sidebar-collapsed .userInfo,
+body.sidebar-collapsed .userProfile svg {
+    display: none;
+}
+
+body.sidebar-collapsed .sidebarNavigation li a {
+    font-size: 0;
+    justify-content: center;
+    padding: 10px;
+    gap: 0;
+}
+
+body.sidebar-collapsed .sidebarNavigation li a .navigationIcon {
+    color: #888888;
+}
+
+body.sidebar-collapsed .sidebarNavigation li a.active .navigationIcon svg {
+    stroke: #C05A2A;
+}
+
+body.sidebar-collapsed .userProfile {
+    justify-content: center;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+body.sidebar-collapsed .userAvatar {
+    margin: 0;
+}
+
+body.sidebar-collapsed .mainContent {
+    margin-left: 80px !important;
+}
+
+body.sidebar-collapsed .menuDropdown {
+    left: 80px;
+    bottom: 24px;
+    width: 200px;
+}

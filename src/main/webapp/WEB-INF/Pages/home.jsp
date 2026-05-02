@@ -145,7 +145,7 @@
                             </div>
                             <div class="fineAction">
                                 <div class="fineAmount">Rs. 500</div>
-                                <button class="payFineBtn">Pay fine</button>
+                                <button class="payFineButton">Pay fine</button>
                             </div>
                         </div>
                     </div>
@@ -188,7 +188,7 @@
                             <p class="reportDesc">Help us keep Neighborly beautiful. Report potholes, broken lights,
                                 or
                                 trash accumulation.</p>
-                            <button class="reportBtn">File a Report</button>
+                            <button class="reportButton">File a Report</button>
                         </div>
 
                     </div>

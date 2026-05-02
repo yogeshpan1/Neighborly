@@ -144,7 +144,7 @@ select.formControl {
     height: 48px;
 }
 
-.loginBtn {
+.loginButton {
     width: 356px;
     padding: 16px;
     border-radius: 12px;
@@ -166,7 +166,7 @@ select.formControl {
     background-color: #8C3610;
 }
 
-.registerSubmitBtn {
+.registerSubmitButton {
     margin-top: 8px;
 }
 

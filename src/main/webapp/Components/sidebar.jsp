@@ -1,15 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 
 <aside class="sidebar">
-    <a href="${pageContext.request.contextPath}/home" class="sidebarLogo">
-        <img src="${pageContext.request.contextPath}/Images/Logo.png" alt="" class="sidebarLogoImg" />
-    </a>
 
     <p class="sidebarSectionLabel">MAIN</p>
-    <ul class="sidebarNav">
+    <ul class="sidebarNavigation">
         <li>
             <a href="${pageContext.request.contextPath}/home" class="${activePage == 'Home' ? 'active' : ''}">
-                <span class="navIcon">
+                <span class="navigationIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
@@ -21,7 +18,7 @@
         </li>
         <li>
             <a href="${pageContext.request.contextPath}/feed" class="${activePage == 'Feed' ? 'active' : ''}">
-                <span class="navIcon">
+                <span class="navigationIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
@@ -32,7 +29,7 @@
         </li>
         <li>
             <a href="${pageContext.request.contextPath}/news" class="${activePage == 'News' ? 'active' : ''}">
-                <span class="navIcon">
+                <span class="navigationIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z" />
@@ -45,10 +42,10 @@
     </ul>
 
     <p class="sidebarSectionLabel">SERVICES</p>
-    <ul class="sidebarNav">
+    <ul class="sidebarNavigation">
         <li>
             <a href="${pageContext.request.contextPath}/documents" class="${activePage == 'Documents' ? 'active' : ''}">
-                <span class="navIcon">
+                <span class="navigationIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
@@ -60,7 +57,7 @@
         </li>
         <li>
             <a href="${pageContext.request.contextPath}/payments" class="${activePage == 'Payments' ? 'active' : ''}">
-                <span class="navIcon">
+                <span class="navigationIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
@@ -73,10 +70,10 @@
     </ul>
 
     <p class="sidebarSectionLabel">COMMUNITY</p>
-    <ul class="sidebarNav">
+    <ul class="sidebarNavigation">
         <li>
             <a href="${pageContext.request.contextPath}/ReportIssue.jsp" class="${activePage == 'Report' ? 'active' : ''}">
-                <span class="navIcon">
+                <span class="navigationIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="10"></circle>
@@ -89,7 +86,7 @@
         </li>
         <li>
             <a href="${pageContext.request.contextPath}/Polls.jsp" class="${activePage == 'Polls' ? 'active' : ''}">
-                <span class="navIcon">
+                <span class="navigationIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="18" y1="20" x2="18" y2="10"></line>
@@ -102,7 +99,7 @@
         </li>
         <li>
             <a href="${pageContext.request.contextPath}/notices" class="${activePage == 'Notices' ? 'active' : ''}">
-                <span class="navIcon">
+                <span class="navigationIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
@@ -202,3 +199,4 @@
         })();
     </script>
 </aside>
+

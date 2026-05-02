@@ -16,6 +16,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 1000px;
+    padding-top: 70px;
 }
 
 @media (max-width: 768px) {
@@ -89,7 +90,7 @@ body {
     background: #e4e6e9;
 }
 
-.photoActionBtn {
+.photoActionButton {
     background: transparent;
     border: 1px solid transparent;
     cursor: pointer;
@@ -101,7 +102,7 @@ body {
     transition: background 0.2s;
 }
 
-.photoActionBtn:hover {
+.photoActionButton:hover {
     background: #f0f2f5;
 }
 
@@ -112,7 +113,7 @@ body {
     margin-top: 12px;
 }
 
-.postBtn {
+.postButton {
     background: #E86A33;
     color: white;
     border: none;
@@ -124,7 +125,7 @@ body {
     transition: background 0.2s;
 }
 
-.postBtn:hover {
+.postButton:hover {
     background: #d15622;
 }
 
@@ -165,7 +166,7 @@ body {
     color: #787c7e;
 }
 
-.moreBtn {
+.moreButton {
     background: none;
     border: none;
     color: #1a1a1b;
@@ -176,7 +177,7 @@ body {
     border-radius: 20px;
 }
 
-.moreBtn:hover {
+.moreButton:hover {
     background: #eaedef;
 }
 
@@ -230,7 +231,7 @@ body {
     padding: 4px 12px;
 }
 
-.voteBtn {
+.voteButton {
     background: none;
     border: none;
     padding: 4px;
@@ -240,7 +241,7 @@ body {
     border-radius: 20px;
 }
 
-.voteBtn:hover {
+.voteButton:hover {
     background: #d4d7d9;
 }
 
@@ -249,7 +250,8 @@ body {
     text-align: center;
 }
 
-.voteImg {
+.voteImage {
     width: 16px;
     height: 16px;
 }
+

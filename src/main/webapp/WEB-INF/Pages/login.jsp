@@ -54,13 +54,13 @@
                             <label for="keepSignedIn">Keep me signed in</label>
                         </div>
 
-                        <button type="submit" class="loginBtn loginBtnPrimary">SIGN IN</button>
+                        <button type="submit" class="loginButton loginBtnPrimary">SIGN IN</button>
 
                         <div class="loginDivider">
                             <span>NEW TO NEIGHBORLY?</span>
                         </div>
 
-                        <a href="${pageContext.request.contextPath}/register" class="loginBtn loginBtnSecondary">Create new account</a>
+                        <a href="${pageContext.request.contextPath}/register" class="loginButton loginBtnSecondary">Create new account</a>
                     </form>
 
                 </div>
