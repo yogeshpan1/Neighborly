@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+.issuePageWrapper {
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+.issuePageHeader {
+    margin-bottom: 24px;
+}
+
+.issuePageTitle {
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.issuePageSubtitle {
+    font-size: 14px;
+    color: #D35400;
+    font-weight: 500;
+}
+
+.issueDivider {
+    border: 0;
+    height: 1px;
+    background-color: #323639;
+    margin-bottom: 32px;
+    width: 100%;
+}
