@@ -8,6 +8,7 @@ public class PollModel
 	 private String createdAt;
 	 private int userId;
 	 private String description;
+	 private String options;
 	 
 	// Getters
 	public int getPollId() 
@@ -28,6 +29,11 @@ public class PollModel
 	public String getDescription()
 	{
 		return description;
+	}
+	
+	public String getOptions()
+	{
+		return options;
 	}
 
 	public String getCreatedAt() 
@@ -59,6 +65,11 @@ public class PollModel
 	public void setDescription(String description)
 	{
 		this.description = description;
+	}
+	
+	public void setOptions(String description)
+	{
+		this.options = options;
 	}
 
 	public void setCreatedAt(String createdAt) 

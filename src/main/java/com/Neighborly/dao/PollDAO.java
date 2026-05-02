@@ -43,10 +43,11 @@ public class PollDAO
 	            
 	            p.setPollId(rs.getInt("Poll_ID"));
 	            p.setQuestion(rs.getString("Poll_Question"));
+	            p.setDescription(rs.getString("Poll_Description"));
+	            p.setOptions(rs.getString("Poll_Options"));
 	            p.setStatus(rs.getString("Poll_Status"));
 	            p.setCreatedAt(rs.getString("Poll_CreatedAt"));
 	            p.setUserId(rs.getInt("User_ID"));
-	            polls.add(p);
 	        }
 	        
 	        rs.close();
