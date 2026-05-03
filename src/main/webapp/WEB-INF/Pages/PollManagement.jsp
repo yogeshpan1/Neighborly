@@ -190,9 +190,7 @@
 									data-question="<c:out value='${p.question}'/>"
 									data-description="<c:out value='${p.description}'/>"
 									data-option1="<c:out value='${p.option1}'/>"
-									data-option2="<c:out value='${p.option2}'/>"
-									data-option3="<c:out value='${p.option3}'/>"
-									data-option4="<c:out value='${p.option4}'/>">
+									data-option2="<c:out value='${p.option2}'/>">
 									<svg width="14" height="14" viewBox="0 0 24 24" fill="none"
 										stroke="currentColor" stroke-width="2" stroke-linecap="round"
 										stroke-linejoin="round">
@@ -252,14 +250,6 @@
 					<div class="formGroup">
 						<label class="formLabel">Option 2</label> <input type="text"
 							class="formInput" name="option_2" placeholder="e.g., No">
-					</div>
-					<div class="formGroup">
-						<label class="formLabel">Option 3</label> <input type="text"
-							class="formInput" name="option_3" placeholder="e.g., Maybe">
-					</div>
-					<div class="formGroup">
-						<label class="formLabel">Option 4</label> <input type="text"
-							class="formInput" name="option_4" placeholder="Optional">
 					</div>
 				</div>
 
@@ -351,16 +341,6 @@
 							class="formInput" id="editOption2" name="option_2"
 							placeholder="Option 2">
 					</div>
-					<div class="formGroup">
-						<label class="formLabel">Option 3</label> <input type="text"
-							class="formInput" id="editOption3" name="option_3"
-							placeholder="Option 3 (optional)">
-					</div>
-					<div class="formGroup">
-						<label class="formLabel">Option 4</label> <input type="text"
-							class="formInput" id="editOption4" name="option_4"
-							placeholder="Option 4 (optional)">
-					</div>
 				</div>
 				<div class="modalFooter">
 					<button type="button" class="btnGhost" onclick="closeEditModal()">Cancel</button>
@@ -385,8 +365,6 @@
         document.getElementById('editPollDesc').value = btn.getAttribute('data-description');
         document.getElementById('editOption1').value = btn.getAttribute('data-option1') || '';
         document.getElementById('editOption2').value = btn.getAttribute('data-option2') || '';
-        document.getElementById('editOption3').value = btn.getAttribute('data-option3') || '';
-        document.getElementById('editOption4').value = btn.getAttribute('data-option4') || '';
         editModal.style.display = 'flex';
     }
     function closeEditModal() { editModal.style.display = 'none'; }

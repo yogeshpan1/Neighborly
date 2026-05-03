@@ -55,9 +55,6 @@ public class CreatePollServlet extends HttpServlet {
 	        String description = request.getParameter("description");
 	        String option1 = request.getParameter("option_1");
 	        String option2 = request.getParameter("option_2");
-	        String option3 = request.getParameter("option_3");
-	        String option4 = request.getParameter("option_4");
-
 	        if (title == null || title.trim().isEmpty()) {
 	            response.sendRedirect(request.getContextPath() + "/pollmanagement");
 	            return;
@@ -65,7 +62,7 @@ public class CreatePollServlet extends HttpServlet {
 
 	        try {
 	            PollDAO dao = new PollDAO();
-	            dao.insertPoll(title.trim(), description, option1, option2, option3, option4, "Active", DEFAULT_ADMIN_USER_ID);
+	            dao.insertPoll(title.trim(), description, option1, option2, "Active", DEFAULT_ADMIN_USER_ID);
 	        } catch (Exception e) 
 	        {
 	            e.printStackTrace();
