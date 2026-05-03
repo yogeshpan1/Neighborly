@@ -1,11 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%
-    // Read citizen details
-    String name = request.getParameter("name");
-    String username = request.getParameter("username") != null ? request.getParameter("username") : "-";
-    String email = request.getParameter("email") != null ? request.getParameter("email") : "-";
-    String address = request.getParameter("address") != null ? request.getParameter("address") : "-";
-%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Citizen Management - Neighborly</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Admin-Side.css">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/CitizenManagement.css">
 </head>
 <body>
 
@@ -28,7 +20,7 @@
         <div class="dashboardBody">
             <div class="twoColumnLayout">
                 
-                <!-- ===== LEFT COLUMN (CITIZEN LIST) ===== -->
+                <!--Citizen List-->
                 <div class="leftColumn">
                     <div class="pageHeader">
                         <h1 class="pageTitle">Citizen Management</h1>
@@ -125,7 +117,7 @@
                     </div>
                 </div>
 
-                <!--RIGHT COLUMN-->
+                <!--Citizen Details Preview-->
                 <div class="rightColumn">
                     <% if (name == null || name.isEmpty()) { %>
                         <div class="emptyStatePanel">
@@ -215,6 +207,30 @@
                     <% } %>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- SUSPENSION MODAL -->
+    <div class="modalOverlay" id="suspendModal">
+        <div class="modalBox">
+            <div class="modalHeaderRed">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                <h2>Confirm Suspension</h2>
+            </div>
+            <form action="<%= request.getContextPath() %>/suspendCitizen" method="POST">
+                <input type="hidden" name="citizenUsername" value="<%= username %>">
+                <div class="modalBody">
+                    <p class="modalText">
+                        You are about to suspend the account for <strong id="modalUserName"><%= name %></strong>. Please give your reason below.
+                    </p>
+                    <label class="labelArea">Reason of Suspension</label>
+                    <textarea class="modalTextarea" name="suspensionReason" id="suspensionReason" placeholder="Provide a detailed explanation for this suspension..." required></textarea>
+                </div>
+                <div class="modalFooter">
+                    <button type="button" class="buttonCancel" onclick="closeSuspendModal()">Cancel</button>
+                    <button type="submit" class="buttonConfirmRed">Confirm Suspension</button>
+                </div>
+            </form>
         </div>
     </div>
 </body>
