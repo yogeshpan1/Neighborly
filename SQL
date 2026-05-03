@@ -13,15 +13,13 @@ CREATE TABLE users (
 );
 
 CREATE TABLE polls (
-    Poll_ID INT(10) AUTO_INCREMENT PRIMARY KEY,
-    Poll_Question VARCHAR(255) NOT NULL,
-    Poll_Description VARCHAR(500),
-    Poll_Option1 VARCHAR(100),
-    Poll_Option2 VARCHAR(100),
-    Poll_Status VARCHAR(20) NOT NULL,
-    Poll_CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    Admin_ID INT(10)
+    poll_id INT AUTO_INCREMENT PRIMARY KEY,
+    poll_question VARCHAR(255) NOT NULL,
+    poll_description TEXT,
+    poll_option1 VARCHAR(100) NOT NULL,
+    poll_option2 VARCHAR(100) NOT NULL,
+    poll_status VARCHAR(50) DEFAULT 'Active',
+    poll_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    admin_id INT NOT NULL,
+    FOREIGN KEY (admin_id) REFERENCES admins(admin_id)
 );
-
-ALTER TABLE polls ADD CONSTRAINT fk_polls_admin 
-FOREIGN KEY (Admin_ID) REFERENCES admin(Admin_ID);
