@@ -12,7 +12,8 @@
 
     <body>
 
-                    <jsp:include page="/Components/sidebar.jsp" />
+            <jsp:include page="/Components/sidebar.jsp" />
+            
             <div class="mainContent">
                 <jsp:include page="/Components/navbar.jsp" />
                 <div class="dashboardArea">

@@ -3,131 +3,144 @@
 }
 
 body {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     font-family: 'Inter', sans-serif;
-    background-color: #FFFFFF;
-    color: #333333;
+    background-color: #F7F8FA;
+    color: #1a1a1b;
 }
+
+/*  Layout */
 
 .mainContent {
     margin-left: 250px;
-    flex: 1;
     display: flex;
     flex-direction: column;
-    min-height: 1000px;
+    min-height: 100vh;
     padding-top: 70px;
 }
 
 @media (max-width: 768px) {
-    .mainContent {
-        margin-left: 0px;
-    }
+    .mainContent { margin-left: 0; }
 }
 
 .contentArea {
-    padding: 32px;
-    background-color: #FFFFFF;
+    padding: 28px 32px;
     flex: 1;
 }
 
 .feedCenter {
-
-    max-width: 800px;
-    margin: 0px auto;
+    max-width: 680px;
+    margin: 0 auto;
 }
 
 .composer {
-    background: #FFFFFF;
+    background: #fff;
     border: 1px solid #E2E8F0;
     border-radius: 12px;
-    padding: 16px 20px;
-    margin-bottom: 16px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.02);
-}
-
-.post {
-    background: #FFFFFF;
-    border: 1px solid #E2E8F0;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 16px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.02);
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 
 .composerTop {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
+}
+
+.composerAvatarLink {
+    text-decoration: none;
+    flex-shrink: 0;
 }
 
 .composerAvatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #C8621A;
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    font-size: 16px;
-    color: #ffffff;
-    flex-shrink: 0;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
 }
 
 .composerInput {
     flex: 1;
     border: none;
     border-radius: 20px;
-    padding: 12px 20px;
-    font-size: 15px;
+    padding: 10px 16px;
+    font-size: 14px;
     outline: none;
-    background: #f0f2f5;
-    color: #050505;
+    background: #F0F2F5;
+    color: #1a1a1b;
+    font-family: inherit;
 }
 
+.composerInput::placeholder { color: #90949c; }
 .composerInput:hover,
-.composerInput:focus {
-    background: #e4e6e9;
-}
+.composerInput:focus { background: #e4e6ea; }
 
 .photoActionButton {
     background: transparent;
-    border: 1px solid transparent;
+    border: none;
     cursor: pointer;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8px 12px;
+    padding: 7px;
     border-radius: 8px;
-    transition: background 0.2s;
+    color: #65676B;
+    transition: background 0.15s;
 }
 
-.photoActionButton:hover {
-    background: #f0f2f5;
-}
+.photoActionButton:hover { background: #F0F2F5; }
 
 .composerBottom {
     display: flex;
     justify-content: flex-end;
-    align-items: center;
-    margin-top: 12px;
+    margin-top: 10px;
 }
 
 .postButton {
-    background: #E86A33;
-    color: white;
+    background: #C8621A;
+    color: #fff;
     border: none;
-    padding: 8px 24px;
+    padding: 7px 22px;
     border-radius: 20px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.15s;
+    font-family: inherit;
 }
 
-.postButton:hover {
-    background: #d15622;
+.postButton:hover { background: #b3561a; }
+
+/*  Post  */
+
+.post {
+    background: #fff;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    transition: box-shadow 0.15s;
 }
+
+.post:hover {
+    box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+}
+
+/* Post type variants */
+.post--alert { border-left: 3px solid #FF9800; }
+.post--discussion { border-left: 3px solid #1976d2; }
+
+/*  Post Author Area  */
 
 .postHeader {
     display: flex;
@@ -136,23 +149,24 @@ body {
     margin-bottom: 12px;
 }
 
-.postHeaderLeft,
-.postHeaderRight {
+.postHeaderLeft {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
 .postAvatar {
-    width: 24px;
-    height: 24px;
-    border-radius: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
-    font-weight: bold;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
     flex-shrink: 0;
+    letter-spacing: 0.3px;
 }
 
 .postAuthor {
@@ -162,95 +176,122 @@ body {
 }
 
 .postTime {
-    font-size: 13px;
-    color: #787c7e;
+    font-size: 12px;
+    color: #90949c;
 }
 
 .moreButton {
     background: none;
     border: none;
-    color: #1a1a1b;
+    color: #90949c;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    padding: 4px;
-    border-radius: 20px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    padding: 2px 6px;
+    border-radius: 6px;
+    line-height: 1;
+    transition: background 0.15s, color 0.15s;
 }
 
 .moreButton:hover {
-    background: #eaedef;
+    background: #F0F2F5;
+    color: #1a1a1b;
 }
 
-.postTextContent {
-    flex: 1;
-}
+/*  Post Area ─ */
 
 .postTitle {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
     color: #1a1a1b;
+    line-height: 1.3;
 }
+
+.postTitle--urgent { color: #e53935; }
+.postTitle--civic  { color: #1976d2; }
 
 .postBody {
-    color: #1a1a1b;
+    color: #4a4a4a;
     font-size: 14px;
-    line-height: 20px;
-    margin-bottom: 16px;
-    margin-top: 0px;
+    line-height: 1.6;
+    margin: 0 0 4px 0;
 }
 
-.postActions {
+.alertBox {
+    background: #FFF8E7;
+    border-left: 3px solid #FF9800;
+    padding: 10px 14px;
+    border-radius: 0 8px 8px 0;
+    color: #BF5E00;
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+/*  Post Interactions Area  */
+
+.postFooter {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-top: 8px;
-    padding-top: 0px;
-    border-top: none;
-}
-
-.actionPill {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: #eaedef;
-    padding: 8px 12px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
-    color: #1a1a1b;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.actionPill:hover {
-    background: #e2e7e9;
+    justify-content: space-between;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid #F0F2F5;
 }
 
 .voteGroup {
-    padding: 4px 12px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background: #F0F2F5;
+    border-radius: 20px;
+    padding: 3px 6px;
 }
 
 .voteButton {
     background: none;
     border: none;
-    padding: 4px;
+    padding: 4px 6px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 16px;
+    color: #65676B;
+    transition: background 0.15s, color 0.15s;
 }
 
 .voteButton:hover {
     background: #d4d7d9;
+    color: #C8621A;
 }
 
 .voteCount {
-    min-width: 24px;
+    min-width: 28px;
     text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a1b;
 }
 
-.voteImage {
-    width: 16px;
-    height: 16px;
+.saveButton {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #65676B;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+    font-family: inherit;
+}
+
+.saveButton:hover {
+    background: #F0F2F5;
+    border-color: #c8c8c8;
+    color: #1a1a1b;
 }
