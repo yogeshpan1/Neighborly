@@ -10,16 +10,16 @@ import java.io.IOException;
 import com.Neighborly.dao.PollDAO;
 
 /**
- * Servlet implementation class updatePollServlet
+ * Servlet implementation class DeletePollServlet
  */
-@WebServlet("/updatepoll")
-public class updatePollServlet extends HttpServlet {
+@WebServlet(asyncSupported = true, urlPatterns = { "/deletepoll" })
+public class DeletePollServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public updatePollServlet() {
+    public DeletePollServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,17 +36,11 @@ public class updatePollServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-
-        int pollId = Integer.parseInt(request.getParameter("pollId"));
-        String title = request.getParameter("title");
-        String description = request.getParameter("description");
-        String option1 = request.getParameter("option_1");
-        String option2 = request.getParameter("option_2");
-
+		
+		int pollId = Integer.parseInt(request.getParameter("pollId"));
         try {
             PollDAO dao = new PollDAO();
-            dao.updatePoll(pollId, title, description, option1, option2);
+            dao.deletePoll(pollId);
         } 
         catch (Exception e) 
         {

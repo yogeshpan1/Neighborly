@@ -164,7 +164,7 @@
 				<hr class="divider">
 
 				<div class="subHeader">
-					Manage Polls <span class="pillBadge">Total: 3</span>
+					<span class="pillBadge">Total Polls: ${totalPolls}</span>
 				</div>
 
 				<!-- LIST OF POLLS -->
@@ -200,9 +200,9 @@
 											d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
 									Edit
 								</button>
-								<button class="btn btnDelete"
-									onclick="openDeletePoll(this)"
-									data-deletePollId="${p.pollId}">
+								<button class="btn btnDelete" onclick="openDeletePoll(this)"
+									data-deletePollId="${p.pollId}"
+									data-question="<c:out value='${p.question}'/>">
 									<svg width="14" height="14" viewBox="0 0 24 24" fill="none"
 										stroke="currentColor" stroke-width="2" stroke-linecap="round"
 										stroke-linejoin="round">
@@ -219,7 +219,6 @@
 		</main>
 	</div>
 
-	<!--THE 'CREATE' MODAL OVERLAY-->
 	<div class="modalOverlay" id="createPollModal">
 		<div class="modalBox">
 			<div class="modalHeader">
@@ -228,8 +227,8 @@
 					define choices.</p>
 			</div>
 
-			<form action="<%=request.getContextPath()%>/createpoll"
-				method="POST" id="createPollForm">
+			<form action="<%=request.getContextPath()%>/createpoll" method="POST"
+				id="createPollForm">
 				<div class="modalBody">
 					<div class="formGroup">
 						<label class="formLabel">Poll Title</label> <input type="text"
@@ -278,8 +277,7 @@
 				<h2>Confirm Deletion</h2>
 			</div>
 
-			<form action="<%=request.getContextPath()%>/deletepoll"
-				method="POST">
+			<form action="<%=request.getContextPath()%>/deletepoll" method="POST">
 				<input type="hidden" name="pollId" id="deletePollId">
 
 				<div class="modalBody" style="padding: 24px 28px;">
@@ -319,8 +317,8 @@
 				<p class="modalSubtitle">Modify poll details and update
 					available choices.</p>
 			</div>
-			<form action="<%=request.getContextPath()%>/updatepoll"
-				method="POST" id="editPollForm">
+			<form action="<%=request.getContextPath()%>/updatepoll" method="POST"
+				id="editPollForm">
 				<input type="hidden" name="pollId" id="editPollId">
 				<div class="modalBody">
 					<div class="formGroup">
@@ -374,12 +372,13 @@
     function closeCreateModal() { createModal.style.display = 'none'; }
 
     // --- DELETE MODAL LOGIC ---
-    function openDeletePoll(pollTitle, pollId) {
-        deleteTitleSpan.textContent = pollTitle;
-        deleteIdInput.value = pollId;
-        deleteModal.style.display = 'flex';
-    }
-    function closeDeleteModal() {
+	   function openDeletePoll(btn) 
+    {
+	    deleteTitleSpan.textContent = btn.getAttribute('data-question') || 'this poll';
+	    deleteIdInput.value = btn.getAttribute('data-deletepollid');
+	    deleteModal.style.display = 'flex';
+	}
+	    function closeDeleteModal() {
         deleteModal.style.display = 'none';
         deleteModal.querySelector('textarea[name="deletionReason"]').value = '';
     }
