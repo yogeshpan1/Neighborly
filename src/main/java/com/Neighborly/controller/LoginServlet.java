@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
         try {
             status = service.authenticate(username, password);
         } catch (Exception e) {
-            status = "Error in Authentication";
+            status = "An Error Occured";
             e.printStackTrace();
         }
 
