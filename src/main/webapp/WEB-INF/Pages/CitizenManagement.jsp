@@ -38,7 +38,7 @@
                             <div class="statInfo">
                                 <span class="statLabel">Total citizens</span>
                                 <span class="statValue">1,342</span>
-                                <span class="statTrend green">▲ +22 this week</span>
+                                <span class="statTrend green">+22 this week</span>
                             </div>
                         </div>
                         <div class="statCard statCardSmall">
@@ -49,7 +49,7 @@
                             </div>
                             <div class="statInfo">
                                 <span class="statLabel">Active Citizens</span>
-                                <span class="statValue">1,300</span>
+                                <span class="statValue">1,500</span>
                                 <span class="statTrend blue" style="color: #3b82f6; font-size: 11px; margin-top: 4px; font-weight: 600;">Good Standing</span>
                             </div>
                         </div>
@@ -72,9 +72,7 @@
                         <div class="citizenCard">
                             <div class="citizenInfo">
                                 <div class="avatarBox">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                                </div>
-                                <div class="nameGroup">
+                                    <div class="nameGroup">
                                     <h3>Arjan Regmi</h3>
                                     <p>ID: #1 &bull; Active</p>
                                 </div>
@@ -87,11 +85,9 @@
                         <div class="citizenCard">
                             <div class="citizenInfo">
                                 <div class="avatarBox">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                                </div>
+                                   </div>
                                 <div class="nameGroup">
                                     <h3>Rikesh Adhikari</h3>
-                                    <p>ID: #2 &bull; Active</p>
                                 </div>
                                 <span class="roleTag">Resident</span>
                             </div>
