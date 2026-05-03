@@ -6,7 +6,8 @@
 body {
     margin: 0;
     padding: 0;
-    color: #333333;
+    color: #374151;
+    background-color: #f9fafb;
 }
 
 .mainContent {
@@ -24,36 +25,19 @@ body {
     }
 }
 
-.contentArea {
-    padding: 32px;
-    background-color: #FFFFFF;
-    flex: 1;
+.formWrapper {
+    padding: 48px;
+    max-width: 800px;
+    width: calc(100% - 48px);
+    margin: 40px auto;
 }
 
-.reportContainer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding-top: 20px;
-    padding-bottom: 40px;
-}
-
-.reportHeader {
-    text-align: center;
-    margin-bottom: 32px;
-}
-
-.reportHeader h1 {
-    font-size: 24px;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin: 0;
-}
-
-.subtitle {
-    font-size: 13px;
-    color: #999;
-    margin-top: 8px;
-    margin-bottom: 0;
+@media (max-width: 600px) {
+    .formWrapper {
+        padding: 24px;
+        width: calc(100% - 24px);
+        margin: 24px auto;
+    }
 }
 
 .reportForm {
@@ -66,43 +50,46 @@ body {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    border: none;
+    padding: 0;
+    margin: 0;
 }
 
-.formGroup label {
-    font-size: 11px;
+.formGroup label,
+.formGroup legend {
+    font-size: 14px;
     font-weight: 600;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    color: #374151;
+    padding: 0;
 }
 
 .reportForm input[type="text"],
 .reportForm textarea {
     width: 100%;
-    padding: 10px 0;
-    border: none;
-    border-bottom: 1px solid #ddd;
-    border-radius: 0;
-    background-color: transparent;
-    font-size: 15px;
-    color: #1a1a1b;
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background-color: #fff;
+    font-size: 16px;
+    color: #111827;
     outline: none;
-    transition: border-bottom-color 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .reportForm input[type="text"]:focus,
 .reportForm textarea:focus {
-    border-bottom-color: #E86A33;
+    border-color: #E86A33;
+    box-shadow: 0 0 0 3px rgba(232, 106, 51, 0.2);
 }
 
 .reportForm input::placeholder,
 .reportForm textarea::placeholder {
-    color: #a0aec0;
+    color: #9ca3af;
 }
 
 .reportForm textarea {
     resize: vertical;
-    min-height: 80px;
+    min-height: 120px;
 }
 
 /* Category Grid */
@@ -111,7 +98,6 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
     margin-top: 4px;
-    max-width: 840px;
 }
 
 @media (max-width: 600px) {
@@ -130,34 +116,41 @@ body {
 
 .categoryBtn {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 10px;
-    padding: 0 14px;
-    height: 48px;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+    height: 100px;
     width: 100%;
-    border: 1px solid #ddd;
+    border: 1px solid #d1d5db;
     border-radius: 8px;
     background-color: #fff;
-    color: #333;
-    font-size: 13px;
+    color: #4b5563;
+    font-size: 14px;
     font-weight: 500;
     transition: all 0.2s ease;
 }
 
 .categoryOption input[type="radio"]:checked + .categoryBtn {
+    background-color: #FFF5F0;
     border-color: #E86A33;
-    background-color: rgba(232, 106, 51, 0.04);
     color: #E86A33;
 }
 
 .categoryBtn:hover {
-    border-color: #cbd5e1;
+    background-color: #f9fafb;
+}
+
+.categoryOption input[type="radio"]:checked + .categoryBtn:hover {
+    background-color: #FFF5F0;
 }
 
 .categoryBtn svg {
-    color: #64748b;
-    width: 16px;
-    height: 16px;
+    color: #6b7280;
+    width: 24px;
+    height: 24px;
+    transition: color 0.2s ease;
 }
 
 .categoryOption input[type="radio"]:checked + .categoryBtn svg {
@@ -165,11 +158,6 @@ body {
 }
 
 /* File Upload */
-.fileUploadWrapper {
-    width: 100%;
-    margin-top: 4px;
-}
-
 .fileInput {
     display: none;
 }
@@ -180,56 +168,55 @@ body {
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
-    border: 1.5px dashed #cbd5e1;
+    border: 2px dashed #d1d5db;
     border-radius: 8px;
-    background-color: #fafafa;
+    background-color: #f9fafb;
     cursor: pointer;
     transition: all 0.2s ease;
-    gap: 8px;
+    gap: 12px;
 }
 
 .fileUploadLabel:hover {
-    border-color: #94a3b8;
-    background-color: #f1f5f9;
+    background-color: #f3f4f6;
+    border-color: #9ca3af;
 }
 
 .uploadIcon {
-    color: #64748b;
-    margin-bottom: 4px;
+    color: #6b7280;
+}
+
+.uploadIcon svg {
+    width: 32px;
+    height: 32px;
 }
 
 .uploadText {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
-    color: #334155;
+    color: #374151;
 }
 
 .uploadHint {
-    font-size: 12px;
-    color: #64748b;
+    font-size: 14px;
+    font-weight: 400;
+    color: #6b7280;
 }
 
 /* Actions */
-.formActions {
-    margin-top: 16px;
-}
-
 .btnPrimary {
-    width: 100%;
+    width: auto;
+    align-self: flex-start;
     background: #E86A33;
     color: #FFFFFF;
     border: none;
-    padding: 14px;
-    border-radius: 8px;
-    font-size: 15px;
+    padding: 12px 28px;
+    border-radius: 24px;
+    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s;
-    box-shadow: 0 4px 12px rgba(232, 106, 51, 0.25);
+    transition: background-color 0.2s;
 }
 
 .btnPrimary:hover {
-    background: #d65824;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(232, 106, 51, 0.35);
+    background: #d05a29;
 }
