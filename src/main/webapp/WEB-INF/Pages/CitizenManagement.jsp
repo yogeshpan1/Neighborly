@@ -1,5 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+    // Read citizen details
+    String name = request.getParameter("name");
+    String username = request.getParameter("username") != null ? request.getParameter("username") : "-";
+    String email = request.getParameter("email") != null ? request.getParameter("email") : "-";
+    String address = request.getParameter("address") != null ? request.getParameter("address") : "-";
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,15 +16,16 @@
 </head>
 <body>
 
+  <!-- SIDEBAR component -->
+  <jsp:include page="/components/admin-sidebar.jsp" />
+
     <div class="mainContent">
-        <!-- TOPBAR component -->
-        <% request.setAttribute("pageTitle", "Admin Dashboard"); %>
         <jsp:include page="/components/admin-topbar.jsp" />
 
         <div class="dashboardBody">
             <div class="twoColumnLayout">
                 
-                <!--LEFT Column-->
+                <!--LEFT COLUMN -->
                 <div class="leftColumn">
                     <div class="pageHeader">
                         <h1 class="pageTitle">Citizen Management</h1>
@@ -38,7 +45,7 @@
                             <div class="statInfo">
                                 <span class="statLabel">Total citizens</span>
                                 <span class="statValue">1,342</span>
-                                <span class="statTrend green">+22 this week</span>
+                                <span class="statTrend green">▲ +22 this week</span>
                             </div>
                         </div>
                         <div class="statCard statCardSmall">
@@ -49,7 +56,7 @@
                             </div>
                             <div class="statInfo">
                                 <span class="statLabel">Active Citizens</span>
-                                <span class="statValue">1,500</span>
+                                <span class="statValue">1,300</span>
                                 <span class="statTrend blue" style="color: #3b82f6; font-size: 11px; margin-top: 4px; font-weight: 600;">Good Standing</span>
                             </div>
                         </div>
@@ -72,7 +79,9 @@
                         <div class="citizenCard">
                             <div class="citizenInfo">
                                 <div class="avatarBox">
-                                    <div class="nameGroup">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                                </div>
+                                <div class="nameGroup">
                                     <h3>Arjan Regmi</h3>
                                     <p>ID: #1 &bull; Active</p>
                                 </div>
@@ -85,17 +94,33 @@
                         <div class="citizenCard">
                             <div class="citizenInfo">
                                 <div class="avatarBox">
-                                   </div>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                                </div>
                                 <div class="nameGroup">
                                     <h3>Rikesh Adhikari</h3>
+                                    <p>ID: #2 &bull; Active</p>
                                 </div>
                                 <span class="roleTag">Resident</span>
                             </div>
                             <a class="buttonReview" href="<%= request.getContextPath() %>/citizenlist?name=Rikesh+Adhikari&username=Rikesh99&email=rikesh%40gmail.com&address=Lalitpur%2C+Nepal">Review</a>
                         </div>
-		                </div>
-		                </div>
-		                </div>
-		                </div>
-				</body>
-				</html>
+
+                        <!-- Citizen 3 -->
+                        <div class="citizenCard">
+                            <div class="citizenInfo">
+                                <div class="avatarBox">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                                </div>
+                                <div class="nameGroup">
+                                    <h3>Yogesh Pant</h3>
+                                    <p>ID: #3 &bull; Active</p>
+                                </div>
+                                <span class="roleTag">Resident</span>
+                            </div>
+                            <a class="buttonReview" href="<%= request.getContextPath() %>/citizenlist?name=Yogesh+Pant&username=YogeshP&email=yogesh%40gmail.com&address=Bhaktapur%2C+Nepal">Review</a>
+                        </div>
+                    </div>
+                </div>
+    </div>
+</body>
+</html>
