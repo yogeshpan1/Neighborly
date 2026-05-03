@@ -93,9 +93,9 @@
                             </div>
                             <a class="buttonReview" href="<%= request.getContextPath() %>/citizenlist?name=Rikesh+Adhikari&username=Rikesh99&email=rikesh%40gmail.com&address=Lalitpur%2C+Nepal">Review</a>
                         </div>
-                </div>
-                </div>
-                </div>
-                </div>
-</body>
-</html>
+		                </div>
+		                </div>
+		                </div>
+		                </div>
+				</body>
+				</html>
