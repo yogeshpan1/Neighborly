@@ -11,3 +11,17 @@ CREATE TABLE users (
     role ENUM('admin', 'citizen') DEFAULT 'citizen',
     registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE polls (
+    Poll_ID INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Poll_Question VARCHAR(255) NOT NULL,
+    Poll_Description VARCHAR(500),
+    Poll_Option1 VARCHAR(100),
+    Poll_Option2 VARCHAR(100),
+    Poll_Status VARCHAR(20) NOT NULL,
+    Poll_CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Admin_ID INT(10)
+);
+
+ALTER TABLE polls ADD CONSTRAINT fk_polls_admin 
+FOREIGN KEY (Admin_ID) REFERENCES admin(Admin_ID);
