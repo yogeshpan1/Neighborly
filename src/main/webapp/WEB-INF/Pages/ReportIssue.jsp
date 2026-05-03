@@ -118,7 +118,7 @@
                         <div class="issueDetails">
                             <div class="issueMeta">
                                 <span class="reporterName">Rikesh Adhikari</span>
-                                <span class="issueTitle">Pot Hole detected at Patan</span>
+                                <span class="issueTitle">Potholes detected at Patan</span>
                             </div>
                             <p class="submittedTime">Submitted 2 days ago</p>
                         </div>
