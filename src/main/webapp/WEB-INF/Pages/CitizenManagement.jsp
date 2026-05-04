@@ -233,5 +233,37 @@
             </form>
         </div>
     </div>
+     <script>
+        // Tab switching
+        function switchTab(tab) {
+            document.querySelectorAll('.tabItem').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tabPanel').forEach(p => p.classList.remove('active'));
+
+            if (tab === 'issues') {
+                document.getElementById('tabIssues').classList.add('active');
+                document.getElementById('panelIssues').classList.add('active');
+            } else {
+                document.getElementById('tabFines').classList.add('active');
+                document.getElementById('panelFines').classList.add('active');
+            }
+        }
+
+        // Modal controls
+        function openSuspendModal() {
+            document.getElementById('suspendModal').style.display = 'flex';
+            document.getElementById('suspensionReason').value = '';
+        }
+
+        function closeSuspendModal() {
+            document.getElementById('suspendModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            var modal = document.getElementById('suspendModal');
+            if (event.target === modal) {
+                closeSuspendModal();
+            }
+        }
+    </script>
 </body>
 </html>
