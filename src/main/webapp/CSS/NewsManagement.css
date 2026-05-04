@@ -36,7 +36,7 @@
     border: none;
 }
 
-/* ===== NEWS PREVIEW CARDS ===== */
+/*NEWS PREVIEW CARDS  */
 .newsPreviewGrid {
     display: flex;
     gap: 20px;
@@ -97,14 +97,6 @@
     font-weight: 500;
 }
 
-/* ===== NEWS LIST SECTION ===== */
-.newsListHeader {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-}
-
 .newsListTitle {
     font-size: 20px;
     font-weight: 700;
@@ -131,9 +123,6 @@
     background-color: #212224;
     border: 1px solid #323639;
     border-radius: 10px;
-    padding: 18px 24px;
-    display: flex;
-    align-items: center;
     gap: 16px;
     transition: border-color 0.2s;
 }
@@ -147,10 +136,6 @@
     height: 44px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    border-radius: 8px;
-    background-color: #151821;
     border: 1px solid #323639;
 }
 
@@ -199,8 +184,5 @@
     border: none;
     border-radius: 6px;
     padding: 8px 18px;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
     transition: background-color 0.2s;
 }
