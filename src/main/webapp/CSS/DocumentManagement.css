@@ -1,1 +1,85 @@
 @charset "UTF-8";
+
+.docPageHeader {
+    margin-bottom: 24px;
+}
+
+.docPageTitle {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.docDivider {
+    height: 1px;
+    background-color: #323639;
+    margin-bottom: 28px;
+    border: none;
+}
+
+/* ===== TWO COLUMN LAYOUT ===== */
+.docTwoColumn {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+}
+
+.docLeftColumn {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.docRightColumn {
+    width: 320px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ===== TABLE CARDS ===== */
+.docTableCard {
+    background-color: #212224;
+    border: 1px solid #323639;
+    border-radius: 10px;
+    padding: 24px;
+}
+
+.docTableTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.docTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.docTable thead th {
+    font-size: 11px;
+    font-weight: 700;
+    color: #75787D;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: left;
+    padding: 0 12px 14px 12px;
+    border-bottom: 1px solid #323639;
+}
+
+.docTable tbody td {
+    font-size: 14px;
+    color: #ffffff;
+    padding: 16px 12px;
+    border-bottom: 1px solid #1a1c1e;
+}
+
+.docTable tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
