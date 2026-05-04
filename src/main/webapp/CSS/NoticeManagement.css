@@ -23,7 +23,7 @@
     border: none;
 }
 
-/* POST NOTICE FORM CARD */
+/* ===== POST NOTICE FORM CARD ===== */
 .noticeFormCard {
     background-color: #212224;
     border: 1px solid #323639;
@@ -144,4 +144,112 @@
 
 .buttonPostNotice:hover {
     background-color: #e65c00;
+}
+
+.noticeFormHeading {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+.noticeForm {
+    padding: 24px;
+}
+
+.noticeFormRow {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.noticeFormGroup {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.noticeFormGroupFull {
+    margin-bottom: 20px;
+}
+
+.noticeFormLabel {
+    font-size: 11px;
+    font-weight: 700;
+    color: #75787D;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.noticeFormInput {
+    background-color: #131517;
+    border: 1px solid #323639;
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.noticeFormInput:focus {
+    border-color: #D35400;
+}
+
+.noticeFormSelect {
+    background-color: #131517;
+    border: 1px solid #323639;
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    cursor: pointer;
+    appearance: auto;
+    transition: border-color 0.2s;
+}
+
+.noticeFormSelect:focus {
+    border-color: #D35400;
+}
+
+.noticeFormTextarea {
+    background-color: #131517;
+    border: 1px solid #325139;
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    resize: none;
+    min-height: 120px;
+}
+
+.noticeFormTextarea:focus {
+    border-color: #D35400;
+}
+
+.noticeFormActions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttonPostNotice {
+    background-color: #D35400;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 30px 24px;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.buttonPostNotice:hover {
+    background-color: navy;
 }
