@@ -1,25 +1,155 @@
-CREATE TABLE users (
-    user_id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    dob DATE NOT NULL,
-    gender ENUM('Male', 'Female', 'Other') NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    number VARCHAR(20) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    role ENUM('admin', 'citizen') DEFAULT 'citizen',
-    registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+ Admin table
+CREATE TABLE neighborly_admin (
+    admin_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    username VARCHAR(50),
+    email VARCHAR(100),
+    number VARCHAR(20),
+    password VARCHAR(255),
+    registration_date TIMESTAMP
 );
 
-CREATE TABLE polls (
-    poll_id INT AUTO_INCREMENT PRIMARY KEY,
-    poll_question VARCHAR(255) NOT NULL,
+ Citizens table
+CREATE TABLE neighborly_citizens (
+    citizen_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    username VARCHAR(50),
+    dob DATE,
+    gender VARCHAR(10),
+    email VARCHAR(100),
+    number VARCHAR(20),
+    password VARCHAR(255),
+    registration_date TIMESTAMP
+);
+
+ Category table
+CREATE TABLE neighborly_category (
+    category_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    category_name VARCHAR(100)
+);
+
+ News table
+CREATE TABLE neighborly_news (
+    news_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    admin_id INT(11),
+    news_title VARCHAR(255),
+    news_content TEXT,
+    news_created_at TIMESTAMP,
+    FOREIGN KEY (admin_id) REFERENCES neighborly_admin(admin_id)
+);
+
+ Notices table
+CREATE TABLE neighborly_notices (
+    notice_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    admin_id INT(11),
+    notice_title VARCHAR(255),
+    notice_description TEXT,
+    notice_category VARCHAR(100),
+    notice_posted_at TIMESTAMP,
+    FOREIGN KEY (admin_id) REFERENCES neighborly_admin(admin_id)
+);
+
+ Jobs table
+CREATE TABLE neighborly_jobs (
+    job_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    admin_id INT(11),
+    job_title VARCHAR(255),
+    department VARCHAR(100),
+    job_description TEXT,
+    contact_email VARCHAR(100),
+    contact_phone VARCHAR(20),
+    job_status VARCHAR(50),
+    posted_at TIMESTAMP,
+    FOREIGN KEY (admin_id) REFERENCES neighborly_admin(admin_id)
+);
+
+ Polls table
+CREATE TABLE neighborly_polls (
+    poll_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    admin_id INT(11),
+    poll_question VARCHAR(255),
     poll_description TEXT,
-    poll_option1 VARCHAR(100) NOT NULL,
-    poll_option2 VARCHAR(100) NOT NULL,
-    poll_status VARCHAR(50) DEFAULT 'Active',
-    poll_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    admin_id INT NOT NULL,
-    FOREIGN KEY (admin_id) REFERENCES admins(admin_id)
+    poll_option1 VARCHAR(100),
+    poll_option2 VARCHAR(100),
+    poll_status VARCHAR(50),
+    poll_created_at TIMESTAMP,
+    FOREIGN KEY (admin_id) REFERENCES neighborly_admin(admin_id)
+);
+
+ Poll Votes table
+CREATE TABLE neighborly_poll_votes (
+    vote_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    citizen_id INT(11),
+    poll_id INT(11),
+    voted_at TIMESTAMP,
+    FOREIGN KEY (citizen_id) REFERENCES neighborly_citizens(citizen_id),
+    FOREIGN KEY (poll_id) REFERENCES neighborly_polls(poll_id)
+);
+
+ Fines table
+CREATE TABLE neighborly_fines (
+    fine_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    citizen_id INT(11),
+    admin_id INT(11),
+    violation_type VARCHAR(100),
+    amount DECIMAL(10,2),
+    fine_description TEXT,
+    fine_status VARCHAR(50),
+    issued_at TIMESTAMP,
+    FOREIGN KEY (citizen_id) REFERENCES neighborly_citizens(citizen_id),
+    FOREIGN KEY (admin_id) REFERENCES neighborly_admin(admin_id)
+);
+
+ Issues table
+CREATE TABLE neighborly_issues (
+    issue_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    citizen_id INT(11),
+    admin_id INT(11),
+    category_id INT(11),
+    title VARCHAR(255),
+    description TEXT,
+    status VARCHAR(50),
+    created_at TIMESTAMP,
+    FOREIGN KEY (citizen_id) REFERENCES neighborly_citizens(citizen_id),
+    FOREIGN KEY (admin_id) REFERENCES neighborly_admin(admin_id),
+    FOREIGN KEY (category_id) REFERENCES neighborly_category(category_id)
+);
+
+ Documents table
+CREATE TABLE neighborly_documents (
+    document_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    citizen_id INT(11),
+    document_type VARCHAR(100),
+    file_path VARCHAR(255),
+    issued_date DATE,
+    expiry_date DATE,
+    doc_status VARCHAR(50),
+    FOREIGN KEY (citizen_id) REFERENCES neighborly_citizens(citizen_id)
+);
+
+Applications table
+CREATE TABLE neighborly_applications (
+    application_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    citizen_id INT(11),
+    application_title VARCHAR(255),
+    application_type VARCHAR(100),
+    application_status VARCHAR(50),
+    rejection_reason TEXT,
+    submitted_at TIMESTAMP,
+    FOREIGN KEY (citizen_id) REFERENCES neighborly_citizens(citizen_id)
+);
+
+ Payments table
+CREATE TABLE neighborly_payments (
+    payment_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    citizen_id INT(11),
+    bill_for VARCHAR(100),
+    pay_amount DECIMAL(10,2),
+    due_date DATE,
+    reference_id VARCHAR(100),
+    pay_status VARCHAR(50),
+    paid_at TIMESTAMP,
+    FOREIGN KEY (citizen_id) REFERENCES neighborly_citizens(citizen_id)
 );
