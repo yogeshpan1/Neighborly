@@ -94,3 +94,71 @@
     color: #D35400;
     flex-shrink: 0;
 }
+
+.nameGroup h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.nameGroup p {
+    font-size: 12px;
+    color: #75787D;
+}
+
+.roleTag {
+    font-size: 10px;
+    font-weight: 700;
+    color: #75787D;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: #2c2e31;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.buttonReview {
+    background-color: #D35400;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 18px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* CITIZEN PROFILE PAGE*/
+.emptyStatePanel {
+    background-color: #212224;
+    border: 1px dashed #323639;
+    border-radius: 12px;
+    padding: 48px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 400px;
+    margin-top: 24px;
+}
+
+.profilePanel {
+    background-color: #212224;
+    border: 1px solid #323639;
+    border-radius: 12px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.profileHeader {
+    padding: 20px 24px;
+    border-bottom: 1px solid #323639;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
