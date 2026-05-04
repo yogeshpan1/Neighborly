@@ -133,6 +133,92 @@
                 </div>
 
             </div>
+               <!-- CREATE NEWS MODAL -->
+    <div class="modalOverlay" id="createNewsModal">
+        <div class="modalBox" style="padding: 0; max-width: 560px; overflow: hidden;">
+            <div class="modalHeaderCreate">
+                <h2>News</h2>
+            </div>
+            <form action="<%= request.getContextPath() %>/newslist" method="POST">
+                <div class="modalBodyContent">
+                    <div class="newsFormGroup">
+                        <label class="newsFormLabel">Title</label>
+                        <input type="text" class="newsFormInput" name="newsTitle" placeholder="e.g Ward Committee Approves" required>
+                    </div>
+                    <div class="newsFormGroup">
+                        <label class="newsFormLabel">Notice Description</label>
+                        <textarea class="newsFormTextarea" name="newsDescription" placeholder="Write your News Article" required></textarea>
+                    </div>
+                </div>
+                <div class="modalFooterActions">
+                    <button type="submit" class="buttonPostNews">Post News</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- EDIT NEWS MODAL -->
+    <div class="modalOverlay" id="editNewsModal">
+        <div class="modalBox" style="padding: 0; max-width: 560px; overflow: hidden;">
+            <div class="modalHeaderEdit">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #93c5fd;">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                </svg>
+                <h2>Edit News</h2>
+            </div>
+            <form action="<%= request.getContextPath() %>/editNews" method="POST">
+                <input type="hidden" name="newsId" id="editNewsId">
+                <div class="modalBodyContent">
+                    <div class="newsFormGroup">
+                        <label class="newsFormLabel">Title</label>
+                        <input type="text" class="newsFormInput" id="editNewsTitleInput" name="newsTitle" required>
+                    </div>
+                    <div class="newsFormGroup">
+                        <label class="newsFormLabel">Description</label>
+                        <textarea class="newsFormTextarea" id="editNewsDescriptionInput" name="newsDescription" required></textarea>
+                    </div>
+                </div>
+                <div class="modalFooterActions">
+                    <button type="button" class="buttonModalCancel" onclick="closeEditModal()">Cancel</button>
+                    <button type="submit" class="buttonModalSuccess">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- DELETE NEWS MODAL -->
+    <div class="modalOverlay" id="deleteNewsModal">
+        <div class="modalBox" style="padding: 0; max-width: 520px; overflow: hidden;">
+            <div class="modalHeaderDanger">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #ffbba6;">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+                <h2>Confirm Deletion</h2>
+            </div>
+            <form action="<%= request.getContextPath() %>/deleteNews" method="POST">
+                <input type="hidden" name="newsId" id="deleteNewsId">
+                <div class="modalBodyContent">
+                    <p class="modalDescriptionText">
+                        You are about to permanently delete
+                        <strong id="deleteNewsName" style="color: #ffffff; font-weight: 700;">News Title</strong>.
+                        This action cannot be undone.
+                    </p>
+                    <div class="newsFormGroup">
+                        <label class="newsFormLabel">Reason for Deletion</label>
+                        <textarea class="newsFormTextarea" name="deleteReason" placeholder="Provide a reason for deleting this news..." style="min-height: 90px;" required></textarea>
+                    </div>
+                </div>
+                <div class="modalFooterActions">
+                    <button type="button" class="buttonModalCancel" onclick="closeDeleteModal()">Cancel</button>
+                    <button type="submit" class="buttonModalDanger">Confirm Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+            
 
         </div>
     </div>
