@@ -17,7 +17,6 @@
     border: none;
 }
 
-/* TWO COLUMN LAYOUT*/
 .docTwoColumn {
     display: flex;
     gap: 28px;
@@ -40,7 +39,6 @@
     gap: 20px;
 }
 
-/* ===== TABLE CARDS ===== */
 .docTableCard {
     background-color: #212224;
     border: 1px solid #323639;
@@ -89,7 +87,6 @@
     justify-content: flex-end;
 }
 
-/* Table Buttons */
 .buttonDocAccept {
     background-color: #37C63F;
     color: #ffffff;
@@ -138,7 +135,6 @@
     background-color: #4a4d51;
 }
 
-/* ===== SIDE CARDS ===== */
 .docSideCard {
     background-color: #212224;
     border: 1px solid #323639;
@@ -153,7 +149,6 @@
     margin-bottom: 16px;
 }
 
-/* Filter */
 .docFilterRow {
     display: flex;
     align-items: center;
@@ -178,7 +173,6 @@
     accent-color: #D35400;
 }
 
-/* Activity */
 .docActivityRow {
     display: flex;
     align-items: center;
@@ -204,7 +198,6 @@
     color: #e65c00;
 }
 
-/* ===== MODAL STYLES ===== */
 .modalOverlay {
     position: fixed;
     top: 0;
@@ -280,7 +273,6 @@
     gap: 12px;
 }
 
-/* Form Elements */
 .docFormGroup {
     display: flex;
     flex-direction: column;
@@ -312,7 +304,6 @@
     border-color: #D35400;
 }
 
-/* Modal Buttons */
 .buttonModalCancel {
     background-color: #323639;
     color: white;
@@ -325,4 +316,38 @@
     transition: background-color 0.2s;
 }
 
+.buttonModalCancel:hover {
+    background-color: #4a4d51;
+}
 
+.buttonModalAccept {
+    background-color: #10b981;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.buttonModalAccept:hover {
+    background-color: #059669;
+}
+
+.buttonModalDanger {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.buttonModalDanger:hover {
+    background-color: #dc2626;
+}
