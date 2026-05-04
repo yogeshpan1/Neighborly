@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notices - Neighborly</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Admin-Side.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/NoticeManagement.css">
 </head>
 <body>
 
@@ -60,7 +61,9 @@
                         <button type="submit" class="buttonPostNotice">Post Notice</button>
                     </div>
                 </form>
-                !-- NOTICE LIST SECTION -->
+            </div>
+
+            <!-- NOTICE LIST SECTION -->
             <div class="noticeListHeader">
                 <h2 class="noticeListTitle">Notices</h2>
                 <span class="noticePillBadge">Total: 3</span>
@@ -164,7 +167,126 @@
             </div>
 
         </div>
-    </div>                
-</div>
+    </div>
+
+    <!-- DELETE CONFIRMATION MODAL -->
+    <div class="modalOverlay" id="deleteNoticeModal">
+        <div class="modalBox" style="padding: 0; max-width: 520px; overflow: hidden;">
+            <div class="modalHeaderDanger">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #ffbba6;">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+                <h2>Confirm Deletion</h2>
+            </div>
+            <form action="<%= request.getContextPath() %>/deleteNotice" method="POST">
+                <input type="hidden" name="noticeId" id="deleteNoticeId">
+                <div class="modalBodyContent">
+                    <p class="modalDescriptionText">
+                        You are about to permanently delete the notice
+                        <strong id="deleteNoticeName" style="color: #ffffff; font-weight: 700;">Notice Title</strong>.
+                        This action cannot be undone.
+                    </p>
+                    <div class="noticeFormGroup">
+                        <label class="noticeFormLabel">Reason for Deletion</label>
+                        <textarea class="noticeFormTextarea" name="deleteReason" placeholder="Provide a reason for deleting this notice..." style="min-height: 90px;" required></textarea>
+                    </div>
+                </div>
+                <div class="modalFooterActions">
+                    <button type="button" class="buttonModalCancel" onclick="closeDeleteModal()">Cancel</button>
+                    <button type="submit" class="buttonModalDanger">Confirm Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- EDIT NOTICE MODAL -->
+    <div class="modalOverlay" id="editNoticeModal">
+        <div class="modalBox" style="padding: 0; max-width: 560px; overflow: hidden;">
+            <div class="modalHeaderEdit">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #93c5fd;">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                </svg>
+                <h2>Edit Notice</h2>
+            </div>
+            <form action="<%= request.getContextPath() %>/editNotice" method="POST">
+                <input type="hidden" name="noticeId" id="editNoticeId">
+                <div class="modalBodyContent">
+                    <div class="noticeFormGroup">
+                        <label class="noticeFormLabel">Notice Title</label>
+                        <input type="text" class="noticeFormInput" id="editNoticeTitleInput" name="noticeTitle" required>
+                    </div>
+                    <div class="noticeFormGroup">
+                        <label class="noticeFormLabel">Category</label>
+                        <select class="noticeFormSelect" id="editNoticeCategorySelect" name="noticeCategory" required>
+                            <option value="Policy">Policy</option>
+                            <option value="Event">Event</option>
+                            <option value="Maintenance">Maintenance</option>
+                            <option value="Safety">Safety</option>
+                            <option value="General">General</option>
+                        </select>
+                    </div>
+                    <div class="noticeFormGroup">
+                        <label class="noticeFormLabel">Description</label>
+                        <textarea class="noticeFormTextarea" id="editNoticeDescriptionInput" name="noticeDescription" required></textarea>
+                    </div>
+                </div>
+                <div class="modalFooterActions">
+                    <button type="button" class="buttonModalCancel" onclick="closeEditModal()">Cancel</button>
+                    <button type="submit" class="buttonModalSuccess">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        //DELETE MODAL
+        var deleteModal = document.getElementById('deleteNoticeModal');
+        var deleteIdInput = document.getElementById('deleteNoticeId');
+        var deleteNameSpan = document.getElementById('deleteNoticeName');
+
+        function openDeleteModal(noticeId, noticeTitle) {
+            deleteIdInput.value = noticeId;
+            deleteNameSpan.textContent = noticeTitle;
+            deleteModal.style.display = 'flex';
+        }
+
+        function closeDeleteModal() {
+            deleteModal.style.display = 'none';
+        }
+
+        // EDIT MODAL
+        var editModal = document.getElementById('editNoticeModal');
+        var editIdInput = document.getElementById('editNoticeId');
+        var editTitleInput = document.getElementById('editNoticeTitleInput');
+        var editCategorySelect = document.getElementById('editNoticeCategorySelect');
+        var editDescriptionInput = document.getElementById('editNoticeDescriptionInput');
+
+        function openEditModal(noticeId, title, category, description) {
+            editIdInput.value = noticeId;
+            editTitleInput.value = title;
+            editCategorySelect.value = category;
+            editDescriptionInput.value = description;
+            editModal.style.display = 'flex';
+        }
+
+        function closeEditModal() {
+            editModal.style.display = 'none';
+        }
+
+        // Close modals when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === deleteModal) {
+                closeDeleteModal();
+            }
+            if (event.target === editModal) {
+                closeEditModal();
+            }
+        });
+    </script>
+
 </body>
 </html>
