@@ -1,4 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+    // Read citizen details
+    String name = request.getParameter("name");
+    String username = request.getParameter("username") != null ? request.getParameter("username") : "-";
+    String email = request.getParameter("email") != null ? request.getParameter("email") : "-";
+    String address = request.getParameter("address") != null ? request.getParameter("address") : "-";
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +16,6 @@
     <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/CitizenManagement.css">
 </head>
 <body>
-
     <!-- SIDEBAR component -->
     <jsp:include page="/components/admin-sidebar.jsp" />
 
@@ -21,7 +27,7 @@
         <div class="dashboardBody">
             <div class="twoColumnLayout">
                 
-                <!--Citizen List-->
+                <!--LEFT Column-->
                 <div class="leftColumn">
                     <div class="pageHeader">
                         <h1 class="pageTitle">Citizen Management</h1>
@@ -113,12 +119,12 @@
                                 </div>
                                 <span class="roleTag">Resident</span>
                             </div>
-                            <a class="buttonReview" href="<%= request.getContextPath() %>/citizenlist?name=Yogesh+Pant&username=YogeshP&email=yogesh%40gmail.com&address=Bhaktapur%2C+Nepal">Review</a>
+                            <a class="buttonReview" href="<%= request.getContextPath() %>/citizenlist?name=Yogesh+Pant&username=YogeshP&email=yogesh%40gmail.com&address=Tokha%2C+Nepal">Review</a>
                         </div>
                     </div>
                 </div>
 
-                <!--Citizen Details Preview-->
+                <!--RIGHT COLUMN-->
                 <div class="rightColumn">
                     <% if (name == null || name.isEmpty()) { %>
                         <div class="emptyStatePanel">
@@ -234,7 +240,8 @@
             </form>
         </div>
     </div>
-     <script>
+
+    <script>
         // Tab switching
         function switchTab(tab) {
             document.querySelectorAll('.tabItem').forEach(t => t.classList.remove('active'));
@@ -266,5 +273,6 @@
             }
         }
     </script>
+
 </body>
 </html>
