@@ -6,7 +6,7 @@
     <p class="sidebarSectionLabel">Main</p>
     <ul class="sidebarNav">
         <li>
-            <a href="<%= request.getContextPath() %>/admindashboard" class="<%= uri.contains("/admindashboard") ? "active" : "" %>">
+            <a href="<%= request.getContextPath() %>/admindashboard" class="<%= (uri.contains("/admindashboard") || uri.contains("admindashboard")) ? "active" : "" %>">
                 <span class="navIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
@@ -26,7 +26,7 @@
             </a>
         </li>
         <li>
-            <a href="<%= request.getContextPath() %>/documentlist" class="<%= uri.contains("/documentlist") ? "active" : "" %>">
+            <a href="<%= request.getContextPath() %>/documentlist" class="<%= (uri.contains("/documentlist") || uri.contains("documentsmanagement")) ? "active" : "" %>">
                 <span class="navIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
@@ -40,7 +40,7 @@
     <p class="sidebarSectionLabel">Services</p>
     <ul class="sidebarNav">
         <li>
-            <a href="<%= request.getContextPath() %>/newslist" class="<%= uri.contains("/newslist") ? "active" : "" %>">
+            <a href="<%= request.getContextPath() %>/newslist" class="<%= (uri.contains("/newslist") || uri.contains("newsmanagement")) ? "active" : "" %>">
                 <span class="navIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M20 3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h8v2zm3-4H7v-2h11v2zm0-4H7V7h11v2z"/>
@@ -50,7 +50,7 @@
             </a>
         </li>
         <li>
-            <a href="<%= request.getContextPath() %>/joblisting" class="<%= uri.contains("/joblisting") ? "active" : "" %>">
+            <a href="<%= request.getContextPath() %>/joblisting" class="<%= (uri.contains("/joblisting") || uri.contains("jobmanagement")) ? "active" : "" %>">
                 <span class="navIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M20 6h-2.18c.07-.44.18-.86.18-1 0-2.21-1.79-4-4-4s-4 1.79-4 4c0 .14.11.56.18 1H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-3c1.1 0 2 .9 2 2 0 .14-.11.56-.18 1h-3.64c-.07-.44-.18-.86-.18-1 0-1.1.9-2 2-2zm0 10l-4-4 1.41-1.41L14 10.17l6.59-6.58L22 5l-8 8z"/>
@@ -70,7 +70,7 @@
             </a>
         </li>
         <li>
-            <a href="<%= request.getContextPath() %>/applicationmanagement" class="<%= uri.contains("/applicationmanagement") ? "active" : "" %>">
+            <a href="<%= request.getContextPath() %>/applicationmanagement" class="<%= (uri.contains("/applicationmanagement") || uri.contains("applicationmanagement")) ? "active" : "" %>">
                 <span class="navIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/>
@@ -84,7 +84,7 @@
     <p class="sidebarSectionLabel">Community</p>
     <ul class="sidebarNav">
         <li>
-            <a href="<%= request.getContextPath() %>/reportissue" class="<%= uri.contains("/reportissue") ? "active" : "" %>">
+            <a href="<%= request.getContextPath() %>/reportissue" class="<%= (uri.contains("/reportissue") || uri.contains("reportmanagement")) ? "active" : "" %>">
                 <span class="navIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
@@ -94,7 +94,7 @@
             </a>
         </li>
         <li>
-            <a href="<%= request.getContextPath() %>/noticelist" class="<%= uri.contains("/noticelist") ? "active" : "" %>">
+            <a href="<%= request.getContextPath() %>/noticelist" class="<%= (uri.contains("/noticelistt") || uri.contains("noticemanagement")) ? "active" : "" %>">
                 <span class="navIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
@@ -104,7 +104,7 @@
             </a>
         </li>
         <li>
-            <a href="<%= request.getContextPath() %>/issuefine" class="<%= uri.contains("/issuefine") ? "active" : "" %>">
+            <a href="<%= request.getContextPath() %>/issuefine" class="<%= (uri.contains("/issuefine") || uri.contains("issuefine")) ? "active" : "" %>">
                 <span class="navIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
