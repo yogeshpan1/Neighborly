@@ -61,9 +61,81 @@
                         <span class="newsPreviewTime">1h ago</span>
                     </div>
                 </div>
+            <!-- NEWS LIST SECTION -->
+            <div class="newsListHeader">
+                <h2 class="newsListTitle">News Application</h2>
+                <span class="newsPillBadge">Total: 3</span>
+            </div>
+
+            <div class="newsListContainer">
+
+                <!-- News Row 1 -->
+                <div class="newsRow">
+                    <div class="newsIconWrap">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="newsInfo">
+                        <h4>Ward Committee Approves</h4>
+                        <p>Arjan Regmi</p>
+                    </div>
+                    <div class="newsActions">
+                        <button class="buttonNewsEdit" >Edit</button>
+                        <button class="buttonNewsDelete" >Delete</button>
+                    </div>
+                </div>
+
+                <!-- News Row 2 -->
+                <div class="newsRow">
+                    <div class="newsIconWrap">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="newsInfo">
+                        <h4>New Traffic Marshals Deployed</h4>
+                        <p>Yogesh Pant</p>
+                    </div>
+                    <div class="newsActions">
+                        <button class="buttonNewsEdit">Edit</button>
+                        <button class="buttonNewsDelete">Delete</button>
+                    </div>
+                </div>
+
+                <!-- News Row 3 -->
+                <div class="newsRow">
+                    <div class="newsIconWrap">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="newsInfo">
+                        <h4>Water Supply Restoration</h4>
+                        <p>Rikesh Adhikari</p>
+                    </div>
+                    <div class="newsActions">
+                        <button class="buttonNewsEdit">Edit</button>
+                        <button class="buttonNewsDelete" >Delete</button>
+                    </div>
+                </div>
 
             </div>
-            </div>
-            </div>
+
+        </div>
+    </div>
+    </div>
 </body>
 </html>
