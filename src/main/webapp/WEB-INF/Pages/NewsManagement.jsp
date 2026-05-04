@@ -25,6 +25,7 @@
                 <div>
                     <h1 class="newsPageTitle">News Management</h1>
                 </div>
+                <button class="buttonCreateNews" onclick="openCreateModal()">Create News</button>
             </div>
 
             <hr class="newsDivider">
@@ -61,6 +62,9 @@
                         <span class="newsPreviewTime">1h ago</span>
                     </div>
                 </div>
+
+            </div>
+
             <!-- NEWS LIST SECTION -->
             <div class="newsListHeader">
                 <h2 class="newsListTitle">News Application</h2>
@@ -85,8 +89,8 @@
                         <p>Arjan Regmi</p>
                     </div>
                     <div class="newsActions">
-                        <button class="buttonNewsEdit" >Edit</button>
-                        <button class="buttonNewsDelete" >Delete</button>
+                        <button class="buttonNewsEdit" onclick="openEditModal('1', 'Ward Committee Approves', 'Caught an incredible sunset at Oak Ridge Park today.')">Edit</button>
+                        <button class="buttonNewsDelete" onclick="openDeleteModal('1', 'Ward Committee Approves')">Delete</button>
                     </div>
                 </div>
 
@@ -106,8 +110,8 @@
                         <p>Yogesh Pant</p>
                     </div>
                     <div class="newsActions">
-                        <button class="buttonNewsEdit">Edit</button>
-                        <button class="buttonNewsDelete">Delete</button>
+                        <button class="buttonNewsEdit" onclick="openEditModal('2', 'New Traffic Marshals Deployed', 'New Marshals Deployed and the Public are not happy')">Edit</button>
+                        <button class="buttonNewsDelete" onclick="openDeleteModal('2', 'New Traffic Marshals Deployed')">Delete</button>
                     </div>
                 </div>
 
@@ -127,13 +131,17 @@
                         <p>Rikesh Adhikari</p>
                     </div>
                     <div class="newsActions">
-                        <button class="buttonNewsEdit">Edit</button>
-                        <button class="buttonNewsDelete" >Delete</button>
+                        <button class="buttonNewsEdit" onclick="openEditModal('3', 'Water Supply Restoration', 'Caught an incredible sunset at Oak Ridge Park today.')">Edit</button>
+                        <button class="buttonNewsDelete" onclick="openDeleteModal('3', 'Water Supply Restoration')">Delete</button>
                     </div>
                 </div>
 
             </div>
-               <!-- CREATE NEWS MODAL -->
+
+        </div>
+    </div>
+
+    <!-- CREATE NEWS MODAL -->
     <div class="modalOverlay" id="createNewsModal">
         <div class="modalBox" style="padding: 0; max-width: 560px; overflow: hidden;">
             <div class="modalHeaderCreate">
@@ -218,10 +226,65 @@
             </form>
         </div>
     </div>
-            
 
-        </div>
-    </div>
-    </div>
+    <!-- JAVASCRIPT -->
+    <script>
+        // CREATE MODAL 
+        var createModal = document.getElementById('createNewsModal');
+
+        function openCreateModal() {
+            createModal.style.display = 'flex';
+        }
+
+        function closeCreateModal() {
+            createModal.style.display = 'none';
+        }
+
+        // EDIT MODAL
+        var editModal = document.getElementById('editNewsModal');
+        var editIdInput = document.getElementById('editNewsId');
+        var editTitleInput = document.getElementById('editNewsTitleInput');
+        var editDescriptionInput = document.getElementById('editNewsDescriptionInput');
+
+        function openEditModal(newsId, title, description) {
+            editIdInput.value = newsId;
+            editTitleInput.value = title;
+            editDescriptionInput.value = description;
+            editModal.style.display = 'flex';
+        }
+
+        function closeEditModal() {
+            editModal.style.display = 'none';
+        }
+
+        // DELETE MODAL 
+        var deleteModal = document.getElementById('deleteNewsModal');
+        var deleteIdInput = document.getElementById('deleteNewsId');
+        var deleteNameSpan = document.getElementById('deleteNewsName');
+
+        function openDeleteModal(newsId, newsTitle) {
+            deleteIdInput.value = newsId;
+            deleteNameSpan.textContent = newsTitle;
+            deleteModal.style.display = 'flex';
+        }
+
+        function closeDeleteModal() {
+            deleteModal.style.display = 'none';
+        }
+
+        // Close modals when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === createModal) {
+                closeCreateModal();
+            }
+            if (event.target === editModal) {
+                closeEditModal();
+            }
+            if (event.target === deleteModal) {
+                closeDeleteModal();
+            }
+        });
+    </script>
+
 </body>
 </html>

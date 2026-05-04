@@ -36,7 +36,6 @@
     border: none;
 }
 
-/*NEWS PREVIEW CARDS  */
 .newsPreviewGrid {
     display: flex;
     gap: 20px;
@@ -97,6 +96,13 @@
     font-weight: 500;
 }
 
+.newsListHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
 .newsListTitle {
     font-size: 20px;
     font-weight: 700;
@@ -123,6 +129,9 @@
     background-color: #212224;
     border: 1px solid #323639;
     border-radius: 10px;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
     gap: 16px;
     transition: border-color 0.2s;
 }
@@ -136,6 +145,10 @@
     height: 44px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background-color: #151821;
     border: 1px solid #323639;
 }
 
@@ -155,7 +168,6 @@
     color: #D35400;
 }
 
-/* Action Buttons */
 .newsActions {
     display: flex;
     gap: 10px;
@@ -168,7 +180,8 @@
     border: none;
     border-radius: 6px;
     padding: 8px 18px;
-    font-size: 25px;;
+    font-size: 12px;
+    font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s;
 }
@@ -182,10 +195,16 @@
     color: #ffffff;
     border: none;
     border-radius: 6px;
-    padding: 8px 18px 10px 10px;
+    padding: 8px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
     transition: background-color 0.2s;
 }
 
+.buttonNewsDelete:hover {
+    background-color: #991b1b;
+}
 
 .modalOverlay {
     position: fixed;
@@ -275,7 +294,6 @@
     gap: 12px;
 }
 
-/* Form Elements */
 .newsFormGroup {
     display: flex;
     flex-direction: column;
@@ -322,7 +340,6 @@
     border-color: #D35400;
 }
 
-/* Modal Buttons */
 .buttonPostNews {
     background-color: #D35400;
     color: #ffffff;
@@ -353,4 +370,36 @@
 
 .buttonModalCancel:hover {
     background-color: #4a4d51;
+}
+
+.buttonModalSuccess {
+    background-color: #D35400;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.buttonModalSuccess:hover {
+    background-color: #e65c00;
+}
+
+.buttonModalDanger {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.buttonModalDanger:hover {
+    background-color: #dc2626;
 }
