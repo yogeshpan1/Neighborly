@@ -41,21 +41,21 @@
     border: none;
 }
 
-.smallStats {
-    gap: 16px !important;
+.statsFlex.smallStats {
+    gap: 16px;
 }
 
-.statCardSmall {
-    height: 90px !important;
-    padding: 16px !important;
-    gap: 16px !important;
+.statCard.statCardSmall {
+    height: 90px;
+    padding: 16px;
+    gap: 16px;
 }
 
-.statCardSmall .statValue {
-    font-size: 20px !important;
+.statCard.statCardSmall .statValue {
+    font-size: 20px;
 }
 
-/* =====  CITIZEN LIST PAGE  ===== */
+/* CITIZEN LIST PAGE  */
 .citizenList {
     display: flex;
     flex-direction: column;
@@ -111,7 +111,7 @@
     font-size: 10px;
     font-weight: 700;
     color: #75787D;
-    text-transform: uppercase;
+    text-transform: lowecase;
     letter-spacing: 0.5px;
     background: #2c2e31;
     padding: 4px 8px;
@@ -123,7 +123,7 @@
     color: #ffffff;
     border: none;
     border-radius: 6px;
-    padding: 8px 18px;
+    padding: 8px 18px 20px;
     font-size: 12px;
     font-weight: 700;
     cursor: pointer;
@@ -149,7 +149,7 @@
 
 .profilePanel {
     background-color: #212224;
-    border: 1px solid #323639;
+    border: 5px solid #323639;
     border-radius: 12px;
     width: 100%;
     overflow: hidden;
