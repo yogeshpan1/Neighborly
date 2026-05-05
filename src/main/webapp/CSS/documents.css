@@ -94,40 +94,38 @@ body {
     color: #000;
 }
 
-.viewLink {
+.viewdetails {
     text-align: right;
     margin-top: 15px;
-    color: #E86A33; /* Matches active tab color */
+    color: #E86A33; 
     text-decoration: none;
     font-weight: 700;
     font-size: 14px;
 }
 
-.viewLink:hover {
+.viewdetails:hover {
     text-decoration: underline;
 }
 
 /* --- Floating Action Button --- */
 .fab {
     position: fixed;
-    bottom: 10px; /* Positioned as low as possible */
+    bottom: 20px; /* Kept low */
     right: 40px;
     width: 60px;
     height: 60px;
-    background-color: #a34211; /* Dark brownish-orange */
+    background-color: #E86A33; 
     border-radius: 50%;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     cursor: pointer;
     z-index: 1000;
-    transition: transform 0.2s ease, background-color 0.2s;
 }
-
 .fab:hover {
-    transform: scale(1.1) rotate(90deg); /* Slight rotation on hover */
+    transform: scale(1.1) rotate(90deg); 
     background-color: #8b380e;
 }
 
