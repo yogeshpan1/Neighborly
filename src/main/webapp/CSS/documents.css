@@ -87,13 +87,14 @@ body {
 }
 
 /* --- Floating Action Button --- */
+/* --- Floating Action Button --- */
 .fab {
     position: fixed;
-    bottom: 40px;
+    bottom: 20px; /* Decreasing this number moves it closer to the bottom edge */
     right: 40px;
     width: 60px;
     height: 60px;
-    background-color: #a34211; /* Dark brownish-orange */
+    background-color: #a34211; 
     border-radius: 50%;
     border: none;
     display: flex;
@@ -101,6 +102,7 @@ body {
     justify-content: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     cursor: pointer;
+    z-index: 1000; /* Ensures it stays above other elements */
 }
 
 /* Responsive for smaller screens */
