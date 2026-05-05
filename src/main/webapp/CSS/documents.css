@@ -1,13 +1,21 @@
+/* --- General Layout --- */
 body {
-    background-color: #fdfdfd;
-    font-family: 'Segoe UI', sans-serif;
+    background-color: #ffffff; /* Matches your profile page */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     color: #262626;
     margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 .mainContent {
     margin-left: 250px; /* Sidebar space */
-    min-height: 100vh;
+    /* Changed from 100vh to px for absolute height control */
+    min-height: 800px; 
+    padding-bottom: 80px; /* Extra space so cards don't touch the bottom */
 }
 
 .docWrapper {
@@ -23,20 +31,29 @@ body {
     margin-bottom: 60px;
 }
 
-/* --- The Grid --- */
+/* --- Document Grid --- */
 .docGrid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 30px;
 }
 
+/* --- Card & Hover Effects --- */
 .docCard {
     background: #fff;
-    border: 1px solid #999;
-    border-radius: 10px;
-    padding: 20px;
+    border: 1px solid #dbdbdb; /* Matches profile tab border */
+    border-radius: 12px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.docCard:hover {
+    transform: translateY(-5px); /* Lifts the card */
+    border-color: #E86A33; /* Changes to brand orange on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); 
 }
 
 .docIconContainer {
@@ -47,17 +64,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .docIconContainer svg {
     width: 22px;
     height: 22px;
-    stroke: #E86A33; /* Icon Color */
+    stroke: #E86A33; /* Icon color */
 }
 
 .docName {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
     margin: 0 0 15px 0;
 }
@@ -66,11 +83,11 @@ body {
     display: flex;
     justify-content: space-between;
     font-size: 13px;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .detailRow span {
-    color: #8e8e8e;
+    color: #8e8e8e; /* Matches profile fullName color */
 }
 
 .detailRow strong {
@@ -80,37 +97,50 @@ body {
 .viewLink {
     text-align: right;
     margin-top: 15px;
-    color: #E86A33;
+    color: #E86A33; /* Matches active tab color */
     text-decoration: none;
     font-weight: 700;
-    font-size: 13px;
+    font-size: 14px;
+}
+
+.viewLink:hover {
+    text-decoration: underline;
 }
 
 /* --- Floating Action Button --- */
-/* --- Floating Action Button --- */
 .fab {
     position: fixed;
-    bottom: 20px; /* Decreasing this number moves it closer to the bottom edge */
+    bottom: 10px; /* Positioned as low as possible */
     right: 40px;
     width: 60px;
     height: 60px;
-    background-color: #a34211; 
+    background-color: #a34211; /* Dark brownish-orange */
     border-radius: 50%;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     cursor: pointer;
-    z-index: 1000; /* Ensures it stays above other elements */
+    z-index: 1000;
+    transition: transform 0.2s ease, background-color 0.2s;
 }
 
-/* Responsive for smaller screens */
+.fab:hover {
+    transform: scale(1.1) rotate(90deg); /* Slight rotation on hover */
+    background-color: #8b380e;
+}
+
+/* --- Responsive Adjustments --- */
 @media (max-width: 1100px) {
     .docGrid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
-    .mainContent { margin-left: 0; }
+    .mainContent { 
+        margin-left: 0; 
+        min-height: 1200px; 
+    }
     .docGrid { grid-template-columns: 1fr; }
+    .docWrapper { padding: 0 20px; }
 }
