@@ -83,7 +83,8 @@ public class PollDAO {
 		pst.setInt(1, pollId);
 
 		int rowsAffected = pst.executeUpdate();
-
+		pst.close();
+		con.close();
 		return rowsAffected > 0;
 
 	}
