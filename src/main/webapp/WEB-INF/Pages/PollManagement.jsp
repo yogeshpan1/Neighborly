@@ -308,7 +308,7 @@
 				<div class="modalFooter"
 					style="padding: 18px 28px; border-top: 1px solid #323639; display: flex; justify-content: flex-end; gap: 14px;">
 					<a href="<%=request.getContextPath()%>/pollmanagement"
-						class="btnCancelDark">Cancel</a>
+						class="btnCancelDark" style="text-decoration: none;">Cancel</a>
 					<button type="submit" class="btnDangerBright">Confirm
 						Deletion</button>
 				</div>
@@ -351,7 +351,7 @@
 				</div>
 				<div class="modalFooter">
 					<a href="<%=request.getContextPath()%>/pollmanagement"
-						class="btnGhost">Cancel</a>
+						class="btnGhost" style="text-decoration: none;">Cancel</a>
 					<button type="submit" class="btn btnPrimary">Update Poll</button>
 				</div>
 			</form>
