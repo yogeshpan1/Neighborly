@@ -1,6 +1,6 @@
 /* --- General Layout --- */
 body {
-    background-color: #ffffff; /* Matches your profile page */
+    background-color: #ffffff;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     color: #262626;
     margin: 0;
@@ -12,10 +12,9 @@ body {
 }
 
 .mainContent {
-    margin-left: 250px; /* Sidebar space */
-    /* Changed from 100vh to px for absolute height control */
+    margin-left: 250px; 
     min-height: 800px; 
-    padding-bottom: 80px; /* Extra space so cards don't touch the bottom */
+    padding-bottom: 80px; 
 }
 
 .docWrapper {
@@ -41,18 +40,20 @@ body {
 /* --- Card & Hover Effects --- */
 .docCard {
     background: #fff;
-    border: 1px solid #dbdbdb; /* Matches profile tab border */
+    border: 1px solid #dbdbdb;
     border-radius: 12px;
     padding: 24px;
     display: flex;
     flex-direction: column;
+    /* KEY CHANGE: Centers items horizontally */
+    align-items: center; 
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer;
 }
 
 .docCard:hover {
-    transform: translateY(-5px); /* Lifts the card */
-    border-color: #E86A33; /* Changes to brand orange on hover */
+    transform: translateY(-5px);
+    border-color: #E86A33;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); 
 }
 
@@ -70,31 +71,44 @@ body {
 .docIconContainer svg {
     width: 22px;
     height: 22px;
-    stroke: #E86A33; /* Icon color */
+    stroke: #E86A33;
 }
 
 .docName {
     font-size: 16px;
     font-weight: 700;
     margin: 0 0 15px 0;
+    /* KEY CHANGE: Centers the text alignment */
+    text-align: center; 
+}
+
+/* --- Details Alignment --- */
+.docDetails {
+    /* Ensures the list takes up the full width for justification */
+    width: 100%; 
+    margin: 0;
+    padding: 0;
 }
 
 .detailRow {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     font-size: 13px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
-.detailRow span {
-    color: #8e8e8e; /* Matches profile fullName color */
+.detailRow dt {
+    color: #8e8e8e;
 }
 
-.detailRow strong {
+.detailRow dd {
     color: #000;
+    font-weight: 600;
+    margin: 0;
 }
 
 .viewdetails {
+    width: 100%;
     text-align: right;
     margin-top: 15px;
     color: #E86A33; 
@@ -110,7 +124,7 @@ body {
 /* --- Floating Action Button --- */
 .fab {
     position: fixed;
-    bottom: 20px; /* Kept low */
+    bottom: 20px;
     right: 40px;
     width: 60px;
     height: 60px;
@@ -124,6 +138,7 @@ body {
     cursor: pointer;
     z-index: 1000;
 }
+
 .fab:hover {
     transform: scale(1.1) rotate(90deg); 
     background-color: #8b380e;
@@ -137,8 +152,7 @@ body {
 @media (max-width: 768px) {
     .mainContent { 
         margin-left: 0; 
-        min-height: 1200px; 
     }
     .docGrid { grid-template-columns: 1fr; }
-    .docWrapper { padding: 0 20px; }
+    .docWrapper { padding: 40px 20px; }
 }
