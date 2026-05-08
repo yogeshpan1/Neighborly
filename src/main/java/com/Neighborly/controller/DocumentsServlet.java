@@ -7,37 +7,34 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Servlet implementation class FeedServlet
- */
-@WebServlet(asyncSupported = true, urlPatterns = { "/documents" })
+@WebServlet("/documents")
 public class DocumentsServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	    
-	 /**
-	  * @see HttpServlet#HttpServlet()
-	  */
-	 public DocumentsServlet() {
-	     super();
-	     // TODO Auto-generated constructor stub
-	 }
-	
-		/**
-		 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-		 */
-		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			// TODO Auto-generated method stub
-			//response.getWriter().append("Served at: ").append(request.getContextPath());
-			request.setAttribute("activePage", "Documents");
-			request.getRequestDispatcher("/WEB-INF/Pages/documents.jsp").forward(request, response);
-		}
-	
-		/**
-		 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-		 */
-		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			// TODO Auto-generated method stub
-			doGet(request, response);
-		}
-	
-	}
+    private static final long serialVersionUID = 1L;
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("activePage", "Documents");
+        request.getRequestDispatcher("/WEB-INF/Pages/documents.jsp").forward(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String docType = request.getParameter("docType");
+        String docId = request.getParameter("docId");
+
+        boolean isSuccess = false;
+        String message = "";
+
+        // Logic processing
+        if (docId != null && !docId.trim().isEmpty()) {
+            isSuccess = true;
+            message = "Details for " + docType + " (ID: " + docId + ") verified successfully.";
+        } else {
+            isSuccess = false;
+            message = "Error: Please enter a valid ID.";
+        }
+
+        request.setAttribute("status", isSuccess ? "success" : "error");
+        request.setAttribute("feedbackMsg", message);
+        
+        doGet(request, response);
+    }
+}
