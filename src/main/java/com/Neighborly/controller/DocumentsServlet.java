@@ -11,30 +11,31 @@ import java.io.IOException;
 public class DocumentsServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("activePage", "Documents");
         request.getRequestDispatcher("/WEB-INF/Pages/documents.jsp").forward(request, response);
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String docType = request.getParameter("docType");
         String docId = request.getParameter("docId");
-
-        boolean isSuccess = false;
-        String message = "";
-
-        // Logic processing
+        String docType = request.getParameter("docType");
+        // Simple validation without returning a feedback message
         if (docId != null && !docId.trim().isEmpty()) {
-            isSuccess = true;
-            message = "Details for " + docType + " (ID: " + docId + ") verified successfully.";
-        } else {
-            isSuccess = false;
-            message = "Error: Please enter a valid ID.";
+            // Process verification logic here (e.g., save to DB or check API)
+        	System.out.println("Document Type: " + docType);
+            System.out.println("Document ID: " + docId);
+            request.setAttribute("successMessage","Verification Successful");
+
+        }
+        else {
+
+            request.setAttribute("errorMessage",  "Please enter document ID");
         }
 
-        request.setAttribute("status", isSuccess ? "success" : "error");
-        request.setAttribute("feedbackMsg", message);
-        
+
+        // Just reload the page
         doGet(request, response);
     }
 }

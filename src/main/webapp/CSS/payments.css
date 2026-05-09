@@ -1,0 +1,157 @@
+/* --- Core Layout --- */
+body {
+    background-color: #fcfcfc;
+    margin: 0;
+    font-family: 'Inter', sans-serif; /* Or Segoe UI */
+}
+
+/* 1. Sidebar push */
+.mainContent {
+    margin-left: 260px; /* Width of your sidebar */
+    padding: 20px;
+}
+
+/* 2. Center the content */
+.payment-wrapper {
+    max-width: 1000px; /* This makes it look like the image */
+    margin: 40px auto; /* Centers the whole block */
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* --- Top Summary Cards --- */
+.summary-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #f0f0f0;
+    border-radius: 12px;
+    width: 400px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.card-body {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.card-text .label {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+
+.card-text .value {
+    margin: 5px 0 0 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.view-all-link {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    color: #e67e22;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+/* --- Tables --- */
+.table-container h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.custom-table th {
+    background: #f1f1f1;
+    text-align: left;
+    padding: 12px 15px;
+    font-size: 13px;
+    color: #444;
+}
+
+.custom-table td {
+    padding: 15px;
+    border-bottom: 1px solid #f9f9f9;
+    font-size: 14px;
+}
+
+/* --- Buttons & Badges --- */
+.btn-outline {
+    border: 1px solid #e67e22;
+    color: #e67e22;
+    background: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.btn-pay {
+    border: 1px solid #e67e22;
+    color: #e67e22;
+    background: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.btn-details {
+    border: 1px solid #444;
+    color: #444;
+    background: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+}
+
+.badge-pending {
+    background: #fff3e0;
+    color: #e67e22;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.dots {
+    color: #ccc;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+
+/* --- Responsive Layout --- */
+@media (max-width: 1100px) {
+    .docGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .mainContent { margin-left: 0; }
+    .docGrid { grid-template-columns: 1fr; }
+    .doctitle { padding: 30px 20px; }
+    .modalContent { width: 90%; }
+}
