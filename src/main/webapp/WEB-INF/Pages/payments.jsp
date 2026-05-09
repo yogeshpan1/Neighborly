@@ -3,21 +3,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neighborly | Payments</title>
+   
+    <title>Neighborly</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/sidebar.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/navbar.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/payments.css">
     <style>
-        /* Ensuring the icons and text align perfectly */
-        .paymentItemTitle {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .paymentItemTitle svg {
-            flex-shrink: 0;
-        }
+        
     </style>
 </head>
 <body>
@@ -75,7 +67,7 @@
                     
                     <article class="paymentListRow fiveCols">
                         <span class="paymentItemTitle">
-                            <!-- Orange House SVG -->
+                            
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E86A33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                                 <polyline points="9 22 9 12 15 12 15 22"></polyline>
@@ -111,7 +103,7 @@
                     
                     <article class="paymentListRow sixCols">
                         <span class="paymentItemTitle">
-                            <!-- Orange Traffic Light SVG -->
+
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E86A33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="6" y="2" width="12" height="20" rx="2" ry="2"></rect>
                                 <circle cx="12" cy="7" r="1" fill="#E86A33"></circle>
