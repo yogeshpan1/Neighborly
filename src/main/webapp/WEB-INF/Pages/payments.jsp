@@ -3,10 +3,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Neighborly | Payments</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/sidebar.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/navbar.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/payments.css">
+    <title>Neighborly</title>
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/home.css">
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/sidebar.css">
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/navbar.css">
 </head>
 <body>
 
