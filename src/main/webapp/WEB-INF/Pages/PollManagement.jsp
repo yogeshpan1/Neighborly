@@ -90,9 +90,7 @@
 	<div class="mainContent">
 
 		<!-- TOPBAR COMPONENT -->
-		<%
-		request.setAttribute("pageTitle", "Admin Dashboard");
-		%>
+
 		<jsp:include page="/components/admin-topbar.jsp" />
 
 		<main class="dashboardBody">
@@ -101,14 +99,12 @@
 
 				<div class="pageHeader">
 					<h1 class="pageTitle">Polls Management</h1>
-					<button class="btn btnPrimary" onclick="openCreateModal()">
-						<svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-							stroke="currentColor" stroke-width="2" stroke-linecap="round"
-							stroke-linejoin="round">
-							<line x1="12" y1="5" x2="12" y2="19"></line>
-							<line x1="5" y1="12" x2="19" y2="12"></line></svg>
-						Create New Poll
-					</button>
+					<form action="<%=request.getContextPath()%>/pollmanagement"
+						method="POST">
+						<input type="hidden" name="openCreatePoll" value="true">
+						<button type="submit" class="btn btnPrimary">+ Create New
+							Poll</button>
+					</form>
 				</div>
 
 				<hr class="divider">
@@ -225,7 +221,8 @@
 		</main>
 	</div>
 
-	<div class="modalOverlay" id="createPollModal">
+	<div class="modalOverlay" id="createPollModal"
+		style="${not empty openCreatePoll ? 'display:flex;' : ''}">
 		<div class="modalBox">
 			<div class="modalHeader">
 				<h2 class="modalTitle">Create New Poll</h2>
@@ -259,7 +256,8 @@
 				</div>
 
 				<div class="modalFooter">
-					<button type="button" class="btnGhost" onclick="closeCreateModal()">Cancel</button>
+					<a href="<%=request.getContextPath()%>/pollmanagement" class="btnGhost" style="text-decoration: none;">Cancel</a>
+					
 					<button type="submit" class="btn btnPrimary">Create Poll</button>
 				</div>
 			</form>
@@ -357,29 +355,5 @@
 			</form>
 		</div>
 	</div>
-
-	<!-- JAVASCRIPT FOR MODAL CONTROLS-->
-	<script>
-		const createModal = document.getElementById('createPollModal');
-
-		// --- CREATE MODAL LOGIC ---
-		function openCreateModal() 
-		{
-			createModal.style.display = 'flex';
-		}
-		function closeCreateModal() 
-		{
-			createModal.style.display = 'none';
-		}
-
-		// Close modals if user clicks on the dark background outside the boxes
-		window.onclick = function(event)
-		{
-			if (event.target === createModal)
-			{
-				closeCreateModal();
-			}
-		}
-	</script>
 
 </body>

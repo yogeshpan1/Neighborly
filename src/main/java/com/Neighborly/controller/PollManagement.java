@@ -38,8 +38,10 @@ public class PollManagement extends HttpServlet {
 			PollDAO dao = new PollDAO();
 			List<PollModel> polls = dao.getAllPolls();
 			int activeCount = 0;
-			for (PollModel p : polls) {
-				if ("Active".equals(p.getStatus())) {
+			for (PollModel p : polls)
+			{
+				if ("Active".equals(p.getStatus()))
+				{
 					activeCount++;
 				}
 			}
@@ -69,15 +71,22 @@ public class PollManagement extends HttpServlet {
 					activeCount++;
 				}
 			}
+			
+			String openCreatePoll = request.getParameter("openCreatePoll");
+			if (openCreatePoll != null) {
+			    request.setAttribute("openCreatePoll", true);
+			}
 			request.setAttribute("polls", polls);
 			request.setAttribute("totalPolls", polls.size());
 			request.setAttribute("activePolls", activeCount);
 
 			String editRequestId = request.getParameter("editPollId");
-			if (editRequestId != null && !editRequestId.isEmpty()) {
+			if (editRequestId != null && !editRequestId.isEmpty()) 
+			{
 				int editId = Integer.parseInt(editRequestId);
 				for (PollModel p : polls) {
-					if (p.getPollId() == editId) {
+					if (p.getPollId() == editId) 
+					{
 						request.setAttribute("editPoll", p);
 						break;
 					}
@@ -85,7 +94,8 @@ public class PollManagement extends HttpServlet {
 			}
 
 			String openDeletePollId = request.getParameter("openDeletePollId");
-			if (openDeletePollId != null && !openDeletePollId.isEmpty()) {
+			if (openDeletePollId != null && !openDeletePollId.isEmpty()) 
+			{
 				request.setAttribute("openDeletePollId", openDeletePollId);
 				request.setAttribute("deleteQuestion", request.getParameter("deleteQuestion"));
 			}
