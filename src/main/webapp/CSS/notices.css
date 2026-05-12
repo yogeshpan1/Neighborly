@@ -1,0 +1,81 @@
+body {
+    background-color: #ffffff;
+    color: #262626;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Inter', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+.mainContent {
+    margin-left: 250px;
+    min-height: 800px;
+    padding-bottom: 80px;
+}
+
+/* Container width matches your document layout */
+.noticeContainer {
+    width: 1200px; 
+    margin: 0px auto;
+    padding: 100px 40px 60px 40px;
+}
+
+.noticePageTitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: #262626;
+    margin-bottom: 30px;
+}
+
+.noticeList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* The Notice Card */
+.noticeItem {
+    width: 850px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 40px 50px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    transition: box-shadow 0.2s ease;
+}
+
+.noticeItem:hover {
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.05);
+}
+
+.noticeText {
+    font-size: 18px; /* Slightly larger text */
+    color: #262626;
+    margin: 0px;
+}
+
+.noticeTime {
+    font-size: 13px;
+    color: #a0a0a0; 
+    white-space: nowrap;
+}
+
+/* Responsive Overrides */
+@media (max-width: 1100px) {
+    .noticeContainer { width: 900px; }
+    .noticeItem { width: 100%; }
+}
+
+@media (max-width: 768px) {
+    .mainContent { margin-left: 0px; }
+    .noticeContainer { width: 100%; padding: 30px 20px; }
+    .noticeItem { 
+        padding: 30px 20px; 
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

@@ -1,126 +1,112 @@
+/* General Reset */
 body {
     background-color: #ffffff;
-    margin: 0;
+    color: #262626;
+    margin: 0px;
+    padding: 0px;
     font-family: 'Inter', sans-serif;
 }
 
+* { box-sizing: border-box; }
+
+/* Structural Fix: Sidebar + Navbar spacing */
 .mainContent {
-    margin-left: 260px;
-    padding: 20px;
+    margin-left: 250px; /* Aligns with your sidebar width */
+    min-height: 100vh;
+    padding-top: 70px;  /* Matches your navbar height to prevent overlap */
+    background-color: #ffffff;
 }
 
-/* ── Page wrapper ── */
-.pollSection {
-    max-width: 620px;
-    margin: 80px auto 60px 60px;
+/* Container for Poll Content */
+.pollsContainer {
+    width: 1100px; 
+    margin: 0px; /* Keep left aligned as per your request */
+    padding: 60px 0px 60px 60px; /* Space from the navbar and sidebar */
+}
+
+.pollsPageTitle {
+    font-size: 26px;
+    font-weight: 700;
+    color: #262626;
+    margin: 0px 0px 50px 0px;
+}
+
+.pollsList {
     display: flex;
     flex-direction: column;
+    gap: 35px;
+}
+
+/* Individual Poll Card */
+.pollCard {
+    width: 900px;
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 12px;
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column; /* Stacks Question above Buttons */
+    transition: box-shadow 0.3s ease;
+}
+
+.pollCard:hover {
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+/* Question Header Section */
+.pollHeader {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.pollIcon.gold { color: #cc8e35; }
+.pollIcon.silver { color: #9a9a9a; }
+
+.pollQuestion {
+    font-size: 18px;
+    font-weight: 500;
+    color: #262626;
+    margin: 0px;
+    text-align: left;
+}
+
+/* Buttons Section */
+.pollActions {
+    display: flex;
+    justify-content: center; /* Centers buttons within the card */
     gap: 40px;
 }
 
-/* ── Page title ── */
-.pollPageTitle {
-    font-size: 18px;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin: 0 0 16px 0;
-}
-
-/* ── Individual poll card ── */
-.pollCard {
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 22px 24px 24px 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-}
-
-/* ── Card header: icon + question ── */
-.pollCardHeader {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.pollCardIcon {
-    flex-shrink: 0;
-    width: 52px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.pollCardQuestion {
-    font-size: 14px;
-    font-weight: 400;
-    color: #2a2a2a;
-    line-height: 1.5;
-    margin: 0;
-}
-
-/* ── Option tiles row ── */
-.pollOptions {
-    display: flex;
-    flex-direction: row;
-    gap: 24px;
-}
-
-/* ── Base option tile ── */
-.pollOptionBtn {
-    width: 175px;
-    height: 78px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
+.pollBtn {
+    width: 250px;
+    height: 140px;
     border: none;
-    font-size: 20px;
+    border-radius: 12px;
+    font-size: 28px;
     font-weight: 500;
     cursor: pointer;
-    letter-spacing: 0.2px;
-    transition: filter 0.15s ease, transform 0.1s ease;
+    transition: transform 0.2s ease, filter 0.2s ease;
 }
 
-.pollOptionBtn:hover {
-    filter: brightness(0.95);
-    transform: translateY(-1px);
+.pollBtn:active {
+    transform: scale(0.98);
 }
 
-.pollOptionBtn:active {
-    transform: translateY(0px);
+/* Specific Button Styles from Reference */
+.btnYes {
+    background-color: #fff4e8; /* Light peach/gold tint */
+    color: #E86A33; /* Your signature orange */
 }
 
-/* ── Yes tile ── */
-.pollOptionBtn.yes {
-    background-color: #fdeee6;
+.btnNo {
+    background-color: #f2f2f2; /* Light grey */
     color: #E86A33;
 }
 
-/* ── No tile ── */
-.pollOptionBtn.no {
-    background-color: #efefef;
-    color: #E86A33;
-}
-
-/* ── Responsive ── */
-@media (max-width: 768px) {
-    .mainContent {
-        margin-left: 0;
-    }
-
-    .pollSection {
-        margin: 20px 16px;
-    }
-
-    .pollOptions {
-        gap: 16px;
-    }
-
-    .pollOptionBtn {
-        width: 140px;
-        height: 65px;
-        font-size: 17px;
-    }
+/* Responsive Fixes */
+@media (max-width: 1200px) {
+    .pollsContainer { width: 100%; padding-left: 30px; }
+    .pollCard { width: 90%; }
 }

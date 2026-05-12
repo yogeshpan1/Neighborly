@@ -3,10 +3,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Neighborly – Polls</title>
+    <title>Neighborly - Polls</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/sidebar.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/navbar.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/polls.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/Polls.css">
 </head>
 <body>
 
@@ -15,86 +15,48 @@
     <main class="mainContent">
         <jsp:include page="/Components/navbar.jsp" />
 
-        <section class="pollSection">
-
-            <h2 class="pollPageTitle">Polls</h2>
-
-            <!-- Poll Card 1: Gold -->
-            <article class="pollCard">
-                <header class="pollCardHeader">
-                    <div class="pollCardIcon">
-                        <%-- Stacked gold ingot / bar icon --%>
-                        <svg width="52" height="44" viewBox="0 0 52 44" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <!-- Top ingot (centered) -->
-                            <polygon points="16,2 36,2 40,14 12,14"
-                                     fill="none" stroke="#E8A050" stroke-width="1.6"
-                                     stroke-linejoin="round"/>
-                            <!-- Bottom-left ingot -->
-                            <polygon points="1,18 22,18 24,30 0,30"
-                                     fill="none" stroke="#E8A050" stroke-width="1.6"
-                                     stroke-linejoin="round"/>
-                            <!-- Bottom-right ingot -->
-                            <polygon points="30,18 51,18 52,30 28,30"
-                                     fill="none" stroke="#E8A050" stroke-width="1.6"
-                                     stroke-linejoin="round"/>
-                        </svg>
+        <section class="pollsContainer">
+            <h1 class="pollsPageTitle">Polls</h1>
+            
+            <div class="pollsList">
+                <article class="pollCard">
+                    <div class="pollHeader">
+                        <div class="pollIcon gold">
+                            <svg width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                                <path d="M12 4l-2 4h4l-2-4z" />
+                                <path d="M8 9l-2 4h4l-2-4z" />
+                                <path d="M16 9l-2 4h4l-2-4z" />
+                                <rect x="4" y="14" width="16" height="4" rx="1" />
+                            </svg>
+                        </div>
+                        <p class="pollQuestion">How much will Gold(NPR) go up by May 2026?</p>
                     </div>
-                    <p class="pollCardQuestion">How much will Gold(NPR) go up by May 2026?</p>
-                </header>
-
-                <div class="pollOptions">
-                    <form action="${pageContext.request.contextPath}/polls" method="POST">
-                        <input type="hidden" name="pollId" value="1">
-                        <input type="hidden" name="vote"   value="yes">
-                        <button type="submit" class="pollOptionBtn yes">Yes</button>
-                    </form>
-                    <form action="${pageContext.request.contextPath}/polls" method="POST">
-                        <input type="hidden" name="pollId" value="1">
-                        <input type="hidden" name="vote"   value="no">
-                        <button type="submit" class="pollOptionBtn no">No</button>
-                    </form>
-                </div>
-            </article>
-
-            <!-- Poll Card 2: Silver -->
-            <article class="pollCard">
-                <header class="pollCardHeader">
-                    <div class="pollCardIcon">
-                        <%-- Single ingot icon for Silver --%>
-                        <svg width="52" height="44" viewBox="0 0 52 44" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <!-- Top ingot (centered, slightly taller) -->
-                            <polygon points="18,1 34,1 37,14 15,14"
-                                     fill="none" stroke="#E8A050" stroke-width="1.6"
-                                     stroke-linejoin="round"/>
-                            <!-- Bottom-left ingot -->
-                            <polygon points="1,18 22,18 24,30 0,30"
-                                     fill="none" stroke="#E8A050" stroke-width="1.6"
-                                     stroke-linejoin="round"/>
-                            <!-- Bottom-right ingot -->
-                            <polygon points="30,18 51,18 52,30 28,30"
-                                     fill="none" stroke="#E8A050" stroke-width="1.6"
-                                     stroke-linejoin="round"/>
-                        </svg>
+                    
+                    <div class="pollActions">
+                        <button class="pollBtn btnYes" type="button">Yes</button>
+                        <button class="pollBtn btnNo" type="button">No</button>
                     </div>
-                    <p class="pollCardQuestion">How much will Silver(NPR) go up by May 2026?</p>
-                </header>
+                </article>
 
-                <div class="pollOptions">
-                    <form action="${pageContext.request.contextPath}/polls" method="POST">
-                        <input type="hidden" name="pollId" value="2">
-                        <input type="hidden" name="vote"   value="yes">
-                        <button type="submit" class="pollOptionBtn yes">Yes</button>
-                    </form>
-                    <form action="${pageContext.request.contextPath}/polls" method="POST">
-                        <input type="hidden" name="pollId" value="2">
-                        <input type="hidden" name="vote"   value="no">
-                        <button type="submit" class="pollOptionBtn no">No</button>
-                    </form>
-                </div>
-            </article>
-
+                <article class="pollCard">
+                    <div class="pollHeader">
+                        <div class="pollIcon silver">
+                            <svg width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                                <path d="M12 4l-2 4h4l-2-4z" />
+                                <path d="M8 9l-2 4h4l-2-4z" />
+                                <path d="M16 9l-2 4h4l-2-4z" />
+                                <rect x="4" y="14" width="16" height="4" rx="1" />
+                            </svg>
+                        </div>
+                        <p class="pollQuestion">How much will Silver(NPR) go up by May 2026?</p>
+                    </div>
+                    
+                    <div class="pollActions">
+                        <button class="pollBtn btnYes" type="button">Yes</button>
+                        <button class="pollBtn btnNo" type="button">No</button>
+                    </div>
+                </article>
+            </div>
         </section>
     </main>
 

@@ -112,7 +112,5 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* On mobile, we let the container scroll horizontally 
-       instead of stacking, to keep the table structure intact. */
     .paymentSection { margin-top: 40px; }
 }
