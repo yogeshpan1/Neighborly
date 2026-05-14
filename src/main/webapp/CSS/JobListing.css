@@ -198,6 +198,15 @@ textarea.form-design {
     transition: all 0.2s;
 }
 
+.list-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.list-actions form {
+    margin: 0;
+    padding: 0;
+}
 .edit {
     background-color: #374151;
     color: white;

@@ -61,4 +61,24 @@ public class JobDAO {
 		return jobs;
 	}
 
+	public void updateJob(int jobId, String jobTitle, String department, String jobDescription, String contactEmail,
+			String contactPhone) throws Exception {
+		
+		Connection con = DBconfig.getConnection();
+		
+		String sql = "UPDATE jobs SET job_title = ?, department = ?, job_description = ?, contact_email = ?, contact_phone = ? WHERE job_id = ?";
+		
+		PreparedStatement pst = con.prepareStatement(sql);
+		
+		pst.setString(1, jobTitle);
+		pst.setString(2, department);
+		pst.setString(3, jobDescription);
+		pst.setString(4, contactEmail);
+		pst.setString(5, contactPhone);
+		pst.setInt(6, jobId);
+		pst.executeUpdate();
+		pst.close();
+		con.close();
+	}
+
 }
