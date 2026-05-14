@@ -190,7 +190,8 @@ body {
     color: #E86A33;
 }
 
-/* Responsive Overrides */
+/* Responsive */
+/* Tablet and Small Desktop Layout adjustments */
 @media (max-width: 1380px) {
     .documentTitleSection { max-width: 1000px; }
     .documentsGrid { 
@@ -200,11 +201,13 @@ body {
     .documentItem { width: 300px; }
 }
 
+/*  Tablet: Switch from 3 columns to 2 columns */
 @media (max-width: 1180px) {
     .documentTitleSection { max-width: 750px; }
     .documentsGrid { grid-template-columns: repeat(2, 340px); }
 }
 
+/* Mobile Layout: Single column stack and full-width adjustments */
 @media (max-width: 768px) {
     .mainContent { margin-left: 0px; } 
     .documentTitleSection { padding: 30px 20px; }
