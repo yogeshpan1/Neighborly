@@ -27,7 +27,6 @@ public class NewsManagement extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.getRequestDispatcher("/WEB-INF/Pages/NewsManagement.jsp").forward(request, response);
 	}
 
@@ -35,8 +34,11 @@ public class NewsManagement extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		  String openCreateNews = request.getParameter("openCreateNews");
+		    if (openCreateNews != null) {
+		        request.setAttribute("openCreateNews", true);
+		    }
+		    request.getRequestDispatcher("/WEB-INF/Pages/NewsManagement.jsp").forward(request, response);
 	}
 
 }
