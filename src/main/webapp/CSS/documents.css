@@ -11,17 +11,16 @@ body {
 * { box-sizing: border-box; }
 
 .mainContent {
-    margin-left: 250px; /* Space for your fixed sidebar */
+    margin-left: 250px; 
     min-height: 100vh;
     padding-bottom: 80px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers everything within the right-side area */
+    align-items: center; 
 }
 
 .documentTitleSection {
     width: 100%;
-    /* 3 cards (340px * 3) + 2 gaps (25px * 2) + padding = ~1150px */
     max-width: 1150px; 
     margin: 0px auto;
     padding: 80px 40px 40px 40px;
@@ -30,10 +29,8 @@ body {
     align-items: flex-start; 
 }
 
-/* Grid Layout - Forced 3 columns for 100% Zoom */
 .documentsGrid {
     display: grid;
-    /* This ensures exactly 3 columns of 340px each */
     grid-template-columns: repeat(3, 340px); 
     gap: 25px;
     justify-content: center; 
@@ -70,7 +67,7 @@ body {
     width: 32px;
     height: 32px;
     stroke: #E86A33;
-    fill: none; /* Ensure icons aren't blocked out */
+    fill: none; 
 }
 
 .documentTitle {
@@ -100,7 +97,7 @@ body {
     color: #ffffff;            
 }
 
-/* --- THEMED MODAL --- */
+
 .documentModal {
     display: none;
     position: fixed;
@@ -130,7 +127,7 @@ body {
     border-top: 10px solid #E86A33;
 }
 
-/* Added Theme Elements Below */
+
 
 .documentModalTitle {
     font-size: 24px;
