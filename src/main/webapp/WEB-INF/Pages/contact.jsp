@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Neighborly | Contact Us</title>
+    <title>Neighborly</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/sidebar.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/navbar.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/contact.css">
