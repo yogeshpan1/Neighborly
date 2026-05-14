@@ -230,6 +230,52 @@ body {
     padding: 4px 12px;
 }
 
+@media (max-width: 768px) {
+    .mainContent {
+ 
+        margin-left: 0px;
+        width: 100%;
+        display: block;
+    }
+
+    .contentArea {
+
+        padding: 16px 10px;
+        display: block;
+    }
+
+    .feedCenter {
+ 
+        max-width: 100%;
+        width: auto;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .composer, .post {
+        transform: translateZ(0);
+        
+        padding: 15px;
+        margin-bottom: 12px;
+        border-radius: 8px;
+        width: 100%;
+    }
+
+    .composerInput {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .postTitle {
+        font-size: 16px;
+        margin-bottom: 6px;
+    }
+
+    .postBody {
+        font-size: 13px;
+        line-height: 18px;
+    }
+}
 .voteBtn {
     background: none;
     border: none;
