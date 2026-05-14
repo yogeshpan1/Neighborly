@@ -33,27 +33,16 @@ public class JobListingServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		try {
 			JobDAO dao = new JobDAO();
 			List<JobModel> jobs = dao.getAllJobs();
 			request.setAttribute("jobs", jobs);
-
-			String editRequestId = request.getParameter("editJobId");
-
-			if (editRequestId != null && !editRequestId.isEmpty()) {
-				int editId = Integer.parseInt(editRequestId);
-
-				for (JobModel j : jobs) {
-					if (j.getJobId() == editId) {
-						request.setAttribute("editJob", j);
-						break;
-					}
-				}
-			}
 			request.getRequestDispatcher("/WEB-INF/Pages/JobListing.jsp").forward(request, response);
 		} catch (Exception e) {
 			throw new ServletException("Database error", e);
 		}
+
 	}
 
 	/**
@@ -62,8 +51,32 @@ public class JobListingServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		try {
+			JobDAO dao = new JobDAO();
+			List<JobModel> jobs = dao.getAllJobs();
+			request.setAttribute("jobs", jobs);
+
+			String editRequestId = request.getParameter("editJobId");
+			if (editRequestId != null && !editRequestId.isEmpty()) {
+				int editId = Integer.parseInt(editRequestId);
+				for (JobModel j : jobs) {
+					if (j.getJobId() == editId) {
+						request.setAttribute("editJob", j);
+						break;
+					}
+				}
+			}
+
+			String openDeleteJobId = request.getParameter("openDeleteJobId");
+			if (openDeleteJobId != null && !openDeleteJobId.isEmpty()) {
+				request.setAttribute("openDeleteJobId", openDeleteJobId);
+				request.setAttribute("deleteJobTitle", request.getParameter("deleteJobTitle"));
+			}
+
+			request.getRequestDispatcher("/WEB-INF/Pages/JobListing.jsp").forward(request, response);
+		} catch (Exception e) {
+			throw new ServletException("Database error", e);
+		}
 	}
 
 }
