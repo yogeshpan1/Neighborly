@@ -1,0 +1,100 @@
+/* Container to center form based on feedCenter logic */
+.contactContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Header matching the image typography */
+.contactHeader h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #1a1a1b;
+}
+
+.contactHeader p {
+    font-size: 15px;
+    color: #65676B;
+    line-height: 1.5;
+    margin-bottom: 40px;
+}
+
+/* Form Layout */
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.formGroup label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1a1a1b;
+}
+
+/* Inputs styled to match image borders and spacing */
+.formGroup input, 
+.formGroup textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    font-size: 15px;
+    background-color: #FFFFFF;
+    color: #050505;
+    outline: none;
+    transition: border-color 0.2s;
+    font-family: inherit;
+}
+
+.formGroup input:focus, 
+.formGroup textarea:focus {
+    border-color: #E86A33; /* Neighborly Orange Accent */
+}
+
+.formGroup input::placeholder, 
+.formGroup textarea::placeholder {
+    color: #90949c;
+}
+
+/* Submit Button - Matches the light peach/orange style in the image */
+.submitBtn {
+    background-color: #FFF2EB; 
+    color: #E86A33;
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.submitBtn:hover {
+    background-color: #FFE5D4;
+}
+
+/* Footer response text */
+.responseTime {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 35px;
+    color: #65676B;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .contactContainer {
+        max-width: 100%;
+    }
+}
