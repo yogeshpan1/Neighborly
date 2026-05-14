@@ -22,7 +22,7 @@
                 <!-- Composer -->
                 <section class="composer">
                     <div class="composerTop">
-                        <a href="<%=request.getContextPath()%>/profile" style="text-decoration: none;">
+                        <a href="${pageContext.request.contextPath}/profile" style="text-decoration: none;">
                             <div class="composerAvatar" style="background-color: #E86A33; cursor: pointer;">P</div>
                         </a>
                         <input type="text" class="composerInput" placeholder="What's on your mind, Prayush?" />
