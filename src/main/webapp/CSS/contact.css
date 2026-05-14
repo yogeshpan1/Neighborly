@@ -1,22 +1,36 @@
-/* Container to center form based on feedCenter logic */
-.contactContainer {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 10px;
+/* This ensures the area next to your sidebar centers its children */
+.contentArea {
+    display: flex;
+    justify-content: center; /* Centers the form horizontally */
+    align-items: flex-start; /* Keeps the form at the top */
+    padding: 60px 40px;      /* Adds breathing room on all sides */
+    background-color: #FFFFFF; 
+    min-height: calc(100vh - 70px);
+    box-sizing: border-box;
+    overflow-x: hidden;      /* Prevents horizontal scroll/cutoff */
 }
 
-/* Header matching the image typography */
+/* Updated Container to prevent cutoff seen in image_841b66.png */
+.contactContainer {
+    width: 100%;
+    max-width: 700px;        /* Balanced width for 100% zoom */
+    background: transparent;
+    padding: 0;
+    margin: 0;               /* Centering is now handled by .contentArea */
+}
+
+/* Header Typography */
 .contactHeader h1 {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 700;
     margin-bottom: 12px;
     color: #1a1a1b;
 }
 
 .contactHeader p {
-    font-size: 15px;
+    font-size: 16px;
     color: #65676B;
-    line-height: 1.5;
+    line-height: 1.6;
     margin-bottom: 40px;
 }
 
@@ -39,7 +53,7 @@
     color: #1a1a1b;
 }
 
-/* Inputs styled to match image borders and spacing */
+/* Inputs */
 .formGroup input, 
 .formGroup textarea {
     width: 100%;
@@ -51,20 +65,15 @@
     color: #050505;
     outline: none;
     transition: border-color 0.2s;
-    font-family: inherit;
 }
 
 .formGroup input:focus, 
 .formGroup textarea:focus {
-    border-color: #E86A33; /* Neighborly Orange Accent */
+    border-color: #E86A33; 
+    box-shadow: 0 0 0 3px rgba(232, 106, 51, 0.1);
 }
 
-.formGroup input::placeholder, 
-.formGroup textarea::placeholder {
-    color: #90949c;
-}
-
-/* Submit Button - Matches the light peach/orange style in the image */
+/* Submit Button */
 .submitBtn {
     background-color: #FFF2EB; 
     color: #E86A33;
@@ -76,14 +85,13 @@
     cursor: pointer;
     transition: background 0.2s;
     margin-top: 10px;
-    text-align: center;
 }
 
 .submitBtn:hover {
     background-color: #FFE5D4;
 }
 
-/* Footer response text */
+/* Response Text */
 .responseTime {
     display: flex;
     align-items: center;
@@ -93,7 +101,10 @@
     font-size: 14px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
+    .contentArea {
+        padding: 40px 20px;
+    }
     .contactContainer {
         max-width: 100%;
     }
