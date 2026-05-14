@@ -1,112 +1,253 @@
 /* General Reset */
+
 body {
+
     background-color: #ffffff;
+
     color: #262626;
+
     margin: 0px;
+
     padding: 0px;
+
     font-family: 'Inter', sans-serif;
+
 }
+
+
 
 * { box-sizing: border-box; }
 
-/* Structural Fix: Sidebar + Navbar spacing */
+
+
+/* Structural Layout */
+
 .mainContent {
-    margin-left: 250px; /* Aligns with your sidebar width */
+
+    margin-left: 250px;
+
     min-height: 100vh;
-    padding-top: 70px;  /* Matches your navbar height to prevent overlap */
+
+    padding-top: 70px;
+
     background-color: #ffffff;
-}
 
-/* Container for Poll Content */
-.pollsContainer {
-    width: 1100px; 
-    margin: 0px; /* Keep left aligned as per your request */
-    padding: 60px 0px 60px 60px; /* Space from the navbar and sidebar */
-}
-
-.pollsPageTitle {
-    font-size: 26px;
-    font-weight: 700;
-    color: #262626;
-    margin: 0px 0px 50px 0px;
-}
-
-.pollsList {
     display: flex;
+
     flex-direction: column;
-    gap: 35px;
+
 }
 
-/* Individual Poll Card */
-.pollCard {
-    width: 900px;
-    background: #ffffff;
-    border: 1px solid #eeeeee;
-    border-radius: 12px;
-    padding: 40px 50px;
+
+
+/* Centering Container */
+
+.pollsContainer, 
+
+.noticesContainer {
+
+    width: 100%; 
+
     display: flex;
-    flex-direction: column; /* Stacks Question above Buttons */
-    transition: box-shadow 0.3s ease;
+
+    flex-direction: column;
+
+    align-items: center; 
+
+    padding: 60px 20px;
+
 }
+
+
+
+/* Page Header Alignment */
+
+.pollsPageTitle,
+
+.noticesPageTitle {
+
+    width: 850px; 
+
+    font-size: 26px;
+
+    font-weight: 700;
+
+    margin-bottom: 50px;
+
+    text-align: left; 
+
+}
+
+
+
+/* List Layout */
+
+.pollsList,
+
+.noticesList {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 40px;
+
+}
+
+
+
+/* Card Styling (Polls and Notices) */
+
+.pollCard, 
+
+.noticeCard {
+
+    width: 850px; 
+
+    background: #ffffff;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 12px;
+
+    padding: 35px 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    transition: box-shadow 0.3s ease;
+
+}
+
+
 
 .pollCard:hover {
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03);
+
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+
 }
 
-/* Question Header Section */
+
+
+/* Internal Card Header */
+
 .pollHeader {
+
     display: flex;
+
     align-items: center;
-    gap: 30px;
-    margin-bottom: 40px;
+
+    gap: 25px;
+
+    margin-bottom: 35px;
+
 }
+
+
 
 .pollIcon.gold { color: #cc8e35; }
+
 .pollIcon.silver { color: #9a9a9a; }
 
+
+
 .pollQuestion {
-    font-size: 18px;
+
+    font-size: 17px;
+
     font-weight: 500;
+
     color: #262626;
-    margin: 0px;
-    text-align: left;
+
+    flex: 1;
+
+    text-align: center;
+
 }
 
-/* Buttons Section */
+
+
+/* Centered Button Actions */
+
 .pollActions {
+
     display: flex;
-    justify-content: center; /* Centers buttons within the card */
-    gap: 40px;
+
+    justify-content: center; /* Centers buttons inside the card */
+
+    gap: 25px;
+
+    border: none;
+
 }
+
+
+
+/* Smaller Button Styles */
 
 .pollBtn {
-    width: 250px;
-    height: 140px;
+
+    width: 140px;  /* Reduced size */
+
+    height: 70px;  /* Reduced size */
+
     border: none;
+
     border-radius: 12px;
-    font-size: 28px;
-    font-weight: 500;
+
+    font-size: 20px;
+
+    font-weight: 600;
+
     cursor: pointer;
-    transition: transform 0.2s ease, filter 0.2s ease;
+
+    transition: all 0.2s ease;
+
 }
 
-.pollBtn:active {
-    transform: scale(0.98);
+
+
+.pollBtn:hover {
+
+    transform: translateY(-2px);
+
+    filter: brightness(0.96);
+
 }
 
-/* Specific Button Styles from Reference */
+
+
+
+
 .btnYes {
-    background-color: #fff4e8; /* Light peach/gold tint */
-    color: #E86A33; /* Your signature orange */
+
+    background-color: #fff4e8; 
+
+    color: #E86A33; 
+
 }
+
+
 
 .btnNo {
-    background-color: #f2f2f2; /* Light grey */
+
+    background-color: #f2f2f2; 
+
     color: #E86A33;
+
 }
 
-/* Responsive Fixes */
-@media (max-width: 1200px) {
-    .pollsContainer { width: 100%; padding-left: 30px; }
-    .pollCard { width: 90%; }
+
+
+/* Responsive Scaling */
+
+@media (max-width: 1150px) {
+
+    .pollCard, .pollsPageTitle {
+
+        width: 90%; 
+
+    }
+
 }

@@ -7,9 +7,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Servlet implementation for managing Polls
- */
 @WebServlet("/polls")
 public class PollsServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -17,8 +14,8 @@ public class PollsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
-        // Forwarding to the JSP location
-        // Note: Make sure your JSP file name is exactly 'Polls.jsp' (case-sensitive)
+        // Updated path to match your folder structure
+    	request.setAttribute("activePage", "Polls");
         request.getRequestDispatcher("/WEB-INF/Pages/Polls.jsp").forward(request, response);
     }
 
@@ -26,23 +23,19 @@ public class PollsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         
-        // Setting encoding to handle special characters if necessary
         request.setCharacterEncoding("UTF-8");
 
-        // These parameters should match the 'name' attributes in your JSP form inputs
         String pollId = request.getParameter("pollId"); 
-        String voteValue = request.getParameter("vote"); // e.g., "Yes", "No", or specific price
+        String voteValue = request.getParameter("vote"); 
 
-        if (pollId != null && !pollId.isEmpty() && voteValue != null) {
-            // Logic for database updates would go here
-            System.out.println("--- Vote Received ---");
-            System.out.println("Poll ID: " + pollId);
-            System.out.println("Selection: " + voteValue);
-        } else {
-            System.out.println("Warning: Received a poll submission with missing data.");
+        if (pollId != null && voteValue != null) {
+            // Log for debugging
+            System.out.println("Processing Vote: " + voteValue + " for Poll: " + pollId);
+            
+            // TODO: Add database logic here (e.g., pollDAO.saveVote(pollId, voteValue))
         }
 
-        // PRG Pattern: Post-Redirect-Get to avoid duplicate submissions on page refresh
+        // Redirect back to GET to refresh page safely
         response.sendRedirect(request.getContextPath() + "/polls");
     }
 }

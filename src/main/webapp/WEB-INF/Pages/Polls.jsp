@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Neighborly - Polls</title>
+    <title>Neighborly</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/sidebar.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/navbar.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/Polls.css">
@@ -22,7 +22,7 @@
                 <article class="pollCard">
                     <div class="pollHeader">
                         <div class="pollIcon gold">
-                            <svg width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
                                 <path d="M12 4l-2 4h4l-2-4z" />
                                 <path d="M8 9l-2 4h4l-2-4z" />
                                 <path d="M16 9l-2 4h4l-2-4z" />
@@ -32,16 +32,17 @@
                         <p class="pollQuestion">How much will Gold(NPR) go up by May 2026?</p>
                     </div>
                     
-                    <div class="pollActions">
-                        <button class="pollBtn btnYes" type="button">Yes</button>
-                        <button class="pollBtn btnNo" type="button">No</button>
-                    </div>
+                    <form action="<%=request.getContextPath()%>/polls" method="POST" class="pollActions">
+                        <input type="hidden" name="pollId" value="Gold_2026">
+                        <button type="submit" name="vote" value="Yes" class="pollBtn btnYes">Yes</button>
+                        <button type="submit" name="vote" value="No" class="pollBtn btnNo">No</button>
+                    </form>
                 </article>
 
                 <article class="pollCard">
                     <div class="pollHeader">
                         <div class="pollIcon silver">
-                            <svg width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
                                 <path d="M12 4l-2 4h4l-2-4z" />
                                 <path d="M8 9l-2 4h4l-2-4z" />
                                 <path d="M16 9l-2 4h4l-2-4z" />
@@ -51,10 +52,11 @@
                         <p class="pollQuestion">How much will Silver(NPR) go up by May 2026?</p>
                     </div>
                     
-                    <div class="pollActions">
-                        <button class="pollBtn btnYes" type="button">Yes</button>
-                        <button class="pollBtn btnNo" type="button">No</button>
-                    </div>
+                    <form action="${pageContext.request.contextPath}/polls" method="POST" class="pollActions">
+                        <input type="hidden" name="pollId" value="Silver_2026">
+                        <button type="submit" name="vote" value="Yes" class="pollBtn btnYes">Yes</button>
+                        <button type="submit" name="vote" value="No" class="pollBtn btnNo">No</button>
+                    </form>
                 </article>
             </div>
         </section>
