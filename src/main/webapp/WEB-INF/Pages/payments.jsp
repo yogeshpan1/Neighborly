@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Neighborly</title>
-    <!-- Linking External CSS -->
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/sidebar.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/navbar.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/payments.css">

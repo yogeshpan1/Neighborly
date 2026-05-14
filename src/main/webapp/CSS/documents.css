@@ -191,30 +191,54 @@ body {
 }
 
 /* Responsive */
-/* Tablet and Small Desktop Layout adjustments */
+/* Tablet and Small Desktop */
 @media (max-width: 1380px) {
-    .documentTitleSection { max-width: 1000px; }
+    .documentTitleSection { 
+        max-width: 1000px; 
+    }
     .documentsGrid { 
-        grid-template-columns: repeat(3, 300px); 
+        grid-template-columns: 300px 300px 300px; 
         gap: 20px;
     }
-    .documentItem { width: 300px; }
-}
-
-/*  Tablet: Switch from 3 columns to 2 columns */
-@media (max-width: 1180px) {
-    .documentTitleSection { max-width: 750px; }
-    .documentsGrid { grid-template-columns: repeat(2, 340px); }
-}
-
-/* Mobile Layout: Single column stack and full-width adjustments */
-@media (max-width: 768px) {
-    .mainContent { margin-left: 0px; } 
-    .documentTitleSection { padding: 30px 20px; }
-    .documentsGrid { 
-        grid-template-columns: 1fr; 
-        max-width: 340px; 
+    .documentItem { 
+        width: 300px; 
     }
-    .documentModalContent { width: 380px; }
-    .documentInput, .documentVerifyAction { width: 300px; }
+}
+
+/* Tablet */
+@media (max-width: 1180px) {
+    .documentTitleSection { 
+        max-width: 750px; 
+    }
+    .documentsGrid { 
+        grid-template-columns: 340px 340px; 
+        gap: 20px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .mainContent { 
+        margin-left: 0px; 
+    } 
+    
+    .documentTitleSection { 
+        padding: 30px 20px 30px 20px; 
+        max-width: 340px;
+    }
+    
+    .documentsGrid { 
+        grid-template-columns: 340px; 
+        max-width: 340px; 
+        gap: 20px;
+    }
+    
+    .documentModalContent { 
+        width: 380px; 
+    }
+    
+    .documentInput, 
+    .documentVerifyAction { 
+        width: 300px; 
+    }
 }

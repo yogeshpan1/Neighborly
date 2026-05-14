@@ -139,90 +139,72 @@ body {
 }
 
 /* Responsive */
-/* --- TABLET LAYOUT (1100px and below) --- */
-@media (max-width: 1100px) {
-    .mainContent {
-        margin-left: 0px; 
-        padding: 20px;
-    }
-
-    .paymentSection {
-        max-width: 950px;
-    }
-
-    /* Enables horizontal scrolling so columns don't squash */
-    .paymentList {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .paymentListRow {
-        min-width: 900px; /* Ensures the table stays readable */
-    }
-}
-
-/* --- MOBILE LAYOUT (768px and below) --- */
 @media (max-width: 768px) {
-    .paymentSection {
-        margin: 40px 10px;
-        gap: 20px;
+    .mainContent { 
+        margin-left: 0px; 
+    } 
+
+    .documentTitleSection { 
+        padding: 30px 20px 30px 20px; 
+    }
+    
+    .documentsGrid { 
+        grid-template-columns: 340px; 
+        max-width: 340px; 
+    }
+    
+    .documentModalContent { 
+        width: 380px; 
     }
 
-   
-    .paymentListRow.headerRow {
-        display: none;
+    .documentInput, 
+    .documentVerifyAction { 
+        width: 300px; 
     }
 
-    .paymentList {
-        overflow-x: hidden; 
-        border: none;
-        box-shadow: none;
+    .paymentSection { 
+        width: 340px; 
+        margin: 20px auto 20px auto; 
     }
 
-  
+    .paymentListRow.headerRow { 
+        display: none; 
+    } 
+    
     .paymentListRow {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        min-width: 100%; 
-        padding: 20px;
-        margin-bottom: 15px;
+        width: 340px;
+        min-width: 0px;
+        box-sizing: border-box;
         border: 1px solid #eeeeee;
         border-radius: 12px;
+        margin-bottom: 15px;
+        padding: 20px 30px 20px 30px; 
+    }
+
+    .fiveCols, 
+    .sixCols {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .actionCell {
+        width: 340px;
+        justify-content: flex-start;
+        margin-top: 10px;
         gap: 12px;
     }
 
-    
-    .fiveCols, .sixCols {
-        grid-template-columns: 1fr;
+    .paymentListSection h3 {
+        font-size: 19px; 
+        margin-bottom: 15px;
     }
 
-    /* Action Buttons Area */
-    .actionCell {
-        width: 100%;
-        flex-direction: row;
-        justify-content: flex-start;
-        margin-top: 10px;
-    }
-
-    /* Make buttons easier to tap on mobile */
-    .paymentActionBtn, 
-    .paymentDetailsBtn {
-        padding: 10px 20px;
-        font-size: 13px;
-    }
-}
-
-/* --- SMALL MOBILE (480px and below) --- */
-@media (max-width: 480px) {
-    .actionCell {
-        flex-direction: column; 
-        width: 100%;
-    }
-
-    .paymentActionBtn, 
-    .paymentDetailsBtn {
-        width: 280px; 
-        text-align: center;
+    .paymentBadgePending {
+        padding: 4px 12px 4px 12px;
+        border-radius: 6px;
+        font-size: 12px;
     }
 }
