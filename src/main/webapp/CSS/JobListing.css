@@ -129,6 +129,17 @@ textarea.form-design {
 	background-color: #b94a00;
 }
 
+.error-message {
+    background-color: rgba(255, 59, 59, 0.1);
+    border: 1px solid #ff3b3b;
+    color: #ff3b3b;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 12px;
+}
+
 .list-head h3 {
 	font-size: 20px !important;
 	font-weight: 600 !important;

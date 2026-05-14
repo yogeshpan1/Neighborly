@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import com.Neighborly.dao.JobDAO;
+import com.Neighborly.service.JobService;
 
 /**
  * Servlet implementation class CreateJobServlet
@@ -41,16 +42,20 @@ public class CreateJobServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String jobTitle = request.getParameter("job_title");
 		String department = request.getParameter("department");
 		String jobDescription = request.getParameter("job_description");
 		String contactEmail = request.getParameter("contact_email");
 		String contactPhone = request.getParameter("contact_phone");
 
-		if (jobTitle == null || jobTitle.trim().isEmpty()) {
-			response.sendRedirect(request.getContextPath() + "/joblisting");
-			return;
+		
+		JobService service = new JobService();
+		String result = service.validateJob(jobTitle, department, jobDescription, contactEmail, contactPhone);
+
+		if (!result.equals("Success")) {
+		    request.setAttribute("errorMessage", result);
+		    request.getRequestDispatcher("/WEB-INF/Pages/JobListing.jsp").forward(request, response);
+		    return;
 		}
 
 		try {

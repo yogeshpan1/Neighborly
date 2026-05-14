@@ -49,6 +49,9 @@
 						Phone</label> <input type="tel" name="contact_phone" class="form-design"
 						placeholder="(+977) 000-0000">
 				</div>
+				<c:if test="${not empty errorMessage}">
+					<p class="error-message">${errorMessage}</p>
+				</c:if>
 
 				<button type="submit" class="form-button">Post Listing</button>
 			</form>
