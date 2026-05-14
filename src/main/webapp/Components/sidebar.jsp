@@ -187,18 +187,19 @@
                             About us
                         </a>
                     </li>
-                   <!-- Inside your dropdown menu -->
-<li class="dropdownItem">
-    <a href="${pageContext.request.contextPath}/contact" class="menuLink">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-             style="margin-right: 12px;">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-            <polyline points="22,6 12,13 2,6"></polyline>
-        </svg>
-        Contact us
-    </a>
-</li>
+                    <li class="dropdownItem">
+                       <a href="${pageContext.request.contextPath}/contact" class="menuLink">
+                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                              style="margin-right: 12px;">
+                              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                              <polyline points="22,6 12,13 2,6"></polyline>
+                         </svg>
+                         Contact us
+                      </a>
+                     </li>
+                   
+
                     <li style="border-top: 1px solid #E0E0E0; margin-top: 4px; padding-top: 4px;">
                         <a href="${pageContext.request.contextPath}/logout" style="color: #D32F2F;">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
