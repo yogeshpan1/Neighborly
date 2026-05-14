@@ -80,6 +80,17 @@
 .btnDangerBright:hover {
 	background-color: #e63535;
 }
+
+.error-message {
+	background-color: rgba(255, 59, 59, 0.1);
+	border: 1px solid #ff3b3b;
+	color: #ff3b3b;
+	border-radius: 6px;
+	padding: 10px 16px;
+	font-size: 13px;
+	font-weight: 500;
+	margin-top: 12px;
+}
 </style>
 </head>
 <body>
@@ -253,11 +264,14 @@
 						<label class="formLabel">Option 2</label> <input type="text"
 							class="formInput" name="option_2" placeholder="e.g., No">
 					</div>
+					<c:if test="${not empty errorMessage}">
+						<p class="error-message">${errorMessage}</p>
+					</c:if>
 				</div>
-
 				<div class="modalFooter">
-					<a href="<%=request.getContextPath()%>/pollmanagement" class="btnGhost" style="text-decoration: none;">Cancel</a>
-					
+					<a href="<%=request.getContextPath()%>/pollmanagement"
+						class="btnGhost" style="text-decoration: none;">Cancel</a>
+
 					<button type="submit" class="btn btnPrimary">Create Poll</button>
 				</div>
 			</form>

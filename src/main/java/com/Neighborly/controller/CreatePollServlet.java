@@ -2,6 +2,8 @@ package com.Neighborly.controller;
 
 import java.io.IOException;
 import com.Neighborly.dao.PollDAO;
+import com.Neighborly.service.PollService;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -58,9 +60,15 @@ public class CreatePollServlet extends HttpServlet {
 		String description = request.getParameter("description");
 		String option1 = request.getParameter("option_1");
 		String option2 = request.getParameter("option_2");
-		if (title == null || title.trim().isEmpty()) {
-			response.sendRedirect(request.getContextPath() + "/pollmanagement");
-			return;
+		
+		PollService service = new PollService();
+		String result = service.validatePoll(title, description, option1, option2);
+
+		if (!result.equals("Success")) {
+		    request.setAttribute("errorMessage", result);
+		    request.setAttribute("openCreatePoll", true);
+		    request.getRequestDispatcher("/WEB-INF/Pages/PollManagement.jsp").forward(request, response);
+		    return;
 		}
 
 		try {
