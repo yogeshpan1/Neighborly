@@ -1,253 +1,154 @@
 /* General Reset */
-
 body {
-
     background-color: #ffffff;
-
     color: #262626;
-
     margin: 0px;
-
     padding: 0px;
-
     font-family: 'Inter', sans-serif;
-
+    overflow-x: hidden;
 }
 
-
-
-* { box-sizing: border-box; }
-
-
+* { 
+    box-sizing: border-box; 
+}
 
 /* Structural Layout */
-
 .mainContent {
-
-    margin-left: 250px;
-
-    min-height: 100vh;
-
-    padding-top: 70px;
-
+    margin-left: 250px; 
+    min-height: 1000px;
     background-color: #ffffff;
-
     display: flex;
-
     flex-direction: column;
-
+    width: 1190px; 
 }
 
-
-
-/* Centering Container */
-
-.pollsContainer, 
-
-.noticesContainer {
-
-    width: 100%; 
-
+/* Container */
+.pollsContainer {
+    width: 1100px; 
     display: flex;
-
     flex-direction: column;
-
-    align-items: center; 
-
-    padding: 60px 20px;
-
+    align-items: flex-start; 
+    padding: 120px 80px;    
 }
 
-
-
-/* Page Header Alignment */
-
-.pollsPageTitle,
-
-.noticesPageTitle {
-
-    width: 850px; 
-
-    font-size: 26px;
-
+/* Page Header */
+.pollsPageTitle {
+    width: 800px; 
+    font-size: 28px;
     font-weight: 700;
-
-    margin-bottom: 50px;
-
+    margin-bottom: 60px;    
+    color: #262626;
     text-align: left; 
-
 }
 
-
-
-/* List Layout */
-
-.pollsList,
-
-.noticesList {
-
+/* List  */
+.pollsList {
     display: flex;
-
     flex-direction: column;
-
-    gap: 40px;
-
+    align-items: center; 
+    gap: 30px; 
+    width: 940px; 
 }
 
-
-
-/* Card Styling (Polls and Notices) */
-
-.pollCard, 
-
-.noticeCard {
-
-    width: 850px; 
-
+/* Card */
+.pollCard {
+    width: 800px; 
     background: #ffffff;
-
-    border: 1px solid #eeeeee;
-
+    border: 1px solid #dbdbdb;
     border-radius: 12px;
-
-    padding: 35px 45px;
-
+    padding: 40px 50px; 
     display: flex;
-
     flex-direction: column;
-
-    transition: box-shadow 0.3s ease;
-
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    backface-visibility: hidden;
 }
 
-
-
-.pollCard:hover {
-
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
-
-}
-
-
-
-/* Internal Card Header */
-
+/* Inner Card Elements */
 .pollHeader {
-
     display: flex;
-
     align-items: center;
-
-    gap: 25px;
-
-    margin-bottom: 35px;
-
+    justify-content: center; 
+    gap: 30px;
+    margin-bottom: 40px;
 }
 
-
-
-.pollIcon.gold { color: #cc8e35; }
-
-.pollIcon.silver { color: #9a9a9a; }
-
-
+.pollIcon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .pollQuestion {
-
-    font-size: 17px;
-
+    font-size: 18px; 
     font-weight: 500;
-
     color: #262626;
-
-    flex: 1;
-
-    text-align: center;
-
+    text-align: center; 
+    line-height: 1.4;
 }
-
-
-
-/* Centered Button Actions */
 
 .pollActions {
-
     display: flex;
-
-    justify-content: center; /* Centers buttons inside the card */
-
+    justify-content: center; 
     gap: 25px;
-
-    border: none;
-
 }
-
-
-
-/* Smaller Button Styles */
 
 .pollBtn {
-
-    width: 140px;  /* Reduced size */
-
-    height: 70px;  /* Reduced size */
-
+    width: 130px;  
+    height: 55px;  
     border: none;
-
-    border-radius: 12px;
-
-    font-size: 20px;
-
-    font-weight: 600;
-
+    border-radius: 10px;
+    font-size: 16px; 
+    font-weight: 700;
     cursor: pointer;
-
-    transition: all 0.2s ease;
-
+    transition: transform 0.2s ease-out, filter 0.2s ease;
 }
 
-
+.btnYes { background-color: #fff4e8; color: #E86A33; }
+.btnNo { background-color: #f2f2f2; color: #E86A33; }
 
 .pollBtn:hover {
-
-    transform: translateY(-2px);
-
+    transform: scale(1.03);
     filter: brightness(0.96);
-
 }
 
-
-
-
-
-.btnYes {
-
-    background-color: #fff4e8; 
-
-    color: #E86A33; 
-
-}
-
-
-
-.btnNo {
-
-    background-color: #f2f2f2; 
-
-    color: #E86A33;
-
-}
-
-
-
-/* Responsive Scaling */
-
-@media (max-width: 1150px) {
-
-    .pollCard, .pollsPageTitle {
-
-        width: 90%; 
-
+/* Responsive */
+@media (max-width: 1200px) {
+    .mainContent {
+        width: 950px; 
     }
+    .pollsContainer {
+        width: 900px;
+        padding: 100px 40px;
+    }
+    .pollsList {
+        width: 820px;
+    }
+    .pollCard, .pollsPageTitle {
+        width: 700px; 
+    }
+}
 
+@media (max-width: 900px) {
+    .mainContent {
+        margin-left: 0px; 
+        width: 900px;
+    }
+    .pollsContainer {
+        width: 860px;
+        padding: 80px 20px;
+        align-items: center; 
+    }
+    .pollsList {
+        width: 820px;
+    }
+    .pollCard, .pollsPageTitle {
+        width: 500px;
+    }
+    .pollHeader {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
 }

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Neighborly | Payments</title>
+    <title>Neighborly</title>
     <!-- Linking External CSS -->
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/sidebar.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/navbar.css">

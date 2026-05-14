@@ -16,6 +16,7 @@
         <jsp:include page="/Components/navbar.jsp" />
 
         <section class="documentTitleSection">
+        <h1 class="pageHeader">Document</h1>
             <section class="documentsGrid">
                 <article class="documentItem">
                     <div class="documentIcon">
