@@ -14,7 +14,7 @@
         </a>
     </div>
     <div class="topbarRight">
-    <!-- Wrap the button in a link pointing to your @WebServlet("/notices") -->
+    
     <a href="${pageContext.request.contextPath}/notices" class="notificationLink" title="Notifications">
         <button class="bellIcon" type="button">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -25,7 +25,7 @@
         </button>
     </a>
 </div>
-    </div>
+  
 </header>
 <script>
     if (localStorage.getItem('sidebarCollapsed') === 'true') {
