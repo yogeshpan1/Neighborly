@@ -68,16 +68,14 @@
 						</div>
 					</div>
 					<div class="list-actions">
-						<form action="<%=request.getContextPath()%>/updatejob"
+						<form action="<%=request.getContextPath()%>/joblisting"
 							method="POST">
 							<input type="hidden" name="editJobId" value="${j.jobId}">
 							<button type="submit" class="edit">Edit</button>
 						</form>
-						<form action="<%=request.getContextPath()%>/joblisting"
+						<form action="<%=request.getContextPath()%>/deletejob"
 							method="POST">
-							<input type="hidden" name="openDeleteJobId" value="${j.jobId}">
-							<input type="hidden" name="deleteJobTitle"
-								value="<c:out value='${j.jobTitle}'/>">
+							<input type="hidden" name="jobId" value="${j.jobId}">
 							<button type="submit" class="delete">Delete</button>
 						</form>
 					</div>
@@ -87,44 +85,43 @@
 
 	</div>
 
-	<div class="job-edit-overlay" style="${not empty editJob ? 'display:flex;' : ''}">
-    <div class="jobEditBox">
-        <div class="card-header">
-            <h3 style="color: white; font-weight: 500;">Edit Job</h3>
-        </div>
-        <form action="<%=request.getContextPath()%>/updatejob" method="POST">
-            <input type="hidden" name="jobId" value="${editJob.jobId}">
-            <div class="jobEditBody">
-                <div class="side">
-                    <label>Job Title</label>
-                    <input type="text" name="job_title" class="form-design"
-                        value="<c:out value='${editJob.jobTitle}'/>">
-                    <label>Department</label>
-                    <input type="text" name="department" class="form-design"
-                        value="<c:out value='${editJob.department}'/>">
-                </div>
+	<div class="job-edit-overlay"
+		style="${not empty editJob ? 'display:flex;' : ''}">
+		<div class="jobEditBox">
+			<div class="card-header">
+				<h3 style="color: white; font-weight: 500;">Edit Job</h3>
+			</div>
+			<form action="<%=request.getContextPath()%>/updatejob" method="POST">
+				<input type="hidden" name="jobId" value="${editJob.jobId}">
+				<div class="jobEditBody">
+					<div class="side">
+						<label>Job Title</label> <input type="text" name="job_title"
+							class="form-design" value="<c:out value='${editJob.jobTitle}'/>">
+						<label>Department</label> <input type="text" name="department"
+							class="form-design"
+							value="<c:out value='${editJob.department}'/>">
+					</div>
 
-                <label>Job Description</label>
-                <textarea name="job_description" class="form-design"><c:out
-                        value="${editJob.jobDescription}" /></textarea>
+					<label>Job Description</label>
+					<textarea name="job_description" class="form-design"><c:out
+							value="${editJob.jobDescription}" /></textarea>
 
-                <div class="side">
-                    <label>Contact Email</label>
-                    <input type="email" name="contact_email" class="form-design"
-                        value="<c:out value='${editJob.contactEmail}'/>">
-                    <label>Contact Phone</label>
-                    <input type="tel" name="contact_phone" class="form-design"
-                        value="<c:out value='${editJob.contactPhone}'/>">
-                </div>
+					<div class="side">
+						<label>Contact Email</label> <input type="email"
+							name="contact_email" class="form-design"
+							value="<c:out value='${editJob.contactEmail}'/>"> <label>Contact
+							Phone</label> <input type="tel" name="contact_phone" class="form-design"
+							value="<c:out value='${editJob.contactPhone}'/>">
+					</div>
 
-                <div class="jobEditFooter">
-                    <button type="submit" class="form-button">Update Listing</button>
-                    <a href="<%=request.getContextPath()%>/joblisting" class="Cancel">Cancel</a>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
+					<div class="jobEditFooter">
+						<button type="submit" class="form-button">Update Listing</button>
+						<a href="<%=request.getContextPath()%>/joblisting" class="Cancel">Cancel</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
 
 </body>
 </html>

@@ -63,13 +63,13 @@ public class JobDAO {
 
 	public void updateJob(int jobId, String jobTitle, String department, String jobDescription, String contactEmail,
 			String contactPhone) throws Exception {
-		
+
 		Connection con = DBconfig.getConnection();
-		
+
 		String sql = "UPDATE jobs SET job_title = ?, department = ?, job_description = ?, contact_email = ?, contact_phone = ? WHERE job_id = ?";
-		
+
 		PreparedStatement pst = con.prepareStatement(sql);
-		
+
 		pst.setString(1, jobTitle);
 		pst.setString(2, department);
 		pst.setString(3, jobDescription);
@@ -79,6 +79,21 @@ public class JobDAO {
 		pst.executeUpdate();
 		pst.close();
 		con.close();
+	}
+
+	public boolean deleteJob(int jobId) throws Exception {
+		String sql = "UPDATE jobs SET job_status = 'Inactive' WHERE job_id = ?";
+
+		Connection con = DBconfig.getConnection();
+
+		PreparedStatement pst = con.prepareStatement(sql);
+
+		pst.setInt(1, jobId);
+
+		int rowsAffected = pst.executeUpdate();
+		pst.close();
+		con.close();
+		return rowsAffected > 0;
 	}
 
 }
