@@ -13,10 +13,9 @@ body {
 .contentArea {
     display: flex;
     justify-content: center; 
-    align-items: center;     /* Centers vertically */
+    align-items: center;    
     padding: 60px 40px;      
     background-color: #FFFFFF; 
-    /* Changed to px: Using a large fixed height to ensure centering visibility */
     min-height: 800px; 
     box-sizing: border-box;
     overflow-x: hidden;      
@@ -101,7 +100,7 @@ body {
 @media (max-width: 992px) {
     .contentArea {
         padding: 40px 20px;
-        min-height: 700px; /* Adjusted px for smaller screens */
+        min-height: 700px; 
     }
     .contactContainer {
         max-width: 100%;

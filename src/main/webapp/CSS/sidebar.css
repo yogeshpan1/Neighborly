@@ -25,7 +25,7 @@
 .menuDropdown.active {
     opacity: 1;
     transform: translateY(0);
-    pointer-events: auto; /* This correctly allows clicking */
+    pointer-events: auto; 
 }
 .menuDropdown ul {
     list-style: none;
@@ -52,12 +52,12 @@
 .menuLink {
     display: flex;
     align-items: center;
-    text-decoration: none; /* Removes the underline */
-    color: #4B4B4B;       /* Dark grey color from image_83895b.png */
-    padding: 12px 16px;    /* px only */
+    text-decoration: none; 
+    color: #4B4B4B;       
+    padding: 12px 16px;   
     font-size: 14px;
     font-weight: 500;
-    width: 100%;           /* Makes the whole row clickable */
+    width: 100%;           
     transition: background-color 0.2s ease;
 }
 
