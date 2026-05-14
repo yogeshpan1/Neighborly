@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Neighborly</title>
+    <title>Neighborly | Contact Us</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/sidebar.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/navbar.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/contact.css">
@@ -45,15 +45,7 @@
 
                     <button type="submit" class="submitBtn">Send Message</button>
                 </form>
-
-                <div class="responseTime">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <polyline points="12 6 12 12 16 14"></polyline>
-                    </svg>
-                    <span>We aim to respond within 24-48 hours.</span>
-                </div>
-            </div>
+            </div> 
         </section>
     </main>
 </body>

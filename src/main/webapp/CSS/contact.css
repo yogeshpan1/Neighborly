@@ -1,25 +1,35 @@
-/* This ensures the area next to your sidebar centers its children */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Inter', sans-serif;
+    background-color: #FFFFFF;
+    color: #333333;
+}
+
 .contentArea {
     display: flex;
-    justify-content: center; /* Centers the form horizontally */
-    align-items: flex-start; /* Keeps the form at the top */
-    padding: 60px 40px;      /* Adds breathing room on all sides */
+    justify-content: center; 
+    align-items: center;     /* Centers vertically */
+    padding: 60px 40px;      
     background-color: #FFFFFF; 
-    min-height: calc(100vh - 70px);
+    /* Changed to px: Using a large fixed height to ensure centering visibility */
+    min-height: 800px; 
     box-sizing: border-box;
-    overflow-x: hidden;      /* Prevents horizontal scroll/cutoff */
+    overflow-x: hidden;      
 }
 
-/* Updated Container to prevent cutoff seen in image_841b66.png */
 .contactContainer {
     width: 100%;
-    max-width: 700px;        /* Balanced width for 100% zoom */
+    max-width: 700px;        
     background: transparent;
-    padding: 0;
-    margin: 0;               /* Centering is now handled by .contentArea */
+    padding: 0px;
+    margin: 0px;               
 }
 
-/* Header Typography */
 .contactHeader h1 {
     font-size: 32px;
     font-weight: 700;
@@ -34,7 +44,6 @@
     margin-bottom: 40px;
 }
 
-/* Form Layout */
 .contactForm {
     display: flex;
     flex-direction: column;
@@ -53,7 +62,6 @@
     color: #1a1a1b;
 }
 
-/* Inputs */
 .formGroup input, 
 .formGroup textarea {
     width: 100%;
@@ -70,10 +78,9 @@
 .formGroup input:focus, 
 .formGroup textarea:focus {
     border-color: #E86A33; 
-    box-shadow: 0 0 0 3px rgba(232, 106, 51, 0.1);
+    box-shadow: 0px 0px 0px 3px rgba(232, 106, 51, 0.1);
 }
 
-/* Submit Button */
 .submitBtn {
     background-color: #FFF2EB; 
     color: #E86A33;
@@ -91,19 +98,10 @@
     background-color: #FFE5D4;
 }
 
-/* Response Text */
-.responseTime {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 35px;
-    color: #65676B;
-    font-size: 14px;
-}
-
 @media (max-width: 992px) {
     .contentArea {
         padding: 40px 20px;
+        min-height: 700px; /* Adjusted px for smaller screens */
     }
     .contactContainer {
         max-width: 100%;
