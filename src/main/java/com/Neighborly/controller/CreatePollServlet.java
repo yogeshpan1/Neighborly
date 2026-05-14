@@ -1,4 +1,5 @@
 package com.Neighborly.controller;
+
 import java.io.IOException;
 import com.Neighborly.dao.PollDAO;
 import jakarta.servlet.ServletException;
@@ -23,54 +24,53 @@ import com.Neighborly.dao.PollDAO;
 public class CreatePollServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final int DEFAULT_ADMIN_USER_ID = 1;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CreatePollServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public CreatePollServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.sendRedirect(request.getContextPath() + "/pollmanagement");
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
 
-	    
-	    @Override
-	    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-	            throws ServletException, IOException {
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-	    	request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 
-	        String title = request.getParameter("title");
-	        String description = request.getParameter("description");
-	        String option1 = request.getParameter("option_1");
-	        String option2 = request.getParameter("option_2");
-	        if (title == null || title.trim().isEmpty()) {
-	            response.sendRedirect(request.getContextPath() + "/pollmanagement");
-	            return;
-	        }
+		String title = request.getParameter("title");
+		String description = request.getParameter("description");
+		String option1 = request.getParameter("option_1");
+		String option2 = request.getParameter("option_2");
+		if (title == null || title.trim().isEmpty()) {
+			response.sendRedirect(request.getContextPath() + "/pollmanagement");
+			return;
+		}
 
-	        try {
-	            PollDAO dao = new PollDAO();
-	            dao.insertPoll(title.trim(), description, option1, option2, "Active", DEFAULT_ADMIN_USER_ID);
-	        } catch (Exception e) 
-	        {
-	            e.printStackTrace();
-	        }
+		try {
+			PollDAO dao = new PollDAO();
+			dao.insertPoll(title.trim(), description, option1, option2, "Active", DEFAULT_ADMIN_USER_ID);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-	        response.sendRedirect(request.getContextPath() + "/pollmanagement");
-	    }
-
+		response.sendRedirect(request.getContextPath() + "/pollmanagement");
 	}
 
-
+}

@@ -26,31 +26,28 @@
 			<hr>
 		</div>
 
-		<section class="card">
-			<div class="card-header">
-				<h3 style="color: white; font-weight: 500;">Post a New Job</h3>
+		<form action="<%=request.getContextPath()%>/createjob" method="POST">
+			<div class="side">
+				<label>Job Title</label> <input type="text" name="job_title"
+					class="form-design" placeholder="e.g. Electrician"> <label>Department</label>
+				<input type="text" name="department" class="form-design"
+					placeholder="e.g. Public ">
 			</div>
-			<form>
-				<div class="side">
-					<label>Job Title</label> <input type="text" class="form-design"
-						placeholder="e.g. Electrician"> <label>Department</label>
-					<input type="text" class="form-design" placeholder="e.g. Public ">
-				</div>
 
-				<label>Job Description</label>
-				<textarea class="form-design"
-					placeholder="Describe the roles and responsibilities..."></textarea>
+			<label>Job Description</label>
+			<textarea name="job_description" class="form-design"
+				placeholder="Describe the roles and responsibilities..."></textarea>
 
-				<div class="side">
-					<label>Contact Email</label> <input type="email"
-						class="form-design" placeholder="abc@neighborly.com"> <label>Contact
-						Phone</label> <input type="tel" class="form-design"
-						placeholder="(+977) 000-0000">
-				</div>
+			<div class="side">
+				<label>Contact Email</label> <input type="email"
+					name="contact_email" class="form-design"
+					placeholder="abc@neighborly.com"> <label>Contact
+					Phone</label> <input type="tel" name="contact_phone" class="form-design"
+					placeholder="(+977) 000-0000">
+			</div>
 
-				<button type="button" class="form-button">Post Listing</button>
-			</form>
-		</section>
+			<button type="submit" class="form-button">Post Listing</button>
+		</form>
 
 		<section class="manage-listings">
 
