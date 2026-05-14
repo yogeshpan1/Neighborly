@@ -2,7 +2,11 @@ package com.Neighborly.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.Neighborly.model.JobModel;
 import com.Neighborly.utils.DBconfig;
 
 public class JobDAO {
@@ -23,6 +27,38 @@ public class JobDAO {
 		pst.close();
 		con.close();
 	}
-	
+
+	public List<JobModel> getAllJobs() throws Exception {
+
+		List<JobModel> jobs = new ArrayList<>();
+
+		Connection con = DBconfig.getConnection();
+
+		String sql = "SELECT job_id, admin_id, job_title, department, job_description, contact_email, contact_phone, job_status, posted_at FROM jobs WHERE job_status = 'Active'";
+
+		PreparedStatement pst = con.prepareStatement(sql);
+
+		ResultSet rs = pst.executeQuery();
+
+		while (rs.next()) {
+			JobModel j = new JobModel();
+
+			j.setJobId(rs.getInt("job_id"));
+			j.setAdminId(rs.getInt("admin_id"));
+			j.setJobTitle(rs.getString("job_title"));
+			j.setDepartment(rs.getString("department"));
+			j.setJobDescription(rs.getString("job_description"));
+			j.setContactEmail(rs.getString("contact_email"));
+			j.setContactPhone(rs.getString("contact_phone"));
+			j.setJobStatus(rs.getString("job_status"));
+			j.setPostedAt(rs.getString("posted_at"));
+			jobs.add(j);
+		}
+
+		rs.close();
+		pst.close();
+		con.close();
+		return jobs;
+	}
 
 }
