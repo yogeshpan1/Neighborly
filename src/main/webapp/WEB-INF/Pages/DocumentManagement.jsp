@@ -9,12 +9,9 @@
     <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/DocumentManagement.css">
 </head>
 <body>
-
-    <!-- SIDEBAR component -->
     <jsp:include page="/components/admin-sidebar.jsp" />
-    
+
     <div class="mainContent">
-        <!-- TOPBAR component -->
         <% request.setAttribute("pageTitle", "Admin Dashboard"); %>
         <jsp:include page="/components/admin-topbar.jsp" />
 
@@ -22,6 +19,8 @@
             <div class="docPageHeader">
                 <h1 class="docPageTitle">Document Management</h1>
             </div>
+
+            <!-- STAT CARDS -->
             <div class="statsFlex" style="margin-bottom: 24px;">
                 <div class="statCard">
                     <div class="statIconWrap">
@@ -47,7 +46,7 @@
                 </div>
                 <div class="statCard">
                     <div class="statIconWrap">
-                        <div class="statBars barsBlue">
+                        <div class="statBars barsRed">
                             <div class="bar h70"></div><div class="bar h50"></div><div class="bar h100"></div>
                         </div>
                     </div>
@@ -59,6 +58,8 @@
             </div>
 
             <hr class="docDivider">
+
+            <!-- TWO COLUMN LAYOUT -->
             <div class="docTwoColumn">
                 <div class="docLeftColumn">
                     <div class="docTableCard">
@@ -122,7 +123,7 @@
                                     <td>License</td>
                                     <td>Apr 8</td>
                                     <td class="docActionCell">
-                                        <button class="buttonDocEdit">Edit</button>
+                                        <button class="buttonDocEdit" onclick="openEditModal('1', 'Yogesh Pant', 'License', 'Apr 8')">Edit</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -165,7 +166,7 @@
 
     <!-- ACCEPT MODAL -->
     <div class="modalOverlay" id="acceptDocModal">
-        <div class="modalBox" style="padding: 0; max-width: 520px; overflow: hidden;">
+        <div class="modalBox">
             <div class="modalHeaderSuccess">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #6ee7b7;">
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -197,7 +198,7 @@
 
     <!-- REJECT MODAL -->
     <div class="modalOverlay" id="rejectDocModal">
-        <div class="modalBox" style="padding: 0; max-width: 520px; overflow: hidden;">
+        <div class="modalBox">
             <div class="modalHeaderDanger">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #ffbba6;">
                     <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
@@ -228,9 +229,43 @@
         </div>
     </div>
 
+    <!-- EDIT DOCUMENT MODAL -->
+    <div class="modalOverlay" id="editDocModal">
+        <div class="modalBox">
+            <div class="modalHeaderEdit">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #93c5fd;">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                </svg>
+                <h2>Edit Document</h2>
+            </div>
+            <form action="<%= request.getContextPath() %>/editDocument" method="POST">
+                <input type="hidden" name="documentId" id="editDocId">
+                <div class="modalBodyContent">
+                    <div class="docFormGroup">
+                        <label class="docFormLabel">Citizen Name</label>
+                        <input type="text" class="docFormInput" id="editDocCitizen" name="citizenName" required>
+                    </div>
+                    <div class="docFormGroup">
+                        <label class="docFormLabel">Document Type</label>
+                        <input type="text" class="docFormInput" id="editDocType" name="documentType" required>
+                    </div>
+                    <div class="docFormGroup">
+                        <label class="docFormLabel">Submitted Date</label>
+                        <input type="text" class="docFormInput" id="editDocDate" name="submittedDate" required>
+                    </div>
+                </div>
+                <div class="modalFooterActions">
+                    <button type="button" class="buttonModalCancel" onclick="closeEditModal()">Cancel</button>
+                    <button type="submit" class="buttonModalEdit">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- JAVASCRIPT -->
     <script>
-        // ACCEPT MODAL
+        //ACCEPT MODAL 
         var acceptModal = document.getElementById('acceptDocModal');
         var acceptIdInput = document.getElementById('acceptDocId');
         var acceptCitizenSpan = document.getElementById('acceptDocCitizen');
@@ -247,7 +282,7 @@
             acceptModal.style.display = 'none';
         }
 
-        //REJECT MODAL 
+        // REJECT MODAL
         var rejectModal = document.getElementById('rejectDocModal');
         var rejectIdInput = document.getElementById('rejectDocId');
         var rejectCitizenSpan = document.getElementById('rejectDocCitizen');
@@ -263,14 +298,36 @@
         function closeRejectModal() {
             rejectModal.style.display = 'none';
         }
-        
-        //Close modals when clicking outside
+
+        // EDIT MODAL
+        var editModal = document.getElementById('editDocModal');
+        var editIdInput = document.getElementById('editDocId');
+        var editCitizenInput = document.getElementById('editDocCitizen');
+        var editTypeInput = document.getElementById('editDocType');
+        var editDateInput = document.getElementById('editDocDate');
+
+        function openEditModal(docId, citizen, docType, submittedDate) {
+            editIdInput.value = docId;
+            editCitizenInput.value = citizen;
+            editTypeInput.value = docType;
+            editDateInput.value = submittedDate;
+            editModal.style.display = 'flex';
+        }
+
+        function closeEditModal() {
+            editModal.style.display = 'none';
+        }
+
+        // Close modals when clicking outside
         window.addEventListener('click', function(event) {
             if (event.target === acceptModal) {
                 closeAcceptModal();
             }
             if (event.target === rejectModal) {
                 closeRejectModal();
+            }
+            if (event.target === editModal) {
+                closeEditModal();
             }
         });
     </script>

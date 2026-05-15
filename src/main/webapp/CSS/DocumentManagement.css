@@ -17,6 +17,7 @@
     border: none;
 }
 
+/* TWO COLUMN LAYOUT */
 .docTwoColumn {
     display: flex;
     gap: 28px;
@@ -39,6 +40,7 @@
     gap: 20px;
 }
 
+/*TABLE CARDS */
 .docTableCard {
     background-color: #212224;
     border: 1px solid #323639;
@@ -135,6 +137,7 @@
     background-color: #4a4d51;
 }
 
+/* SIDE CARDS */
 .docSideCard {
     background-color: #212224;
     border: 1px solid #323639;
@@ -215,7 +218,7 @@
     background: #212224;
     border: 1px solid #323639;
     border-radius: 12px;
-    width: 480px;
+    width: 520px;
     overflow: hidden;
 }
 
@@ -251,6 +254,22 @@
     margin: 0;
 }
 
+.modalHeaderEdit {
+    background-color: #1e3a5f;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 12px 12px 0 0;
+}
+
+.modalHeaderEdit h2 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
 .modalBodyContent {
     padding: 24px;
     display: flex;
@@ -273,6 +292,7 @@
     gap: 12px;
 }
 
+/* Form Elements */
 .docFormGroup {
     display: flex;
     flex-direction: column;
@@ -285,6 +305,21 @@
     color: #75787D;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+}
+
+.docFormInput {
+    background-color: #131517;
+    border: 1px solid #323639;
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.docFormInput:focus {
+    border-color: #D35400;
 }
 
 .docFormTextarea {
@@ -350,4 +385,24 @@
 
 .buttonModalDanger:hover {
     background-color: #dc2626;
+}
+
+.buttonModalEdit {
+    background-color: #D35400;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.buttonModalEdit:hover {
+    background-color: #e65c00;
+}
+
+.barsRed .bar {
+    background-color: #ef4444;
 }
