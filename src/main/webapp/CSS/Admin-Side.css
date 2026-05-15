@@ -470,7 +470,8 @@ body {
     gap: 16px;
 }
 
-.btn {
+
+.button {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -491,18 +492,29 @@ body {
     transform: scale(0.97);
 }
 
-.btnEdit {
+
+.button:hover {
+    opacity: 0.9;
+}
+
+.button:active {
+    transform: scale(0.97);
+}
+
+.buttonEdit {
     background-color: #323639;
     color: #ffffff;
 }
 
-.btnDelete {
+
+.buttonDelete {
     background-color: #7f1d1d;
     color: #ffffff;
     border: 1px solid #991b1b;
 }
 
-.btnPrimary {
+
+.buttonPrimary {
     background-color: #D35400;
     color: #ffffff;
     padding: 12px 24px;
@@ -511,7 +523,7 @@ body {
     transition: all 0.2s;
 }
 
-.btnPrimary:hover {
+.buttonPrimary:hover {
     background-color: #e65c00;
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(211, 84, 0, 0.4);
@@ -644,7 +656,8 @@ textarea.formInput {
     outline: none;
 }
 
-.btnIconDelete {
+
+.buttonIconDelete {
     background: transparent;
     border: none;
     color: #7f1d1d;
@@ -660,7 +673,11 @@ textarea.formInput {
     color: #ef4444;
 }
 
-.btnTextOrange {
+.buttonIconDelete:hover {
+    color: #ef4444;
+}
+
+.buttonTextOrange {
     background: transparent;
     border: none;
     color: #D35400;
@@ -674,7 +691,7 @@ textarea.formInput {
     align-self: flex-start;
 }
 
-.btnTextOrange:hover {
+.buttonTextOrange:hover {
     color: #e65c00;
 }
 
@@ -687,7 +704,7 @@ textarea.formInput {
     align-items: center;
 }
 
-.btnGhost {
+.buttonGhost {
     background: transparent;
     border: none;
     color: #CFD3D6;
@@ -697,7 +714,7 @@ textarea.formInput {
     padding: 10px 16px;
 }
 
-.btnGhost:hover {
+.buttonGhost:hover {
     color: #ffffff;
 }
 

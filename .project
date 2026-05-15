@@ -16,12 +16,20 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+<<<<<<< HEAD
 			<name>org.eclipse.wst.validation.validationbuilder</name>
+=======
+			<name>org.eclipse.m2e.core.maven2Builder</name>
+>>>>>>> Admin-Citizen-Other
 			<arguments>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+<<<<<<< HEAD
 			<name>org.eclipse.m2e.core.maven2Builder</name>
+=======
+			<name>org.eclipse.wst.validation.validationbuilder</name>
+>>>>>>> Admin-Citizen-Other
 			<arguments>
 			</arguments>
 		</buildCommand>
@@ -34,6 +42,7 @@
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+<<<<<<< HEAD
 	<filteredResources>
 		<filter>
 			<id>1776053712511</id>
@@ -45,4 +54,6 @@
 			</matcher>
 		</filter>
 	</filteredResources>
+=======
+>>>>>>> Admin-Citizen-Other
 </projectDescription>

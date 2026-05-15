@@ -1,0 +1,27 @@
+CREATE TABLE users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    dob DATE NOT NULL,
+    gender ENUM('Male', 'Female', 'Other') NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    number VARCHAR(20) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('admin', 'citizen') DEFAULT 'citizen',
+    registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE polls (
+    Poll_ID INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Poll_Question VARCHAR(255) NOT NULL,
+    Poll_Description VARCHAR(500),
+    Poll_Option1 VARCHAR(100),
+    Poll_Option2 VARCHAR(100),
+    Poll_Status VARCHAR(20) NOT NULL,
+    Poll_CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Admin_ID INT(10)
+);
+
+ALTER TABLE polls ADD CONSTRAINT fk_polls_admin 
+FOREIGN KEY (Admin_ID) REFERENCES admin(Admin_ID);
