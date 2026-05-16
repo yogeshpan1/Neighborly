@@ -177,26 +177,5 @@
             </ul>
         </div>
     </div>
-
-    <script>
-        (function () {
-            const toggle = document.getElementById('userMenuToggle');
-            const dropdown = document.getElementById('userDropdownMenu');
-            const wrapper = document.getElementById('userMenuWrapper');
-
-            if (toggle && dropdown) {
-                toggle.addEventListener('click', function (e) {
-                    e.stopPropagation();
-                    dropdown.classList.toggle('active');
-                });
-
-                document.addEventListener('click', function (e) {
-                    if (wrapper && !wrapper.contains(e.target)) {
-                        dropdown.classList.remove('active');
-                    }
-                });
-            }
-        })();
-    </script>
 </aside>
 
