@@ -17,19 +17,6 @@ body {
     overflow-x: hidden;
 }
 
-.noticeContainer {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0px auto;
-    padding: 100px 40px 60px 40px;
-}
-
-.noticePageTitle {
-    font-size: 24px;
-    font-weight: 700;
-    color: #262626;
-    margin-bottom: 30px;
-}
 
 .noticeList {
     display: flex;

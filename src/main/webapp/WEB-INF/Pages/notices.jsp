@@ -15,16 +15,13 @@
     <main class="mainContent">
         <jsp:include page="/Components/navbar.jsp" />
 
-        <section class="noticeContainer">
-            <h1 class="noticePageTitle">Notices</h1>
-            
+                   
             <div class="noticeList">
                 <article class="noticeItem">
                     <p class="noticeText">Congratulations you have created an account</p>
                     <span class="noticeTime">2 mins ago</span>
                 </article>
             </div>
-        </section>
     </main>
 
 </body>
