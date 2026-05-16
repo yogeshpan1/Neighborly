@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Neighborly</title>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/sidebar.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/navbar.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/contact.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/sidebar.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/navbar.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/contact.css">
 </head>
 <body>
 

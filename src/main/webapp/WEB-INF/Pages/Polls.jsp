@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Neighborly</title>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/sidebar.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/navbar.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/Polls.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/sidebar.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/navbar.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/Polls.css">
 </head>
 <body>
 
@@ -32,7 +32,7 @@
                         <p class="pollQuestion">How much will Gold(NPR) go up by May 2026?</p>
                     </div>
                     
-                    <form action="<%=request.getContextPath()%>/polls" method="POST" class="pollActions">
+                    <form action="${pageContext.request.contextPath}/polls" method="POST" class="pollActions">
                         <input type="hidden" name="pollId" value="Gold_2026">
                         <button type="submit" name="vote" value="Yes" class="pollBtn btnYes">Yes</button>
                         <button type="submit" name="vote" value="No" class="pollBtn btnNo">No</button>

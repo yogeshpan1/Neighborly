@@ -5,9 +5,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Neighborly</title>
-        <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/news.css">
-        <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/sidebar.css">
-        <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/navbar.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/news.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/sidebar.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/navbar.css">
     </head>
 
     <body>
@@ -20,7 +20,7 @@
                             <div class="feedColumn">
                                 <div class="featuredArticle">
                                     <div class="featuredImage"
-                                        style="background: linear-gradient(to top, rgba(30, 60, 40, 0.9), rgba(50, 90, 60, 0.2)), url('<%=request.getContextPath()%>/Images/cleanup.jpg') center/cover;">
+                                        style="background: linear-gradient(to top, rgba(30, 60, 40, 0.9), rgba(50, 90, 60, 0.2)), url('${pageContext.request.contextPath}/Images/cleanup.jpg') center/cover;">
                                         <h2 class="featuredTitle">Ward 4 launches three-month Bagmati river corridor
                                             cleanup & restoration drive</h2>
                                     </div>
@@ -47,7 +47,7 @@
 
                                 <div class="storyList">
                                     <div class="storyCard">
-                                        <img src="<%=request.getContextPath()%>/Images/meeting.jpg"
+                                        <img src="${pageContext.request.contextPath}/Images/meeting.jpg"
                                             alt="Footpath repairs"
                                             style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;">
                                         <div class="storyContent">
@@ -75,7 +75,7 @@
                                     </div>
 
                                     <div class="storyCard">
-                                        <img src="<%=request.getContextPath()%>/Images/traffic.jpg"
+                                        <img src="${pageContext.request.contextPath}/Images/traffic.jpg"
                                             alt="Traffic marshals"
                                             style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;">
                                         <div class="storyContent">
@@ -103,7 +103,7 @@
                                     </div>
 
                                     <div class="storyCard">
-                                        <img src="<%=request.getContextPath()%>/Images/water.jpg" alt="Water supply"
+                                        <img src="${pageContext.request.contextPath}/Images/water.jpg" alt="Water supply"
                                             style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;">
                                         <div class="storyContent">
                                             <div class="storyMeta"><span class="storyBadge badgeUpdate"
@@ -130,7 +130,7 @@
                                     </div>
 
                                     <div class="storyCard">
-                                        <img src="<%=request.getContextPath()%>/Images/health.jpg" alt="Health camp"
+                                        <img src="${pageContext.request.contextPath}/Images/health.jpg" alt="Health camp"
                                             style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;">
                                         <div class="storyContent">
                                             <div class="storyMeta"><span class="storyBadge badgeCommunity"

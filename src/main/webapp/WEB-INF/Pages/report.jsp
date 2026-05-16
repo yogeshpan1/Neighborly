@@ -6,9 +6,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Neighborly</title>
-        <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/report.css">
-        <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/sidebar.css">
-        <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/navbar.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/report.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/sidebar.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/navbar.css">
     </head>
     <body>
         <jsp:include page="/Components/sidebar.jsp" />
