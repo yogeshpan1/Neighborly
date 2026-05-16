@@ -53,4 +53,38 @@ public class NewsDAO {
 		return newsList;
 	}
 
+	public void updateNews(int newsId, String title, String content) throws Exception {
+
+		Connection con = DBconfig.getConnection();
+
+		String sql = "UPDATE news SET news_title = ?, news_content = ? WHERE news_id = ?";
+
+		PreparedStatement pst = con.prepareStatement(sql);
+
+		pst.setString(1, title);
+		pst.setString(2, content);
+		pst.setInt(3, newsId);
+		pst.executeUpdate();
+		pst.close();
+		con.close();
+	}
+
+	public boolean deleteNews(int newsId) throws Exception {
+		Connection con = DBconfig.getConnection();
+
+		String sql = "DELETE FROM news WHERE news_id = ?";
+
+		PreparedStatement pst = con.prepareStatement(sql);
+
+		pst.setInt(1, newsId);
+
+		int rowsAffected = pst.executeUpdate();
+
+		pst.close();
+		con.close();
+
+		return rowsAffected > 0;
+
+	}
+
 }
