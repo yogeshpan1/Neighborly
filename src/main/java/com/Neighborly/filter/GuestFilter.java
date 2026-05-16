@@ -14,7 +14,7 @@ import java.io.IOException;
 
 import com.Neighborly.utils.SessionUtil;
 
-@WebFilter(urlPatterns = {"/login", "/register"})
+@WebFilter(urlPatterns = {"/login","", "/register"})
 public class GuestFilter extends HttpFilter {
     
     private static final long serialVersionUID = 1L;

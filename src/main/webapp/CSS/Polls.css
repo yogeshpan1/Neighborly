@@ -14,21 +14,20 @@ body {
 /* Structural Layout */
 .mainContent {
     margin-left: 250px; 
-    width: 1100px;
-    min-height: 1000px;
+    padding-top: 70px;
+    min-height: calc(100vh - 70px);
     transition: margin-left 0.3s ease; 
 }
 
 /* Container */
 .pollsContainer {
-    width: 1200px; 
+    width: 100%;
+    max-width: 1000px; 
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; 
-    padding-top: 40px;    
-    padding-bottom: 40px;    
-    padding-left: 40px;    
-    padding-right: 40px;    
+    align-items: center; 
+    padding: 48px 48px 32px 48px;
 }
 
 /* List */
@@ -36,13 +35,14 @@ body {
     display: flex;
     flex-direction: column;
     gap: 25px; 
-    width: 960px; 
-    margin-top: 40px;
+    width: 100%; 
+    max-width: 960px; 
+    margin-top: 0px;
 }
 
 /* Card */
 .pollCard {
-    width: 960px; 
+    width: 100%; 
     background: #ffffff;
     border: 1px solid #e5e5e5;
     border-radius: 12px;
@@ -54,7 +54,7 @@ body {
 
 /* Left Section: Text Content */
 .pollContent {
-    width: 800px; 
+    flex: 1; 
     padding-top: 30px;
     padding-bottom: 30px;
     padding-left: 35px;
@@ -67,7 +67,6 @@ body {
 
 /* Title*/
 .pollTitle {
-    font-family: 'Georgia', 'Times New Roman', serif;
     font-size: 22px;
     font-weight: 500;
     color: #111111;
@@ -138,12 +137,12 @@ body {
         flex-direction: column;
     }
     .pollContent {
-        width: 960px;
+        width: 100%;
         border-right: none;
         border-bottom: 1px solid #f0f0f0;
     }
     .pollActions {
-        width: 960px;
+        width: 100%;
         flex-direction: row;
         gap: 20px;
     }

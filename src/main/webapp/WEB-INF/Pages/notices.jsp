@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,13 +15,15 @@
     <main class="mainContent">
         <jsp:include page="/Components/navbar.jsp" />
 
-                   
+        <section class="noticeContainer">
+            
             <div class="noticeList">
                 <article class="noticeItem">
                     <p class="noticeText">Congratulations you have created an account</p>
                     <span class="noticeTime">2 mins ago</span>
                 </article>
             </div>
+        </section>
     </main>
 
 </body>

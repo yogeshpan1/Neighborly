@@ -14,14 +14,14 @@ body {
 .mainContent {
     margin-left: 250px; 
     flex: 1;
-    min-height: 1000px;
+    min-height: calc(100vh - 70px);
     transition: margin-left 0.3s ease; 
 }
 
 .profileWrapper {
     width: 935px; 
-    margin: 40px auto 0px;
-    padding: 0px 20px;
+    margin: 0 auto;
+    padding: 32px 20px 0px 20px;
 }
 
 /* --- Header Section --- */

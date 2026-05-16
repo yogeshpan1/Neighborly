@@ -110,7 +110,7 @@
                     <div class="applicationsSection">
                         <div class="sectionHeader">
                             <h2 class="sectionTitle">My applications</h2>
-                            <a href="#" class="viewAllLink">View all &rarr;</a>
+                            <a href="${pageContext.request.contextPath}/documents" class="viewAllLink">View all &rarr;</a>
                         </div>
                         <div class="appList">
                             <div class="appListItem">
@@ -135,7 +135,7 @@
                     <div class="finesSection">
                         <div class="sectionHeader">
                             <h2 class="sectionTitle">Pending fines</h2>
-                            <a href="#" class="viewAllLink">View all &rarr;</a>
+                            <a href="${pageContext.request.contextPath}/payments" class="viewAllLink">View all &rarr;</a>
                         </div>
                         <div class="fineListItem">
                             <div class="appStatusLine lineRed"></div>
@@ -146,7 +146,9 @@
                             </div>
                             <div class="fineAction">
                                 <div class="fineAmount">Rs. 500</div>
-                                <button class="payFineButton">Pay fine</button>
+                                <form action="${pageContext.request.contextPath}/payments" method="GET">
+                                    <button type="submit" class="payFineButton">Pay fine</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -189,7 +191,7 @@
                             <p class="reportDesc">Help us keep Neighborly beautiful. Report potholes, broken lights,
                                 or
                                 trash accumulation.</p>
-                            <button class="reportButton">File a Report</button>
+                            <a href="${pageContext.request.contextPath}/report" class="reportButton" style="text-decoration: none; display: inline-block;">File a Report</a>
                         </div>
 
                     </div>

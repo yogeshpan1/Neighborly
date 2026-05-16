@@ -40,7 +40,7 @@ public class RegisterServlet extends HttpServlet {
             return;
         }
         if (username == null || username.trim().isEmpty() || username.length() < 3 || !username.matches("[a-zA-Z]+")) {
-            request.setAttribute("error", "Username must be at least 3 letters only");
+            request.setAttribute("error", "Username should be 3 letters or more");
             request.getRequestDispatcher("/WEB-INF/Pages/register.jsp").forward(request, response);
             return;
         }

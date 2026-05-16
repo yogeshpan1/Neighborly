@@ -6,7 +6,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
-    background-color: #F7F8FA;
+    background-color: #FFFFFF;
     color: #1a1a1b;
 }
 
@@ -16,7 +16,7 @@ body {
     margin-left: 250px;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: calc(100vh - 70px);
     padding-top: 70px;
 }
 
@@ -31,7 +31,8 @@ body {
 
 .feedCenter {
     max-width: 680px;
-    margin: 24px auto;
+    margin: 0 auto;
+    padding-top: 32px;
 }
 
 .composer {
@@ -84,7 +85,7 @@ body {
 .composerInput:hover,
 .composerInput:focus { background: #e4e6ea; }
 
-.photoActionButton {
+.photoActionBtn {
     background: transparent;
     border: none;
     cursor: pointer;
@@ -97,7 +98,7 @@ body {
     transition: background 0.15s;
 }
 
-.photoActionButton:hover { background: #F0F2F5; }
+.photoActionBtn:hover { background: #F0F2F5; }
 
 .composerBottom {
     display: flex;
@@ -105,7 +106,7 @@ body {
     margin-top: 10px;
 }
 
-.postButton {
+.postBtn {
     background: #C8621A;
     color: #fff;
     border: none;
@@ -118,7 +119,7 @@ body {
     font-family: inherit;
 }
 
-.postButton:hover { background: #b3561a; }
+.postBtn:hover { background: #b3561a; }
 
 /*  Post  */
 
@@ -180,7 +181,7 @@ body {
     color: #90949c;
 }
 
-.moreButton {
+.moreBtn {
     background: none;
     border: none;
     color: #90949c;
@@ -193,7 +194,7 @@ body {
     transition: background 0.15s, color 0.15s;
 }
 
-.moreButton:hover {
+.moreBtn:hover {
     background: #F0F2F5;
     color: #1a1a1b;
 }
@@ -231,7 +232,7 @@ body {
 
 /*  Post Interactions Area  */
 
-.postFooter {
+.postActions {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -307,7 +308,7 @@ body {
     transition: background 0.15s, color 0.15s;
 }
 
-.voteButton:hover {
+.voteBtn:hover {
     background: #d4d7d9;
     color: #C8621A;
 }
@@ -320,7 +321,7 @@ body {
     color: #1a1a1b;
 }
 
-.saveButton {
+.saveBtnPill {
     display: flex;
     align-items: center;
     gap: 6px;
@@ -336,7 +337,7 @@ body {
     font-family: inherit;
 }
 
-.saveButton:hover {
+.saveBtnPill:hover {
     background: #F0F2F5;
     border-color: #c8c8c8;
     color: #1a1a1b;

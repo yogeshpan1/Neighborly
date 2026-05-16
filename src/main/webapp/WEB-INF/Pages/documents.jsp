@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +16,6 @@
         <jsp:include page="/Components/navbar.jsp" />
 
         <section class="documentTitleSection">
-            <h2 class="documentPageTitle">Document Vault</h2>
             <section class="documentsGrid">
                 <article class="documentItem">
                     <div class="documentIcon">
