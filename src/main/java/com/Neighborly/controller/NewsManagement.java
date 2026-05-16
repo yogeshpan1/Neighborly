@@ -6,6 +6,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
+
+import com.Neighborly.dao.NewsDAO;
+import com.Neighborly.model.NewModel;
 
 /**
  * Servlet implementation class NewsManagement
@@ -26,8 +30,15 @@ public class NewsManagement extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/WEB-INF/Pages/NewsManagement.jsp").forward(request, response);
+		try {
+	        NewsDAO dao = new NewsDAO();
+	        List<NewModel> newsList = dao.getAllNews();
+	        request.setAttribute("newsList", newsList);
+	        request.setAttribute("totalNews", newsList.size());
+	        request.getRequestDispatcher("/WEB-INF/Pages/NewsManagement.jsp").forward(request, response);
+	    } catch (Exception e) {
+	        throw new ServletException("Database error", e);
+	    }
 	}
 
 	/**

@@ -32,144 +32,87 @@
 				<div>
 					<h1 class="newsPageTitle">News Management</h1>
 				</div>
-				<form action="<%=request.getContextPath()%>/newslist"
-					method="POST">
+				<form action="<%=request.getContextPath()%>/newslist" method="POST">
 					<input type="hidden" name="openCreateNews" value="true">
 					<button type="submit" class="buttonCreateNews">+ Create
 						News</button>
 				</form>
 			</div>
+
+			<hr class="newsDivider">
+
+			<!-- NEWS PREVIEW CARDS -->
+			<div class="newsPreviewGrid">
+
+				<!-- Preview Card 1 -->
+				<div class="newsPreviewCard">
+					<div class="newsPreviewImage previewBlue"></div>
+					<div class="newsPreviewBody">
+						<h3 class="newsPreviewTitle">Ward Committee Approves</h3>
+						<p class="newsPreviewSnippet">Ward Committee Approves the
+							Budget of NPR 5 Lakhs for Government School Renovation.</p>
+						<span class="newsPreviewTime">6h ago</span>
+					</div>
+				</div>
+
+				<!-- Preview Card 2 -->
+				<div class="newsPreviewCard">
+					<div class="newsPreviewImage previewYellow"></div>
+					<div class="newsPreviewBody">
+						<h3 class="newsPreviewTitle">New Traffic Marshals Deployed</h3>
+						<p class="newsPreviewSnippet">New Marshals Deployed and the
+							Public are not happy</p>
+						<span class="newsPreviewTime">4h ago</span>
+					</div>
+				</div>
+
+				<!-- Preview Card 3 -->
+				<div class="newsPreviewCard">
+					<div class="newsPreviewImage previewPink"></div>
+					<div class="newsPreviewBody">
+						<h3 class="newsPreviewTitle">Water Supply Restoration</h3>
+						<p class="newsPreviewSnippet">Ministry of Water Resources and
+							Irrigation orders immediate restoration of Melamchi water supply.</p>
+						<span class="newsPreviewTime">1h ago</span>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- NEWS LIST SECTION -->
+			<div class="newsListHeader">
+				<h2 class="newsListTitle">News Application</h2>
+				<span class="newsPillBadge">Total: ${totalNews} </span>
+			</div>
+			<div class="newsListContainer">
+				<c:forEach var="n" items="${newsList}">
+					<div class="newsRow">
+						<div class="newsIconWrap">
+							<svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+								stroke="#3b82f6" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round">
+                    <path
+									d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+						</div>
+						<div class="newsInfo">
+							<h4>
+								<c:out value="${n.newsTitle}" />
+							</h4>
+							<p>${n.postedAt}</p>
+						</div>
+						<div class="newsActions">
+							<button class="buttonNewsEdit">Edit</button>
+							<button class="buttonNewsDelete">Delete</button>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
 		</div>
-
-		<hr class="newsDivider">
-
-		<!-- NEWS PREVIEW CARDS -->
-		<div class="newsPreviewGrid">
-
-			<!-- Preview Card 1 -->
-			<div class="newsPreviewCard">
-				<div class="newsPreviewImage previewBlue"></div>
-				<div class="newsPreviewBody">
-					<h3 class="newsPreviewTitle">Ward Committee Approves</h3>
-					<p class="newsPreviewSnippet">Ward Committee Approves the
-						Budget of NPR 5 Lakhs for Government School Renovation.</p>
-					<span class="newsPreviewTime">6h ago</span>
-				</div>
-			</div>
-
-			<!-- Preview Card 2 -->
-			<div class="newsPreviewCard">
-				<div class="newsPreviewImage previewYellow"></div>
-				<div class="newsPreviewBody">
-					<h3 class="newsPreviewTitle">New Traffic Marshals Deployed</h3>
-					<p class="newsPreviewSnippet">New Marshals Deployed and the
-						Public are not happy</p>
-					<span class="newsPreviewTime">4h ago</span>
-				</div>
-			</div>
-
-			<!-- Preview Card 3 -->
-			<div class="newsPreviewCard">
-				<div class="newsPreviewImage previewPink"></div>
-				<div class="newsPreviewBody">
-					<h3 class="newsPreviewTitle">Water Supply Restoration</h3>
-					<p class="newsPreviewSnippet">Ministry of Water Resources and
-						Irrigation orders immediate restoration of Melamchi water supply.</p>
-					<span class="newsPreviewTime">1h ago</span>
-				</div>
-			</div>
-
-		</div>
-
-		<!-- NEWS LIST SECTION -->
-		<div class="newsListHeader">
-			<h2 class="newsListTitle">News Application</h2>
-			<span class="newsPillBadge">Total: 3</span>
-		</div>
-
-		<div class="newsListContainer">
-
-			<!-- News Row 1 -->
-			<div class="newsRow">
-				<div class="newsIconWrap">
-					<svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-						stroke="#3b82f6" stroke-width="2" stroke-linecap="round"
-						stroke-linejoin="round">
-                            <path
-							d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="16" y1="13" x2="8" y2="13"></line>
-                            <line x1="16" y1="17" x2="8" y2="17"></line>
-                            <polyline points="10 9 9 9 8 9"></polyline>
-                        </svg>
-				</div>
-				<div class="newsInfo">
-					<h4>Ward Committee Approves</h4>
-					<p>Arjan Regmi</p>
-				</div>
-				<div class="newsActions">
-					<button class="buttonNewsEdit"
-						onclick="openEditModal('1', 'Ward Committee Approves', 'Caught an incredible sunset at Oak Ridge Park today.')">Edit</button>
-					<button class="buttonNewsDelete"
-						onclick="openDeleteModal('1', 'Ward Committee Approves')">Delete</button>
-				</div>
-			</div>
-
-			<!-- News Row 2 -->
-			<div class="newsRow">
-				<div class="newsIconWrap">
-					<svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-						stroke="#3b82f6" stroke-width="2" stroke-linecap="round"
-						stroke-linejoin="round">
-                            <path
-							d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="16" y1="13" x2="8" y2="13"></line>
-                            <line x1="16" y1="17" x2="8" y2="17"></line>
-                            <polyline points="10 9 9 9 8 9"></polyline>
-                        </svg>
-				</div>
-				<div class="newsInfo">
-					<h4>New Traffic Marshals Deployed</h4>
-					<p>Yogesh Pant</p>
-				</div>
-				<div class="newsActions">
-					<button class="buttonNewsEdit"
-						onclick="openEditModal('2', 'New Traffic Marshals Deployed', 'New Marshals Deployed and the Public are not happy')">Edit</button>
-					<button class="buttonNewsDelete"
-						onclick="openDeleteModal('2', 'New Traffic Marshals Deployed')">Delete</button>
-				</div>
-			</div>
-
-			<!-- News Row 3 -->
-			<div class="newsRow">
-				<div class="newsIconWrap">
-					<svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-						stroke="#3b82f6" stroke-width="2" stroke-linecap="round"
-						stroke-linejoin="round">
-                            <path
-							d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="16" y1="13" x2="8" y2="13"></line>
-                            <line x1="16" y1="17" x2="8" y2="17"></line>
-                            <polyline points="10 9 9 9 8 9"></polyline>
-                        </svg>
-				</div>
-				<div class="newsInfo">
-					<h4>Water Supply Restoration</h4>
-					<p>Rikesh Adhikari</p>
-				</div>
-				<div class="newsActions">
-					<button class="buttonNewsEdit"
-						onclick="openEditModal('3', 'Water Supply Restoration', 'Caught an incredible sunset at Oak Ridge Park today.')">Edit</button>
-					<button class="buttonNewsDelete"
-						onclick="openDeleteModal('3', 'Water Supply Restoration')">Delete</button>
-				</div>
-			</div>
-
-		</div>
-
-	</div>
 	</div>
 
 	<!-- CREATE NEWS MODAL -->
@@ -198,7 +141,7 @@
 					</c:if>
 				</div>
 				<div class="modalFooterActions">
-					<a href="<%=request.getContextPath()%>/newsmanagement"
+					<a href="<%=request.getContextPath()%>/news"
 						class="buttonModalCancel" style="text-decoration: none;">Cancel</a>
 					<button type="submit" class="buttonPostNews">Post News</button>
 				</div>
