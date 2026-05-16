@@ -21,7 +21,7 @@ body {
     display: flex;
     flex-direction: column; 
     align-items: center;    
-    padding-top: 120px;     /* 👈 Increased from 60px to 120px to push everything lower */
+    padding-top: 120px;     
     padding-bottom: 60px;
     padding-left: 40px;
     padding-right: 40px;      
