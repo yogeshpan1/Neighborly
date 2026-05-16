@@ -4,17 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Neighborly</title>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/sidebar.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/navbar.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/contact.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/sidebar.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/navbar.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/contact.css">
 </head>
 <body>
 
     <jsp:include page="/Components/sidebar.jsp" />
-    
+
     <main class="mainContent">
         <jsp:include page="/Components/navbar.jsp" />
-        
+
         <section class="contentArea">
             <div class="contactContainer">
 
@@ -35,8 +35,8 @@
                     </div>
 
                     <div class="formGroup">
-                        <label for="message">Messege</label>
-                        <textarea id="message" name="message" placeholder="Type your message..................."></textarea>
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Type your message..."></textarea>
                     </div>
 
                     <button type="submit" class="submitBtn">Send Message</button>
@@ -45,7 +45,7 @@
                 <div class="contactFooter">
                     <p>We're here to help. Reach out to us using the form below and we'll get back to you as soon as possible.</p>
                 </div>
-            </div> 
+            </div>
         </section>
     </main>
 </body>
