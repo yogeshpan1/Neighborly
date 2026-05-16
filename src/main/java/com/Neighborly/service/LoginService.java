@@ -25,11 +25,7 @@ public class LoginService {
             return "Password Incorrect";
         }
 
-        return "Success"
-        		
-        		;
+        return "Success";
         
     }
-    
-    
 }
