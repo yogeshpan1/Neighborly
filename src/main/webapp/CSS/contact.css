@@ -12,106 +12,120 @@ body {
 
 .mainContent {
     margin-left: 250px; 
-    flex: 1;
+    width: 1100px;
     min-height: 1000px;
     transition: margin-left 0.3s ease; 
 }
 
 .contentArea {
     display: flex;
-    justify-content: center; 
+    flex-direction: column; 
     align-items: center;    
-    padding: 20px 40px 60px 40px;      
+    padding-top: 120px;     /* 👈 Increased from 60px to 120px to push everything lower */
+    padding-bottom: 60px;
+    padding-left: 40px;
+    padding-right: 40px;      
     background-color: #FFFFFF; 
-    min-height: 800px; 
-    box-sizing: border-box;
+    min-height: 900px; 
     overflow-x: hidden;      
 }
 
 .contactContainer {
-    width: 100%;
-    max-width: 700px;        
+    width: 535px;        
     background: transparent;
     padding: 0px;
     margin: 0px;               
 }
 
-.contactHeader h1 {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: #1a1a1b;
-}
-
-.contactHeader p {
-    font-size: 16px;
-    color: #65676B;
-    line-height: 1.6;
-    margin-bottom: 40px;
-}
-
 .contactForm {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 34px;
 }
 
 .formGroup {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 16px;
 }
 
 .formGroup label {
-    font-weight: 600;
-    font-size: 14px;
-    color: #1a1a1b;
-    
+    font-weight: 500;
+    font-size: 20px;
+    color: #111111;
+    display: block; 
 }
 
-.formGroup input, 
-.formGroup textarea {
-    width: 100%;
-    padding: 14px 16px;
-    border: 1px solid #E2E8F0;
-    border-radius: 8px;
-    font-size: 15px;
+.formGroup input {
+    width: 535px;
+    height: 52px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border: 1px solid #999999;
+    border-radius: 6px;
+    font-size: 18px;
     background-color: #FFFFFF;
-    color: #050505;
+    color: #111111;
     outline: none;
-    transition: border-color 0.2s;
 }
 
-.formGroup input:focus, 
-.formGroup textarea:focus {
-    border-color: #E86A33; 
-    box-shadow: 0px 0px 0px 3px rgba(232, 106, 51, 0.1);
+.formGroup textarea {
+    width: 535px;
+    height: 240px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border: 1px solid #999999;
+    border-radius: 6px;
+    font-size: 18px;
+    background-color: #FFFFFF;
+    color: #111111;
+    outline: none;
+    resize: none;
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+    color: #757575;
 }
 
 .submitBtn {
-    background-color: #FFF2EB; 
-    color: #E86A33;
-    border: none;
-    padding: 16px;
+    background-color: #fff1e6; 
+    color: #e88a5d;
+    border: 1px solid #ffe0cc;
+    width: 535px;
+    height: 56px;
     border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 500;
     cursor: pointer;
     transition: background 0.2s;
     margin-top: 10px;
-    
 }
 
 .submitBtn:hover {
-    background-color: #FFE5D4;
+    background-color: #ffe3cf;
+}
+
+/* Descriptive note section at the bottom */
+.contactFooter {
+    width: 535px;
+    margin-top: 24px;
+    text-align: center;
+}
+
+.contactFooter p {
+    font-size: 14px;
+    color: #666666;
+    line-height: 20px;
+    margin: 0px;
 }
 
 @media (max-width: 740px) {
-    .contentArea {
-        padding: 40px 20px;
-        min-height: 700px; 
-    }
-    .contactContainer {
-        width: 350px;
+    .mainContent {
+        margin-left: 0px;
     }
 }

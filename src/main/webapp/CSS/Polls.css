@@ -1,7 +1,6 @@
-
 body {
     background-color: #ffffff;
-    color: #262626;
+    color: #000000;
     margin: 0px;
     padding: 0px;
     font-family: 'Inter', sans-serif;
@@ -15,137 +14,140 @@ body {
 /* Structural Layout */
 .mainContent {
     margin-left: 250px; 
-    flex: 1;
+    width: 1100px;
     min-height: 1000px;
     transition: margin-left 0.3s ease; 
 }
 
 /* Container */
 .pollsContainer {
-    width: 1100px; 
+    width: 1200px; 
     display: flex;
     flex-direction: column;
     align-items: flex-start; 
-    padding: 120px 80px;    
+    padding-top: 40px;    
+    padding-bottom: 40px;    
+    padding-left: 40px;    
+    padding-right: 40px;    
 }
 
-/* Page Header */
-.pollsPageTitle {
-    width: 800px; 
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 60px;    
-    color: #262626;
-    text-align: left; 
-}
-
-/* List  */
+/* List */
 .pollsList {
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    gap: 30px; 
-    width: 940px; 
+    gap: 25px; 
+    width: 960px; 
+    margin-top: 40px;
 }
 
 /* Card */
 .pollCard {
-    width: 800px; 
+    width: 960px; 
     background: #ffffff;
-    border: 1px solid #dbdbdb;
+    border: 1px solid #e5e5e5;
     border-radius: 12px;
-    padding: 40px 50px; 
+    display: flex;
+    flex-direction: row; 
+    align-items: stretch;
+    overflow: hidden;
+}
+
+/* Left Section: Text Content */
+.pollContent {
+    width: 800px; 
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 35px;
+    padding-right: 35px;
+    border-right: 1px solid #f0f0f0; 
     display: flex;
     flex-direction: column;
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
-    backface-visibility: hidden;
-}
-
-.pollHeader {
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    gap: 30px;
-    margin-bottom: 40px;
-}
-
-.pollIcon {
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
     justify-content: center;
 }
 
-.pollQuestion {
-    font-size: 18px; 
+/* Title*/
+.pollTitle {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 22px;
     font-weight: 500;
-    color: #262626;
-    text-align: center; 
-    line-height: 1.4;
+    color: #111111;
+    margin-top: 0px;
+    margin-bottom: 12px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
+/* Description Details */
+.pollDescription {
+    font-size: 14px;
+    line-height: 22px;
+    color: #444444;
+    margin: 0px;
+}
+
+/* Right Section: Buttons Container */
 .pollActions {
+    width: 160px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
     display: flex;
-    justify-content: center; 
-    gap: 25px;
+    flex-direction: column; 
+    justify-content: center;
+    gap: 12px;
+    background-color: #ffffff;
 }
 
+/* Button Configurations */
 .pollBtn {
-    width: 130px;  
-    height: 55px;  
-    border: none;
-    border-radius: 10px;
-    font-size: 16px; 
-    font-weight: 700;
+    width: 120px;
+    height: 42px;  
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 14px; 
+    font-weight: 500;
     cursor: pointer;
-    transition: transform 0.2s ease-out, filter 0.2s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.btnYes { background-color: #fff4e8; color: #E86A33; }
-.btnNo { background-color: #f2f2f2; color: #E86A33; }
 
-.pollBtn:hover {
-    transform: scale(1.03);
-    filter: brightness(0.96);
+.btnYes { 
+    background-color: #fff1e6; 
+    color: #e88a5d; 
+    border-color: #ffe0cc;
+}
+.btnYes:hover {
+    background-color: #ffe3cf;
 }
 
-/* Responsive */
-@media (max-width: 1200px) {
-    .mainContent {
-        width: 950px; 
-    }
-    .pollsContainer {
-        width: 900px;
-        padding: 100px 40px;
-    }
-    .pollsList {
-        width: 820px;
-    }
-    .pollCard, .pollsPageTitle {
-        width: 700px; 
-    }
+.btnNo { 
+    background-color: #929292; 
+    color: #ffffff; 
+}
+.btnNo:hover {
+    background-color: #7a7a7a;
 }
 
+/* Responsive Overrides */
 @media (max-width: 900px) {
     .mainContent {
         margin-left: 0px; 
-        width: 900px;
     }
-    .pollsContainer {
-        width: 860px;
-        padding: 80px 20px;
-        align-items: center; 
-    }
-    .pollsList {
-        width: 820px;
-    }
-    .pollCard, .pollsPageTitle {
-        width: 500px;
-    }
-    .pollHeader {
+    .pollCard {
         flex-direction: column;
-        text-align: center;
-        gap: 15px;
+    }
+    .pollContent {
+        width: 960px;
+        border-right: none;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .pollActions {
+        width: 960px;
+        flex-direction: row;
+        gap: 20px;
+    }
+    .pollBtn {
+        width: 120px;
     }
 }
