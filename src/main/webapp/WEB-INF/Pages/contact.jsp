@@ -17,10 +17,6 @@
         
         <section class="contentArea">
             <div class="contactContainer">
-                <div class="contactHeader">
-                    <h1>Contact Us</h1>
-                    <p>We're here to help. Reach out to us using the form below and we'll get back to you as soon as possible.</p>
-                </div>
 
                 <form action="contact" method="POST" class="contactForm">
                     <div class="formGroup">
@@ -39,12 +35,16 @@
                     </div>
 
                     <div class="formGroup">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="6" placeholder="Type your message..." required></textarea>
+                        <label for="message">Messege</label>
+                        <textarea id="message" name="message" placeholder="Type your message..................."></textarea>
                     </div>
 
                     <button type="submit" class="submitBtn">Send Message</button>
                 </form>
+
+                <div class="contactFooter">
+                    <p>We're here to help. Reach out to us using the form below and we'll get back to you as soon as possible.</p>
+                </div>
             </div> 
         </section>
     </main>
