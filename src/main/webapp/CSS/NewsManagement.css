@@ -36,6 +36,7 @@
     border: none;
 }
 
+/* ===== NEWS PREVIEW CARDS ===== */
 .newsPreviewGrid {
     display: flex;
     gap: 20px;
@@ -96,6 +97,7 @@
     font-weight: 500;
 }
 
+/* ===== NEWS LIST SECTION ===== */
 .newsListHeader {
     display: flex;
     align-items: center;
@@ -168,6 +170,7 @@
     color: #D35400;
 }
 
+/* Action Buttons */
 .newsActions {
     display: flex;
     gap: 10px;
@@ -206,6 +209,7 @@
     background-color: #991b1b;
 }
 
+/* ===== MODAL STYLES ===== */
 .modalOverlay {
     position: fixed;
     top: 0;
@@ -294,6 +298,7 @@
     gap: 12px;
 }
 
+/* Form Elements */
 .newsFormGroup {
     display: flex;
     flex-direction: column;
@@ -340,6 +345,7 @@
     border-color: #D35400;
 }
 
+/* Modal Buttons */
 .buttonPostNews {
     background-color: #D35400;
     color: #ffffff;

@@ -113,7 +113,7 @@
 					<form action="<%=request.getContextPath()%>/pollmanagement"
 						method="POST">
 						<input type="hidden" name="openCreatePoll" value="true">
-						<button type="submit" class="btn btnPrimary">+ Create New
+						<button type="submit" class="button buttonPrimary">+ Create New
 							Poll</button>
 					</form>
 				</div>
@@ -195,7 +195,7 @@
 								<form action="<%=request.getContextPath()%>/pollmanagement"
 									method="POST">
 									<input type="hidden" name="editPollId" value="${p.pollId}">
-									<button type="submit" class="btn btnEdit">
+									<button type="submit" class="button buttonEdit">
 										<svg width="14" height="14" viewBox="0 0 24 24" fill="none"
 											stroke="currentColor" stroke-width="2" stroke-linecap="round"
 											stroke-linejoin="round">
@@ -213,7 +213,7 @@
 									<input type="hidden" name="openDeletePollId"
 										value="${p.pollId}"> <input type="hidden"
 										name="deleteQuestion" value="<c:out value='${p.question}'/>">
-									<button type="submit" class="btn btnDelete">
+									<button type="submit" class="button buttonDelete">
 										<svg width="14" height="14" viewBox="0 0 24 24" fill="none"
 											stroke="currentColor" stroke-width="2" stroke-linecap="round"
 											stroke-linejoin="round">
@@ -270,9 +270,9 @@
 				</div>
 				<div class="modalFooter">
 					<a href="<%=request.getContextPath()%>/pollmanagement"
-						class="btnGhost" style="text-decoration: none;">Cancel</a>
+						class="buttonGhost" style="text-decoration: none;">Cancel</a>
 
-					<button type="submit" class="btn btnPrimary">Create Poll</button>
+					<button type="submit" class="button buttonPrimary">Create Poll</button>
 				</div>
 			</form>
 		</div>
@@ -320,8 +320,8 @@
 				<div class="modalFooter"
 					style="padding: 18px 28px; border-top: 1px solid #323639; display: flex; justify-content: flex-end; gap: 14px;">
 					<a href="<%=request.getContextPath()%>/pollmanagement"
-						class="btnCancelDark" style="text-decoration: none;">Cancel</a>
-					<button type="submit" class="btnDangerBright">Confirm
+						class="buttonGhost" style="text-decoration: none;">Cancel</a>
+					<button type="submit" class="button buttonDelete">Confirm
 						Deletion</button>
 				</div>
 			</form>
@@ -363,8 +363,8 @@
 				</div>
 				<div class="modalFooter">
 					<a href="<%=request.getContextPath()%>/pollmanagement"
-						class="btnGhost" style="text-decoration: none;">Cancel</a>
-					<button type="submit" class="btn btnPrimary">Update Poll</button>
+						class="buttonGhost" style="text-decoration: none;">Cancel</a>
+					<button type="submit" class="button buttonPrimary">Update Poll</button>
 				</div>
 			</form>
 		</div>
