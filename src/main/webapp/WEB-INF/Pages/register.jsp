@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -28,11 +29,11 @@
                 <div class="loginForm">
                     <h2>Create new account</h2>
 
-                    <% if (request.getAttribute("error") != null) { %>
+                    <c:if test="${not empty error}">
                         <div class="errorMessage">
-                            <%= request.getAttribute("error") %>
+                            ${error}
                         </div>
-                    <% } %>
+                    </c:if>
 
                     <form action="${pageContext.request.contextPath}/register" method="post">
 

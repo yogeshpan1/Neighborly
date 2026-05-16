@@ -1,5 +1,4 @@
 package com.Neighborly.controller;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -8,7 +7,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
 import com.Neighborly.model.UserModel;
 import com.Neighborly.service.LoginService;
 import com.Neighborly.utils.CookieUtil;
@@ -19,9 +17,7 @@ import com.Neighborly.dao.UserDAO;
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public LoginServlet() {
-        super();
-    }
+    public LoginServlet() { super(); }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/Pages/login.jsp").forward(request, response);
@@ -31,7 +27,7 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        // Validation
+        // Empty checks
         if (username == null || username.trim().isEmpty()) {
             request.setAttribute("error", "Username is required");
             request.setAttribute("typedUser", username);
@@ -45,13 +41,27 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
-        // Call LoginService
+        // Validation
+        if (username.length() < 3) {
+            request.setAttribute("error", "Username must be at least 3 characters");
+            request.setAttribute("typedUser", username);
+            request.getRequestDispatcher("/WEB-INF/Pages/login.jsp").forward(request, response);
+            return;
+        }
+        if (password.length() < 8) {
+            request.setAttribute("error", "Password must be at least 8 characters");
+            request.setAttribute("typedUser", username);
+            request.getRequestDispatcher("/WEB-INF/Pages/login.jsp").forward(request, response);
+            return;
+        }
+
+        // Authenticate
         LoginService service = new LoginService();
         String status = "";
         try {
             status = service.authenticate(username, password);
         } catch (Exception e) {
-            status = "An Error Occured";
+            status = "An Error Occurred";
             e.printStackTrace();
         }
 
@@ -60,10 +70,10 @@ public class LoginServlet extends HttpServlet {
                 UserDAO dao = new UserDAO();
                 UserModel userModel = dao.getUserByUsername(username);
                 SessionUtil.setAttribute(request, "user", userModel, 3600);
-
                 String loginTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH:mm:ss"));
                 CookieUtil.addCookie(response, "last_login", loginTime, 3600);
-
+                CookieUtil.addCookie(response, "logged_user", userModel.getUserName(), 3600);
+                CookieUtil.addCookie(response, "user_role", userModel.getRole(), 3600);
             } catch (Exception e) {
                 e.printStackTrace();
             }

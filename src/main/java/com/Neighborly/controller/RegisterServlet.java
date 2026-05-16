@@ -12,9 +12,7 @@ import com.Neighborly.service.RegisterService;
 public class RegisterServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public RegisterServlet() {
-        super();
-    }
+    public RegisterServlet() { super(); }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/Pages/register.jsp").forward(request, response);
@@ -22,27 +20,27 @@ public class RegisterServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String firstName = request.getParameter("first_name");
-        String lastName = request.getParameter("last_name");
-        String username = request.getParameter("username");
-        String dob = request.getParameter("dob");
-        String gender = request.getParameter("gender");
-        String email = request.getParameter("email");
-        String number = request.getParameter("number");
-        String password = request.getParameter("password");
+        String lastName  = request.getParameter("last_name");
+        String username  = request.getParameter("username");
+        String dob       = request.getParameter("dob");
+        String gender    = request.getParameter("gender");
+        String email     = request.getParameter("email");
+        String number    = request.getParameter("number");
+        String password  = request.getParameter("password");
 
         // Validation
-        if (firstName == null || firstName.trim().isEmpty()) {
-            request.setAttribute("error", "First name is required");
+        if (firstName == null || firstName.trim().isEmpty() || !firstName.matches("[a-zA-Z ]+")) {
+            request.setAttribute("error", "Invalid First name");
             request.getRequestDispatcher("/WEB-INF/Pages/register.jsp").forward(request, response);
             return;
         }
-        if (lastName == null || lastName.trim().isEmpty()) {
-            request.setAttribute("error", "Last name is required");
+        if (lastName == null || lastName.trim().isEmpty() || !lastName.matches("[a-zA-Z ]+")) {
+            request.setAttribute("error", "Invalid Last name");
             request.getRequestDispatcher("/WEB-INF/Pages/register.jsp").forward(request, response);
             return;
         }
-        if (username == null || username.trim().isEmpty()) {
-            request.setAttribute("error", "Username is required");
+        if (username == null || username.trim().isEmpty() || username.length() < 3 || !username.matches("[a-zA-Z]+")) {
+            request.setAttribute("error", "Username must be at least 3 letters only");
             request.getRequestDispatcher("/WEB-INF/Pages/register.jsp").forward(request, response);
             return;
         }
@@ -56,18 +54,18 @@ public class RegisterServlet extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/Pages/register.jsp").forward(request, response);
             return;
         }
-        if (email == null || email.trim().isEmpty()) {
-            request.setAttribute("error", "Email is required");
+        if (email == null || email.trim().isEmpty() || !email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
+            request.setAttribute("error", "Valid email address is required");
             request.getRequestDispatcher("/WEB-INF/Pages/register.jsp").forward(request, response);
             return;
         }
-        if (number == null || number.trim().isEmpty()) {
-            request.setAttribute("error", "Phone number is required");
+        if (number == null || number.trim().isEmpty() || !number.matches("\\d{10}")) {
+            request.setAttribute("error", "Phone number must be 10 digits");
             request.getRequestDispatcher("/WEB-INF/Pages/register.jsp").forward(request, response);
             return;
         }
-        if (password == null || password.trim().isEmpty()) {
-            request.setAttribute("error", "Password is required");
+        if (password == null || password.trim().isEmpty() || password.length() < 8) {
+            request.setAttribute("error", "Password must be at least 8 characters");
             request.getRequestDispatcher("/WEB-INF/Pages/register.jsp").forward(request, response);
             return;
         }

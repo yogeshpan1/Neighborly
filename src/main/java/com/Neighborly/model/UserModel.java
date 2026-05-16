@@ -1,6 +1,5 @@
 package com.Neighborly.model;
 
-
 import java.util.Date;
 
 public class UserModel {
@@ -13,8 +12,8 @@ public class UserModel {
     private String email;
     private String number;
     private String password;
+    private String role;
 
-    
     public String getFirstName() { return firstName; }
     public void setFirstName(String firstName) { this.firstName = firstName; }
 
@@ -35,7 +34,10 @@ public class UserModel {
 
     public String getNumber() { return number; }
     public void setNumber(String number) { this.number = number; }
-        
+
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
+
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
 }

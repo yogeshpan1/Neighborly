@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -25,11 +26,11 @@
                 <div class="loginForm">
                     <h2>Welcome back</h2>
 
-                    <% if (request.getAttribute("error") != null) { %>
+                    <c:if test="${not empty error}">
                         <div class="errorMessage">
-                            <%= request.getAttribute("error") %>
+                            ${error}
                         </div>
-                    <% } %>
+                    </c:if>
 
                     <form action="${pageContext.request.contextPath}/login" method="post">
                         <div class="formGroup">
@@ -38,7 +39,7 @@
                             </div>
                             <input type="text" id="username" name="username" class="formControl"
                                    placeholder="Enter your username"
-                                   value="<%= request.getAttribute("typedUser") != null ? request.getAttribute("typedUser") : "" %>">
+                                   value="${not empty typedUser ? typedUser : ''}">
                         </div>
 
                         <div class="formGroup">
