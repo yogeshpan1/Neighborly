@@ -10,19 +10,21 @@ CREATE TABLE neighborly_admin (
     registration_date TIMESTAMP
 );
 
- Citizens table
-CREATE TABLE neighborly_citizens (
-    citizen_id INT(11) PRIMARY KEY AUTO_INCREMENT,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
-    username VARCHAR(50),
-    dob DATE,
-    gender VARCHAR(10),
-    email VARCHAR(100),
-    number VARCHAR(20),
-    password VARCHAR(255),
-    registration_date TIMESTAMP
+Users table
+CREATE TABLE users (
+    user_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    dob DATE NOT NULL,
+    gender VARCHAR(10) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    number VARCHAR(20) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('user', 'admin') DEFAULT 'user',
+    registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 
  Category table
 CREATE TABLE neighborly_category (
