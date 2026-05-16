@@ -1,10 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neighborly</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/sidebar.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/navbar.css">
@@ -20,23 +18,18 @@
         <article class="profileWrapper">
             <header class="profileHeader">
                 <section class="profileAvatarLarge">
-                            <div class="avatarCircle">
-                                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4-4v2"></path>
-                                    <circle cx="12" cy="7" r="4"></circle>
-                                </svg>
-                            </div>
+                    <div class="avatarCircle">${user != null ? user.firstName.substring(0,1).toUpperCase() : 'G'}</div>
                 </section>
                 
                 <section class="profileInfoSection">
-                    <h2 class="username">${user.userName}</h2>
+                    <h2 class="username">${user != null ? user.username : 'Guest'}</h2>
                     
                     <div class="profileBio">
-                        <span class="fullName">${user.firstName} ${user.lastName}</span>
+                        <span class="fullName">${user != null ? user.firstName : 'Guest'} ${user != null ? user.lastName : 'Name'}</span>
                     </div>
 
                     <div class="profileActionRow">
-                        <button onclick="openEditModal()" class="editButton">Edit profile</button>
+                        <button onclick="openEditModal()" class="edit-btn" style="border:none; cursor:pointer;">Edit profile</button>
                     </div>
                 </section>
             </header>
@@ -68,116 +61,72 @@
 
     <!-- Edit Profile Modal -->
     <aside id="editProfileModal" class="modal">
-        <span class="closeButton" onclick="closeEditModal()">&times;</span>
         <div class="modal-content">
-            <h2>Update Profile</h2>
-            <p class="subtitle">Personalize your Neighborly account</p>
+            <span class="close-btn" onclick="closeEditModal()">&times;</span>
+            <h2>Edit profile</h2>
             
-            <form action="editProfile" method="POST" enctype="multipart/form-data">
+            <form action="editProfile" method="POST">
                 <fieldset style="border:none; padding:0; margin:0;">
-                    <div class="preview-container">
-                        <svg id="placeholderIcon" class="preview-placeholder" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4-4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                        <img id="imagePreview" src="#" alt="Preview">
-                    </div>
-
-                    <div class="file-input-wrapper">
-                        <label for="profilePicture" class="custom-file-upload">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: text-bottom; margin-right: 4px;">
-                                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-                                <circle cx="12" cy="13" r="4"></circle>
-                            </svg> Change Photo
-                        </label>
-                        <input type="file" id="profilePicture" name="profilePicture" accept="image/*" onchange="previewFile()">
-                    </div>
-
                     <div class="input-group">
                         <label for="firstName">First Name</label>
-                        <input type="text" id="firstName" name="firstName" placeholder="First Name" value="${user.firstName}">
+                        <input type="text" id="firstName" name="firstName" placeholder="First Name" value="${user != null ? user.firstName : 'Guest'}">
                     </div>
 
                     <div class="input-group">
                         <label for="lastName">Last Name</label>
-                        <input type="text" id="lastName" name="lastName" placeholder="Last Name" value="${user.lastName}">
+                        <input type="text" id="lastName" name="lastName" placeholder="Last Name" value="${user != null ? user.lastName : 'Name'}">
                     </div>
 
                     <div class="input-group">
                         <label for="username">Username</label>
-                        <input type="text" id="username" name="username" placeholder="Username" value="${user.userName}">
+                        <input type="text" id="username" name="username" placeholder="Username" value="${user != null ? user.username : 'Guest'}">
                         <p class="helper-text">This is your unique handle on Neighborly.</p>
                     </div>
 
                     <div class="input-group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="Email" value="${user.email}">
+                        <input type="email" id="email" name="email" value="${user != null ? user.email : ''}" style="width: 100%; padding: 12px 16px; border: 1px solid #dbdbdb; border-radius: 12px; background: #fafafa; box-sizing: border-box;">
                     </div>
 
                     <div class="input-group">
                         <label for="number">Phone Number</label>
-                        <input type="tel" id="number" name="number" placeholder="Phone Number" value="${user.number}">
+                        <input type="tel" id="number" name="number" value="${user != null ? user.number : ''}" style="width: 100%; padding: 12px 16px; border: 1px solid #dbdbdb; border-radius: 12px; background: #fafafa; box-sizing: border-box;">
                     </div>
 
                     <div class="input-group">
                         <label for="dob">Date of Birth</label>
-                        <input type="date" id="dob" name="dob" value="${user.dob}">
+                        <input type="date" id="dob" name="dob" value="${user != null ? user.dob : ''}" style="width: 100%; padding: 12px 16px; border: 1px solid #dbdbdb; border-radius: 12px; background: #fafafa; box-sizing: border-box;">
                     </div>
 
                     <div class="input-group">
                         <label for="gender">Gender</label>
                         <select id="gender" name="gender">
-                            <option value="Male" ${user.gender == 'Male' ? 'selected' : ''}>Male</option>
-                            <option value="Female" ${user.gender == 'Female' ? 'selected' : ''}>Female</option>
-                            <option value="Other" ${user.gender == 'Other' ? 'selected' : ''}>Other</option>
+                            <option value="Male" ${user != null && user.gender == 'Male' ? 'selected' : ''}>Male</option>
+                            <option value="Female" ${user != null && user.gender == 'Female' ? 'selected' : ''}>Female</option>
+                            <option value="Other" ${user != null && user.gender == 'Other' ? 'selected' : ''}>Other</option>
                         </select>
                     </div>
                 </fieldset>
 
                 <footer class="form-footer">
-                    <button type="submit" class="submitButton">Save Changes</button>
+                    <button type="submit" class="btn-submit">Save Changes</button>
                 </footer>
             </form>
         </div>
     </aside>
 
     <script>
-        const switchTab = (e, id) => {
-            document.querySelectorAll(".tab-content, .tab").forEach(el => el.classList.remove("active-content", "active"));
-            document.getElementById(id).classList.add("active-content");
-            e.currentTarget.classList.add("active");
-        };
+        function switchTab(evt, tabId) {
+            document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active-content"));
+            document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+            document.getElementById(tabId).classList.add("active-content");
+            evt.currentTarget.classList.add("active");
+        }
 
         const modal = document.getElementById("editProfileModal");
-        const toggleModal = (show) => {
-            modal.classList.toggle("show", show);
-            document.body.style.overflow = show ? "hidden" : "auto";
-        };
-
-        const openEditModal = () => toggleModal(true);
-        const closeEditModal = () => toggleModal(false);
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                toggleModal(false);
-            }
-        });
-
-        function previewFile() {
-            const preview = document.getElementById('imagePreview');
-            const file = document.getElementById('profilePicture').files[0];
-            const reader = new FileReader();
-            const placeholder = document.getElementById('placeholderIcon');
-
-            reader.onloadend = function () {
-                preview.src = reader.result;
-                preview.style.display = 'block';
-                placeholder.style.display = 'none';
-            }
-
-            if (file) {
-                reader.readAsDataURL(file);
-            }
-        }
+        function openEditModal() { modal.classList.add("show"); document.body.style.overflow = "hidden"; }
+        function closeEditModal() { modal.classList.remove("show"); document.body.style.overflow = "auto"; }
+        window.onclick = e => { if (e.target == modal) closeEditModal(); }
     </script>
 </body>
 </html>
