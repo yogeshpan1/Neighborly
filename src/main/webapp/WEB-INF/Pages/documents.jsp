@@ -16,7 +16,7 @@
         <jsp:include page="/Components/navbar.jsp" />
 
         <section class="documentTitleSection">
-        <h1 class="pageHeader">Document</h1>
+            <h2 class="documentPageTitle">Document Vault</h2>
             <section class="documentsGrid">
                 <article class="documentItem">
                     <div class="documentIcon">
@@ -29,7 +29,10 @@
                         </svg>
                     </div>
                     <h3 class="documentTitle">National Identity Card</h3>
-                    <button class="documentViewDetailsBtn" onclick="openIdModal('National Identity Card')">View Details</button>
+                    <form action="${pageContext.request.contextPath}/documents" method="GET" style="width: 100%; margin-top: auto;">
+                        <input type="hidden" name="docType" value="National Identity Card">
+                        <button type="submit" class="documentViewDetailsBtn" style="width: 100%;">View Details</button>
+                    </form>
                 </article>
 
                 <article class="documentItem">
@@ -40,7 +43,10 @@
                         </svg>
                     </div>
                     <h3 class="documentTitle">Passport</h3>
-                    <button class="documentViewDetailsBtn" onclick="openIdModal('Passport')">View Details</button>
+                    <form action="${pageContext.request.contextPath}/documents" method="GET" style="width: 100%; margin-top: auto;">
+                        <input type="hidden" name="docType" value="Passport">
+                        <button type="submit" class="documentViewDetailsBtn" style="width: 100%;">View Details</button>
+                    </form>
                 </article>
 
                 <article class="documentItem">
@@ -52,7 +58,10 @@
                         </svg>
                     </div>
                     <h3 class="documentTitle">Citizenship</h3>
-                    <button class="documentViewDetailsBtn" onclick="openIdModal('Citizenship')">View Details</button>
+                    <form action="${pageContext.request.contextPath}/documents" method="GET" style="width: 100%; margin-top: auto;">
+                        <input type="hidden" name="docType" value="Citizenship">
+                        <button type="submit" class="documentViewDetailsBtn" style="width: 100%;">View Details</button>
+                    </form>
                 </article>
 
                 <article class="documentItem">
@@ -65,7 +74,10 @@
                         </svg>
                     </div>
                     <h3 class="documentTitle">Driving License</h3>
-                    <button class="documentViewDetailsBtn" onclick="openIdModal('Driving License')">View Details</button>
+                    <form action="${pageContext.request.contextPath}/documents" method="GET" style="width: 100%; margin-top: auto;">
+                        <input type="hidden" name="docType" value="Driving License">
+                        <button type="submit" class="documentViewDetailsBtn" style="width: 100%;">View Details</button>
+                    </form>
                 </article>
 
                 <article class="documentItem">
@@ -77,7 +89,10 @@
                         </svg>
                     </div>
                     <h3 class="documentTitle">Voters ID</h3>
-                    <button class="documentViewDetailsBtn" onclick="openIdModal('Voters ID')">View Details</button>
+                    <form action="${pageContext.request.contextPath}/documents" method="GET" style="width: 100%; margin-top: auto;">
+                        <input type="hidden" name="docType" value="Voters ID">
+                        <button type="submit" class="documentViewDetailsBtn" style="width: 100%;">View Details</button>
+                    </form>
                 </article>
 
                 <article class="documentItem">
@@ -91,51 +106,13 @@
                         </svg>
                     </div>
                     <h3 class="documentTitle">Bluebook</h3>
-                    <button class="documentViewDetailsBtn" onclick="openIdModal('Bluebook')">View Details</button>
+                    <form action="${pageContext.request.contextPath}/documents" method="GET" style="width: 100%; margin-top: auto;">
+                        <input type="hidden" name="docType" value="Bluebook">
+                        <button type="submit" class="documentViewDetailsBtn" style="width: 100%;">View Details</button>
+                    </form>
                 </article>
             </section>
         </section>
     </main>
-
-    <section id="docModal" class="documentModal">
-        <article class="documentModalContent">
-            <span class="documentModalClose" onclick="closeDocModal()">&times;</span>
-            <h2 id="modalTitle" class="documentModalTitle">Verification</h2>
-            <form action="${pageContext.request.contextPath}/documents" method="POST">
-                <input type="hidden" id="docType" name="docType">
-                <fieldset class="documentFormGroup" style="border: none; padding: 0px; margin: 0px; margin-bottom: 20px;">
-                    <label id="dynamicLabel">Document ID Number</label>
-                    <input type="text" name="docId" class="documentInput" required placeholder="Enter ID here...">
-                </fieldset>
-                <button type="submit" class="documentVerifyAction">Verify</button>
-            </form>
-        </article>
-    </section>
-
-    <script>
-        const labelMap = {
-            'National Identity Card': 'National ID Number',
-            'Passport': 'Passport Number',
-            'Citizenship': 'Citizenship ID',
-            'Driving License': 'License Number',
-            'Voters ID': 'Voter Card ID',
-            'Bluebook': 'Bluebook Number'
-        };
-
-        function openIdModal(title) {
-            document.getElementById("modalTitle").innerText = title + " Verification";
-            document.getElementById("docType").value = title;
-            document.getElementById("dynamicLabel").innerText = labelMap[title] || "Document ID Number";
-            document.getElementById("docModal").classList.add("active");
-        }
-
-        function closeDocModal() {
-            document.getElementById("docModal").classList.remove("active");
-        }
-
-        window.addEventListener("click", function(e) {
-            if (e.target === document.getElementById("docModal")) closeDocModal();
-        });
-    </script>
 </body>
 </html>
