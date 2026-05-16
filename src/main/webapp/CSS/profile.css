@@ -2,12 +2,13 @@ body {
     background-color: #ffffff;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     color: #262626;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
 }
 * {
     box-sizing: border-box;
 }
+
 .mainContent {
     margin-left: 250px; 
     flex: 1;
@@ -16,9 +17,9 @@ body {
     transition: margin-left 0.3s ease; 
 }
 .profileWrapper {
-    max-width: 935px;
-    margin: 40px auto 0;
-    padding: 0 20px;
+    width: 935px; 
+    margin: 40px auto 0px;
+    padding: 0px 20px;
 }
 .profileHeader {
     display: flex;
@@ -56,10 +57,10 @@ body {
 .username {
     font-size: 36px;
     font-weight: 700;
-    margin: 0;
+    margin: 0px;
 }
 .profileBio {
-    margin-top: 0; 
+    margin-top: 0px; 
 }
 .profileBio .fullName {
     display: block;
@@ -80,13 +81,13 @@ body {
     font-size: 14px;
     text-decoration: none;
     transition: background 0.2s;
-    width: fit-content;
+    width: 160px;
     border: none;
     cursor: pointer;
 }
 .editButton:hover {
-	background-color: #E86A33;
-	color: #ffffff;
+    background-color: #E86A33;
+    color: #ffffff;
 }
 .profileTabs {
     display: flex;
@@ -95,7 +96,7 @@ body {
     gap: 60px;
 }
 .tab {
-    padding: 15px 0;
+    padding: 15px 0px;
     font-size: 12px;
     font-weight: 600;
     color: #8e8e8e; 
@@ -105,11 +106,13 @@ body {
     align-items: center;
     transition: color 0.2s ease; 
 }
+
 .tab.active {
     color: #E86A33;
     border-top: 1px solid #E86A33;
     margin-top: -1px;
 }
+
 .grid-icon {
     display: inline-block;
     width: 12px;
@@ -127,24 +130,26 @@ body {
 }
 .emptyState { 
     text-align: center; 
-    max-width: 350px;
-    margin: 0 auto; 
+    width: 350px;
+    margin: 0px auto; 
 }
 .emptyTitle {
     font-size: 28px;
     font-weight: 400;
-    margin: 20px 0 10px;
+    margin: 20px 0px 10px;
 }
+
 .icon-circle {
     width: 62px;
     height: 62px;
     border: 2px solid #262626;
-    border-radius: 50%;
+    border-radius: 31px; 
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
+    margin: 0px auto;
 }
+
 .plus-icon {
     width: 18px;
     height: 18px;
@@ -154,18 +159,19 @@ body {
     content: "";
     position: absolute;
     background-color: #262626;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 9px; 
+    left: 9px;
+    transform: translate(-9px, -9px);
 }
 .plus-icon::before { 
-	width: 2px; 
-	height: 18px; 
+    width: 2px; 
+    height: 18px; 
 }
 .plus-icon::after {
-	width: 18px; 
-	height: 2px; 
+    width: 18px; 
+    height: 2px; 
 }
+
 .large-bookmark-icon {
     width: 22px;
     height: 28px;
@@ -179,36 +185,36 @@ body {
     position: absolute;
     bottom: -8px;
     left: -2px;
-    width: 0;
-    height: 0;
+    width: 0px;
+    height: 0px;
     border-left: 11px solid transparent;
     border-right: 11px solid transparent;
     border-bottom: 8px solid white; 
 }
-@media (max-width: 768px) {
-    .mainContent {
-        margin-left: 0;
-    }
 }
 .modal {
     display: none; 
     position: fixed; 
     z-index: 1000; 
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    overflow: auto; 
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
     background-color: rgba(0,0,0,0.5); 
     align-items: center;
     justify-content: center;
+    padding: 20px; 
 }
 .modal.show {
     display: flex;
 }
 .modal-content {
-    background-color: #ffffff;
-    padding: 2.5rem;
+    background-color: #fefefe;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 600px;
+    height: 700px; 
+    overflow-y: auto; 
     border-radius: 20px;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
     width: 100%;
@@ -216,8 +222,7 @@ body {
     text-align: center;
     border: 1px solid rgba(226, 232, 240, 0.8);
     position: relative;
-    max-height: 80vh;
-    overflow-y: auto;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
 }
 .closeButton {
     position: absolute;
@@ -262,14 +267,11 @@ body {
     margin-bottom: 6px;
     margin-left: 4px;
 }
-.modal-content input[type="text"],
-.modal-content input[type="email"],
-.modal-content input[type="tel"],
+.modal-content input[type="text"], 
 .modal-content input[type="date"],
-.modal-content input[type="file"],
 .modal-content textarea, 
 .modal-content select {
-    width: 100%;
+    width: 540px; 
     padding: 12px 16px;
     border-radius: 12px;
     border: 1px solid #e2e8f0;
@@ -308,11 +310,11 @@ body {
     font-size: 12px;
     color: #737373;
 }
-.submitButton {
+.btn-submit, .submitButton {
     background-color: #E86A33;
     color: white;
     border: none;
-    width: 100%;
+    width: 540px; 
     padding: 14px;
     border-radius: 12px;
     font-size: 1rem;
@@ -322,7 +324,7 @@ body {
     transition: transform 0.2s, background 0.2s;
     box-shadow: 0 4px 14px 0 rgba(232, 106, 51, 0.39);
 }
-.submitButton:hover { 
+.btn-submit:hover, .submitButton:hover { 
     background-color: #D65A22;
     transform: translateY(-1px);
 }
@@ -370,4 +372,62 @@ body {
 }
 .custom-file-upload:hover {
     background: #e2e8f0;
+}
+
+@media screen and (max-width: 768px) {
+    .mainContent {
+        margin-left: 0px; 
+        padding: 10px;
+    }
+
+    .profileWrapper {
+        margin-top: 20px;
+        padding: 0px 15px;
+        width: 730px; 
+    }
+
+    .avatarCircle {
+        width: 100px;
+        height: 100px;
+        font-size: 50px;
+    }
+
+    .modal-content {
+        padding: 20px;
+        margin: 10px auto;
+        width: 450px;
+        height: 600px;
+    }
+
+    .modal-content input, 
+    .modal-content select, 
+    .modal-content textarea,
+    .btn-submit, .submitButton {
+        width: 410px; 
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .profileWrapper {
+        width: 460px;
+        padding: 0px 10px;
+    }
+
+    .btn-submit, .submitButton, .edit-btn {
+        width: 280px; 
+        text-align: center;
+        padding: 12px 0px;
+    }
+
+    .modal-content {
+        width: 340px; 
+        padding: 15px;
+    }
+
+    .modal-content input, 
+    .modal-content select, 
+    .modal-content textarea,
+    .btn-submit, .submitButton {
+        width: 310px; 
+    }
 }
