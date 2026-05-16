@@ -1,0 +1,178 @@
+body {
+    background-color: #fcfcfc;
+    margin: 0px;
+    font-family: 'Inter', sans-serif;
+}
+
+.mainContent {
+    margin-left: 260px;
+    padding: 20px;
+}
+
+.paymentSection {
+    max-width: 1000px;
+    margin: 80px auto 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.paymentCardsHeader {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.paymentCard {
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 12px;
+    width: 400px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.paymentCardBody {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.paymentCardIcon {
+    width: 48px;
+    height: 48px;
+    background-color: #fef1eb;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.paymentCardText .paymentCardLabel {
+    color: #666666;
+    font-size: 14px;
+    margin: 0px;
+}
+
+.paymentCardText .paymentCardValue {
+    margin: 5px 0px 0px 0px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.paymentCardLink {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    color: #E86A33;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.paymentListSection h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #262626;
+}
+
+.paymentListHeaderRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.paymentList {
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+}
+
+.paymentListRow {
+    display: grid;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f9f9f9;
+    align-items: center;
+    font-size: 14px;
+    color: #262626;
+}
+
+.paymentListRow:last-child {
+    border-bottom: none;
+}
+
+.paymentListRow.headerRow {
+    background: #f1f1f1;
+    font-weight: 600;
+    font-size: 13px;
+    color: #444444;
+}
+
+.fiveCols {
+    grid-template-columns: 2fr 1fr 1fr 1.5fr 1fr;
+}
+
+.sixCols {
+    grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr 1fr;
+}
+
+.paymentOutlineBtn {
+    border: 1px solid #E86A33;
+    color: #E86A33;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.paymentActionBtn {
+    border: 1px solid #E86A33;
+    color: #E86A33;
+    background: #ffffff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.paymentDetailsBtn {
+    border: 1px solid #444444;
+    color: #444444;
+    background: #ffffff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.paymentBadgePending {
+    background: #fff3e0;
+    color: #E86A33;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.paymentActionDots {
+    color: #cccccc;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+@media (max-width: 1100px) {
+    .paymentCardsHeader { flex-direction: column; align-items: center; }
+}
+
+@media (max-width: 768px) {
+    .mainContent { margin-left: 0px; }
+    .paymentCard { width: 100%; }
+    .paymentListRow { grid-template-columns: 1fr; gap: 10px; }
+}
