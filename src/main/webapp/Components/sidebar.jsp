@@ -179,3 +179,20 @@
     </div>
 </aside>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var toggle = document.getElementById('userMenuToggle');
+        var menu = document.getElementById('userDropdownMenu');
+        if (toggle && menu) {
+            toggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                menu.classList.toggle('active');
+            });
+            document.addEventListener('click', function(e) {
+                if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+                    menu.classList.remove('active');
+                }
+            });
+        }
+    });
+</script>

@@ -76,6 +76,7 @@ body {
     font-weight: 600;
     cursor: pointer;
     margin-top: 10px;
+    align-self: center;
 }
 
 .submitBtn:hover {

@@ -8,6 +8,7 @@ body {
 .mainContent {
     margin-left: 260px;
     padding: 20px;
+    padding-top: 90px;
     min-height: calc(100vh - 70px);
 }
 

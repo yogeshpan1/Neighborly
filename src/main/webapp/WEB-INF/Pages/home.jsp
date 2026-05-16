@@ -32,7 +32,7 @@
                     <div class="servicesSection">
                         <h2 class="sectionTitle">Available Services</h2>
                         <div class="servicesList">
-                            <div class="serviceItem">
+                            <div class="serviceItem" onclick="window.location.href='${pageContext.request.contextPath}/documents'">
                                 <div class="serviceIconBox">
                                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C05A2A"
                                         stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -45,7 +45,7 @@
                                 </div>
                                 <span class="serviceLabel">National ID</span>
                             </div>
-                            <div class="serviceItem">
+                            <div class="serviceItem" onclick="window.location.href='${pageContext.request.contextPath}/documents'">
                                 <div class="serviceIconBox">
                                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C05A2A"
                                         stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -58,7 +58,7 @@
                                 </div>
                                 <span class="serviceLabel">Driving License</span>
                             </div>
-                            <div class="serviceItem">
+                            <div class="serviceItem" onclick="window.location.href='${pageContext.request.contextPath}/documents'">
                                 <div class="serviceIconBox">
                                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C05A2A"
                                         stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -70,7 +70,7 @@
                                 </div>
                                 <span class="serviceLabel">PAN Card</span>
                             </div>
-                            <div class="serviceItem">
+                            <div class="serviceItem" onclick="window.location.href='${pageContext.request.contextPath}/documents'">
                                 <div class="serviceIconBox">
                                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C05A2A"
                                         stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -80,7 +80,7 @@
                                 </div>
                                 <span class="serviceLabel">Property Tax</span>
                             </div>
-                            <div class="serviceItem">
+                            <div class="serviceItem" onclick="window.location.href='${pageContext.request.contextPath}/documents'">
                                 <div class="serviceIconBox">
                                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C05A2A"
                                         stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -92,7 +92,7 @@
                                 </div>
                                 <span class="serviceLabel">Bluebook</span>
                             </div>
-                            <div class="serviceItem">
+                            <div class="serviceItem" onclick="window.location.href='${pageContext.request.contextPath}/documents'">
                                 <div class="serviceIconBox">
                                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C05A2A"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -113,7 +113,7 @@
                             <a href="${pageContext.request.contextPath}/documents" class="viewAllLink">View all &rarr;</a>
                         </div>
                         <div class="appList">
-                            <div class="appListItem">
+                            <div class="appListItem" onclick="window.location.href='${pageContext.request.contextPath}/documents'">
                                 <div class="appStatusLine lineYellow"></div>
                                 <div class="appInfo">
                                     <div class="appTitle">PAN card application</div>
@@ -121,7 +121,7 @@
                                 </div>
                                 <div class="appStatusBadge badgeYellow">Under review</div>
                             </div>
-                            <div class="appListItem">
+                            <div class="appListItem" onclick="window.location.href='${pageContext.request.contextPath}/documents'">
                                 <div class="appStatusLine lineGreen"></div>
                                 <div class="appInfo">
                                     <div class="appTitle">Bluebook renewal</div>
