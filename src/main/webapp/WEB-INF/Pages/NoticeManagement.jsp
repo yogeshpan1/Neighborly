@@ -57,6 +57,7 @@
 								<option value="Maintenance">Maintenance</option>
 								<option value="Safety">Safety</option>
 								<option value="General">General</option>
+								<option value="Job" >Job</option> 
 							</select>
 						</div>
 					</div>

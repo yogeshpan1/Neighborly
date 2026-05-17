@@ -257,6 +257,11 @@
     background-color: rgba(139, 92, 246, 0.15);
 }
 
+.tagJob {
+    color: #22c55e;
+    background-color: rgba(34, 197, 94, 0.15);
+}
+
 /* Action Buttons */
 .noticeActions {
     display: flex;

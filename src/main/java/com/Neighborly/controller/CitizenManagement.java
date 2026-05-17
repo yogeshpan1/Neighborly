@@ -6,6 +6,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
+
+import com.Neighborly.dao.CitizenDAO;
+import com.Neighborly.model.CitizenModel;
 
 /**
  * Servlet implementation class CitizenManagement
@@ -27,9 +31,21 @@ public class CitizenManagement extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher("/WEB-INF/Pages/CitizenManagement.jsp").forward(request, response);
-	}
+		try {
+            
+			CitizenDAO dao = new CitizenDAO();
+            
+            List<CitizenModel> citizens = dao.getAllCitizens();
+
+            request.setAttribute("citizens", citizens);
+            request.setAttribute("totalCitizens", citizens.size());
+
+            request.getRequestDispatcher("/WEB-INF/Pages/CitizenManagement.jsp").forward(request, response);
+        } catch (Exception e) {
+            throw new ServletException("Database error", e);
+        }
+    }
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
