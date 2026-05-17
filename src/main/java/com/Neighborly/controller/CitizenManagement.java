@@ -39,6 +39,17 @@ public class CitizenManagement extends HttpServlet {
 
             request.setAttribute("citizens", citizens);
             request.setAttribute("totalCitizens", citizens.size());
+            
+            String previewUserId = request.getParameter("userId");
+            
+            if (previewUserId != null && !previewUserId.isEmpty()) {
+            	
+                int userId = Integer.parseInt(previewUserId);
+                
+                CitizenModel selected = dao.getCitizenById(userId);
+                
+                request.setAttribute("selectedCitizen", selected);
+            }
 
             request.getRequestDispatcher("/WEB-INF/Pages/CitizenManagement.jsp").forward(request, response);
         } catch (Exception e) {

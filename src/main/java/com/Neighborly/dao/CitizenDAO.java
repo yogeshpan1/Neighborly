@@ -44,5 +44,38 @@ public class CitizenDAO {
 		con.close();
 		return citizens;
 	}
+	
+	public CitizenModel getCitizenById(int userId) throws Exception {
+	    
+		Connection con = DBconfig.getConnection();
+
+	    String sql = "SELECT user_id, first_name, last_name, username, email, number, registration_date " +
+	                 "FROM users WHERE user_id = ? AND role = 'user'";
+
+	    PreparedStatement pst = con.prepareStatement(sql);
+	    
+	    pst.setInt(1, userId);
+	    
+	    ResultSet rs = pst.executeQuery();
+
+	    CitizenModel c = new CitizenModel();
+
+	    if (rs.next()) {
+	        
+	    	c.setUserId(rs.getInt("user_id"));
+	        c.setFirstName(rs.getString("first_name"));
+	        c.setLastName(rs.getString("last_name"));
+	        c.setUsername(rs.getString("username"));
+	        c.setEmail(rs.getString("email"));
+	        c.setNumber(rs.getString("number"));
+	        c.setRegistrationDate(rs.getString("registration_date"));
+	    }
+
+	    rs.close();
+	    pst.close();
+	    con.close();
+	    
+	    return c;
+	}
 
 }
