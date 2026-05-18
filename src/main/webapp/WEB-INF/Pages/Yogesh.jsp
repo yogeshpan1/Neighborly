@@ -73,7 +73,7 @@
             
                 <article id="aboutTab" class="articlePage active">
                     <div class="aboutText">
-                        <p>I'm Yogesh Pant, a second-year BSc (Hons) Computing student at Islington College, Kathmandu. Certified in Prompt Engineering and Digital Marketing, I'm passionate about technology and currently work as a Student Recruitment Intern at ING Skill Academy.</p>
+                        <p>I'm Yogesh Pant, a second-year BSc (Hons) Computing student at Islington College, Kathmandu. Certified in Prompt Engineering, AWS Machine Learning, and Digital Marketing, I am passionate about technology and building real things, from full-stack web applications to IoT devices.</p>
                     </div>
 
                     <h3 class="subTitle">What I'm Doing</h3>
@@ -198,7 +198,7 @@
                             </li>
                             <li class="timelineItem">
                                 <h4 class="timelineItemTitle">Islington College - Admissions Officer (Intern)</h4>
-                                <span class="timelineDate">August 2025 - Present</span>
+                                <span class="timelineDate">August 2025 - April 2026</span>
                                 <p class="timelineText">Focused on guiding prospective students toward bachelor's programs.</p>
                             </li>
                         </ol>
