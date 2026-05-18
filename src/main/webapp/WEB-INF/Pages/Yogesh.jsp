@@ -238,10 +238,10 @@
                         <div class="skillItem">
                             <div class="skillInfo">
                                 <span class="skillName">Data Structuring &amp; MySQL</span>
-                                <span class="skillPercent">80%</span>
+                                <span class="skillPercent">85%</span>
                             </div>
                             <div class="skillBarBg">
-                                <div class="skillBarFill" style="width: 80%"></div>
+                                <div class="skillBarFill" style="width: 85%"></div>
                             </div>
                         </div>
                         <div class="skillItem">
@@ -256,10 +256,10 @@
                         <div class="skillItem">
                             <div class="skillInfo">
                                 <span class="skillName">Power BI &amp; Excel Analysis</span>
-                                <span class="skillPercent">80%</span>
+                                <span class="skillPercent">85%</span>
                             </div>
                             <div class="skillBarBg">
-                                <div class="skillBarFill" style="width: 80%"></div>
+                                <div class="skillBarFill" style="width: 85%"></div>
                             </div>
                         </div>
                     </div>

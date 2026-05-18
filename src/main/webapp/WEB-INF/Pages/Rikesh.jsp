@@ -212,6 +212,15 @@
                         <div class="skillItem">
                             <div class="skillInfo">
                                 <span class="skillName">Figma &amp; UI/UX</span>
+                                <span class="skillPercent">95%</span>
+                            </div>
+                            <div class="skillBarBg">
+                                <div class="skillBarFill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skillItem">
+                            <div class="skillInfo">
+                                <span class="skillName">Java &amp; Python</span>
                                 <span class="skillPercent">85%</span>
                             </div>
                             <div class="skillBarBg">
@@ -220,20 +229,11 @@
                         </div>
                         <div class="skillItem">
                             <div class="skillInfo">
-                                <span class="skillName">Java &amp; Python</span>
-                                <span class="skillPercent">80%</span>
-                            </div>
-                            <div class="skillBarBg">
-                                <div class="skillBarFill" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="skillItem">
-                            <div class="skillInfo">
                                 <span class="skillName">MySQL &amp; Databases</span>
-                                <span class="skillPercent">75%</span>
+                                <span class="skillPercent">85%</span>
                             </div>
                             <div class="skillBarBg">
-                                <div class="skillBarFill" style="width: 75%"></div>
+                                <div class="skillBarFill" style="width: 85%"></div>
                             </div>
                         </div>
                     </div>

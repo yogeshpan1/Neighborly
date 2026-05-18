@@ -212,6 +212,15 @@
                         <div class="skillItem">
                             <div class="skillInfo">
                                 <span class="skillName">HTML5 &amp; CSS3 &amp; JS</span>
+                                <span class="skillPercent">90%</span>
+                            </div>
+                            <div class="skillBarBg">
+                                <div class="skillBarFill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skillItem">
+                            <div class="skillInfo">
+                                <span class="skillName">Python Programming</span>
                                 <span class="skillPercent">85%</span>
                             </div>
                             <div class="skillBarBg">
@@ -220,29 +229,20 @@
                         </div>
                         <div class="skillItem">
                             <div class="skillInfo">
-                                <span class="skillName">Python Programming</span>
-                                <span class="skillPercent">80%</span>
-                            </div>
-                            <div class="skillBarBg">
-                                <div class="skillBarFill" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="skillItem">
-                            <div class="skillInfo">
                                 <span class="skillName">Data Analysis (Excel &amp; Power BI)</span>
-                                <span class="skillPercent">80%</span>
+                                <span class="skillPercent">85%</span>
                             </div>
                             <div class="skillBarBg">
-                                <div class="skillBarFill" style="width: 80%"></div>
+                                <div class="skillBarFill" style="width: 85%"></div>
                             </div>
                         </div>
                         <div class="skillItem">
                             <div class="skillInfo">
                                 <span class="skillName">Graphic Design &amp; Figma</span>
-                                <span class="skillPercent">75%</span>
+                                <span class="skillPercent">90%</span>
                             </div>
                             <div class="skillBarBg">
-                                <div class="skillBarFill" style="width: 75%"></div>
+                                <div class="skillBarFill" style="width: 90%"></div>
                             </div>
                         </div>
                     </div>

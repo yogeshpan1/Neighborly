@@ -32,7 +32,7 @@
                     <img src="${pageContext.request.contextPath}/Images/Arjan.jpeg" alt="Arjan Regmi" class="avatarImg">
                 </div>
                 <h1 class="memberName">Arjan Regmi</h1>
-                <div class="memberRole">Multimedia Creator &amp; Aspiring Developer</div>
+                <div class="memberRole">BSc (Hons) Computing Student</div>
                 
                 <div class="separator"></div>
                 
@@ -227,28 +227,28 @@
                         <div class="skillItem">
                             <div class="skillInfo">
                                 <span class="skillName">Website Building</span>
-                                <span class="skillPercent">85%</span>
+                                <span class="skillPercent">90%</span>
                             </div>
                             <div class="skillBarBg">
-                                <div class="skillBarFill" style="width: 85%"></div>
+                                <div class="skillBarFill" style="width: 90%"></div>
                             </div>
                         </div>
                         <div class="skillItem">
                             <div class="skillInfo">
                                 <span class="skillName">Git &amp; GitHub</span>
-                                <span class="skillPercent">80%</span>
+                                <span class="skillPercent">90%</span>
                             </div>
                             <div class="skillBarBg">
-                                <div class="skillBarFill" style="width: 80%"></div>
+                                <div class="skillBarFill" style="width: 90%"></div>
                             </div>
                         </div>
                         <div class="skillItem">
                             <div class="skillInfo">
                                 <span class="skillName">Java &amp; Python</span>
-                                <span class="skillPercent">75%</span>
+                                <span class="skillPercent">85%</span>
                             </div>
                             <div class="skillBarBg">
-                                <div class="skillBarFill" style="width: 75%"></div>
+                                <div class="skillBarFill" style="width: 85%"></div>
                             </div>
                         </div>
                     </div>
