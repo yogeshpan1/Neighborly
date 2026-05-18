@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<aside class="sidebar">
+<aside class="leftbar">
 
-    <p class="sidebarSectionLabel">MAIN</p>
-    <ul class="sidebarNavigation">
+    <p class="leftbarSectionLabel">MAIN</p>
+    <ul class="leftbarNavigation">
         <li>
             <a href="${pageContext.request.contextPath}/home" class="${activePage == 'Home' ? 'active' : ''}">
                 <span class="navigationIcon">
@@ -43,8 +41,8 @@
         </li>
     </ul>
 
-    <p class="sidebarSectionLabel">SERVICES</p>
-    <ul class="sidebarNavigation">
+    <p class="leftbarSectionLabel">SERVICES</p>
+    <ul class="leftbarNavigation">
         <li>
             <a href="${pageContext.request.contextPath}/documents" class="${activePage == 'Documents' ? 'active' : ''}">
                 <span class="navigationIcon">
@@ -71,8 +69,8 @@
         </li>
     </ul>
 
-    <p class="sidebarSectionLabel">COMMUNITY</p>
-    <ul class="sidebarNavigation">
+    <p class="leftbarSectionLabel">COMMUNITY</p>
+    <ul class="leftbarNavigation">
         <li>
             <a href="${pageContext.request.contextPath}/report" class="${activePage == 'Report' ? 'active' : ''}">
                 <span class="navigationIcon">
@@ -111,24 +109,26 @@
                 Notices
             </a>
         </li>
+        <li>
+            <a href="${pageContext.request.contextPath}/aboutus" class="${activePage == 'AboutUs' ? 'active' : ''}">
+                <span class="navigationIcon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                </span>
+                About Us
+            </a>
+        </li>
     </ul>
 
     <div class="menuWrapper" id="userMenuWrapper">
         <div class="userProfile" id="userMenuToggle">
-
-            <div class="userAvatar" style="${empty user.image ? 'background-color: #E86A33;' : 'background-color: transparent; padding: 0;'}">
-                <c:choose>
-                    <c:when test="${not empty user.image}">
-                        <img src="${pageContext.request.contextPath}/getimage?name=${user.userName}"
-                             alt="${user.userName}"
-                             style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
-                    </c:when>
-                    <c:otherwise>
-                        ${fn:toUpperCase(fn:substring(user.userName, 0, 1))}
-                    </c:otherwise>
-                </c:choose>
+            <div class="userAvatar" style="background-color: #E86A33;">
+                G
             </div>
-
             <div class="userInfo">
                 <span class="userName">${user.userName}</span>
                 <span class="userRole">Citizen</span>
@@ -150,6 +150,18 @@
                             <circle cx="12" cy="7" r="4"></circle>
                         </svg>
                         My Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="${pageContext.request.contextPath}/about">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="margin-right: 12px;">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                        About us
                     </a>
                 </li>
                 <li>
@@ -192,20 +204,3 @@
     </div>
 </aside>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var toggle = document.getElementById('userMenuToggle');
-        var menu = document.getElementById('userDropdownMenu');
-        if (toggle && menu) {
-            toggle.addEventListener('click', function(e) {
-                e.stopPropagation();
-                menu.classList.toggle('active');
-            });
-            document.addEventListener('click', function(e) {
-                if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-                    menu.classList.remove('active');
-                }
-            });
-        }
-    });
-</script>
