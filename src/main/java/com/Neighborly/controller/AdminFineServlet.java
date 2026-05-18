@@ -12,6 +12,7 @@ import com.Neighborly.dao.FineDAO;
 import com.Neighborly.dao.UserDAO;
 import com.Neighborly.model.FineModel;
 import com.Neighborly.model.UserModel;
+import com.Neighborly.service.FineService;
 
 /**
  * Servlet implementation class AdminFineServlet
@@ -36,28 +37,29 @@ public class AdminFineServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
+
 			FineDAO fineDAO = new FineDAO();
+			UserDAO userDAO = new UserDAO();
 
 			List<FineModel> fines = fineDAO.getAllFines();
-			
-			UserDAO userDAO = new UserDAO();
-			
 			List<UserModel> users = userDAO.getAllUsers();
-			
-			request.setAttribute("users", users);
 
 			int unpaidFines = 0;
 			int paidFines = 0;
 			
+
 			for (FineModel f : fines) {
-				if ("Unpaid".equals(f.getStatus())) {
+				
+				String fine = f.getStatus();
+								
+				if ("Unpaid".equals(fine))
 					unpaidFines++;
-				} else if ("Paid".equals(f.getStatus())) {
+				else if ("Paid".equals(fine))
 					paidFines++;
-				}
 			}
 
 			request.setAttribute("fines", fines);
+			request.setAttribute("users", users);
 			request.setAttribute("totalFines", fines.size());
 			request.setAttribute("unpaidFines", unpaidFines);
 			request.setAttribute("paidFines", paidFines);
@@ -75,55 +77,77 @@ public class AdminFineServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			FineDAO dao = new FineDAO();
-			
-			UserDAO userDAO = new UserDAO();
-			
-			List<UserModel> users = userDAO.getAllUsers();
-			
-			request.setAttribute("users", users);
-			
-			String issueFine = request.getParameter("issueFine");
-			
-			if (issueFine != null) {
-			    
-				int userId = Integer.parseInt(request.getParameter("userId"));
-				
-			    String violationType = request.getParameter("violationType");
-			    
-			    double fineAmount = Double.parseDouble(request.getParameter("fineAmount"));
-			    
-			    String violationDate = request.getParameter("violationDate");
-			    
-			    String reason = request.getParameter("reason");
-			    
-			    dao.insertFine(userId, violationType, fineAmount, violationDate, reason);
-			}
-	
-			String markPaidId = request.getParameter("markPaidId");
-			
-			if (markPaidId != null && !markPaidId.isEmpty()) {
-				
-			    int fineId = Integer.parseInt(markPaidId);
-			    
-			    dao.markPaid(fineId);
-			}
-	
-			String deleteFineId = request.getParameter("deleteFineId");
-			
-			if (deleteFineId != null && !deleteFineId.isEmpty()) {
-				
-			    int fineId = Integer.parseInt(deleteFineId);
-			    dao.deleteFine(fineId);
-			}
-			
-			response.sendRedirect(request.getContextPath() + "/issuefine");
-	
-		} catch (Exception e) {
-			throw new ServletException("Database error", e);
-		}
-		
-		}
+	        FineDAO dao = new FineDAO();
+	        UserDAO userDAO = new UserDAO();
+	        
+	        List<FineModel> fines = dao.getAllFines();
+	        List<UserModel> users = userDAO.getAllUsers();
+	        
+	        int unpaidFines = 0; 
+	        int	paidFines = 0;
+
+			for (FineModel f : fines) {
+				if ("Unpaid".equals(f.getStatus()))
+					unpaidFines++;
+				else if ("Paid".equals(f.getStatus()))
+					paidFines++;
+	        }
+	        	        
+	        request.setAttribute("fines", fines);
+	        request.setAttribute("users", users);
+	        request.setAttribute("totalFines", fines.size());
+	        request.setAttribute("unpaidFines", unpaidFines);
+	        request.setAttribute("paidFines", paidFines);
+
+	        String issueFine = request.getParameter("issueFine");
+
+	        if (issueFine != null) {
+
+	            String userId = request.getParameter("userId");
+	            String violationType = request.getParameter("violationType");
+	            String fineAmount = request.getParameter("fineAmount");
+	            String violationDate = request.getParameter("violationDate");
+	            String reason = request.getParameter("reason");
+
+	            FineService service = new FineService();
+	            
+	            String result = service.validateFine(userId, violationType, fineAmount, violationDate, reason);
+
+	            if (!result.equals("Success")) {
+	                
+	            	request.setAttribute("errorMessage", result);
+	                
+	                request.getRequestDispatcher("/WEB-INF/Pages/AdminFine.jsp").forward(request, response);
+	                
+	                return;
+	            }
+
+	            dao.insertFine(Integer.parseInt(userId), violationType, Double.parseDouble(fineAmount), violationDate, reason);
+	        }
+	        
+	        String markPaidId = request.getParameter("markPaidId");
+
+	        if (markPaidId != null && !markPaidId.isEmpty()) {
+
+	        	int fineId = Integer.parseInt(markPaidId);
+	            
+	        	dao.markPaid(fineId);
+
+	        }
+	        
+	        String deleteFineId = request.getParameter("deleteFineId");
+
+
+	        if (deleteFineId != null && !deleteFineId.isEmpty()) {
+
+	        	int fineId = Integer.parseInt(deleteFineId);
+
+	            dao.deleteFine(fineId);
+	        }
+ 
+	      
+	    } catch (Exception e) {
+	        throw new ServletException("Database error", e);
+	    }
 	}
-
-
+}
