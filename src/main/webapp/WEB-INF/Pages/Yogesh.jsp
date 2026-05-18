@@ -15,10 +15,9 @@
     <main class="portfolioContainer">
         
         <div class="mainLayout">
-            
-            <!-- Sidebar (Avatar & Contacts) -->
+        
             <aside class="sidebar">
-                <!-- Go Back Button -->
+            
                 <div class="backBtnBox">
                     <a href="${pageContext.request.contextPath}/aboutus" class="backBtn">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -71,9 +70,7 @@
 
             <!-- Main Content -->
             <div class="contentArea">
-
-
-                <!-- About Tab -->
+            
                 <article id="aboutTab" class="articlePage active">
                     <div class="aboutText">
                         <p>I'm Yogesh Pant, a second-year BSc (Hons) Computing student at Islington College, Kathmandu. Certified in Prompt Engineering and Digital Marketing, I'm passionate about technology and currently work as a Student Recruitment Intern at ING Skill Academy.</p>
@@ -143,7 +140,6 @@
 
                 <!-- Resume Tab -->
                 <article id="resumeTab" class="articlePage">
-                    <!-- CV Download Section -->
                     <div class="cvDownloadSection">
                         <div class="cvDownloadBox">
                             <div class="cvIconBox">
@@ -207,6 +203,8 @@
                             </li>
                         </ol>
                     </div>
+                    
+                    <!-- Skills Tab -->
 
                     <h3 class="subTitle">My Skills</h3>
                     <div class="skillsSection">

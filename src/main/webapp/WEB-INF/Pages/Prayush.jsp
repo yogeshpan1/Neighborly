@@ -15,10 +15,8 @@
     <main class="portfolioContainer">
         
         <div class="mainLayout">
-            
-            <!-- Sidebar (Avatar & Contacts) -->
+        
             <aside class="sidebar">
-                <!-- Go Back Button -->
                 <div class="backBtnBox">
                     <a href="${pageContext.request.contextPath}/aboutus" class="backBtn">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -71,8 +69,7 @@
 
             <!-- Main Content -->
             <div class="contentArea">
-
-                <!-- About Tab -->
+            
                 <article id="aboutTab" class="articlePage active">
                     <div class="aboutText">
                         <p>I'm Prayush Shrestha, a motivated and curious Computing student at Islington College, Kathmandu. I have a strong interest in technology, programming, and data analysis. I enjoy learning new skills and working with data to find practical solutions to problems. With growing skills in Python, Excel, HTML, CSS, JavaScript, and graphic design, I'm a quick learner and a great team player eager to adapt to new challenges.</p>
@@ -144,7 +141,6 @@
 
                 <!-- Resume Tab -->
                 <article id="resumeTab" class="articlePage">
-                    <!-- CV Download Section -->
                     <div class="cvDownloadSection">
                         <div class="cvDownloadBox">
                             <div class="cvIconBox">
@@ -208,6 +204,8 @@
                             </li>
                         </ol>
                     </div>
+                    
+                    <!-- Skills Tab -->
 
                     <h3 class="subTitle">My Skills</h3>
                     <div class="skillsSection">
