@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+/* ==========================================
+   DOCUMENT MANAGEMENT STYLES
+   No calc(), no gradients, camelCase only.
+   ========================================== */
+
+/* ===== PAGE HEADER ===== */
 .docPageHeader {
     margin-bottom: 24px;
 }
@@ -17,7 +23,7 @@
     border: none;
 }
 
-/* TWO COLUMN LAYOUT */
+/* ===== TWO COLUMN LAYOUT ===== */
 .docTwoColumn {
     display: flex;
     gap: 28px;
@@ -40,7 +46,7 @@
     gap: 20px;
 }
 
-/*TABLE CARDS */
+/* ===== TABLE CARDS ===== */
 .docTableCard {
     background-color: #212224;
     border: 1px solid #323639;
@@ -89,6 +95,7 @@
     justify-content: flex-end;
 }
 
+/* Table Buttons */
 .buttonDocAccept {
     background-color: #37C63F;
     color: #ffffff;
@@ -137,7 +144,7 @@
     background-color: #4a4d51;
 }
 
-/* SIDE CARDS */
+/* ===== SIDE CARDS ===== */
 .docSideCard {
     background-color: #212224;
     border: 1px solid #323639;
@@ -152,6 +159,7 @@
     margin-bottom: 16px;
 }
 
+/* Filter */
 .docFilterRow {
     display: flex;
     align-items: center;
@@ -176,6 +184,7 @@
     accent-color: #D35400;
 }
 
+/* Activity */
 .docActivityRow {
     display: flex;
     align-items: center;
@@ -201,6 +210,7 @@
     color: #e65c00;
 }
 
+/* ===== MODAL STYLES ===== */
 .modalOverlay {
     position: fixed;
     top: 0;
@@ -339,6 +349,7 @@
     border-color: #D35400;
 }
 
+/* Modal Buttons */
 .buttonModalCancel {
     background-color: #323639;
     color: white;
@@ -403,6 +414,7 @@
     background-color: #e65c00;
 }
 
+/* Extra Utility for Stat Bars */
 .barsRed .bar {
     background-color: #ef4444;
 }

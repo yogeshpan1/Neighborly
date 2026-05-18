@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Neighborly</title>
+    <!-- MUST use scriptlet here if your server is blocking EL evaluation! -->
     <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Admin-Side.css">
 </head>
 <body>

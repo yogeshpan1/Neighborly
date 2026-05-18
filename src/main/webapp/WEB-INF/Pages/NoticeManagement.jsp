@@ -243,7 +243,7 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        //DELETE MODAL
+        // ======= DELETE MODAL =======
         var deleteModal = document.getElementById('deleteNoticeModal');
         var deleteIdInput = document.getElementById('deleteNoticeId');
         var deleteNameSpan = document.getElementById('deleteNoticeName');
@@ -258,7 +258,7 @@
             deleteModal.style.display = 'none';
         }
 
-        // EDIT MODAL
+        // ======= EDIT MODAL =======
         var editModal = document.getElementById('editNoticeModal');
         var editIdInput = document.getElementById('editNoticeId');
         var editTitleInput = document.getElementById('editNoticeTitleInput');

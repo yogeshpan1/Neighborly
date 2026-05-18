@@ -1,5 +1,12 @@
 @charset "UTF-8";
 
+/* ==========================================
+   NOTICE MANAGEMENT STYLES
+   No calc(), no vh/vw, no gradients.
+   camelCase naming convention.
+   ========================================== */
+
+/* ===== PAGE HEADER ===== */
 .noticePageHeader {
     margin-bottom: 16px;
 }
@@ -23,6 +30,7 @@
     border: none;
 }
 
+/* ===== POST NOTICE FORM CARD ===== */
 .noticeFormCard {
     background-color: #212224;
     border: 1px solid #323639;
@@ -79,7 +87,7 @@
     padding: 12px 14px;
     color: #ffffff;
     font-size: 14px;
-    font-family: 'Inter', sans-serif;
+    font-family: inherit;
     outline: none;
     transition: border-color 0.2s;
 }
@@ -95,7 +103,7 @@
     padding: 12px 14px;
     color: #ffffff;
     font-size: 14px;
-    font-family: 'Inter', sans-serif;
+    font-family: inherit;
     outline: none;
     cursor: pointer;
     appearance: auto;
@@ -113,7 +121,7 @@
     padding: 12px 14px;
     color: #ffffff;
     font-size: 14px;
-    font-family: 'Inter', sans-serif;
+    font-family: inherit;
     outline: none;
     resize: none;
     min-height: 120px;
@@ -145,7 +153,7 @@
     background-color: #e65c00;
 }
 
-/*NOTICE LIST SECTION */
+/* ===== NOTICE LIST SECTION ===== */
 .noticeListHeader {
     display: flex;
     align-items: center;
@@ -302,13 +310,10 @@
     background-color: #991b1b;
 }
 
-/* MODAL STYLES */
+/* ===== MODAL STYLES ===== */
 .modalOverlay {
     position: fixed;
-    top: 0; 
-    left: 0; 
-    right: 0; 
-    bottom: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
     background: rgba(0, 0, 0, 0.85);
     display: none;
     align-items: center;

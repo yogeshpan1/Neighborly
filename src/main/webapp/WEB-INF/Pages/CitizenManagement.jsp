@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/CitizenManagement.css">
 </head>
 <body>
+
     <!-- SIDEBAR component -->
     <jsp:include page="/components/admin-sidebar.jsp" />
 
@@ -27,7 +28,7 @@
         <div class="dashboardBody">
             <div class="twoColumnLayout">
                 
-                <!--LEFT Column-->
+                <!-- ===== LEFT COLUMN (CITIZEN LIST) ===== -->
                 <div class="leftColumn">
                     <div class="pageHeader">
                         <h1 class="pageTitle">Citizen Management</h1>
@@ -119,12 +120,12 @@
                                 </div>
                                 <span class="roleTag">Resident</span>
                             </div>
-                            <a class="buttonReview" href="<%= request.getContextPath() %>/citizenlist?name=Yogesh+Pant&username=YogeshP&email=yogesh%40gmail.com&address=Tokha%2C+Nepal">Review</a>
+                            <a class="buttonReview" href="<%= request.getContextPath() %>/citizenlist?name=Yogesh+Pant&username=YogeshP&email=yogesh%40gmail.com&address=Bhaktapur%2C+Nepal">Review</a>
                         </div>
                     </div>
                 </div>
 
-                <!--RIGHT COLUMN-->
+                <!-- ===== RIGHT COLUMN (CITIZEN PROFILE) ===== -->
                 <div class="rightColumn">
                     <% if (name == null || name.isEmpty()) { %>
                         <div class="emptyStatePanel">

@@ -229,7 +229,7 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // CREATE MODAL 
+        // ======= CREATE MODAL =======
         var createModal = document.getElementById('createNewsModal');
 
         function openCreateModal() {
@@ -240,7 +240,7 @@
             createModal.style.display = 'none';
         }
 
-        // EDIT MODAL
+        // ======= EDIT MODAL =======
         var editModal = document.getElementById('editNewsModal');
         var editIdInput = document.getElementById('editNewsId');
         var editTitleInput = document.getElementById('editNewsTitleInput');
@@ -257,7 +257,7 @@
             editModal.style.display = 'none';
         }
 
-        // DELETE MODAL 
+        // ======= DELETE MODAL =======
         var deleteModal = document.getElementById('deleteNewsModal');
         var deleteIdInput = document.getElementById('deleteNewsId');
         var deleteNameSpan = document.getElementById('deleteNewsName');

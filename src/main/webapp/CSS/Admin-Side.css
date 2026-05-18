@@ -150,7 +150,8 @@ body {
     gap: 24px;
 }
 
-.leftCol, .rightCol {
+.leftCol,
+.rightCol {
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -470,7 +471,6 @@ body {
     gap: 16px;
 }
 
-
 .button {
     display: flex;
     align-items: center;
@@ -483,15 +483,6 @@ body {
     cursor: pointer;
     transition: opacity 0.2s, transform 0.1s;
 }
-
-.btn:hover {
-    opacity: 0.9;
-}
-
-.btn:active {
-    transform: scale(0.97);
-}
-
 
 .button:hover {
     opacity: 0.9;
@@ -506,13 +497,11 @@ body {
     color: #ffffff;
 }
 
-
 .buttonDelete {
     background-color: #7f1d1d;
     color: #ffffff;
     border: 1px solid #991b1b;
 }
-
 
 .buttonPrimary {
     background-color: #D35400;
@@ -656,7 +645,6 @@ textarea.formInput {
     outline: none;
 }
 
-
 .buttonIconDelete {
     background: transparent;
     border: none;
@@ -667,10 +655,6 @@ textarea.formInput {
     align-items: center;
     justify-content: center;
     transition: color 0.2s;
-}
-
-.btnIconDelete:hover {
-    color: #ef4444;
 }
 
 .buttonIconDelete:hover {

@@ -6,7 +6,6 @@
     <p class="sidebarSectionLabel">Main</p>
     <ul class="sidebarNav">
         <li>
-            <a href="<%= request.getContextPath() %>/admindashboard" class="<%= uri.contains("/admindashboard") ? "active" : "" %>">
             <a href="<%= request.getContextPath() %>/admindashboard" class="<%= (uri.contains("/admindashboard") || uri.contains("admindashboard")) ? "active" : "" %>">
                 <span class="navIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -17,7 +16,6 @@
             </a>
         </li>
         <li>
-            <a href="<%= request.getContextPath() %>/citizenlist" class="<%= uri.contains("/citizenlist") ? "active" : "" %>">
             <a href="<%= request.getContextPath() %>/citizenlist" class="<%= (uri.contains("/citizenlist") || uri.contains("citizenmanagement")) ? "active" : "" %>">
                 <span class="navIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -28,7 +26,6 @@
             </a>
         </li>
         <li>
-            <a href="<%= request.getContextPath() %>/documentlist" class="<%= uri.contains("/documentlist") ? "active" : "" %>">
             <a href="<%= request.getContextPath() %>/documentlist" class="<%= (uri.contains("/documentlist") || uri.contains("documentmanagement")) ? "active" : "" %>">
                 <span class="navIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -43,7 +40,6 @@
     <p class="sidebarSectionLabel">Services</p>
     <ul class="sidebarNav">
         <li>
-            <a href="<%= request.getContextPath() %>/newslist" class="<%= uri.contains("/newslist") ? "active" : "" %>">
             <a href="<%= request.getContextPath() %>/newslist" class="<%= (uri.contains("/newslist") || uri.contains("newsmanagement")) ? "active" : "" %>">
                 <span class="navIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -54,7 +50,6 @@
             </a>
         </li>
         <li>
-            <a href="<%= request.getContextPath() %>/joblisting" class="<%= uri.contains("/joblisting") ? "active" : "" %>">
             <a href="<%= request.getContextPath() %>/joblisting" class="<%= (uri.contains("/joblisting") || uri.contains("jobmanagement")) ? "active" : "" %>">
                 <span class="navIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -75,7 +70,6 @@
             </a>
         </li>
         <li>
-            <a href="<%= request.getContextPath() %>/applicationmanagement" class="<%= uri.contains("/applicationmanagement") ? "active" : "" %>">
             <a href="<%= request.getContextPath() %>/applicationmanagement" class="<%= (uri.contains("/applicationmanagement") || uri.contains("applicationmanagement")) ? "active" : "" %>">
                 <span class="navIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -90,7 +84,6 @@
     <p class="sidebarSectionLabel">Community</p>
     <ul class="sidebarNav">
         <li>
-            <a href="<%= request.getContextPath() %>/reportissue" class="<%= uri.contains("/reportissue") ? "active" : "" %>">
             <a href="<%= request.getContextPath() %>/reportissue" class="<%= (uri.contains("/reportissue") || uri.contains("reportmanagement")) ? "active" : "" %>">
                 <span class="navIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -101,7 +94,6 @@
             </a>
         </li>
         <li>
-            <a href="<%= request.getContextPath() %>/noticelist" class="<%= uri.contains("/noticelist") ? "active" : "" %>">
             <a href="<%= request.getContextPath() %>/noticelist" class="<%= (uri.contains("/noticelistt") || uri.contains("noticemanagement")) ? "active" : "" %>">
                 <span class="navIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -112,7 +104,6 @@
             </a>
         </li>
         <li>
-            <a href="<%= request.getContextPath() %>/issuefine" class="<%= uri.contains("/issuefine") ? "active" : "" %>">
             <a href="<%= request.getContextPath() %>/issuefine" class="<%= (uri.contains("/issuefine") || uri.contains("issuefine")) ? "active" : "" %>">
                 <span class="navIcon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
