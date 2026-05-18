@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Neighborly</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/feed.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/sidebar.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/leftbar.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/navbar.css">
 </head>
 <body>
 
-    <jsp:include page="/Components/sidebar.jsp" />
+    <jsp:include page="/Components/leftbar.jsp" />
 
     <main class="mainContent">
         <jsp:include page="/Components/navbar.jsp" />
@@ -21,7 +22,18 @@
                 <section class="composer">
                     <div class="composerTop">
                         <a href="${pageContext.request.contextPath}/profile" style="text-decoration: none;">
-                            <div class="composerAvatar" style="background-color: #E86A33; cursor: pointer;">P</div>
+                            <div class="composerAvatar" style="background-color: #E86A33; cursor: pointer; overflow: hidden; padding: 0;">
+                                <c:choose>
+                                    <c:when test="${not empty user.image}">
+                                        <img src="${pageContext.request.contextPath}/getimage?name=${user.userName}"
+                                             alt="${user.userName}"
+                                             style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+                                    </c:when>
+                                    <c:otherwise>
+                                        ${user.userName[0]}
+                                    </c:otherwise>
+                                </c:choose>
+                            </div>
                         </a>
                         <input type="text" class="composerInput" placeholder="What's on your mind, ${user.userName}?" />
                         <button class="photoActionBtn" title="Add Photo" style="padding: 8px;">
@@ -133,6 +145,7 @@
                         </button>
                     </footer>
                 </article>
+
             </div>
         </section>
     </main>

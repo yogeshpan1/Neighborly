@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <aside class="sidebar">
 
@@ -113,9 +115,20 @@
 
     <div class="menuWrapper" id="userMenuWrapper">
         <div class="userProfile" id="userMenuToggle">
-            <div class="userAvatar" style="background-color: #E86A33;">
-                G
+
+            <div class="userAvatar" style="${empty user.image ? 'background-color: #E86A33;' : 'background-color: transparent; padding: 0;'}">
+                <c:choose>
+                    <c:when test="${not empty user.image}">
+                        <img src="${pageContext.request.contextPath}/getimage?name=${user.userName}"
+                             alt="${user.userName}"
+                             style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+                    </c:when>
+                    <c:otherwise>
+                        ${fn:toUpperCase(fn:substring(user.userName, 0, 1))}
+                    </c:otherwise>
+                </c:choose>
             </div>
+
             <div class="userInfo">
                 <span class="userName">${user.userName}</span>
                 <span class="userRole">Citizen</span>

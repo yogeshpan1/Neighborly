@@ -6,13 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neighborly</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/sidebar.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/leftbar.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/navbar.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/profile.css">
 </head>
 <body>
 
-    <jsp:include page="/Components/sidebar.jsp" />
+    <jsp:include page="/Components/leftbar.jsp" />
 
     <main class="mainContent editProfileMain">
         <jsp:include page="/Components/navbar.jsp" />

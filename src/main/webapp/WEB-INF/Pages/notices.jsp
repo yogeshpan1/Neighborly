@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Neighborly</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/sidebar.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/leftbar.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/navbar.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/notices.css">
 </head>
 <body>
 
-    <jsp:include page="/Components/sidebar.jsp" />
+    <jsp:include page="/Components/leftbar.jsp" />
 
     <main class="mainContent">
         <jsp:include page="/Components/navbar.jsp" />
