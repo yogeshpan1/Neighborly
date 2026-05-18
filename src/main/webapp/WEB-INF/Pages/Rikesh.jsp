@@ -152,7 +152,7 @@
                                 <h3 class="cvTitle">Rikesh's Resume</h3>
                                 <p class="cvText">Download the full CV to view complete details of my education and experience.</p>
                             </div>
-                            <a href="${pageContext.request.contextPath}/assets/cv/rikesh.pdf" class="cvDownloadBtn" download>
+                            <a href="${pageContext.request.contextPath}/assets/Rikesh Adhikari.pdf" class="cvDownloadBtn" download>
                                 Download CV
                             </a>
                         </div>

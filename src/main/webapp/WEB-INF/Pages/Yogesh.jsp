@@ -155,7 +155,7 @@
                                 <h3 class="cvTitle">Yogesh's Resume</h3>
                                 <p class="cvText">Download the full CV to view complete details of my education and experience.</p>
                             </div>
-                            <a href="${pageContext.request.contextPath}/assets/cv/yogesh.pdf" class="cvDownloadBtn" download>
+                            <a href="${pageContext.request.contextPath}/assets/Yogesh Pant.pdf" class="cvDownloadBtn" download>
                                 Download CV
                             </a>
                         </div>

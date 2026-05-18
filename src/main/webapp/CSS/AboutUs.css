@@ -11,46 +11,46 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
     color: #333333;
-    overflow: hidden; /* Prevent scrolling to keep cards perfectly in the middle */
+    overflow: hidden; 
 }
 
 .mainLayout {
     display: flex;
     height: 100%;
-    padding-left: 250px; /* Push content to the right of the fixed leftbar sidebar */
+    padding-left: 250px; 
     box-sizing: border-box;
 }
 
 .mainContent {
     flex: 1;
     height: 100%;
-    padding-top: 70px; /* Height of the fixed navbar */
+    padding-top: 70px; 
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Push content to the top below the navbar */
-    overflow-y: auto; /* Allow scrolling within content if viewport is short */
+    align-items: flex-start; 
+    overflow-y: auto; 
     box-sizing: border-box;
 }
 
 .aboutContainer {
     width: 100%;
     max-width: 1200px;
-    padding: 10px 40px 50px 40px; /* Reduced top padding to move title up */
+    padding: 10px 40px 50px 40px; 
     box-sizing: border-box;
 }
 
 .pageTitle {
     font-size: 32px;
-    color: #C05A14; /* Theme color */
+    color: #C05A14; 
     text-align: center;
-    margin-bottom: 80px; /* Increased bottom margin to push cards down into the center */
+    margin-bottom: 80px; 
     font-weight: bold;
 }
 
 .teamGrid {
     display: flex;
     justify-content: center;
-    gap: 32px; /* Luxurious, spacious gap to prevent cards from touching */
+    gap: 32px; 
     width: 100%;
     box-sizing: border-box;
 }
@@ -58,10 +58,10 @@ body {
 .memberCard {
     background-color: #ffffff;
     border-radius: 15px;
-    padding: 30px 20px; /* Premium spacious internal padding */
+    padding: 30px 20px; 
     width: 100%;
-    max-width: 250px; /* Slimmer max-width to allow perfect horizontal spacing */
-    min-height: 380px; /* Force uniform card heights for perfect horizontal alignment */
+    max-width: 250px; 
+    min-height: 380px; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,7 +80,7 @@ body {
 }
 
 .memberImgBox {
-    width: 130px; /* Smaller avatar */
+    width: 130px; 
     height: 130px;
     border-radius: 65px;
     margin: 0 auto 20px;
@@ -110,7 +110,7 @@ body {
 }
 
 .viewPortfolioBtn {
-    margin-top: auto; /* Push button to the bottom of the flex card container */
+    margin-top: auto; 
     display: inline-block;
     padding: 10px 25px;
     background-color: #C05A14;
