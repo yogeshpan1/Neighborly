@@ -1,19 +1,22 @@
 package com.Neighborly.dao;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.time.LocalDate; 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 import com.Neighborly.model.UserModel;
 import com.Neighborly.utils.DBconfig;
 
 public class UserDAO {
 
+    // Add New User
     public void insertUsers(String firstName, String lastName, String username, String dob,
-                              String gender, String email, String number, String password) throws Exception {
-        LocalDate localDate = LocalDate.parse(dob); 
+                            String gender, String email, String number, String password) throws Exception {
+        LocalDate localDate = LocalDate.parse(dob);
         Date sqlDate = Date.valueOf(localDate);
         Connection con = DBconfig.getConnection();
         String sql = "INSERT INTO users (first_name, last_name, username, dob, gender, email, number, password) "
@@ -32,6 +35,7 @@ public class UserDAO {
         con.close();
     }
 
+    // All Users
     public List<UserModel> getAllUsers() throws Exception {
         List<UserModel> users = new ArrayList<>();
         Connection con = DBconfig.getConnection();
@@ -40,10 +44,11 @@ public class UserDAO {
         ResultSet rs = pst.executeQuery();
         while (rs.next()) {
             UserModel u = new UserModel();
+            u.setUserId(rs.getInt("user_id"));
             u.setFirstName(rs.getString("first_name"));
             u.setLastName(rs.getString("last_name"));
             u.setUserName(rs.getString("username"));
-            u.setDob(rs.getDate("dob")); 
+            u.setDob(rs.getDate("dob"));
             u.setGender(rs.getString("gender"));
             u.setEmail(rs.getString("email"));
             u.setNumber(rs.getString("number"));
@@ -56,6 +61,7 @@ public class UserDAO {
         return users;
     }
 
+    // Filter User for Login
     public UserModel getUserByUsername(String username) throws Exception {
         UserModel u = null;
         Connection con = DBconfig.getConnection();
@@ -65,10 +71,11 @@ public class UserDAO {
         ResultSet rs = pst.executeQuery();
         if (rs.next()) {
             u = new UserModel();
+            u.setUserId(rs.getInt("user_id"));
             u.setFirstName(rs.getString("first_name"));
             u.setLastName(rs.getString("last_name"));
             u.setUserName(rs.getString("username"));
-            u.setDob(rs.getDate("dob")); 
+            u.setDob(rs.getDate("dob"));
             u.setGender(rs.getString("gender"));
             u.setEmail(rs.getString("email"));
             u.setNumber(rs.getString("number"));

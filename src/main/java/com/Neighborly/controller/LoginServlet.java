@@ -48,12 +48,6 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/Pages/login.jsp").forward(request, response);
             return;
         }
-        if (password.length() < 8) {
-            request.setAttribute("error", "Password must be at least 8 characters");
-            request.setAttribute("typedUser", username);
-            request.getRequestDispatcher("/WEB-INF/Pages/login.jsp").forward(request, response);
-            return;
-        }
 
         // Authenticate
         LoginService service = new LoginService();

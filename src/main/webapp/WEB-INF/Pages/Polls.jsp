@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Neighborly</title>
+    <title>Neighborly - Polls</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/sidebar.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/navbar.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/Polls.css">
@@ -18,41 +19,66 @@
         <section class="pollsContainer">
             <div class="pollsList">
 
-                <article class="pollCard">
-                    <div class="pollContent">
-                        <h2 class="pollTitle">Rebuild Singha Durbar?</h2>
-                        <p class="pollDescription">Singha Durbar represents the heart of civic governance. Vote now to decide which primary feature our development team tackles next.</p>
-                    </div>
-                    <form action="${pageContext.request.contextPath}/polls" method="POST" class="pollActions">
-                        <input type="hidden" name="pollId" value="Gold_2026">
-                        <button type="submit" name="vote" value="Yes" class="pollBtn btnYes">Yes</button>
-                        <button type="submit" name="vote" value="No" class="pollBtn btnNo">No</button>
-                    </form>
-                </article>
+                <c:choose>
+                    <c:when test="${empty polls}">
+                        <p class="noPolls">No active polls at the moment.</p>
+                    </c:when>
+                    <c:otherwise>
+                        <c:forEach var="poll" items="${polls}">
+                            <article class="pollCard">
 
-                <article class="pollCard">
-                    <div class="pollContent">
-                        <h2 class="pollTitle">Build Kathmandu Metro?</h2>
-                        <p class="pollDescription">Do you support building a new metro rail network in Kathmandu, Bhaktapur and Lalitpur?</p>
-                    </div>
-                    <form action="${pageContext.request.contextPath}/polls" method="POST" class="pollActions">
-                        <input type="hidden" name="pollId" value="kathmandu_metro">
-                        <button type="submit" name="vote" value="Yes" class="pollBtn btnYes">Yes</button>
-                        <button type="submit" name="vote" value="No" class="pollBtn btnNo">No</button>
-                    </form>
-                </article>
+                                <div class="pollContent">
+                                    <h2 class="pollTitle">${poll.question}</h2>
+                                    <p class="pollDescription">${poll.description}</p>
 
-                <article class="pollCard">
-                    <div class="pollContent">
-                        <h2 class="pollTitle">Weekly Car-Free Sundays?</h2>
-                        <p class="pollDescription">Should the municipality mandate solar panel installation on all government buildings?</p>
-                    </div>
-                    <form action="${pageContext.request.contextPath}/polls" method="POST" class="pollActions">
-                        <input type="hidden" name="pollId" value="car_free_sundays">
-                        <button type="submit" name="vote" value="Yes" class="pollBtn btnYes">Yes</button>
-                        <button type="submit" name="vote" value="No" class="pollBtn btnNo">No</button>
-                    </form>
-                </article>
+                                    <c:if test="${poll.totalVotes > 0}">
+                                        <div class="voteBar">
+                                            <div class="voteBarFill" style="width: ${poll.option1Count * 100 / poll.totalVotes}%"></div>
+                                        </div>
+                                        <div class="voteCounts">
+                                            <span>${poll.option1} — ${poll.option1Count} votes</span>
+                                            <span>${poll.option2} — ${poll.option2Count} votes</span>
+                                        </div>
+                                    </c:if>
+                                </div>
+
+                                <div class="pollActions">
+                                    <c:choose>
+                                        <c:when test="${poll.hasVoted}">
+                                            <p class="votedLabel">
+                                                You voted:
+                                                <strong>
+                                                    <c:if test="${poll.userVote == 'option1'}">${poll.option1}</c:if>
+                                                    <c:if test="${poll.userVote == 'option2'}">${poll.option2}</c:if>
+                                                </strong>
+                                            </p>
+                                            <form action="${pageContext.request.contextPath}/polls" method="POST">
+                                                <input type="hidden" name="poll_id" value="${poll.pollId}">
+                                                <input type="hidden" name="action"  value="unvote">
+                                                <button type="submit" class="pollBtn btnUnvote">Unvote</button>
+                                            </form>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <form action="${pageContext.request.contextPath}/polls" method="POST">
+                                                <input type="hidden" name="poll_id"      value="${poll.pollId}">
+                                                <input type="hidden" name="action"       value="vote">
+                                                <input type="hidden" name="voted_option" value="option1">
+                                                <button type="submit" class="pollBtn btnYes">${poll.option1}</button>
+                                            </form>
+                                            <form action="${pageContext.request.contextPath}/polls" method="POST">
+                                                <input type="hidden" name="poll_id"      value="${poll.pollId}">
+                                                <input type="hidden" name="action"       value="vote">
+                                                <input type="hidden" name="voted_option" value="option2">
+                                                <button type="submit" class="pollBtn btnNo">${poll.option2}</button>
+                                            </form>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </div>
+
+                            </article>
+                        </c:forEach>
+                    </c:otherwise>
+                </c:choose>
 
             </div>
         </section>

@@ -34,38 +34,45 @@ public class RegisterServlet extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/Pages/register.jsp").forward(request, response);
             return;
         }
+        
         if (lastName == null || lastName.trim().isEmpty() || !lastName.matches("[a-zA-Z ]+")) {
             request.setAttribute("error", "Invalid Last name");
             request.getRequestDispatcher("/WEB-INF/Pages/register.jsp").forward(request, response);
             return;
         }
+        
         if (username == null || username.trim().isEmpty() || username.length() < 3 || !username.matches("[a-zA-Z]+")) {
             request.setAttribute("error", "Username should be 3 letters or more");
             request.getRequestDispatcher("/WEB-INF/Pages/register.jsp").forward(request, response);
             return;
         }
+        
         if (dob == null || dob.trim().isEmpty()) {
             request.setAttribute("error", "Date of birth is required");
             request.getRequestDispatcher("/WEB-INF/Pages/register.jsp").forward(request, response);
             return;
         }
+        
         if (gender == null || gender.trim().isEmpty()) {
             request.setAttribute("error", "Gender is required");
             request.getRequestDispatcher("/WEB-INF/Pages/register.jsp").forward(request, response);
             return;
         }
+        
         if (email == null || email.trim().isEmpty() || !email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
             request.setAttribute("error", "Valid email address is required");
             request.getRequestDispatcher("/WEB-INF/Pages/register.jsp").forward(request, response);
             return;
         }
+        
         if (number == null || number.trim().isEmpty() || !number.matches("\\d{10}")) {
             request.setAttribute("error", "Phone number must be 10 digits");
             request.getRequestDispatcher("/WEB-INF/Pages/register.jsp").forward(request, response);
             return;
         }
-        if (password == null || password.trim().isEmpty() || password.length() < 8) {
-            request.setAttribute("error", "Password must be at least 8 characters");
+        
+        if (password == null || password.trim().isEmpty()) {
+            request.setAttribute("error", "Password is required");
             request.getRequestDispatcher("/WEB-INF/Pages/register.jsp").forward(request, response);
             return;
         }
