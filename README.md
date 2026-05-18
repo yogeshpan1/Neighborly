@@ -1,4 +1,4 @@
-This branch contains the implementation of the **Neighborly About-Us module**, created to showcase the people behind the Neighborly project and their contributions.
+This branch contains the implementation of the **Neighborly About-Us Page**, created to showcase the people behind the Neighborly project and their contributions.
 
 **Features**
 
