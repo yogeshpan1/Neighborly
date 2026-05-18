@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,57 +26,64 @@
 		</div>
 
 		<div class="issue-stats">
-			<div class="stat">
-				<p>Total fines</p>
-				<h2>142</h2>
-			</div>
-			<div class="stat">
-				<p>Unpaid fines</p>
-				<h2 class="unpaid">38</h2>
-			</div>
-			<div class="stat">
-				<p>Paid fines</p>
-				<h2 class="paid">104</h2>
-			</div>
+		    <div class="stat">
+		        <p>Total fines</p>
+		        <h2>${totalFines}</h2>
+		    </div>
+		    <div class="stat">
+		        <p>Unpaid fines</p>
+		        <h2 class="unpaid">${unpaidFines}</h2>
+		    </div>
+		    <div class="stat">
+		        <p>Paid fines</p>
+		        <h2 class="paid">${paidFines}</h2>
+		    </div>
 		</div>
 
 		<section class="card">
 			<div class="card-header">
 				<h3>Issue new fine</h3>
 			</div>
-			<form>
-				<div class="side">
-					<div>
-						<label>Citizen name or ID</label> <input type="text"
-							class="form-design" placeholder="Search citizen...">
-					</div>
-					<div>
-						<label>Violation type</label> <select class="form-design">
-							<option>Select violation type</option>
-							<option>Speeding</option>
-							<option>No helmet</option>
-							<option>No seatbelt</option>
-							<option>Wrong parking</option>
-							<option>No license</option>
-							<option>Other</option>
-						</select>
-					</div>
-				</div>
-				<div class="side">
-					<div>
-						<label>Fine amount (NPR)</label> <input type="number"
-							class="form-design" placeholder="e.g. 500">
-					</div>
-					<div>
-						<label>Date of violation</label> <input type="date"
-							class="form-design">
-					</div>
-				</div>
-				<label>Reason / notes</label>
-				<textarea class="form-design"
-					placeholder="Describe the violation in detail..."></textarea>
-				<button type="button" class="form-button">Issue fine</button>
-			</form>
+			<form action="${pageContext.request.contextPath}/issuefine" method="POST">
+                <input type="hidden" name="issueFine" value="true">
+                <div class="side">
+                    <div>
+                        <label>Citizen</label>
+                        <select class="form-design" name="userId">
+                            <option value="">Select citizen...</option>
+                            <c:forEach var="u" items="${users}">
+                                <option value="${u.userId}"><c:out value="${u.firstName} ${u.lastName}"/></option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Violation type</label>
+                        <select class="form-design" name="violationType">
+                            <option value="">Select violation type</option>
+                            <option>Speeding</option>
+                            <option>No helmet</option>
+                            <option>No seatbelt</option>
+                            <option>Wrong parking</option>
+                            <option>No license</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="side">
+                    <div>
+                        <label>Fine amount (NPR)</label>
+                        <input type="number" class="form-design" name="fineAmount" placeholder="e.g. 500">
+                    </div>
+                    <div>
+                        <label>Date of violation</label>
+                        <input type="date" class="form-design" name="violationDate">
+                    </div>
+                </div>
+                <label>Reason / notes</label>
+                <textarea class="form-design" name="reason" placeholder="Describe the violation in detail..."></textarea>
+                <button type="submit" class="form-button">Issue fine</button>
+            </form>
+			
 		</section>
 
 		<section class="manage-listings">

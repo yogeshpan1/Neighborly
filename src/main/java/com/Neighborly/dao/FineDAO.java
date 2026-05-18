@@ -9,7 +9,7 @@ import java.util.List;
 import com.Neighborly.model.FineModel;
 import com.Neighborly.utils.DBconfig;
 
-public class fineDAO {
+public class FineDAO {
 	public void insertFine(int userId, String violationType, double fineAmount, String violationDate, String reason)
 			throws Exception {
 		

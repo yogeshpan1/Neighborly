@@ -6,6 +6,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
+
+import com.Neighborly.dao.FineDAO;
+import com.Neighborly.dao.UserDAO;
+import com.Neighborly.model.FineModel;
+import com.Neighborly.model.UserModel;
 
 /**
  * Servlet implementation class AdminFineServlet
@@ -13,30 +19,111 @@ import java.io.IOException;
 @WebServlet(asyncSupported = true, urlPatterns = { "/issuefine" })
 public class AdminFineServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AdminFineServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher("/WEB-INF/Pages/AdminFine.jsp").forward(request, response);
+	public AdminFineServlet() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		try {
+			FineDAO fineDAO = new FineDAO();
+
+			List<FineModel> fines = fineDAO.getAllFines();
+			
+			UserDAO userDAO = new UserDAO();
+			
+			List<UserModel> users = userDAO.getAllUsers();
+			
+			request.setAttribute("users", users);
+
+			int unpaidFines = 0;
+			int paidFines = 0;
+			
+			for (FineModel f : fines) {
+				if ("Unpaid".equals(f.getStatus())) {
+					unpaidFines++;
+				} else if ("Paid".equals(f.getStatus())) {
+					paidFines++;
+				}
+			}
+
+			request.setAttribute("fines", fines);
+			request.setAttribute("totalFines", fines.size());
+			request.setAttribute("unpaidFines", unpaidFines);
+			request.setAttribute("paidFines", paidFines);
+
+			request.getRequestDispatcher("/WEB-INF/Pages/AdminFine.jsp").forward(request, response);
+		} catch (Exception e) {
+			throw new ServletException("Database error", e);
+		}
 	}
 
-}
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		try {
+			FineDAO dao = new FineDAO();
+			
+			UserDAO userDAO = new UserDAO();
+			
+			List<UserModel> users = userDAO.getAllUsers();
+			
+			request.setAttribute("users", users);
+			
+			String issueFine = request.getParameter("issueFine");
+			
+			if (issueFine != null) {
+			    
+				int userId = Integer.parseInt(request.getParameter("userId"));
+				
+			    String violationType = request.getParameter("violationType");
+			    
+			    double fineAmount = Double.parseDouble(request.getParameter("fineAmount"));
+			    
+			    String violationDate = request.getParameter("violationDate");
+			    
+			    String reason = request.getParameter("reason");
+			    
+			    dao.insertFine(userId, violationType, fineAmount, violationDate, reason);
+			}
+	
+			String markPaidId = request.getParameter("markPaidId");
+			
+			if (markPaidId != null && !markPaidId.isEmpty()) {
+				
+			    int fineId = Integer.parseInt(markPaidId);
+			    
+			    dao.markPaid(fineId);
+			}
+	
+			String deleteFineId = request.getParameter("deleteFineId");
+			
+			if (deleteFineId != null && !deleteFineId.isEmpty()) {
+				
+			    int fineId = Integer.parseInt(deleteFineId);
+			    dao.deleteFine(fineId);
+			}
+			
+			response.sendRedirect(request.getContextPath() + "/issuefine");
+	
+		} catch (Exception e) {
+			throw new ServletException("Database error", e);
+		}
+		
+		}
+	}
+
+
