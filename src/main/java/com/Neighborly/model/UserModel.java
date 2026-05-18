@@ -9,6 +9,8 @@ public class UserModel {
 	private String email;
 	private String number;
 	private String registrationDate;
+	private String status;
+	private String suspensionReason;
 
 	public int getUserId() {
 		return userId;
@@ -64,5 +66,21 @@ public class UserModel {
 
 	public void setRegistrationDate(String registrationDate) {
 		this.registrationDate = registrationDate;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getSuspensionReason() {
+		return suspensionReason;
+	}
+
+	public void setSuspensionReason(String suspensionReason) {
+		this.suspensionReason = suspensionReason;
 	}
 }

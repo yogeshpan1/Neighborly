@@ -8,9 +8,9 @@
 <meta charset="UTF-8">
 <title>Fine Management</title>
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/CSS/AdminFine.css">
+	href="${pageContext.request.contextPath}/CSS/AdminFine.css">
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/CSS/Admin-Side.css">
+	href="${pageContext.request.contextPath}/CSS/Admin-Side.css">f
 </head>
 <body>
 

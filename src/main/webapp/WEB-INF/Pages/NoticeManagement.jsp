@@ -8,9 +8,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Notices - Neighborly</title>
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/CSS/Admin-Side.css">
+	href="${pageContext.request.contextPath}/CSS/Admin-Side.css">
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/CSS/NoticeManagement.css">
+	href="${pageContext.request.contextPath}/CSS/NoticeManagement.css">
 </head>
 <body>
 
@@ -40,7 +40,7 @@
 					<h2 class="noticeFormHeading">Post a New Notice</h2>
 				</div>
 
-				<form action="<%=request.getContextPath()%>/noticelist"
+				<form action="${pageContext.request.contextPath}/noticelist"
 					method="POST" class="noticeForm">
 					<div class="noticeFormRow">
 						<div class="noticeFormGroup">
@@ -103,12 +103,12 @@
 								value="${n.noticeCategory}" />
 						</span>
 						<div class="noticeActions">
-							<form action="<%=request.getContextPath()%>/noticelist"
+							<form action="${pageContext.request.contextPath}/noticelist"
 								method="POST">
 								<input type="hidden" name="editNoticeId" value="${n.noticeId}">
 								<button type="submit" class="buttonNoticeEdit">Edit</button>
 							</form>
-							<form action="<%=request.getContextPath()%>/noticelist"
+							<form action="${pageContext.request.contextPath}/noticelist"
 								method="POST">
 								<input type="hidden" name="openDeleteNoticeId"
 									value="${n.noticeId}">
@@ -140,7 +140,7 @@
 	            </svg>
 				<h2>Confirm Deletion</h2>
 			</div>
-			<form action="<%=request.getContextPath()%>/deletenotice"
+			<form action="${pageContext.request.contextPath}/deletenotice"
 				method="POST">
 				<input type="hidden" name="noticeId" value="${deleteNoticeId}">
 				<div class="modalBodyContent">
@@ -151,9 +151,9 @@
 					</p>
 				</div>
 				<div class="modalFooterActions">
-					<a href="<%=request.getContextPath()%>/noticelist"
+					<a href="${pageContext.request.contextPath}/noticelist"
 						class="buttonModalCancel" style="text-decoration: none;">Cancel</a>
-					<form action="<%=request.getContextPath()%>/deletenotice"
+					<form action="${pageContext.request.contextPath}/deletenotice"
 						method="POST">
 						<input type="hidden" name="openDeleteNoticeId"
 							value="${n.noticeId}">
@@ -180,7 +180,7 @@
 	            </svg>
 				<h2>Edit Notice</h2>
 			</div>
-			<form action="<%=request.getContextPath()%>/updatenotice"
+			<form action="${pageContext.request.contextPath}/updatenotice"
 				method="POST">
 				<input type="hidden" name="noticeId" value="${editNotice.noticeId}">
 				<div class="modalBodyContent">
@@ -212,7 +212,7 @@
 					</div>
 				</div>
 				<div class="modalFooterActions">
-					<a href="<%=request.getContextPath()%>/noticelist"
+					<a href="${pageContext.request.contextPath}/noticelist"
 						class="buttonModalCancel" style="text-decoration: none;">Cancel</a>
 					<button type="submit" class="buttonModalSuccess">Save
 						Changes</button>

@@ -9,9 +9,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Citizen Management - Neighborly</title>
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/CSS/Admin-Side.css">
+	href="${pageContext.request.contextPath}/CSS/Admin-Side.css">
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/CSS/CitizenManagement.css">
+	href="${pageContext.request.contextPath}/CSS/CitizenManagement.css">
 </head>
 <body>
 	<!-- SIDEBAR component -->
@@ -168,10 +168,23 @@
                 </div>
 
 				<div class="suspendArea">
-				    <form action="${pageContext.request.contextPath}/citizenlist" method="POST">
-				        <input type="hidden" name="openSuspendId" value="${selectedCitizen.userId}">
-				        <button type="submit" class="buttonSuspend">Suspend User</button>
-				    </form>
+				    <c:choose>
+				        <c:when test="${selectedCitizen.status == 'Active'}">
+				            <form action="${pageContext.request.contextPath}/citizenlist" method="POST">
+				                <input type="hidden" name="openSuspendId" value="${selectedCitizen.userId}">
+				                <button type="submit" class="buttonSuspend">Suspend User</button>
+				            </form>
+				        </c:when>
+				        <c:otherwise>
+				            <p style="color: #ef4444; font-size: 13px; margin-bottom: 10px;">
+				                 This citizen is currently suspended.
+				            </p>
+				            <form action="${pageContext.request.contextPath}/unsuspend" method="POST">
+				                <input type="hidden" name="userId" value="${selectedCitizen.userId}">
+				                <button type="submit" class="buttonUnsuspend">Unsuspend User</button>
+				            </form>
+				        </c:otherwise>
+				    </c:choose>
 				</div>
 				            </div>
 				         

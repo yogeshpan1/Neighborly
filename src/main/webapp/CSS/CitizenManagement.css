@@ -378,6 +378,24 @@
     background-color: #D35400;
 }
 
+.buttonUnsuspend {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #22c55e;
+    color: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.2s;
+}
+
+.buttonUnsuspend:hover {
+    background-color: #22c55e;
+}
+
 /* ===== SUSPENSION MODAL ===== */
 .modalOverlay {
     position: fixed;

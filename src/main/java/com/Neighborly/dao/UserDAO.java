@@ -13,11 +13,11 @@ public class UserDAO {
 
     public List<UserModel> getAllUsers() throws Exception {
 
-    	List<UserModel> users = new ArrayList<>();
+        List<UserModel> users = new ArrayList<>();
 
         Connection con = DBconfig.getConnection();
-
-        String sql = "SELECT user_id, first_name, last_name, username, email, number, registration_date FROM users WHERE role = 'user' AND status = 'Active' ORDER BY first_name ASC";
+        
+        String sql = "SELECT user_id, first_name, last_name, username, email, number, registration_date, status, suspension_reason FROM users WHERE role = 'citizen' ORDER BY first_name ASC";
 
         PreparedStatement pst = con.prepareStatement(sql);
 
@@ -25,8 +25,8 @@ public class UserDAO {
 
         while (rs.next()) {
             
-        	UserModel u = new UserModel();
-        	
+            UserModel u = new UserModel();
+            
             u.setUserId(rs.getInt("user_id"));
             u.setFirstName(rs.getString("first_name"));
             u.setLastName(rs.getString("last_name"));
@@ -34,6 +34,8 @@ public class UserDAO {
             u.setEmail(rs.getString("email"));
             u.setNumber(rs.getString("number"));
             u.setRegistrationDate(rs.getString("registration_date"));
+            u.setStatus(rs.getString("status"));
+            u.setSuspensionReason(rs.getString("suspension_reason"));
             users.add(u);
         }
 
@@ -46,8 +48,8 @@ public class UserDAO {
     public UserModel getUserById(int userId) throws Exception {
 
         Connection con = DBconfig.getConnection();
-
-        String sql = "SELECT user_id, first_name, last_name, username, email, number, registration_date FROM users WHERE user_id = ? AND role = 'user'";
+        
+        String sql = "SELECT user_id, first_name, last_name, username, email, number, registration_date, status, suspension_reason FROM users WHERE user_id = ? AND role = 'citizen'";
 
         PreparedStatement pst = con.prepareStatement(sql);
         pst.setInt(1, userId);
@@ -57,14 +59,15 @@ public class UserDAO {
         UserModel u = new UserModel();
 
         if (rs.next()) {
-            
-        	u.setUserId(rs.getInt("user_id"));
+            u.setUserId(rs.getInt("user_id"));
             u.setFirstName(rs.getString("first_name"));
             u.setLastName(rs.getString("last_name"));
             u.setUsername(rs.getString("username"));
             u.setEmail(rs.getString("email"));
             u.setNumber(rs.getString("number"));
             u.setRegistrationDate(rs.getString("registration_date"));
+            u.setStatus(rs.getString("status"));
+            u.setSuspensionReason(rs.getString("suspension_reason"));
         }
 
         rs.close();
@@ -80,11 +83,24 @@ public class UserDAO {
         String sql = "UPDATE users SET status = 'Inactive', suspension_reason = ? WHERE user_id = ?";
 
         PreparedStatement pst = con.prepareStatement(sql);
-        
         pst.setString(1, reason);
         pst.setInt(2, userId);
         pst.executeUpdate();
 
+        pst.close();
+        con.close();
+    }
+    
+    public void unsuspendCitizen(int userId) throws Exception {
+        
+    	Connection con = DBconfig.getConnection();
+    	
+        String sql = "UPDATE users SET status = 'Active', suspension_reason = NULL WHERE user_id = ?";
+        
+        PreparedStatement pst = con.prepareStatement(sql);
+        
+        pst.setInt(1, userId);
+        pst.executeUpdate();
         pst.close();
         con.close();
     }
