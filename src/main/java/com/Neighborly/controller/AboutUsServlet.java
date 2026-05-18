@@ -26,8 +26,7 @@ public class AboutUsServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setAttribute("activePage", "AboutUs");
 		request.getRequestDispatcher("/WEB-INF/Pages/AboutUs.jsp").forward(request, response);
 	}
 

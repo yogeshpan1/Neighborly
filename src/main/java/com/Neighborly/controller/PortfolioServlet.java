@@ -26,9 +26,28 @@ public class PortfolioServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher("/WEB-INF/Pages/Portfolio.jsp").forward(request, response);
+		String member = request.getParameter("member");
+		if (member != null) {
+			member = member.trim().toLowerCase();
+		} else {
+			member = "yogesh";
+		}
+		
+		// Validate query parameter to prevent server directory traversal or 404s
+		if (!member.equals("yogesh") && !member.equals("arjan") && !member.equals("rikesh") && !member.equals("prayush")) {
+			member = "yogesh"; // Fallback to Yogesh's portfolio
+		}
+		
+		// Resolve path: check capitalized first (e.g., Yogesh.jsp), then lowercase (e.g., yogesh.jsp)
+		String capitalizedName = member.substring(0, 1).toUpperCase() + member.substring(1);
+		String path = "/WEB-INF/Pages/" + capitalizedName + ".jsp";
+		
+		if (getServletContext().getResource(path) == null) {
+			path = "/WEB-INF/Pages/" + member + ".jsp";
+		}
+		
+		// Forward directly to the respective static member page
+		request.getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**
