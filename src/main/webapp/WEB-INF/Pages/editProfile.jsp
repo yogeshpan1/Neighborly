@@ -20,7 +20,8 @@
         <div class="editProfileContainer">
 
             <a href="${pageContext.request.contextPath}/profile" class="back-link">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="15 18 9 12 15 6"/>
                 </svg>
                 Back
@@ -32,28 +33,42 @@
                     <p class="subtitle">Personalize Your Neighborly account</p>
                 </div>
 
-                <c:if test="${not empty message}">
-                    <div class="alert alert-success">&#10003; ${message}</div>
+                <c:if test="${not empty sessionScope.message}">
+                    <div class="alert alert-success">&#10003; ${sessionScope.message}</div>
+                    <c:remove var="message" scope="session"/>
                 </c:if>
-                <c:if test="${not empty error}">
-                    <div class="alert alert-error">&#9888; ${error}</div>
+                <c:if test="${not empty sessionScope.error}">
+                    <div class="alert alert-error">&#9888; ${sessionScope.error}</div>
+                    <c:remove var="error" scope="session"/>
                 </c:if>
 
                 <form action="${pageContext.request.contextPath}/editprofile" method="post" enctype="multipart/form-data">
 
                     <div class="preview-container">
-                        <span class="preview-placeholder" id="placeholderIcon">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                                <circle cx="12" cy="7" r="4"/>
-                            </svg>
-                        </span>
-                        <img id="imagePreview" src="#" alt="Preview">
+                        <c:choose>
+                            <c:when test="${not empty user.image}">
+                                <img id="imagePreview"
+                                     src="${pageContext.request.contextPath}/getimage?name=${user.userName}"
+                                     alt="Profile Photo"
+                                     style="display:block;">
+                            </c:when>
+                            <c:otherwise>
+                                <span class="preview-placeholder" id="placeholderIcon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
+                                         stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="12" cy="7" r="4"/>
+                                    </svg>
+                                </span>
+                                <img id="imagePreview" src="#" alt="Preview" style="display:none;">
+                            </c:otherwise>
+                        </c:choose>
                     </div>
 
                     <div class="file-input-wrapper">
                         <label for="profilePic" class="custom-file-upload">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
                                 <circle cx="12" cy="13" r="4"/>
                             </svg>
@@ -66,33 +81,27 @@
                         <label>First Name</label>
                         <input type="text" name="firstName" value="${user.firstName}" required>
                     </div>
-
                     <div class="input-group">
                         <label>Last Name</label>
                         <input type="text" name="lastName" value="${user.lastName}" required>
                     </div>
-
                     <div class="input-group">
                         <label>Username</label>
                         <input type="text" name="username" value="${user.userName}" required>
                         <span class="hint-text">*This is unique handle on Neighborly</span>
                     </div>
-
                     <div class="input-group">
                         <label>Email Address</label>
                         <input type="email" name="email" value="${user.email}" required>
                     </div>
-
                     <div class="input-group">
                         <label>Phone Number</label>
                         <input type="text" name="number" value="${user.number}" required>
                     </div>
-
                     <div class="input-group">
                         <label>Date of Birth</label>
                         <input type="date" name="dob" value="${user.dob}" required>
                     </div>
-
                     <div class="input-group">
                         <label>Gender</label>
                         <select name="gender" required>
@@ -119,7 +128,7 @@
             reader.onloadend = function () {
                 preview.src = reader.result;
                 preview.style.display = 'block';
-                placeholder.style.display = 'none';
+                if (placeholder) placeholder.style.display = 'none';
             }
             if (file) { reader.readAsDataURL(file); }
         }

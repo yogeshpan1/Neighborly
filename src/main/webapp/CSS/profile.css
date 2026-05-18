@@ -213,14 +213,14 @@ body {
 .editProfileContainer {
     max-width: 560px;
     margin: 0 auto;
-    padding: 24px 20px 40px 20px;
+    padding: 0 20px 40px 20px;
 }
 
 .back-link {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    margin-bottom: 20px;
+    margin: 20px 0 16px 0;
     padding: 6px 10px;
     border-radius: 8px;
     color: #888888;

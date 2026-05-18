@@ -22,23 +22,30 @@
             <header class="profileHeader">
                 <section class="profileAvatarLarge">
                     <div class="avatarCircle">
-                        <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
+                        <c:choose>
+                            <c:when test="${not empty user.image}">
+                                <img src="${pageContext.request.contextPath}/getimage?name=${user.userName}"
+                                     alt="Profile Photo"
+                                     style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+                            </c:when>
+                            <c:otherwise>
+                                <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="white"
+                                     stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                            </c:otherwise>
+                        </c:choose>
                     </div>
                 </section>
 
                 <section class="profileInfoSection">
                     <h2 class="username">${user != null ? user.userName : 'Guest'}</h2>
-
                     <div class="profileBio">
-                        <span class="fullName">${user != null ? user.firstName : 'Guest'} ${user != null ?
-                            user.lastName : 'Name'}</span>
+                        <span class="fullName">${user != null ? user.firstName : 'Guest'} ${user != null ? user.lastName : 'Name'}</span>
                     </div>
-
                     <div class="profileActionRow">
-                        <a href="${pageContext.request.contextPath}/editprofile" class="edit-btn" style="text-decoration:none; text-align:center;">Edit Profile</a>
+                        <a href="${pageContext.request.contextPath}/editprofile" class="edit-btn">Edit Profile</a>
                     </div>
                 </section>
             </header>
@@ -74,8 +81,6 @@
             document.getElementById(tabId).classList.add("active-content");
             evt.currentTarget.classList.add("active");
         }
-
     </script>
 </body>
-
 </html>

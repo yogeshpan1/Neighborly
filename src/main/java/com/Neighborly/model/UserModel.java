@@ -14,6 +14,8 @@ public class UserModel {
 	private String number;
 	private String password;
 	private String role;
+    private String image;
+
 
 	// Getters
 	public int getUserId() {
@@ -55,6 +57,11 @@ public class UserModel {
 	public String getRole() {
 		return role;
 	}
+	
+    public String getImage() { 
+    	return image; 
+    }
+
 
 	// Setters
 	public void setUserId(int userId) {
@@ -96,4 +103,9 @@ public class UserModel {
 	public void setRole(String role) {
 		this.role = role;
 	}
+	
+    public void setImage(String image) { 
+    	this.image = image; 
+    }
+
 }

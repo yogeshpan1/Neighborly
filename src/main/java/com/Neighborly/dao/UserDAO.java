@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.Neighborly.model.UserModel;
 import com.Neighborly.utils.DBconfig;
 
@@ -15,12 +14,12 @@ public class UserDAO {
 
     // Add New User
     public void insertUsers(String firstName, String lastName, String username, String dob,
-                            String gender, String email, String number, String password) throws Exception {
+                            String gender, String email, String number, String password, String image) throws Exception {
         LocalDate localDate = LocalDate.parse(dob);
         Date sqlDate = Date.valueOf(localDate);
         Connection con = DBconfig.getConnection();
-        String sql = "INSERT INTO users (first_name, last_name, username, dob, gender, email, number, password) "
-                   + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO users (first_name, last_name, username, dob, gender, email, number, password, image) "
+                   + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement pst = con.prepareStatement(sql);
         pst.setString(1, firstName);
         pst.setString(2, lastName);
@@ -30,6 +29,7 @@ public class UserDAO {
         pst.setString(6, email);
         pst.setString(7, number);
         pst.setString(8, password);
+        pst.setString(9, image);
         pst.executeUpdate();
         pst.close();
         con.close();
@@ -53,6 +53,7 @@ public class UserDAO {
             u.setEmail(rs.getString("email"));
             u.setNumber(rs.getString("number"));
             u.setRole(rs.getString("role"));
+            u.setImage(rs.getString("image"));
             users.add(u);
         }
         rs.close();
@@ -65,7 +66,7 @@ public class UserDAO {
     public UserModel getUserByUsername(String username) throws Exception {
         UserModel u = null;
         Connection con = DBconfig.getConnection();
-        String sql = "SELECT * FROM users WHERE username = ?";
+        String sql = "SELECT * FROM users WHERE username = ? AND status = 'Active'";
         PreparedStatement pst = con.prepareStatement(sql);
         pst.setString(1, username);
         ResultSet rs = pst.executeQuery();
@@ -81,6 +82,7 @@ public class UserDAO {
             u.setNumber(rs.getString("number"));
             u.setPassword(rs.getString("password"));
             u.setRole(rs.getString("role"));
+            u.setImage(rs.getString("image"));
         }
         rs.close();
         pst.close();
