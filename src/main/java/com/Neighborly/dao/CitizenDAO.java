@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.Neighborly.model.CitizenModel;
-import com.Neighborly.model.NoticeModel;
 import com.Neighborly.utils.DBconfig;
 
 public class CitizenDAO {
@@ -19,7 +18,7 @@ public class CitizenDAO {
 		Connection con = DBconfig.getConnection();
 
 		String sql = "SELECT user_id, first_name, last_name, username, email, number, registration_date "
-				+ "FROM users WHERE role = 'user' ORDER BY registration_date DESC";
+		        + "FROM users WHERE role = 'user' AND status = 'Active' ORDER BY registration_date DESC";
 
 		PreparedStatement pst = con.prepareStatement(sql);
 		
@@ -76,6 +75,22 @@ public class CitizenDAO {
 	    con.close();
 	    
 	    return c;
+	}
+	
+	public void suspendCitizen(int userId, String reason) throws Exception {
+	    
+		Connection con = DBconfig.getConnection();
+
+	    String sql = "UPDATE users SET status = 'Inactive', suspension_reason = ? WHERE user_id = ?";
+
+	    PreparedStatement pst = con.prepareStatement(sql);
+	    
+	    pst.setString(1, reason);
+	    pst.setInt(2, userId);
+	    pst.executeUpdate();
+
+	    pst.close();
+	    con.close();
 	}
 
 }

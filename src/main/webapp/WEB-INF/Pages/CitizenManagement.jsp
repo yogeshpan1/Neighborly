@@ -173,9 +173,12 @@ String address = request.getParameter("address") != null ? request.getParameter(
                     </div>
                 </div>
 
-                <div class="suspendArea">
-                    <button class="buttonSuspend" onclick="openSuspendModal()">Suspend User</button>
-                </div>
+				<div class="suspendArea">
+				    <form action="${pageContext.request.contextPath}/citizenlist" method="POST">
+				        <input type="hidden" name="openSuspendId" value="${selectedCitizen.userId}">
+				        <button type="submit" class="buttonSuspend">Suspend User</button>
+				    </form>
+				</div>
 				            </div>
 				         
 				        </c:otherwise>
@@ -186,7 +189,7 @@ String address = request.getParameter("address") != null ? request.getParameter(
 	</div>
 
 	<!-- SUSPENSION MODAL -->
-	<div class="modalOverlay" id="suspendModal">
+	<div class="modalOverlay" id="suspendModal" style="${not empty openSuspendId ? 'display:flex;' : ''}">
 		<div class="modalBox">
 			<div class="modalHeaderRed">
 				<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -194,62 +197,25 @@ String address = request.getParameter("address") != null ? request.getParameter(
 						d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" /></svg>
 				<h2>Confirm Suspension</h2>
 			</div>
-			<form action="<%=request.getContextPath()%>/suspendCitizen"
-				method="POST">
-				<input type="hidden" name="citizenUsername" value="<%=username%>">
-				<div class="modalBody">
-					<p class="modalText">
-						You are about to suspend the account for <strong
-							id="modalUserName"><%=name%></strong>. Please give your reason
-						below.
-					</p>
-					<label class="labelArea">Reason of Suspension</label>
-					<textarea class="modalTextarea" name="suspensionReason"
-						id="suspensionReason"
-						placeholder="Provide a detailed explanation for this suspension..."
-						required></textarea>
-				</div>
-				<div class="modalFooter">
-					<button type="button" class="buttonCancel"
-						onclick="closeSuspendModal()">Cancel</button>
-					<button type="submit" class="buttonConfirmRed">Confirm
-						Suspension</button>
-				</div>
-			</form>
+			<form action="${pageContext.request.contextPath}/suspend" method="POST">
+            <input type="hidden" name="userId" value="${openSuspendId}">
+            <div class="modalBody">
+                <p class="modalText">
+                    You are about to suspend the account for
+                    <strong>${selectedCitizen.firstName} ${selectedCitizen.lastName}</strong>.
+                    Please give your reason below.
+                </p>
+                <label class="labelArea">Reason of Suspension</label>
+                <textarea class="modalTextarea" name="suspensionReason"
+                    placeholder="Provide a detailed explanation for this suspension..." required></textarea>
+            </div>
+            <div class="modalFooter">
+                <a href="${pageContext.request.contextPath}/citizenlist" class="buttonCancel">Cancel</a>
+                <button type="submit" class="buttonConfirmRed">Confirm Suspension</button>
+            </div>
+        </form>
 		</div>
 	</div>
 
-	<script>
-        // Tab switching
-        function switchTab(tab) {
-            document.querySelectorAll('.tabItem').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.tabPanel').forEach(p => p.classList.remove('active'));
-
-            if (tab === 'issues') {
-                document.getElementById('tabIssues').classList.add('active');
-                document.getElementById('panelIssues').classList.add('active');
-            } else {
-                document.getElementById('tabFines').classList.add('active');
-                document.getElementById('panelFines').classList.add('active');
-            }
-        }
-
-        // Modal controls
-        function openSuspendModal() {
-            document.getElementById('suspendModal').style.display = 'flex';
-            document.getElementById('suspensionReason').value = '';
-        }
-
-        function closeSuspendModal() {
-            document.getElementById('suspendModal').style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            var modal = document.getElementById('suspendModal');
-            if (event.target === modal) {
-                closeSuspendModal();
-            }
-        }
-    </script>
 </body>
 </html>
