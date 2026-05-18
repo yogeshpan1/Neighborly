@@ -6,22 +6,20 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
-
-import com.Neighborly.dao.UserDAO;
-import com.Neighborly.model.UserModel;
+import com.Neighborly.dao.NewsDAO;
 
 /**
- * Servlet implementation class AdminDashboardServlet
+ * Servlet implementation class CreateNewsServlet
  */
-@WebServlet(asyncSupported = true, urlPatterns = { "/admindashboard" })
-public class AdminDashboardServlet extends HttpServlet {
+@WebServlet(asyncSupported = true, urlPatterns = { "/createnews" })
+public class CreateNewsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final int DEFAULT_ADMIN_USER_ID = 1;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminDashboardServlet() {
+    public CreateNewsServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,27 +29,24 @@ public class AdminDashboardServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		try {
-	        
-			UserDAO userDAO = new UserDAO();
-	        
-	        List<UserModel> users = userDAO.getAllUsers();
-	        
-	        request.setAttribute("totalCitizens", users.size());
-	        request.getRequestDispatcher("/WEB-INF/Pages/AdminDashboard.jsp").forward(request, response);
-	        
-	    } catch (Exception e) {
-	        throw new ServletException("Database error", e);
-	    }
-		request.getRequestDispatcher("/WEB-INF/Pages/AdminDashboard.jsp").forward(request, response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		 request.setCharacterEncoding("UTF-8");
+	        String title = request.getParameter("newsTitle");
+	        String content = request.getParameter("newsContent");
+	        try {
+	            NewsDAO dao = new NewsDAO();
+	            dao.insertNews(DEFAULT_ADMIN_USER_ID, title.trim(), content);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	        response.sendRedirect(request.getContextPath() + "/newslist");
 	}
 
 }

@@ -1,10 +1,14 @@
 package com.Neighborly.model;
 
 public class UserModel {
-	
+
 	private int userId;
 	private String firstName;
 	private String lastName;
+	private String username;
+	private String email;
+	private String number;
+	private String registrationDate;
 
 	public int getUserId() {
 		return userId;
@@ -28,5 +32,37 @@ public class UserModel {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
+	}
+
+	public String getRegistrationDate() {
+		return registrationDate;
+	}
+
+	public void setRegistrationDate(String registrationDate) {
+		this.registrationDate = registrationDate;
 	}
 }

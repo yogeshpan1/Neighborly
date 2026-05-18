@@ -12,21 +12,80 @@ import com.Neighborly.utils.DBconfig;
 public class UserDAO {
 
     public List<UserModel> getAllUsers() throws Exception {
-        List<UserModel> users = new ArrayList<>();
+
+    	List<UserModel> users = new ArrayList<>();
+
         Connection con = DBconfig.getConnection();
-        String sql = "SELECT user_id, first_name, last_name FROM users WHERE role = 'user' AND status = 'Active' ORDER BY first_name ASC";
+
+        String sql = "SELECT user_id, first_name, last_name, username, email, number, registration_date FROM users WHERE role = 'user' AND status = 'Active' ORDER BY first_name ASC";
+
         PreparedStatement pst = con.prepareStatement(sql);
+
         ResultSet rs = pst.executeQuery();
+
         while (rs.next()) {
-            UserModel u = new UserModel();
+            
+        	UserModel u = new UserModel();
+        	
             u.setUserId(rs.getInt("user_id"));
             u.setFirstName(rs.getString("first_name"));
             u.setLastName(rs.getString("last_name"));
+            u.setUsername(rs.getString("username"));
+            u.setEmail(rs.getString("email"));
+            u.setNumber(rs.getString("number"));
+            u.setRegistrationDate(rs.getString("registration_date"));
             users.add(u);
         }
+
         rs.close();
         pst.close();
         con.close();
         return users;
+    }
+
+    public UserModel getUserById(int userId) throws Exception {
+
+        Connection con = DBconfig.getConnection();
+
+        String sql = "SELECT user_id, first_name, last_name, username, email, number, registration_date FROM users WHERE user_id = ? AND role = 'user'";
+
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setInt(1, userId);
+
+        ResultSet rs = pst.executeQuery();
+
+        UserModel u = new UserModel();
+
+        if (rs.next()) {
+            
+        	u.setUserId(rs.getInt("user_id"));
+            u.setFirstName(rs.getString("first_name"));
+            u.setLastName(rs.getString("last_name"));
+            u.setUsername(rs.getString("username"));
+            u.setEmail(rs.getString("email"));
+            u.setNumber(rs.getString("number"));
+            u.setRegistrationDate(rs.getString("registration_date"));
+        }
+
+        rs.close();
+        pst.close();
+        con.close();
+        return u;
+    }
+
+    public void suspendCitizen(int userId, String reason) throws Exception {
+
+        Connection con = DBconfig.getConnection();
+
+        String sql = "UPDATE users SET status = 'Inactive', suspension_reason = ? WHERE user_id = ?";
+
+        PreparedStatement pst = con.prepareStatement(sql);
+        
+        pst.setString(1, reason);
+        pst.setInt(2, userId);
+        pst.executeUpdate();
+
+        pst.close();
+        con.close();
     }
 }

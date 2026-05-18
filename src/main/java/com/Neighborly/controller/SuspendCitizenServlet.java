@@ -6,22 +6,20 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 import com.Neighborly.dao.UserDAO;
-import com.Neighborly.model.UserModel;
 
 /**
- * Servlet implementation class AdminDashboardServlet
+ * Servlet implementation class SuspendCitizen
  */
-@WebServlet(asyncSupported = true, urlPatterns = { "/admindashboard" })
-public class AdminDashboardServlet extends HttpServlet {
+@WebServlet(asyncSupported = true, urlPatterns = { "/suspend" })
+public class SuspendCitizenServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminDashboardServlet() {
+    public SuspendCitizenServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,27 +29,26 @@ public class AdminDashboardServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		try {
-	        
-			UserDAO userDAO = new UserDAO();
-	        
-	        List<UserModel> users = userDAO.getAllUsers();
-	        
-	        request.setAttribute("totalCitizens", users.size());
-	        request.getRequestDispatcher("/WEB-INF/Pages/AdminDashboard.jsp").forward(request, response);
-	        
-	    } catch (Exception e) {
-	        throw new ServletException("Database error", e);
-	    }
-		request.getRequestDispatcher("/WEB-INF/Pages/AdminDashboard.jsp").forward(request, response);
+		response.sendRedirect(request.getContextPath() + "/citizenlist");
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		try {
+            
+			int userId = Integer.parseInt(request.getParameter("userId"));
+			String reason = request.getParameter("suspensionReason");
+            
+            UserDAO dao = new UserDAO();
+            
+            dao.suspendCitizen(userId, reason);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        response.sendRedirect(request.getContextPath() + "/citizenlist");
 	}
 
 }

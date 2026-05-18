@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" 
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,58 +24,57 @@
     <!-- DASHBOARD BODY -->
     <main class="dashboardBody">
 
-        <!-- STAT CARDS -->
-        <div class="statsFlex">
-            <div class="statCard">
-                <div class="statIconWrap">
-                    <div class="statBars barsGreen">
-                        <div class="bar h40"></div><div class="bar h60"></div><div class="bar h80"></div><div class="bar h100"></div><div class="bar h60"></div>
-                    </div>
-                </div>
-                <div class="statInfo">
-                    <span class="statLabel">Total citizens</span>
-                    <span class="statValue">1,342</span>
-                    <span class="statTrend green">▲ +22 this week</span>
-                </div>
-            </div>
-            <div class="statCard">
-                <div class="statIconWrap">
-                     <div class="statBars barsOrange">
-                        <div class="bar h50"></div><div class="bar h80"></div><div class="bar h100"></div><div class="bar h60"></div>
-                    </div>
-                </div>
-                <div class="statInfo">
-                    <span class="statLabel">Open civic issues</span>
-                    <span class="statValue">8</span>
-                    <span class="statTrend orange">Needs attention</span>
-                </div>
-            </div>
-            <div class="statCard">
-                <div class="statIconWrap">
-                     <div class="statBars barsBlue">
-                        <div class="bar h70"></div><div class="bar h50"></div><div class="bar h100"></div>
-                    </div>
-                </div>
-                <div class="statInfo">
-                    <span class="statLabel">Documents pending</span>
-                    <span class="statValue">14</span>
-                    <span class="statTrend orange">Awaiting review</span>
-                </div>
-            </div>
-            <div class="statCard">
-                <div class="statIconWrap">
-                     <div class="statBars barsYellow">
-                        <div class="bar h100"></div><div class="bar h80"></div>
-                    </div>
-                </div>
-                <div class="statInfo">
-                    <span class="statLabel">Active polls</span>
-                    <span class="statValue">3</span>
-                    <span class="statTrend orange">On track</span>
-                </div>
-            </div>
-        </div>
-
+		<!-- STAT CARDS -->
+		<div class="statsFlex">
+		    <div class="statCard">
+		        <div class="statIconWrap">
+		            <div class="statBars barsGreen">
+		                <div class="bar h40"></div><div class="bar h60"></div><div class="bar h80"></div><div class="bar h100"></div><div class="bar h60"></div>
+		            </div>
+		        </div>
+		        <div class="statInfo">
+		            <span class="statLabel">Total citizens</span>
+		            <span class="statValue">${totalCitizens}</span>
+		            <span class="statTrend green">▲ Wow </span>
+		        </div>
+		    </div>
+		    <div class="statCard">
+		        <div class="statIconWrap">
+		             <div class="statBars barsOrange">
+		                <div class="bar h50"></div><div class="bar h80"></div><div class="bar h100"></div><div class="bar h60"></div>
+		            </div>
+		        </div>
+		        <div class="statInfo">
+		            <span class="statLabel">Open civic issues</span>
+		            <span class="statValue">${openIssues}</span>
+		            <span class="statTrend orange">Needs attention</span>
+		        </div>
+		    </div>
+		    <div class="statCard">
+		        <div class="statIconWrap">
+		             <div class="statBars barsBlue">
+		                <div class="bar h70"></div><div class="bar h50"></div><div class="bar h100"></div>
+		            </div>
+		        </div>
+		        <div class="statInfo">
+		            <span class="statLabel">Documents pending</span>
+		            <span class="statValue">${pendingDocuments}</span>
+		            <span class="statTrend orange">Awaiting review</span>
+		        </div>
+		    </div>
+		    <div class="statCard">
+		        <div class="statIconWrap">
+		             <div class="statBars barsYellow">
+		                <div class="bar h100"></div><div class="bar h80"></div>
+		            </div>
+		        </div>
+		        <div class="statInfo">
+		            <span class="statLabel">Active polls</span>
+		            <span class="statValue">${activePolls}</span>
+		            <span class="statTrend orange">On track</span>
+		        </div>
+		    </div>
+		</div>
         <!-- MAIN GRID -->
         <div class="dashboardFlex">
             <!-- LEFT COLUMN -->
