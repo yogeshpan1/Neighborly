@@ -49,41 +49,28 @@ public class ReportServlet extends HttpServlet {
         try {
             ReportDAO dao = new ReportDAO();
             ReportService service = new ReportService();
-            List<ReportModel> reports = dao.getAllReports();
 
-            int pendingCount = 0;
-            for (ReportModel r : reports) {
-                if ("pending".equals(r.getStatus())) {
-                    pendingCount++;
-                }
-            }
-
-            request.setAttribute("reports", reports);
-            request.setAttribute("totalReports", reports.size());
-            request.setAttribute("pendingReports", pendingCount);
-
-            String title       = request.getParameter("title");
-            String category    = request.getParameter("category");
-            String location    = request.getParameter("location");
+            String title = request.getParameter("title");
+            String category = request.getParameter("category");
+            String location = request.getParameter("location");
             String description = request.getParameter("description");
 
-            if (title != null && category != null && location != null && description != null) {
-                String validation = service.validateReport(title, category, location, description);
+            String validation = service.validateReport(title, category, location, description);
 
-                if (!"Success".equals(validation)) {
-                    request.setAttribute("errorMessage", validation);
-                } else {
-                    HttpSession session = request.getSession();
-                    UserModel user = (UserModel) session.getAttribute("user");
-                    int userId = user.getUserId();
-                    dao.insertReport(userId, title.trim(), category.trim(),
-                                     location.trim(), description.trim(), null);
-                    request.setAttribute("successMessage", "Report submitted successfully");
-                }
+            if (!"Success".equals(validation)) {
+                request.setAttribute("errorMessage", validation);
+            } else {
+                HttpSession session = request.getSession();
+                UserModel user = (UserModel) session.getAttribute("user");
+                dao.insertReport(user.getUserId(), title.trim(), category.trim(),
+                                 location.trim(), description.trim(), null);
+                request.setAttribute("successMessage", "Report submitted successfully");
             }
 
-            request.getRequestDispatcher("/WEB-INF/Pages/report.jsp")
-                   .forward(request, response);
+            List<ReportModel> reports = dao.getAllReports();
+            request.setAttribute("reports", reports);
+
+            request.getRequestDispatcher("/WEB-INF/Pages/report.jsp").forward(request, response);
         } catch (Exception e) {
             throw new ServletException("Database error", e);
         }

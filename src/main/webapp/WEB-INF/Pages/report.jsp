@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,14 +19,13 @@
                        
             <div class="formWrapper">
             
-            <c:if test="${not empty errorMessage}">
-			    <div class="alertError">${errorMessage}</div>
-			</c:if>
-			
-			<c:if test="${not empty successMessage}">
-			    <div class="alertSuccess">${successMessage}</div>
-			</c:if>
-            
+				 <c:if test="${not empty errorMessage}">
+				    <div class="alertError">${errorMessage}</div>
+				</c:if>
+				
+				<c:if test="${not empty successMessage}">
+				    <div class="alertSuccess">${successMessage}</div>
+				</c:if>
 				<form action="${pageContext.request.contextPath}/report" method="POST" class="reportForm">
                     
                     <fieldset class="formGroup">
