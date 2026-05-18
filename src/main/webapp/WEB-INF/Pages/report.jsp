@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,20 +15,29 @@
         
         <main class="mainContent">
             <jsp:include page="/Components/navbar.jsp" />
-            
+                       
             <div class="formWrapper">
-                <form action="${pageContext.request.contextPath}/submitReport" method="POST" enctype="multipart/form-data" class="reportForm">
+            
+            <c:if test="${not empty errorMessage}">
+			    <div class="alertError">${errorMessage}</div>
+			</c:if>
+			
+			<c:if test="${not empty successMessage}">
+			    <div class="alertSuccess">${successMessage}</div>
+			</c:if>
+            
+				<form action="${pageContext.request.contextPath}/report" method="POST" class="reportForm">
                     
                     <fieldset class="formGroup">
                         <label for="issueTitle">Title</label>
-                        <input type="text" id="issueTitle" name="title" placeholder="e.g. Broken streetlight on Main St" required>
+                        <input type="text" id="issueTitle" name="title" placeholder="What is your Issue?">
                     </fieldset>
 
                     <fieldset class="formGroup">
                         <legend>Category</legend>
                         <div class="categoryGrid">
                             <label class="categoryOption">
-                                <input type="radio" name="category" value="roads" required>
+                                <input type="radio" name="category" value="roads">
                                 <span class="categoryBtn">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <rect x="3" y="14" width="18" height="8" rx="2" ry="2"></rect>
@@ -92,16 +102,16 @@
 
                     <fieldset class="formGroup">
                         <label for="issueLocation">Location</label>
-                        <input type="text" id="issueLocation" name="location" placeholder="e.g. 123 Oak Avenue" required>
+                        <input type="text" id="issueLocation" name="location" placeholder="Location">
                     </fieldset>
 
                     <fieldset class="formGroup">
                         <label for="issueDescription">Description</label>
-                        <textarea id="issueDescription" name="description" rows="3" placeholder="Describe the issue — when you noticed it, how severe it is..." required></textarea>
+                        <textarea id="issueDescription" name="description" rows="3" placeholder="Describe the issue"></textarea>
                     </fieldset>
 
                     <fieldset class="formGroup">
-                        <legend>Attach Photo</legend>
+                        <legend>Attach Photo (Optional)</legend>
                         <input type="file" id="issuePhoto" name="photo" accept="image/*" class="fileInput">
                         <label for="issuePhoto" class="fileUploadLabel">
                             <span class="uploadIcon">
@@ -112,7 +122,6 @@
                                 </svg>
                             </span>
                             <span class="uploadText">Click to upload a photo</span>
-                            <span class="uploadHint">JPG, PNG or WEBP — up to 5MB</span>
                         </label>
                     </fieldset>
 

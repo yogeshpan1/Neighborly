@@ -42,7 +42,6 @@
                         <span>PAY-2025-01400</span>
                         <span class="actionCell">
                             <button class="paymentActionBtn">Pay Now</button>
-                            <span class="paymentActionDots">...</span>
                         </span>
                     </article>
                 </div>
@@ -77,7 +76,6 @@
                         <span>FINE-2025-0234</span>
                         <span class="actionCell">
                             <button class="paymentDetailsBtn">View Details</button>
-                            <span class="paymentActionDots">...</span>
                         </span>
                     </article>
                 </div>

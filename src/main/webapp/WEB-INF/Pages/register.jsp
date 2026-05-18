@@ -8,6 +8,7 @@
         <title>Neighborly</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/login.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/register.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     </head>
 
     <body>
@@ -39,8 +40,10 @@
                     
                         <div class="photo-container">
                             <div class="preview-container" id="placeholderIcon">
-                                <div class="avatar-head"></div>
-                                <div class="avatar-body"></div>
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
                             </div>
                             <img id="imagePreview" src="#" alt="Preview" style="display: none;">
 
@@ -56,7 +59,7 @@
                         <div class="formRow">
                             <div class="formGroup">
                                 <div class="formLabel">
-                                    <label for="first_name">USERNAME</label>
+                                    <label for="first_name">FIRST NAME</label>
                                 </div>
                                 <input type="text" id="first_name" name="first_name" class="formControl">
                             </div>
@@ -119,7 +122,7 @@
                             <input type="password" id="password" name="password" class="formControl">
                         </div>
 
-                        <button type="submit" class="loginButton loginBtnPrimary registerSubmitButton">SIGN IN</button>
+                        <button type="submit" class="loginButton loginBtnPrimary registerSubmitButton">CREATE ACCOUNT</button>
 
                     </form>
                 </div>
