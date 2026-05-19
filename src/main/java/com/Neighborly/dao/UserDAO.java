@@ -89,4 +89,30 @@ public class UserDAO {
         con.close();
         return u;
     }
+    
+    //Update User
+    public int updateUser(int userId, String firstName, String lastName,
+            String email, String number) throws Exception {
+			String sql =
+			"UPDATE users SET first_name = ?, last_name = ?, " +
+			"email = ?, number = ? " +
+			"WHERE user_id = ?";
+			
+			Connection con = null;
+			PreparedStatement pst = null;
+			
+			try {
+			con = DBconfig.getConnection();
+			pst = con.prepareStatement(sql);
+			pst.setString(1, firstName);
+			pst.setString(2, lastName);
+			pst.setString(3, email);
+			pst.setString(4, number);
+			pst.setInt(5, userId);
+			return pst.executeUpdate();
+			} finally {
+			if (pst != null) { try { pst.close(); } catch (Exception ignored) {} }
+			if (con != null) { try { con.close(); } catch (Exception ignored) {} }
+			}
+}
 }

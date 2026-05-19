@@ -1,14 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neighborly</title>
+    <title>Neighborly - Edit Profile</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/leftbar.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/navbar.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
@@ -19,31 +20,29 @@
 
         <div class="editProfileContainer">
 
-            <a href="${pageContext.request.contextPath}/profile" class="back-link">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                     stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="15 18 9 12 15 6"/>
-                </svg>
-                Back
-            </a>
+            <a href="${pageContext.request.contextPath}/profile"
+               class="back-link">&#8592; Back to Profile</a>
 
             <div class="editProfileCard">
+
                 <div class="cardHeader">
-                    <h2>Update Profile</h2>
-                    <p class="subtitle">Personalize Your Neighborly account</p>
+                    <h2>Edit Profile</h2>
+                    <p class="subtitle">Update your personal information</p>
                 </div>
 
-                <c:if test="${not empty sessionScope.message}">
-                    <div class="alert alert-success">&#10003; ${sessionScope.message}</div>
-                    <c:remove var="message" scope="session"/>
+                <!-- SUCCESS / ERROR -->
+                <c:if test="${not empty success}">
+                    <div class="alert alert-success">${success}</div>
                 </c:if>
-                <c:if test="${not empty sessionScope.error}">
-                    <div class="alert alert-error">&#9888; ${sessionScope.error}</div>
-                    <c:remove var="error" scope="session"/>
+                <c:if test="${not empty error}">
+                    <div class="alert alert-error">${error}</div>
                 </c:if>
 
-                <form action="${pageContext.request.contextPath}/editprofile" method="post" enctype="multipart/form-data">
+                <form action="${pageContext.request.contextPath}/editprofile"
+                      method="post"
+                      enctype="multipart/form-data">
 
+                    <!-- PROFILE PHOTO -->
                     <div class="preview-container">
                         <c:choose>
                             <c:when test="${not empty user.image}">
@@ -53,67 +52,72 @@
                                      style="display:block;">
                             </c:when>
                             <c:otherwise>
-                                <span class="preview-placeholder" id="placeholderIcon">
+                                <div class="preview-placeholder" id="placeholderIcon">
                                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
-                                         stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                                         stroke="#262626" stroke-width="1.5"
+                                         stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                                         <circle cx="12" cy="7" r="4"/>
                                     </svg>
-                                </span>
-                                <img id="imagePreview" src="#" alt="Preview" style="display:none;">
+                                </div>
+                                <img id="imagePreview" src="#" alt="Preview"
+                                     style="display:none; width:100%; height:100%; object-fit:cover;">
                             </c:otherwise>
                         </c:choose>
                     </div>
 
                     <div class="file-input-wrapper">
-                        <label for="profilePic" class="custom-file-upload">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
-                                <circle cx="12" cy="13" r="4"/>
-                            </svg>
-                            Change Photo
+                        <label for="profileImage" class="custom-file-upload">
+                            <i class="fas fa-camera"></i> Change Photo
                         </label>
-                        <input type="file" id="profilePic" name="profilePic" accept="image/*" onchange="previewFile()">
+                        <input type="file" id="profileImage" name="profileImage"
+                               accept="image/*"
+                               onchange="previewFile()"
+                               style="display:none;">
+                    </div>
+
+                    <!-- FIELDS — pre-filled from session -->
+                    
+                    
+                    <div class="input-group">
+                        <label>USERNAME</label>
+                        <input type="text"
+                               value="${user.userName}"
+                               class="formControl"
+                               disabled>
+                        <span class="hint-text">Username cannot be changed.</span>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>FIRST NAME</label>
+                        <input type="text" name="first_name"
+                               value="${user.firstName}" class="formControl">
                     </div>
 
                     <div class="input-group">
-                        <label>First Name</label>
-                        <input type="text" name="firstName" value="${user.firstName}" required>
+                        <label>LAST NAME</label>
+                        <input type="text" name="last_name"
+                               value="${user.lastName}" class="formControl">
                     </div>
+
                     <div class="input-group">
-                        <label>Last Name</label>
-                        <input type="text" name="lastName" value="${user.lastName}" required>
+                        <label>EMAIL</label>
+                        <input type="email" name="email"
+                               value="${user.email}" class="formControl">
                     </div>
+
                     <div class="input-group">
-                        <label>Username</label>
-                        <input type="text" name="username" value="${user.userName}" required>
-                        <span class="hint-text">*This is unique handle on Neighborly</span>
-                    </div>
-                    <div class="input-group">
-                        <label>Email Address</label>
-                        <input type="email" name="email" value="${user.email}" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Phone Number</label>
-                        <input type="text" name="number" value="${user.number}" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Date of Birth</label>
-                        <input type="date" name="dob" value="${user.dob}" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Gender</label>
-                        <select name="gender" required>
-                            <option value="" disabled ${empty user.gender ? 'selected' : ''}>Select Gender</option>
-                            <option value="Male" ${user.gender == 'Male' ? 'selected' : ''}>Male</option>
-                            <option value="Female" ${user.gender == 'Female' ? 'selected' : ''}>Female</option>
-                        </select>
+                        <label>PHONE NUMBER</label>
+                        <input type="text" name="number"
+                               value="${user.number}" class="formControl">
                     </div>
 
                     <div class="btn-container">
-                        <button type="submit" class="btn-submit">Save Change</button>
+                        <button type="submit" class="btn-submit">
+                            Save Changes
+                        </button>
                     </div>
+
                 </form>
             </div>
         </div>
@@ -121,17 +125,20 @@
 
     <script>
         function previewFile() {
-            const preview = document.getElementById('imagePreview');
-            const file = document.querySelector('input[name=profilePic]').files[0];
-            const reader = new FileReader();
+            const preview     = document.getElementById('imagePreview');
             const placeholder = document.getElementById('placeholderIcon');
+            const file        = document.querySelector('input[name=profileImage]').files[0];
+            const reader      = new FileReader();
+
             reader.onloadend = function () {
-                preview.src = reader.result;
+                preview.src          = reader.result;
                 preview.style.display = 'block';
                 if (placeholder) placeholder.style.display = 'none';
-            }
-            if (file) { reader.readAsDataURL(file); }
+            };
+
+            if (file) reader.readAsDataURL(file);
         }
     </script>
+
 </body>
 </html>

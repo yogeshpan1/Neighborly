@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,15 +18,39 @@
     <main class="mainContent">
         <jsp:include page="/Components/navbar.jsp" />
 
-        <section class="noticeContainer">
-            
-            <div class="noticeList">
-                <article class="noticeItem">
-                    <p class="noticeText">Congratulations you have created an account</p>
-                    <span class="noticeTime">2 mins ago</span>
-                </article>
+        <section class="noticesContainer">
+            <div class="noticesList">
+
+                <c:choose>
+                    <c:when test="${empty notices}">
+                        <p class="noNotices">No notices posted yet.</p>
+                    </c:when>
+                    <c:otherwise>
+                        <c:forEach var="notice" items="${notices}">
+                            <article class="noticeCard notice--${fn:toLowerCase(notice.noticeCategory)}">
+
+                                <div class="noticeContent">
+                                    <div class="noticeHeader">
+                                        <span class="noticeCategoryBadge">
+                                            ${notice.noticeCategory}
+                                        </span>
+                                        <span class="noticeTime">
+                                            ${notice.postTime}
+                                        </span>
+                                    </div>
+
+                                    <h2 class="noticeTitle">${notice.noticeTitle}</h2>
+                                    <p class="noticeDescription">${notice.noticeDescription}</p>
+                                </div>
+
+                            </article>
+                        </c:forEach>
+                    </c:otherwise>
+                </c:choose>
+
             </div>
         </section>
+
     </main>
 
 </body>

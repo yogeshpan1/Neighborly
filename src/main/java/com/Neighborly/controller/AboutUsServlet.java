@@ -26,7 +26,7 @@ public class AboutUsServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("activePage", "AboutUs");
+		request.setAttribute("activePage", "About Us");
 		request.getRequestDispatcher("/WEB-INF/Pages/AboutUs.jsp").forward(request, response);
 	}
 

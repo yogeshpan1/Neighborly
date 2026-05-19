@@ -19,7 +19,7 @@ import com.Neighborly.utils.SessionUtil;
  * Servlet Filter implementation class AuthenticationFilter
  */
 
-@WebFilter(urlPatterns = {"/home","/feed","/news","/documents","/payments","/payments","/report","/polls","/notices","/contact","/profile","/logout"})
+@WebFilter(urlPatterns = {"/home","/feed","/news","/documents","/payments","/payments","/report","/polls","/notices","/contact","/profile","/aboutus","/logout"})
 public class AuthenticationFilter extends HttpFilter implements Filter {
        
     private static final long serialVersionUID = 1L;

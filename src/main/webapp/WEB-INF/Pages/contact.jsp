@@ -43,7 +43,7 @@
                 </form>
 
                 <div class="contactFooter">
-                    <p>We're here to help. Reach out to us using the form below and we'll get back to you as soon as possible.</p>
+                    <p>We're here to help. Reach out to us using the form, and we'll get back to you as soon as possible.</p>
                 </div>
             </div>
         </section>

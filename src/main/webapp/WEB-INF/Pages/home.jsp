@@ -109,14 +109,14 @@
 
                     <div class="applicationsSection">
                         <div class="sectionHeader">
-                            <h2 class="sectionTitle">My applications</h2>
+                            <h2 class="sectionTitle">My Complaints</h2>
                             <a href="${pageContext.request.contextPath}/documents" class="viewAllLink">View all &rarr;</a>
                         </div>
                         <div class="appList">
                             <div class="appListItem" onclick="window.location.href='${pageContext.request.contextPath}/documents'">
                                 <div class="appStatusLine lineYellow"></div>
                                 <div class="appInfo">
-                                    <div class="appTitle">PAN card application</div>
+                                    <div class="appTitle">Water Issues</div>
                                     <div class="appDesc">#APP-2026-981 &middot; Submitted Mar 28</div>
                                 </div>
                                 <div class="appStatusBadge badgeYellow">Under review</div>
@@ -124,7 +124,7 @@
                             <div class="appListItem" onclick="window.location.href='${pageContext.request.contextPath}/documents'">
                                 <div class="appStatusLine lineGreen"></div>
                                 <div class="appInfo">
-                                    <div class="appTitle">Bluebook renewal</div>
+                                    <div class="appTitle">Staff Behaviour</div>
                                     <div class="appDesc">#APP-2026-847 &middot; Submitted Mar 10</div>
                                 </div>
                                 <div class="appStatusBadge badgeGreen">Approved</div>
