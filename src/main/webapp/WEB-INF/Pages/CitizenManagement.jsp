@@ -182,8 +182,10 @@
 									<c:choose>
 										<c:when test="${selectedCitizen.status == 'Active'}">
 											<form action="${pageContext.request.contextPath}/citizenlist"
-												method="POST">
-												<input type="hidden" name="openSuspendId"
+												method="GET">
+												<input type="hidden" name="userId"
+													value="${selectedCitizen.userId}"> <input
+													type="hidden" name="openSuspendId"
 													value="${selectedCitizen.userId}">
 												<button type="submit" class="buttonSuspend">Suspend
 													User</button>

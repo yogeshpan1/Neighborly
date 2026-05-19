@@ -61,22 +61,42 @@ public class NewsDAO {
 	    return newsList;
 	}
 
-	public void updateNews(int newsId, String title, String content, String category) throws Exception {
+	 // Used when NO new image is uploaded — keeps existing image untouched
+    public void updateNews(int newsId, String title, String content, String category) throws Exception {
+    	
+        Connection con = DBconfig.getConnection();
+        
+        String sql = "UPDATE news SET news_title = ?, news_content = ?, news_category = ? WHERE news_id = ?";
+        
+        PreparedStatement pst = con.prepareStatement(sql);
+        
+        pst.setString(1, title);
+        pst.setString(2, content);
+        pst.setString(3, category);
+        pst.setInt(4, newsId);
+        pst.executeUpdate();
+        pst.close();
+        con.close();
+    }
 
-	    Connection con = DBconfig.getConnection();
-
-	    String sql = "UPDATE news SET news_title = ?, news_content = ?, news_category = ? WHERE news_id = ?";
-
-	    PreparedStatement pst = con.prepareStatement(sql);
-
-	    pst.setString(1, title);
-	    pst.setString(2, content);
-	    pst.setString(3, category);
-	    pst.setInt(4, newsId);
-	    pst.executeUpdate();
-	    pst.close();
-	    con.close();
-	}
+    // Used when a NEW image is uploaded — replaces the image too
+    public void updateNewsWithImage(int newsId, String title, String content, String category, String imageName) throws Exception {
+    	
+        Connection con = DBconfig.getConnection();
+        
+        String sql = "UPDATE news SET news_title = ?, news_content = ?, news_category = ?, news_image = ? WHERE news_id = ?";
+        
+        PreparedStatement pst = con.prepareStatement(sql);
+        
+        pst.setString(1, title);
+        pst.setString(2, content);
+        pst.setString(3, category);
+        pst.setString(4, imageName);
+        pst.setInt(5, newsId);
+        pst.executeUpdate();
+        pst.close();
+        con.close();
+    }
 
 
 	public boolean deleteNews(int newsId) throws Exception {

@@ -5,7 +5,7 @@ public class PollModel {
 	private String question;
 	private String status;
 	private String createdAt;
-	private int adminId;
+	private int userId;
 	private String description;
 	private String option1;
 	private String option2;
@@ -39,8 +39,8 @@ public class PollModel {
 		return createdAt;
 	}
 
-	public int getAdminId() {
-		return adminId;
+	public int getUserId() {
+		return userId;
 	}
 
 	// Setters
@@ -72,7 +72,7 @@ public class PollModel {
 		this.createdAt = createdAt;
 	}
 
-	public void setAdminId(int userId) {
-		this.adminId = adminId;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 }

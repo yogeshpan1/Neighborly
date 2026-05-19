@@ -2,7 +2,9 @@ package com.Neighborly.controller;
 
 import java.io.IOException;
 import com.Neighborly.dao.PollDAO;
+import com.Neighborly.model.UserModel;
 import com.Neighborly.service.PollService;
+import com.Neighborly.utils.SessionUtil;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -25,7 +27,7 @@ import com.Neighborly.dao.PollDAO;
 @WebServlet("/createpoll")
 public class CreatePollServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final int DEFAULT_ADMIN_USER_ID = 1;
+	
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -72,8 +74,10 @@ public class CreatePollServlet extends HttpServlet {
 		}
 
 		try {
+			int userId = 1;
 			PollDAO dao = new PollDAO();
-			dao.insertPoll(title.trim(), description, option1, option2, "Active", DEFAULT_ADMIN_USER_ID);
+			dao.insertPoll(title.trim(), description, option1, option2, "Active", userId);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

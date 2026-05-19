@@ -36,7 +36,7 @@ public class ReportManagementServlet extends HttpServlet {
 		try {
 
 			ReportDAO dao = new ReportDAO();
-			List<ReportModel> reports = dao.getAllReports();
+			List<ReportModel> reports = dao.getAllReportsAdmin();
 
 			int total = reports.size();
 			int resolved = 0;

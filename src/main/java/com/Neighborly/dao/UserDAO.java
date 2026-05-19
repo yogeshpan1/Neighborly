@@ -62,6 +62,7 @@ public class UserDAO {
 			u.setRole(rs.getString("role"));
 			u.setImage(rs.getString("image"));
 			u.setStatus(rs.getString("status"));
+			u.setRegistrationDate(rs.getDate("registration_date"));
 			users.add(u);
 		}
 
@@ -96,6 +97,7 @@ public class UserDAO {
 			u.setPassword(rs.getString("password"));
 			u.setRole(rs.getString("role"));
 			u.setImage(rs.getString("image"));
+			u.setRegistrationDate(rs.getDate("registration_date"));
 		}
 
 		rs.close();
@@ -156,4 +158,33 @@ public class UserDAO {
 
 		return rows;
 	}
+	
+	public void suspendCitizen(int userId, String reason) throws Exception {
+
+        Connection con = DBconfig.getConnection();
+
+        String sql = "UPDATE users SET status = 'Inactive', suspension_reason = ? WHERE user_id = ?";
+
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, reason);
+        pst.setInt(2, userId);
+        pst.executeUpdate();
+
+        pst.close();
+        con.close();
+    }
+    
+    public void unsuspendCitizen(int userId) throws Exception {
+        
+    	Connection con = DBconfig.getConnection();
+    	
+        String sql = "UPDATE users SET status = 'Active', suspension_reason = NULL WHERE user_id = ?";
+        
+        PreparedStatement pst = con.prepareStatement(sql);
+        
+        pst.setInt(1, userId);
+        pst.executeUpdate();
+        pst.close();
+        con.close();
+    }
 }

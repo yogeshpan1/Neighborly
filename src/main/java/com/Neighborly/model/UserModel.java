@@ -16,6 +16,8 @@ public class UserModel {
 	private String role;
     private String image;
     private String status;
+    private java.util.Date registrationDate;
+
 
 
 	// Getters
@@ -116,5 +118,13 @@ public class UserModel {
     public void setStatus(String status) {
         this.status = status;
     }
+
+	public java.util.Date getRegistrationDate() {
+		return registrationDate;
+	}
+
+	public void setRegistrationDate(java.util.Date registrationDate) {
+		this.registrationDate = registrationDate;
+	}
 
 }

@@ -261,7 +261,7 @@
 			</div>
 
 			<form action="${pageContext.request.contextPath}/updatenews"
-				method="POST">
+				method="POST" enctype="multipart/form-data">
 
 				<input type="hidden" name="newsId" value="${editNews.newsId}">
 
@@ -273,6 +273,24 @@
 							class="newsFormInput" name="newsTitle"
 							value="<c:out value='${editNews.newsTitle}'/>" required>
 
+					</div>
+					<div class="newsFormGroup">
+						
+						<label class="newsFormLabel">Image</label>
+						
+						<c:if test="${not empty editNews.newsImage}">
+							<img
+								src="${pageContext.request.contextPath}/newsimage/${editNews.newsImage}"
+								alt="Current Image"
+								style="width: 100%; max-height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 8px;">
+							<p
+								style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 6px;">
+								Upload a new image to replace the current one, or leave blank to
+								keep it.</p>
+						</c:if>
+						
+						<input type="file" class="newsFormInput" name="newsImage"
+							accept="image/*">
 					</div>
 
 					<div class="newsFormGroup">
