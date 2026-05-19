@@ -24,6 +24,29 @@ body {
     padding-top: 70px;
 }
 
+.report-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 24px;
+}
+
+.download {
+    padding: 9px 18px;
+    background-color: #212224;
+    color: #f3f4f6;
+    border: 1px solid #323639;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.download:hover {
+    border-color: #D35400;
+    color: #D35400;
+}
+
 .dashboardBody {
     padding: 32px;
     flex: 1;

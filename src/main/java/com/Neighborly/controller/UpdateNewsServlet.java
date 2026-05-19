@@ -1,20 +1,32 @@
 package com.Neighborly.controller;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
+
+import java.io.File;
 import java.io.IOException;
 
 import com.Neighborly.dao.NewsDAO;
+import com.Neighborly.utils.FileUploadUtil;
 
 /**
  * Servlet implementation class UpdateNewsServlet
  */
 @WebServlet(asyncSupported = true, urlPatterns = { "/updatenews" })
+@MultipartConfig(
+	    fileSizeThreshold = 1024 * 1024 * 2,
+	    maxFileSize = 1024 * 1024 * 10,
+	    maxRequestSize = 1024 * 1024 * 50
+	)
 public class UpdateNewsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+    private static final String UPLOAD_DIR = System.getProperty("user.home") + File.separator + "news_uploads";
+
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -50,12 +62,26 @@ public class UpdateNewsServlet extends HttpServlet {
 		String content = request.getParameter("newsContent");
 		
 		String category = request.getParameter("newsCategory");
+		
+		String imageName = null;
+		
+        Part filePart = request.getPart("newsImage");
+        
+        if (filePart != null && filePart.getSize() > 0) {
+        	
+            if (FileUploadUtil.isImage(filePart)) {
+            	
+                String extension = FileUploadUtil.getFileExtension(filePart.getSubmittedFileName());
+                imageName = System.currentTimeMillis() + extension;
+                FileUploadUtil.saveFile(filePart, UPLOAD_DIR, imageName);
+            }
+        }
 
 		try {
 			
 			NewsDAO dao = new NewsDAO();
 			
-			dao.updateNews(newsId, title, content, category);
+			dao.updateNews(newsId, title, content, category, imageName);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

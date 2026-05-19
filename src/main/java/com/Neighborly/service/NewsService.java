@@ -1,8 +1,11 @@
 package com.Neighborly.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NewsService {
-	
-	public String validateNews(String title, String content) {
+
+	public String validateNews(String title, String content, String category) {
 
 		if (title == null || title.trim().isEmpty()) {
 			return "News title is required";
@@ -21,6 +24,15 @@ public class NewsService {
 		}
 		if (content.trim().length() > 5000) {
 			return "News content cannot exceed 5000 characters";
+		}
+		
+		List<String> allowedCategories = new ArrayList<>();
+
+		allowedCategories.add("normal");
+		allowedCategories.add("featured");
+
+		if (!allowedCategories.contains(category.trim())) {
+			return "Invalid category";
 		}
 
 		return "Success";

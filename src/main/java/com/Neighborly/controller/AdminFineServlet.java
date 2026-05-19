@@ -149,5 +149,7 @@ public class AdminFineServlet extends HttpServlet {
 	    } catch (Exception e) {
 	        throw new ServletException("Database error", e);
 	    }
+		request.getRequestDispatcher("/WEB-INF/Pages/AdminFine.jsp").forward(request, response);
+
 	}
 }

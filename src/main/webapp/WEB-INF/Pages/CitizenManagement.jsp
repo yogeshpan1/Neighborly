@@ -50,8 +50,7 @@
 							</div>
 							<div class="statInfo">
 								<span class="statLabel">Total citizens</span> <span
-									class="statValue">1,342</span> <span class="statTrend green">▲
-									+22 this week</span>
+									class="statValue">${totalCitizens}</span>
 							</div>
 						</div>
 						<div class="statCard statCardSmall">
@@ -63,8 +62,9 @@
 								</div>
 							</div>
 							<div class="statInfo">
-								<span class="statLabel">Active Citizens</span> <span
-									class="statValue">1,300</span> <span class="statTrend blue"
+								<span class="statLabel">Active Citizens</span> 
+								<span class="statValue">${activeCitizens}</span>
+								 <span class="statTrend blue"
 									style="color: #3b82f6; font-size: 11px; margin-top: 4px; font-weight: 600;">Good
 									Standing</span>
 							</div>
@@ -79,7 +79,8 @@
 								</div>
 							</div>
 							<div class="statInfo">
-								<span class="statLabel">Suspended</span> <span class="statValue">42</span>
+								<span class="statLabel">Suspended</span> 
+								<span class="statValue">${suspendedCitizens}</span>
 								<span class="statTrend orange">Needs attention</span>
 							</div>
 						</div>
@@ -103,10 +104,11 @@
 									</div>
 									<span class="roleTag">Resident</span>
 								</div>
-								<form action="${pageContext.request.contextPath}/citizenlist" method="GET">
-							    <input type="hidden" name="userId" value="${c.userId}">
-							    <button type="submit" class="buttonReview">Review</button>
-							</form>
+								<form action="${pageContext.request.contextPath}/citizenlist"
+									method="GET">
+									<input type="hidden" name="userId" value="${c.userId}">
+									<button type="submit" class="buttonReview">Review</button>
+								</form>
 							</div>
 						</c:forEach>
 
@@ -115,88 +117,105 @@
 
 				<!--RIGHT COLUMN-->
 				<div class="rightColumn">
-				    <c:choose>
-				        <c:when test="${empty selectedCitizen}">
-				            <div class="emptyStatePanel">
-				                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#323639" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px;">
+					<c:choose>
+						<c:when test="${empty selectedCitizen}">
+							<div class="emptyStatePanel">
+								<svg width="48" height="48" viewBox="0 0 24 24" fill="none"
+									stroke="#323639" stroke-width="2" stroke-linecap="round"
+									stroke-linejoin="round" style="margin-bottom: 16px;">
 				                    <circle cx="12" cy="12" r="10"></circle>
 				                    <line x1="12" y1="16" x2="12" y2="12"></line>
 				                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
 				                </svg>
-				                <h3 style="color: #ffffff; font-size: 18px; margin-bottom: 8px;">No Citizen Selected</h3>
-				                <p style="color: #75787D; font-size: 14px;">Select a citizen from the list to review their details, issues, and fines.</p>
-				            </div>
-				        </c:when>
-				        <c:otherwise>
-				            <div class="profilePanel">
-				                <div class="profileHeader">
-				                    <div class="profileTitle">Citizen Profile</div>
-				                    <a href="<%= request.getContextPath() %>/citizenlist" class="closeProfileButton" title="Close Profile">
-				                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<h3 style="color: #ffffff; font-size: 18px; margin-bottom: 8px;">No
+									Citizen Selected</h3>
+								<p style="color: #75787D; font-size: 14px;">Select a citizen
+									from the list to review their details, issues, and fines.</p>
+							</div>
+						</c:when>
+						<c:otherwise>
+							<div class="profilePanel">
+								<div class="profileHeader">
+									<div class="profileTitle">Citizen Profile</div>
+									<a href="<%=request.getContextPath()%>/citizenlist"
+										class="closeProfileButton" title="Close Profile"> <svg
+											width="18" height="18" viewBox="0 0 24 24" fill="none"
+											stroke="currentColor" stroke-width="2" stroke-linecap="round"
+											stroke-linejoin="round">
 				                            <line x1="18" y1="6" x2="6" y2="18"></line>
 				                            <line x1="6" y1="6" x2="18" y2="18"></line>
 				                        </svg>
-				                    </a>
-				                </div>
-				                <div class="profileSummary">
-                    <div class="largeAvatar">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+									</a>
+								</div>
+								<div class="profileSummary">
+									<div class="largeAvatar">
+										<svg width="36" height="36" viewBox="0 0 24 24"
+											fill="currentColor">
+                            <path
+												d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                         </svg>
-                        <span class="statusDot"></span>
-                    </div>
-                    <h2 class="profileName">${selectedCitizen.firstName} ${selectedCitizen.lastName}</h2>
-                </div>
+										<span class="statusDot"></span>
+									</div>
+									<h2 class="profileName">${selectedCitizen.firstName}
+										${selectedCitizen.lastName}</h2>
+								</div>
 
-                <div class="profileDetails">
-                    <div class="detailRow">
-                        <span class="detailLabel">Username :</span>
-                        <span class="detailValue">${selectedCitizen.username}</span>
-                    </div>
-                    <div class="detailRow">
-                        <span class="detailLabel">Email :</span>
-                        <span class="detailValue">${selectedCitizen.email}</span>
-                    </div>
-                    <div class="detailRow">
-                        <span class="detailLabel">Phone :</span>
-                        <span class="detailValue">${selectedCitizen.number}</span>
-                    </div>
-                    <div class="detailRow">
-                        <span class="detailLabel">Registered :</span>
-                        <span class="detailValue">${selectedCitizen.registrationDate}</span>
-                    </div>
-                </div>
+								<div class="profileDetails">
+									<div class="detailRow">
+										<span class="detailLabel">Username :</span> <span
+											class="detailValue">${selectedCitizen.username}</span>
+									</div>
+									<div class="detailRow">
+										<span class="detailLabel">Email :</span> <span
+											class="detailValue">${selectedCitizen.email}</span>
+									</div>
+									<div class="detailRow">
+										<span class="detailLabel">Phone :</span> <span
+											class="detailValue">${selectedCitizen.number}</span>
+									</div>
+									<div class="detailRow">
+										<span class="detailLabel">Registered :</span> <span
+											class="detailValue">${selectedCitizen.registrationDate}</span>
+									</div>
+								</div>
 
-				<div class="suspendArea">
-				    <c:choose>
-				        <c:when test="${selectedCitizen.status == 'Active'}">
-				            <form action="${pageContext.request.contextPath}/citizenlist" method="POST">
-				                <input type="hidden" name="openSuspendId" value="${selectedCitizen.userId}">
-				                <button type="submit" class="buttonSuspend">Suspend User</button>
-				            </form>
-				        </c:when>
-				        <c:otherwise>
-				            <p style="color: #ef4444; font-size: 13px; margin-bottom: 10px;">
-				                 This citizen is currently suspended.
-				            </p>
-				            <form action="${pageContext.request.contextPath}/unsuspend" method="POST">
-				                <input type="hidden" name="userId" value="${selectedCitizen.userId}">
-				                <button type="submit" class="buttonUnsuspend">Unsuspend User</button>
-				            </form>
-				        </c:otherwise>
-				    </c:choose>
-				</div>
-				            </div>
-				         
-				        </c:otherwise>
-				    </c:choose>
+								<div class="suspendArea">
+									<c:choose>
+										<c:when test="${selectedCitizen.status == 'Active'}">
+											<form action="${pageContext.request.contextPath}/citizenlist"
+												method="POST">
+												<input type="hidden" name="openSuspendId"
+													value="${selectedCitizen.userId}">
+												<button type="submit" class="buttonSuspend">Suspend
+													User</button>
+											</form>
+										</c:when>
+										<c:otherwise>
+											<p
+												style="color: #ef4444; font-size: 13px; margin-bottom: 10px;">
+												This citizen is currently suspended.</p>
+											<form action="${pageContext.request.contextPath}/unsuspend"
+												method="POST">
+												<input type="hidden" name="userId"
+													value="${selectedCitizen.userId}">
+												<button type="submit" class="buttonUnsuspend">Unsuspend
+													User</button>
+											</form>
+										</c:otherwise>
+									</c:choose>
+								</div>
+							</div>
+
+						</c:otherwise>
+					</c:choose>
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<!-- SUSPENSION MODAL -->
-	<div class="modalOverlay" id="suspendModal" style="${not empty openSuspendId ? 'display:flex;' : ''}">
+	<div class="modalOverlay" id="suspendModal"
+		style="${not empty openSuspendId ? 'display:flex;' : ''}">
 		<div class="modalBox">
 			<div class="modalHeaderRed">
 				<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -204,23 +223,26 @@
 						d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" /></svg>
 				<h2>Confirm Suspension</h2>
 			</div>
-			<form action="${pageContext.request.contextPath}/suspend" method="POST">
-            <input type="hidden" name="userId" value="${openSuspendId}">
-            <div class="modalBody">
-                <p class="modalText">
-                    You are about to suspend the account for
-                    <strong>${selectedCitizen.firstName} ${selectedCitizen.lastName}</strong>.
-                    Please give your reason below.
-                </p>
-                <label class="labelArea">Reason of Suspension</label>
-                <textarea class="modalTextarea" name="suspensionReason"
-                    placeholder="Provide a detailed explanation for this suspension..." required></textarea>
-            </div>
-            <div class="modalFooter">
-                <a href="${pageContext.request.contextPath}/citizenlist" class="buttonCancel">Cancel</a>
-                <button type="submit" class="buttonConfirmRed">Confirm Suspension</button>
-            </div>
-        </form>
+			<form action="${pageContext.request.contextPath}/suspend"
+				method="POST">
+				<input type="hidden" name="userId" value="${openSuspendId}">
+				<div class="modalBody">
+					<p class="modalText">
+						You are about to suspend the account for <strong>${selectedCitizen.firstName}
+							${selectedCitizen.lastName}</strong>. Please give your reason below.
+					</p>
+					<label class="labelArea">Reason of Suspension</label>
+					<textarea class="modalTextarea" name="suspensionReason"
+						placeholder="Provide a detailed explanation for this suspension..."
+						required></textarea>
+				</div>
+				<div class="modalFooter">
+					<a href="${pageContext.request.contextPath}/citizenlist"
+						class="buttonCancel">Cancel</a>
+					<button type="submit" class="buttonConfirmRed">Confirm
+						Suspension</button>
+				</div>
+			</form>
 		</div>
 	</div>
 
