@@ -6,6 +6,7 @@ public class NewsModel {
 	private String newsTitle;
 	private String newsDescription;
 	private String newsCategory;
+	private String newsImage;
 	private String newsStatus;
 	private String postedAt;
 
@@ -63,5 +64,13 @@ public class NewsModel {
 
 	public void setNewsCategory(String newsCategory) {
 		this.newsCategory = newsCategory;
+	}
+
+	public String getNewsImage() {
+		return newsImage;
+	}
+
+	public void setNewsImage(String newsImage) {
+		this.newsImage = newsImage;
 	}
 }

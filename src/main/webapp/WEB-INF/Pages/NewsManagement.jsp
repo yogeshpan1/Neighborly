@@ -46,7 +46,16 @@
 			<div class="newsPreviewGrid">
 				<c:if test="${not empty newsList[0]}">
 					<div class="newsPreviewCard">
-						<div class="newsPreviewImage previewBlue"></div>
+						<c:choose>
+							<c:when test="${not empty newsList[0].newsImage}">
+								<img class="newsPreviewImage"
+									src="${pageContext.request.contextPath}/newsimage/${newsList[0].newsImage}"
+									alt="News Image">
+							</c:when>
+							<c:otherwise>
+								<div class="newsPreviewImage previewBlue"></div>
+							</c:otherwise>
+						</c:choose>
 						<div class="newsPreviewBody">
 							<h3 class="newsPreviewTitle">
 								<c:out value="${newsList[0].newsTitle}" />
@@ -60,7 +69,16 @@
 				</c:if>
 				<c:if test="${not empty newsList[1]}">
 					<div class="newsPreviewCard">
-						<div class="newsPreviewImage previewYellow"></div>
+						<c:choose>
+							<c:when test="${not empty newsList[1].newsImage}">
+								<img class="newsPreviewImage"
+									src="${pageContext.request.contextPath}/newsimage/${newsList[1].newsImage}"
+									alt="News Image">
+							</c:when>
+							<c:otherwise>
+								<div class="newsPreviewImage previewYellow"></div>
+							</c:otherwise>
+						</c:choose>
 						<div class="newsPreviewBody">
 							<h3 class="newsPreviewTitle">
 								<c:out value="${newsList[1].newsTitle}" />
@@ -74,7 +92,16 @@
 				</c:if>
 				<c:if test="${not empty newsList[2]}">
 					<div class="newsPreviewCard">
-						<div class="newsPreviewImage previewPink"></div>
+						<c:choose>
+							<c:when test="${not empty newsList[2].newsImage}">
+								<img class="newsPreviewImage"
+									src="${pageContext.request.contextPath}/newsimage/${newsList[2].newsImage}"
+									alt="News Image">
+							</c:when>
+							<c:otherwise>
+								<div class="newsPreviewImage previewPink"></div>
+							</c:otherwise>
+						</c:choose>
 						<div class="newsPreviewBody">
 							<h3 class="newsPreviewTitle">
 								<c:out value="${newsList[2].newsTitle}" />
@@ -87,58 +114,59 @@
 					</div>
 				</c:if>
 			</div>
-			<!-- NEWS LIST SECTION -->
-			<div class="newsListHeader">
-				<h2 class="newsListTitle">News Application</h2>
-				<span class="newsPillBadge">Total: ${totalNews} </span>
-			</div>
-			<div class="newsListContainer">
-				<c:forEach var="n" items="${newsList}">
-					<div class="newsRow">
-						<div class="newsIconWrap">
-							<svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-								stroke="#3b82f6" stroke-width="2" stroke-linecap="round"
-								stroke-linejoin="round">
+		</div>
+		<!-- NEWS LIST SECTION -->
+		<div class="newsListHeader">
+			<h2 class="newsListTitle">News Application</h2>
+			<span class="newsPillBadge">Total: ${totalNews} </span>
+		</div>
+		<div class="newsListContainer">
+			<c:forEach var="n" items="${newsList}">
+				<div class="newsRow">
+					<div class="newsIconWrap">
+						<svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+							stroke="#3b82f6" stroke-width="2" stroke-linecap="round"
+							stroke-linejoin="round">
                     <path
-									d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+								d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                     <polyline points="14 2 14 8 20 8"></polyline>
                     <line x1="16" y1="13" x2="8" y2="13"></line>
                     <line x1="16" y1="17" x2="8" y2="17"></line>
                     <polyline points="10 9 9 9 8 9"></polyline>
                 </svg>
-						</div>
-						<div class="newsInfo">
-							<h4>
-								<c:out value="${n.newsTitle}" />
-							</h4>
-							<div class="newsMetaRow">
-								<c:choose>
-									<c:when test="${n.newsCategory == 'featured'}">
-										<span class="newsCategoryBadge featured">Featured</span>
-									</c:when>
-									<c:otherwise>
-										<span class="newsCategoryBadge normal">Normal</span>
-									</c:otherwise>
-								</c:choose>
-								<p>${n.postedAt}</p>
-							</div>
-						</div>
-						<div class="newsActions">
-							<form action="${pageContext.request.contextPath}/newslist"
-								method="POST">
-								<input type="hidden" name="editNewsId" value="${n.newsId}">
-								<button type="submit" class="buttonNewsEdit">Edit</button>
-							</form>
-							<form action="${pageContext.request.contextPath}/deletenews"
-								method="POST">
-								<input type="hidden" name="newsId" value="${n.newsId}">
-								<button type="submit" class="buttonNewsDelete">Delete</button>
-							</form>
+					</div>
+					<div class="newsInfo">
+						<h4>
+							<c:out value="${n.newsTitle}" />
+						</h4>
+						<div class="newsMetaRow">
+							<c:choose>
+								<c:when test="${n.newsCategory == 'featured'}">
+									<span class="newsCategoryBadge featured">Featured</span>
+								</c:when>
+								<c:otherwise>
+									<span class="newsCategoryBadge normal">Normal</span>
+								</c:otherwise>
+							</c:choose>
+							<p>${n.postedAt}</p>
 						</div>
 					</div>
-				</c:forEach>
-			</div>
+					<div class="newsActions">
+						<form action="${pageContext.request.contextPath}/newslist"
+							method="POST">
+							<input type="hidden" name="editNewsId" value="${n.newsId}">
+							<button type="submit" class="buttonNewsEdit">Edit</button>
+						</form>
+						<form action="${pageContext.request.contextPath}/deletenews"
+							method="POST">
+							<input type="hidden" name="newsId" value="${n.newsId}">
+							<button type="submit" class="buttonNewsDelete">Delete</button>
+						</form>
+					</div>
+				</div>
+			</c:forEach>
 		</div>
+	</div>
 	</div>
 
 	<!-- CREATE NEWS MODAL -->
@@ -154,7 +182,7 @@
 			</div>
 
 			<form action="${pageContext.request.contextPath}/createnews"
-				method="POST">
+				method="POST" enctype="multipart/form-data">
 
 				<div class="modalBodyContent">
 
@@ -163,6 +191,12 @@
 						<label class="newsFormLabel">Title</label> <input type="text"
 							class="newsFormInput" name="newsTitle"
 							placeholder="e.g. Ward Committee Approves..." required>
+					</div>
+
+					<div class="newsFormGroup">
+
+						<label class="newsFormLabel">Image</label> <input type="file"
+							class="newsFormInput" name="newsImage" accept="image/*">
 					</div>
 
 					<div class="newsFormGroup">

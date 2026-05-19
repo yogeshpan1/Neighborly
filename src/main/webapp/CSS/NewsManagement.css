@@ -55,6 +55,8 @@
     border: 1px solid #323639;
     border-radius: 12px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
     transition: border-color 0.2s;
 }
 
@@ -63,10 +65,11 @@
 }
 
 .newsPreviewImage {
-    height: 140px;
+    height: 200px;
     width: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
 }
-
 .previewBlue {
     background-color: #a8b4c8;
 }
@@ -130,9 +133,17 @@
 .newsListContainer {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 9px;
+    padding: 0 24px 24px 24px;
 }
 
+.newsListHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding: 0 24px;
+}
 .newsRow {
     background-color: #212224;
     border: 1px solid #323639;
