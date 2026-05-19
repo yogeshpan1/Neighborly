@@ -10,10 +10,12 @@ import java.util.List;
 
 import com.Neighborly.dao.NewsDAO;
 import com.Neighborly.dao.NoticeDAO;
+import com.Neighborly.dao.PollDAO;
 import com.Neighborly.dao.ReportDAO;
 import com.Neighborly.dao.UserDAO;
 import com.Neighborly.model.NewsModel;
 import com.Neighborly.model.NoticeModel;
+import com.Neighborly.model.PollModel;
 import com.Neighborly.model.ReportModel;
 import com.Neighborly.model.UserModel;
 
@@ -41,7 +43,8 @@ public class AdminDashboardServlet extends HttpServlet {
             ReportDAO reportDAO = new ReportDAO();
             NewsDAO newsDAO = new NewsDAO();
             NoticeDAO noticeDAO = new NoticeDAO();
-
+            PollDAO pollDAO = new PollDAO();
+            
             // Citizens
             List<UserModel> users = userDAO.getAllUsers();
             request.setAttribute("totalCitizens", users.size());
@@ -67,6 +70,18 @@ public class AdminDashboardServlet extends HttpServlet {
             
             request.setAttribute("totalNotices", notices.size());
             request.setAttribute("recentNotices", notices);
+            
+            List<PollModel> polls = pollDAO.getAllPolls();
+            
+            int activePolls = 0;
+            for (PollModel p : polls) {
+                if ("Active".equals(p.getStatus())) {
+                    activePolls++;
+                }
+            }
+            request.setAttribute("totalPolls", polls.size());
+            request.setAttribute("activePolls", activePolls);
+            request.setAttribute("recentPolls", polls);
 
 
 

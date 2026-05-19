@@ -109,7 +109,7 @@
 							</thead>
 							<c:forEach var="r" items="${recentIssues}">
 								<tr>
-									<td class="primaryText">${r.firstName}${r.lastName}</td>
+									<td class="primaryText">${r.firstName} ${r.lastName}</td>
 									<td class="secondaryText">${r.category}</td>
 									<td class="secondaryText">${r.createdAt}</td>
 									<td><c:choose>
@@ -159,34 +159,26 @@
 					<div class="panel">
 						<div class="panelHeader">
 							<span class="panelTitle">Active polls</span> <a
-								href="PollList.jsp" class="viewAllLink">View all</a>
+								href="<%=request.getContextPath()%>/pollmanagement"
+								class="viewAllLink">View all</a>
 						</div>
-						<div class="pollItem">
-							<div class="pollIconBox">
-								<div class="statBars barsBlue" style="height: 16px; gap: 2px;">
-									<div class="bar h60" style="width: 3px;"></div>
-									<div class="bar h100" style="width: 3px;"></div>
-									<div class="bar h80" style="width: 3px;"></div>
+						<c:forEach var="p" items="${recentPolls}">
+							<c:if test="${p.status == 'Active'}">
+								<div class="pollItem">
+									<div class="pollIconBox">
+										<div class="statBars barsBlue" style="height: 16px; gap: 2px;">
+											<div class="bar h60" style="width: 3px;"></div>
+											<div class="bar h100" style="width: 3px;"></div>
+											<div class="bar h80" style="width: 3px;"></div>
+										</div>
+									</div>
+									<div class="pollDetails">
+										<h4>${p.question}</h4>
+										<p class="pollMeta">${p.status}</p>
+									</div>
 								</div>
-							</div>
-							<div class="pollDetails">
-								<h4>New bus route — Kalanki</h4>
-								<p class="pollMeta">142 votes &middot; Closes Apr 15</p>
-							</div>
-						</div>
-						<div class="pollItem">
-							<div class="pollIconBox">
-								<div class="statBars barsBlue" style="height: 16px; gap: 2px;">
-									<div class="bar h60" style="width: 3px;"></div>
-									<div class="bar h100" style="width: 3px;"></div>
-									<div class="bar h80" style="width: 3px;"></div>
-								</div>
-							</div>
-							<div class="pollDetails">
-								<h4>Footpaths or speed bumps?</h4>
-								<p class="pollMeta">89 votes &middot; Closes Apr 18</p>
-							</div>
-						</div>
+							</c:if>
+						</c:forEach>
 					</div>
 					<div class="panel">
 						<div class="panelHeader">

@@ -12,16 +12,19 @@ import com.Neighborly.utils.DBconfig;
 public class PollDAO {
 
 	public void insertPoll(String question, String description, String option1, String option2, String status,
-			int adminId) throws Exception {
+			int userId) throws Exception {
+		
 		Connection con = DBconfig.getConnection();
-		String sql = "INSERT INTO polls (poll_question, poll_description, poll_option1, poll_option2, poll_status, admin_id) VALUES (?, ?, ?, ?, ?, ?)";
+		
+		String sql = "INSERT INTO polls (poll_question, poll_description, poll_option1, poll_option2, poll_status, user_id) VALUES (?, ?, ?, ?, ?, ?)";
+		
 		PreparedStatement pst = con.prepareStatement(sql);
 		pst.setString(1, question);
 		pst.setString(2, description);
 		pst.setString(3, option1);
 		pst.setString(4, option2);
 		pst.setString(5, status);
-		pst.setInt(6, adminId);
+		pst.setInt(6, userId);
 		pst.executeUpdate();
 		pst.close();
 		con.close();
@@ -32,7 +35,7 @@ public class PollDAO {
 
 		Connection con = DBconfig.getConnection();
 
-		String sql = "SELECT poll_id, poll_question, poll_description, poll_option1, poll_option2, poll_status, poll_created_at, admin_id FROM polls WHERE poll_status = 'Active'";
+		String sql = "SELECT poll_id, poll_question, poll_description, poll_option1, poll_option2, poll_status, poll_created_at, user_id FROM polls WHERE poll_status = 'Active'";
 
 		PreparedStatement pst = con.prepareStatement(sql);
 
@@ -48,7 +51,7 @@ public class PollDAO {
 			p.setOption2(rs.getString("poll_option2"));
 			p.setStatus(rs.getString("poll_status"));
 			p.setCreatedAt(rs.getString("poll_created_at"));
-			p.setAdminId(rs.getInt("admin_id"));
+			p.setUserId(rs.getInt("user_id"));
 			polls.add(p);
 		}
 
