@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Neighborly</title>
+    <title>Neighborly</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/navbar.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/leftbar.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/AboutUs.css">

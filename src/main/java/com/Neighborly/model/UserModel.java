@@ -15,6 +15,7 @@ public class UserModel {
 	private String password;
 	private String role;
     private String image;
+    private String status;
 
 
 	// Getters
@@ -62,6 +63,10 @@ public class UserModel {
     	return image; 
     }
 
+    public String getStatus() {
+        return status;
+    }
+
 
 	// Setters
 	public void setUserId(int userId) {
@@ -106,6 +111,10 @@ public class UserModel {
 	
     public void setImage(String image) { 
     	this.image = image; 
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
 }

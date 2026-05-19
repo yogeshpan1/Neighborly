@@ -3,8 +3,8 @@ package com.Neighborly.utils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class DBconfig
-{
+public class DBconfig {
+
 	private static final String URL = "jdbc:mysql://localhost:3306/neighborly";
     private static final String USER = "root";
     private static final String PASSWORD = "";
@@ -21,8 +21,7 @@ public class DBconfig
 
             System.out.println("Connected to DB");
 
-        } catch (Exception e) 
-        {
+        } catch (Exception e) {
             System.out.println("DB Connection Failed");
             e.printStackTrace(); 
         }

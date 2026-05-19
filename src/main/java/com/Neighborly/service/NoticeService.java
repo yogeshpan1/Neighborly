@@ -1,10 +1,6 @@
 package com.Neighborly.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class NoticeService {
-
 	public String validateNotice(String title, String category, String description) {
 
 		if (title == null || title.trim().isEmpty()) {
@@ -16,19 +12,6 @@ public class NoticeService {
 		if (category == null || category.trim().isEmpty()) {
 			return "Category is required";
 		}
-
-		// category whitelist
-		List<String> allowedCategories = new ArrayList<>();
-
-		allowedCategories.add("General");
-		allowedCategories.add("Emergency");
-		allowedCategories.add("Event");
-		allowedCategories.add("Maintenance");
-
-		if (!allowedCategories.contains(category.trim())) {
-			return "Invalid category";
-		}
-
 		if (description == null || description.trim().isEmpty()) {
 			return "Description is required";
 		}

@@ -61,6 +61,7 @@ public class UserDAO {
 			u.setNumber(rs.getString("number"));
 			u.setRole(rs.getString("role"));
 			u.setImage(rs.getString("image"));
+			u.setStatus(rs.getString("status"));
 			users.add(u);
 		}
 
@@ -95,6 +96,38 @@ public class UserDAO {
 			u.setPassword(rs.getString("password"));
 			u.setRole(rs.getString("role"));
 			u.setImage(rs.getString("image"));
+		}
+
+		rs.close();
+		pst.close();
+		con.close();
+
+		return u;
+	}
+
+	// Get single user by ID
+	public UserModel getUserById(int userId) throws Exception {
+		String sql = "SELECT * FROM users WHERE user_id = ?";
+
+		Connection con = DBconfig.getConnection();
+		PreparedStatement pst = con.prepareStatement(sql);
+		pst.setInt(1, userId);
+		ResultSet rs = pst.executeQuery();
+
+		UserModel u = null;
+		if (rs.next()) {
+			u = new UserModel();
+			u.setUserId(rs.getInt("user_id"));
+			u.setFirstName(rs.getString("first_name"));
+			u.setLastName(rs.getString("last_name"));
+			u.setUserName(rs.getString("username"));
+			u.setDob(rs.getDate("dob"));
+			u.setGender(rs.getString("gender"));
+			u.setEmail(rs.getString("email"));
+			u.setNumber(rs.getString("number"));
+			u.setRole(rs.getString("role"));
+			u.setImage(rs.getString("image"));
+			u.setStatus(rs.getString("status"));
 		}
 
 		rs.close();
