@@ -38,7 +38,6 @@ public class RegisterServlet extends HttpServlet {
         String number    = request.getParameter("number");
         String password  = request.getParameter("password");
 
-        // Validation
         if (firstName == null || firstName.trim().isEmpty() || !firstName.matches("[a-zA-Z ]+")) {
             request.setAttribute("error", "Invalid First name");
             request.getRequestDispatcher("/WEB-INF/Pages/register.jsp").forward(request, response);
@@ -81,19 +80,23 @@ public class RegisterServlet extends HttpServlet {
         }
 
         try {
-            String image = null;
             Part filePart = request.getPart("profileImage");
-            if (filePart != null && filePart.getSize() > 0) {
-                if (FileUploadUtil.isImage(filePart)) {
-                    String extension = FileUploadUtil.getFileExtension(filePart.getSubmittedFileName());
-                    image = username + extension;
-                    FileUploadUtil.saveFile(filePart, UPLOAD_DIR, image);
-                } else {
-                    request.setAttribute("error", "Invalid image type. Please upload a valid image.");
-                    request.getRequestDispatcher("/WEB-INF/Pages/register.jsp").forward(request, response);
-                    return;
-                }
+
+            // Photo is compulsory
+            if (filePart == null || filePart.getSize() == 0) {
+                request.setAttribute("error", "Profile photo is required");
+                request.getRequestDispatcher("/WEB-INF/Pages/register.jsp").forward(request, response);
+                return;
             }
+            if (!FileUploadUtil.isImage(filePart)) {
+                request.setAttribute("error", "Invalid image type. Please upload a valid image.");
+                request.getRequestDispatcher("/WEB-INF/Pages/register.jsp").forward(request, response);
+                return;
+            }
+
+            String extension = FileUploadUtil.getFileExtension(filePart.getSubmittedFileName());
+            String image = username + extension;
+            FileUploadUtil.saveFile(filePart, UPLOAD_DIR, image);
 
             RegisterService service = new RegisterService();
             service.addUser(firstName, lastName, username, dob, gender, email, number, password, image);

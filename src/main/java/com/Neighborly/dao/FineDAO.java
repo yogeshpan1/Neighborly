@@ -10,15 +10,14 @@ import com.Neighborly.model.FineModel;
 import com.Neighborly.utils.DBconfig;
 
 public class FineDAO {
+
 	public void insertFine(int userId, String violationType, double fineAmount, String violationDate, String reason)
 			throws Exception {
-		
-		Connection con = DBconfig.getConnection();
-		
+
 		String sql = "INSERT INTO fines (user_id, violation_type, fine_amount, violation_date, reason) VALUES (?, ?, ?, ?, ?)";
-		
+
+		Connection con = DBconfig.getConnection();
 		PreparedStatement pst = con.prepareStatement(sql);
-		
 		pst.setInt(1, userId);
 		pst.setString(2, violationType);
 		pst.setDouble(3, fineAmount);
@@ -33,18 +32,17 @@ public class FineDAO {
 
 		List<FineModel> fines = new ArrayList<>();
 
+		String sql = "SELECT f.fine_id, f.user_id, u.first_name, u.last_name, f.violation_type, f.fine_amount, "
+				+ "       f.violation_date, f.reason, f.fine_status, f.issued_at " + "FROM fines f "
+				+ "JOIN users u ON f.user_id = u.user_id " + "WHERE f.fine_status != 'Deleted' "
+				+ "ORDER BY f.issued_at DESC";
+
 		Connection con = DBconfig.getConnection();
-
-		String sql = "SELECT f.fine_id, f.user_id, u.first_name, u.last_name, f.violation_type, f.fine_amount, f.violation_date, f.reason, f.fine_status, f.issued_at FROM fines f JOIN users u ON f.user_id = u.user_id WHERE f.fine_status != 'Deleted' ORDER BY f.issued_at DESC";
-
 		PreparedStatement pst = con.prepareStatement(sql);
-
 		ResultSet rs = pst.executeQuery();
 
 		while (rs.next()) {
-
 			FineModel f = new FineModel();
-
 			f.setFineId(rs.getInt("fine_id"));
 			f.setUserId(rs.getInt("user_id"));
 			f.setFirstName(rs.getString("first_name"));
@@ -57,20 +55,20 @@ public class FineDAO {
 			f.setIssuedAt(rs.getString("issued_at"));
 			fines.add(f);
 		}
+
 		rs.close();
 		pst.close();
 		con.close();
+
 		return fines;
 	}
 
 	public void markPaid(int fineId) throws Exception {
 
-		Connection con = DBconfig.getConnection();
-
 		String sql = "UPDATE fines SET fine_status = 'Paid' WHERE fine_id = ?";
 
+		Connection con = DBconfig.getConnection();
 		PreparedStatement pst = con.prepareStatement(sql);
-
 		pst.setInt(1, fineId);
 		pst.executeUpdate();
 		pst.close();
@@ -78,62 +76,51 @@ public class FineDAO {
 	}
 
 	public void deleteFine(int fineId) throws Exception {
-	    
+
+		String sql = "UPDATE fines SET fine_status = 'Deleted' WHERE fine_id = ?";
+
 		Connection con = DBconfig.getConnection();
-		
-	    String sql = "UPDATE fines SET fine_status = 'Deleted' WHERE fine_id = ?";
-	    
-	    PreparedStatement pst = con.prepareStatement(sql);
-	    
-	    pst.setInt(1, fineId);
-	    pst.executeUpdate();
-	    pst.close();
-	    con.close();
+		PreparedStatement pst = con.prepareStatement(sql);
+		pst.setInt(1, fineId);
+		pst.executeUpdate();
+		pst.close();
+		con.close();
 	}
-	
+
 	public List<FineModel> getFinesByUser(int userId) throws Exception {
 
-	    List<FineModel> fines = new ArrayList<>();
+		List<FineModel> fines = new ArrayList<>();
 
-	    String sql =
-	        "SELECT f.fine_id, f.user_id, u.first_name, u.last_name, " +
-	        "       f.violation_type, f.fine_amount, f.violation_date, " +
-	        "       f.reason, f.fine_status, f.issued_at " +
-	        "FROM fines f " +
-	        "JOIN users u ON f.user_id = u.user_id " +
-	        "WHERE f.user_id = ? AND f.fine_status != 'Deleted' " +
-	        "ORDER BY f.issued_at DESC";
+		String sql = "SELECT f.fine_id, f.user_id, u.first_name, u.last_name, "
+				+ "       f.violation_type, f.fine_amount, f.violation_date, "
+				+ "       f.reason, f.fine_status, f.issued_at " + "FROM fines f "
+				+ "JOIN users u ON f.user_id = u.user_id " + "WHERE f.user_id = ? AND f.fine_status != 'Deleted' "
+				+ "ORDER BY f.issued_at DESC";
 
-	    Connection con = null;
-	    PreparedStatement pst = null;
-	    ResultSet rs = null;
+		Connection con = DBconfig.getConnection();
+		PreparedStatement pst = con.prepareStatement(sql);
+		pst.setInt(1, userId);
+		ResultSet rs = pst.executeQuery();
 
-	    try {
-	        con = DBconfig.getConnection();
-	        pst = con.prepareStatement(sql);
-	        pst.setInt(1, userId);
-	        rs = pst.executeQuery();
+		while (rs.next()) {
+			FineModel f = new FineModel();
+			f.setFineId(rs.getInt("fine_id"));
+			f.setUserId(rs.getInt("user_id"));
+			f.setFirstName(rs.getString("first_name"));
+			f.setLastName(rs.getString("last_name"));
+			f.setViolationType(rs.getString("violation_type"));
+			f.setFineAmount(rs.getDouble("fine_amount"));
+			f.setViolationDate(rs.getString("violation_date"));
+			f.setReason(rs.getString("reason"));
+			f.setStatus(rs.getString("fine_status"));
+			f.setIssuedAt(rs.getString("issued_at"));
+			fines.add(f);
+		}
 
-	        while (rs.next()) {
-	            FineModel f = new FineModel();
-	            f.setFineId(rs.getInt("fine_id"));
-	            f.setUserId(rs.getInt("user_id"));
-	            f.setFirstName(rs.getString("first_name"));
-	            f.setLastName(rs.getString("last_name"));
-	            f.setViolationType(rs.getString("violation_type"));
-	            f.setFineAmount(rs.getDouble("fine_amount"));
-	            f.setViolationDate(rs.getString("violation_date"));
-	            f.setReason(rs.getString("reason"));
-	            f.setStatus(rs.getString("fine_status"));
-	            f.setIssuedAt(rs.getString("issued_at"));
-	            fines.add(f);
-	        }
-	    } finally {
-	        if (rs  != null) { try { rs.close();  } catch (Exception ignored) {} }
-	        if (pst != null) { try { pst.close(); } catch (Exception ignored) {} }
-	        if (con != null) { try { con.close(); } catch (Exception ignored) {} }
-	    }
+		rs.close();
+		pst.close();
+		con.close();
 
-	    return fines;
+		return fines;
 	}
 }
