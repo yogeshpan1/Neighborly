@@ -21,7 +21,9 @@ body {
 }
 
 @media (max-width: 768px) {
-    .mainContent { margin-left: 0; }
+    .mainContent {
+        margin-left: 0;
+    }
 }
 
 
@@ -41,7 +43,7 @@ body {
     border-radius: 12px;
     padding: 14px 16px;
     margin-bottom: 14px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .composerTop {
@@ -81,9 +83,14 @@ body {
     font-family: inherit;
 }
 
-.composerInput::placeholder { color: #90949c; }
+.composerInput::placeholder {
+    color: #90949c;
+}
+
 .composerInput:hover,
-.composerInput:focus { background: #e4e6ea; }
+.composerInput:focus {
+    background: #e4e6ea;
+}
 
 .photoActionBtn {
     background: transparent;
@@ -98,7 +105,9 @@ body {
     transition: background 0.15s;
 }
 
-.photoActionBtn:hover { background: #F0F2F5; }
+.photoActionBtn:hover {
+    background: #F0F2F5;
+}
 
 .composerBottom {
     display: flex;
@@ -119,7 +128,9 @@ body {
     font-family: inherit;
 }
 
-.postBtn:hover { background: #b3561a; }
+.postBtn:hover {
+    background: #b3561a;
+}
 
 /*  Post  */
 
@@ -129,17 +140,34 @@ body {
     border-radius: 12px;
     padding: 18px 20px;
     margin-bottom: 12px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     transition: box-shadow 0.15s;
 }
 
 .post:hover {
-    box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
 }
 
 /* Post type variants */
-.post--alert { border-left: 3px solid #FF9800; }
-.post--discussion { border-left: 3px solid #1976d2; }
+.post--alert {
+    border-left: 3px solid #FF9800;
+}
+
+.post--discussion {
+    border-left: 3px solid #1976d2;
+}
+
+.postTypeBadge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    background-color: #F0F2F5;
+    color: #65676B;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
 
 /*  Post Author Area  */
 
@@ -170,6 +198,13 @@ body {
     letter-spacing: 0.3px;
 }
 
+.postAuthorInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
 .postAuthor {
     font-weight: 600;
     color: #1a1a1b;
@@ -181,23 +216,7 @@ body {
     color: #90949c;
 }
 
-.moreBtn {
-    background: none;
-    border: none;
-    color: #90949c;
-    cursor: pointer;
-    font-size: 18px;
-    letter-spacing: 1px;
-    padding: 2px 6px;
-    border-radius: 6px;
-    line-height: 1;
-    transition: background 0.15s, color 0.15s;
-}
 
-.moreBtn:hover {
-    background: #F0F2F5;
-    color: #1a1a1b;
-}
 
 /*  Post Area ─ */
 
@@ -209,8 +228,7 @@ body {
     line-height: 1.3;
 }
 
-.postTitle--urgent { color: #e53935; }
-.postTitle--civic  { color: #1976d2; }
+
 
 .postBody {
     color: #4a4a4a;
@@ -252,7 +270,7 @@ body {
 
 @media (max-width: 768px) {
     .mainContent {
- 
+
         margin-left: 0px;
         width: 100%;
         display: block;
@@ -265,16 +283,17 @@ body {
     }
 
     .feedCenter {
- 
+
         max-width: 100%;
         width: auto;
         margin-left: 0px;
         margin-right: 0px;
     }
 
-    .composer, .post {
+    .composer,
+    .post {
         transform: translateZ(0);
-        
+
         padding: 15px;
         margin-bottom: 12px;
         border-radius: 8px;
@@ -296,6 +315,7 @@ body {
         line-height: 18px;
     }
 }
+
 .voteBtn {
     background: none;
     border: none;
@@ -313,13 +333,7 @@ body {
     color: #C8621A;
 }
 
-.voteCount {
-    min-width: 28px;
-    text-align: center;
-    font-size: 13px;
-    font-weight: 700;
-    color: #1a1a1b;
-}
+
 
 .saveBtnPill {
     display: flex;
@@ -341,4 +355,52 @@ body {
     background: #F0F2F5;
     border-color: #c8c8c8;
     color: #1a1a1b;
+}
+
+
+.postTypeSelect {
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-family: inherit;
+    color: #65676B;
+    background: #F0F2F5;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.15s;
+}
+
+.postTypeSelect:hover,
+.postTypeSelect:focus {
+    border-color: #C8621A;
+}
+
+.voteActive {
+    color: #E86A33;
+    font-weight: bold;
+}
+
+.downvoteBtn.voteActive {
+    color: #5B8CFF;
+    font-weight: bold;
+}
+
+.composerInputWrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 4px;
+}
+
+.composerError {
+    color: #e03e3e;
+    font-size: 12px;
+    font-weight: 500;
+    padding-left: 2px;
+}
+
+.inputError {
+    border: 1.5px solid #e03e3e !important;
+    outline: none;
 }

@@ -27,6 +27,7 @@ public class editProfileServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setAttribute("activePage", "Edit Profile");
 		request.getRequestDispatcher("/WEB-INF/Pages/editProfile.jsp").forward(request, response);
 	}
     

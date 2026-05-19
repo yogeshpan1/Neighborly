@@ -37,6 +37,8 @@ public class ReportServlet extends HttpServlet {
             request.setAttribute("reports", reports);
             request.setAttribute("totalReports", reports.size());
             request.setAttribute("pendingReports", pendingCount);
+            
+    		request.setAttribute("activePage", "Report Issues");
             request.getRequestDispatcher("/WEB-INF/Pages/report.jsp")
                    .forward(request, response);
         } catch (Exception e) {

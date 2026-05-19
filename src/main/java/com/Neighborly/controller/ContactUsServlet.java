@@ -27,6 +27,7 @@ public class ContactUsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setAttribute("activePage", "Contact Us");
 		request.getRequestDispatcher("/WEB-INF/Pages/contact.jsp").forward(request, response);
 	}
 
