@@ -9,19 +9,19 @@ import java.io.IOException;
 import java.util.List;
 
 import com.Neighborly.dao.NewsDAO;
-import com.Neighborly.model.NewModel;
+import com.Neighborly.model.NewsModel;
 
 /**
  * Servlet implementation class NewsManagement
  */
 @WebServlet(asyncSupported = true, urlPatterns = { "/newslist" })
-public class NewsManagement extends HttpServlet {
+public class NewsManagementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public NewsManagement() {
+	public NewsManagementServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -34,7 +34,7 @@ public class NewsManagement extends HttpServlet {
 			throws ServletException, IOException {
 		try {
 			NewsDAO dao = new NewsDAO();
-			List<NewModel> newsList = dao.getAllNews();
+			List<NewsModel> newsList = dao.getAllNews();
 			request.setAttribute("newsList", newsList);
 			request.setAttribute("totalNews", newsList.size());
 			request.getRequestDispatcher("/WEB-INF/Pages/NewsManagement.jsp").forward(request, response);
@@ -53,7 +53,7 @@ public class NewsManagement extends HttpServlet {
 		
 		try {
 			
-			List<NewModel>  newsList = dao.getAllNews();
+			List<NewsModel>  newsList = dao.getAllNews();
 			
 			request.setAttribute("newsList", newsList);
 			
@@ -71,7 +71,7 @@ public class NewsManagement extends HttpServlet {
 				
 				int editId = Integer.parseInt(editRequestId);
 				
-				for (NewModel n : newsList) {
+				for (NewsModel n : newsList) {
 					if (n.getNewsId() == editId) {
 						request.setAttribute("editNews", n);
 						break;
