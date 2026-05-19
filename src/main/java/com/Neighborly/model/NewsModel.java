@@ -5,6 +5,7 @@ public class NewsModel {
 	private int adminId;
 	private String newsTitle;
 	private String newsDescription;
+	private String newsCategory;
 	private String newsStatus;
 	private String postedAt;
 
@@ -54,5 +55,13 @@ public class NewsModel {
 
 	public void setPostedAt(String postedAt) {
 		this.postedAt = postedAt;
+	}
+
+	public String getNewsCategory() {
+		return newsCategory;
+	}
+
+	public void setNewsCategory(String newsCategory) {
+		this.newsCategory = newsCategory;
 	}
 }

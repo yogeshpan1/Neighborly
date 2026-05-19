@@ -17,8 +17,9 @@ public class ReportDAO {
 		Connection con = DBconfig.getConnection();
 
 		String sql = "SELECT r.report_id, r.user_id, u.first_name, u.last_name, "
-				+ "r.title, r.category, r.location, r.description, " + "r.reportPhoto, r.status, r.created_at "
-				+ "FROM issueReports r " + "JOIN users u ON r.user_id = u.user_id " + "ORDER BY r.created_at DESC";
+				+ "r.title, r.category, r.location, r.description, "
+				+ "r.reportPhoto, r.status, r.created_at, r.staff_notes " + "FROM issueReports r "
+				+ "JOIN users u ON r.user_id = u.user_id " + "ORDER BY r.created_at DESC";
 
 		PreparedStatement pst = con.prepareStatement(sql);
 
@@ -39,6 +40,7 @@ public class ReportDAO {
 			r.setReportPhoto(rs.getString("reportPhoto"));
 			r.setStatus(rs.getString("status"));
 			r.setCreatedAt(rs.getString("created_at"));
+			r.setStaffNotes(rs.getString("staff_notes"));
 			reports.add(r);
 		}
 		rs.close();
@@ -74,6 +76,7 @@ public class ReportDAO {
 			r.setReportPhoto(rs.getString("reportPhoto"));
 			r.setStatus(rs.getString("status"));
 			r.setCreatedAt(rs.getString("created_at"));
+			
 		}
 
 		rs.close();
@@ -83,23 +86,22 @@ public class ReportDAO {
 		return r;
 	}
 
-	public void updateReportStatus(int reportId, String status) throws Exception {
+	public void updateReportStatus(int reportId, String status, String notes) throws Exception {
 
-		Connection con = DBconfig.getConnection();
+	    Connection con = DBconfig.getConnection();
 
-		String sql = "UPDATE issueReports SET status=? WHERE report_id=?";
+	    String sql = "UPDATE issueReports SET status=?, staff_notes=? WHERE report_id=?";
 
-		PreparedStatement pst = con.prepareStatement(sql);
+	    PreparedStatement pst = con.prepareStatement(sql);
 
-		pst.setString(1, status);
-		pst.setInt(2, reportId);
+	    pst.setString(1, status);
+	    pst.setString(2, notes);
+	    pst.setInt(3, reportId);
 
-		pst.executeUpdate();
-
-		pst.close();
-		con.close();
+	    pst.executeUpdate();
+	    pst.close();
+	    con.close();
 	}
-
 	public void deleteReport(int reportId) throws Exception {
 
 		Connection con = DBconfig.getConnection();

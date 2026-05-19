@@ -40,9 +40,10 @@ public class CreateNewsServlet extends HttpServlet {
 		 request.setCharacterEncoding("UTF-8");
 	        String title = request.getParameter("newsTitle");
 	        String content = request.getParameter("newsContent");
+	        String category = request.getParameter("newsCategory");
 	        try {
 	            NewsDAO dao = new NewsDAO();
-	            dao.insertNews(DEFAULT_ADMIN_USER_ID, title.trim(), content);
+	            dao.insertNews(DEFAULT_ADMIN_USER_ID, title.trim(), content,category);
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }

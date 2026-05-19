@@ -32,7 +32,8 @@
 				<div>
 					<h1 class="newsPageTitle">News Management</h1>
 				</div>
-				<form action="${pageContext.request.contextPath}/newslist" method="POST">
+				<form action="${pageContext.request.contextPath}/newslist"
+					method="POST">
 					<input type="hidden" name="openCreateNews" value="true">
 					<button type="submit" class="buttonCreateNews">+ Create
 						News</button>
@@ -110,7 +111,17 @@
 							<h4>
 								<c:out value="${n.newsTitle}" />
 							</h4>
-							<p>${n.postedAt}</p>
+							<div class="newsMetaRow">
+								<c:choose>
+									<c:when test="${n.newsCategory == 'featured'}">
+										<span class="newsCategoryBadge featured">Featured</span>
+									</c:when>
+									<c:otherwise>
+										<span class="newsCategoryBadge normal">Normal</span>
+									</c:otherwise>
+								</c:choose>
+								<p>${n.postedAt}</p>
+							</div>
 						</div>
 						<div class="newsActions">
 							<form action="${pageContext.request.contextPath}/newslist"
@@ -142,7 +153,8 @@
 				<p class="modalSubtitle">Write and publish a new news article.</p>
 			</div>
 
-			<form action="${pageContext.request.contextPath}/createnews" method="POST">
+			<form action="${pageContext.request.contextPath}/createnews"
+				method="POST">
 
 				<div class="modalBodyContent">
 
@@ -151,6 +163,18 @@
 						<label class="newsFormLabel">Title</label> <input type="text"
 							class="newsFormInput" name="newsTitle"
 							placeholder="e.g. Ward Committee Approves..." required>
+					</div>
+
+					<div class="newsFormGroup">
+
+						<label class="newsFormLabel">Category</label> <select
+							class="newsFormInput" name="newsCategory" required>
+
+							<option value="normal">Normal</option>
+
+							<option value="featured">Featured</option>
+
+						</select>
 					</div>
 
 					<div class="newsFormGroup">
@@ -202,7 +226,8 @@
 
 			</div>
 
-			<form action="${pageContext.request.contextPath}/updatenews" method="POST">
+			<form action="${pageContext.request.contextPath}/updatenews"
+				method="POST">
 
 				<input type="hidden" name="newsId" value="${editNews.newsId}">
 
@@ -214,6 +239,20 @@
 							class="newsFormInput" name="newsTitle"
 							value="<c:out value='${editNews.newsTitle}'/>" required>
 
+					</div>
+
+					<div class="newsFormGroup">
+
+						<label class="newsFormLabel">Category</label> <select
+							class="newsFormInput" name="newsCategory" required>
+
+							<option value="normal"
+								${editNews.newsCategory == 'normal' ? 'selected' : ''}>Normal</option>
+
+							<option value="featured"
+								${editNews.newsCategory == 'featured' ? 'selected' : ''}>Featured</option>
+
+						</select>
 					</div>
 
 					<div class="newsFormGroup">
@@ -259,7 +298,8 @@
 
 			</div>
 
-			<form action="${pageContext.request.contextPath}/deletenews" method="POST">
+			<form action="${pageContext.request.contextPath}/deletenews"
+				method="POST">
 
 				<input type="hidden" name="newsId" value="${openDeleteNewsId}">
 

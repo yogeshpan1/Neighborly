@@ -43,10 +43,12 @@ public class UpdateReportManagement extends HttpServlet {
             int reportId = Integer.parseInt(request.getParameter("reportId"));
 
             String status = request.getParameter("status");
+            
+            String notes = request.getParameter("notes");
 
             ReportDAO dao = new ReportDAO();
 
-            dao.updateReportStatus(reportId, status);
+            dao.updateReportStatus(reportId, status, notes);
 
             response.sendRedirect("IssueManagement");
 

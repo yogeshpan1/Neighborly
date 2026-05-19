@@ -30,45 +30,37 @@ public class ReportManagementServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		try {
 
 			ReportDAO dao = new ReportDAO();
-
 			List<ReportModel> reports = dao.getAllReports();
 
-			request.setAttribute("reports", reports);
-
-			int totalReports = reports.size();
-
-			int resolvedReports = 0;
-			int pendingReports = 0;
-			int inProgressReports = 0;
+			int total = reports.size();
+			int resolved = 0;
+			int pending = 0;
+			int inProgress = 0;
 
 			for (ReportModel r : reports) {
+				String Status = r.getStatus();
 
-				if (r.getStatus().equals("resolved")) {
-					resolvedReports++;
-				}
+				if ("resolved".equals(Status))
+					resolved++;
 
-				else if (r.getStatus().equals("pending")) {
-					pendingReports++;
-				}
+				else if ("pending".equals(Status))
+					pending++;
 
-				else if (r.getStatus().equals("in_progress")) {
-					inProgressReports++;
-				}
+				else if ("in_progress".equals(Status))
+					inProgress++;
 			}
 
-			request.setAttribute("totalReports", totalReports);
-
-			request.setAttribute("resolvedReports", resolvedReports);
-
-			request.setAttribute("pendingReports", pendingReports);
-
-			request.setAttribute("inProgressReports", inProgressReports);
+			request.setAttribute("reports", reports);
+			request.setAttribute("totalReports", total);
+			request.setAttribute("resolvedReports", resolved);
+			request.setAttribute("pendingReports", pending);
+			request.setAttribute("inProgressReports", inProgress);
 
 			request.getRequestDispatcher("/WEB-INF/Pages/ReportIssue.jsp").forward(request, response);
 		} catch (Exception e) {
@@ -76,43 +68,88 @@ public class ReportManagementServlet extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-
 			ReportDAO dao = new ReportDAO();
-
-			int reportId = Integer.parseInt(request.getParameter("reviewIssueId"));
-
-			ReportModel selectedIssue = dao.getReportById(reportId);
-
 			List<ReportModel> reports = dao.getAllReports();
+
+			int total = reports.size();
+			int resolved = 0;
+			int pending = 0;
+			int inProgress = 0;
+
+			for (ReportModel r : reports) {
+				String Status = r.getStatus();
+
+				if ("resolved".equals(Status))
+					resolved++;
+
+				else if ("pending".equals(Status))
+					pending++;
+
+				else if ("in_progress".equals(Status))
+					inProgress++;
+			}
+
+			request.setAttribute("reports", reports);
+			request.setAttribute("totalReports", total);
+			request.setAttribute("resolvedReports", resolved);
+			request.setAttribute("pendingReports", pending);
+			request.setAttribute("inProgressReports", inProgress);
+
+			String reviewIssueId = request.getParameter("reviewIssueId");
+			ReportModel selectedIssue = null;
+
+			if (reviewIssueId != null && !reviewIssueId.isEmpty()) {
+				
+			    int id = Integer.parseInt(reviewIssueId);
+			    
+			    for (ReportModel r : reports) {
+			    	
+			        if (r.getReportId() == id) {
+			        	
+			            selectedIssue = r;  // ← THIS LINE IS MISSING IN YOUR CODE
+			            
+			            request.setAttribute("selectedIssue", r);
+			            
+			            break;
+			            
+			        }
+			    }
+			}
+			// Always default to the issue's current status
+			if (selectedIssue != null) {
+			    
+				request.setAttribute("selectedStatus", selectedIssue.getStatus());
+			}
+
+			// Override if user clicked a status button
+			String selectedStatus = request.getParameter("selectedStatus");
 			
-			String reviewRequestId = request.getParameter("reviewIssueId");
+			if (selectedStatus != null && !selectedStatus.isEmpty()) {
+				
+			    request.setAttribute("selectedStatus", selectedStatus);
+			}
+			
+			String openDeleteId = request.getParameter("openDeleteIssueId");
 
-			if (reviewRequestId != null && !reviewRequestId.isEmpty()) {
+			if (openDeleteId != null && !openDeleteId.isEmpty()) {
 
-				int reviewId = Integer.parseInt(reviewRequestId);
+				int id = Integer.parseInt(openDeleteId);
 
 				for (ReportModel r : reports) {
 
-					if (r.getReportId() == reviewId) {
+					if (r.getReportId() == id) {
 
-						request.setAttribute("selectedIssue", r);
-
+						request.setAttribute("openDeleteIssueId", openDeleteId);
+						request.setAttribute("deleteIssueTitle", r.getTitle());
 						break;
 					}
 				}
 			}
 
-			request.setAttribute("reports", reports);
-
 			request.getRequestDispatcher("/WEB-INF/Pages/ReportIssue.jsp").forward(request, response);
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

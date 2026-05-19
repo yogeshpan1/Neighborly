@@ -345,6 +345,7 @@
     border: 1px dashed #323639;
 }
 
+
 /* User Description Box */
 .userDescriptionBox {
     background-color: #1a1d21;
@@ -372,6 +373,16 @@
 .statusSelector {
     display: flex;
     gap: 12px;
+}
+
+.statusSelector form {
+    flex: 1;
+    display: flex;
+}
+
+.statusSelector .statusButton {
+    flex: 1;
+    width: 100%;
 }
 
 .statusButton {

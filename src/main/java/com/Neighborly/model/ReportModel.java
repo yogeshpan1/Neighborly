@@ -13,6 +13,8 @@ public class ReportModel {
     private String reportPhoto;
     private String status;
     private String createdAt;
+    private String staffNotes;
+
 
     public int getReportId() {
         return reportId;
@@ -100,5 +102,13 @@ public class ReportModel {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public String getStaffNotes() {
+		return staffNotes;
+	}
+
+	public void setStaffNotes(String staffNotes) {
+		this.staffNotes = staffNotes;
 	}
 }

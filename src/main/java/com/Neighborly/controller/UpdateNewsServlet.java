@@ -48,10 +48,15 @@ public class UpdateNewsServlet extends HttpServlet {
 		String title = request.getParameter("newsTitle");
 
 		String content = request.getParameter("newsContent");
+		
+		String category = request.getParameter("newsCategory");
 
 		try {
+			
 			NewsDAO dao = new NewsDAO();
-			dao.updateNews(newsId, title, content);
+			
+			dao.updateNews(newsId, title, content, category);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
