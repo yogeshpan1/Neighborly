@@ -13,12 +13,12 @@ public class FeedDAO {
 
     // CREATE POST
 
-    public void createPost(int userId, String content, String postType)
+    public void createPost(int userId, String content, String postType, String imageFile)
             throws Exception {
 
         String sql =
-            "INSERT INTO feed_posts (user_id, post_content, post_type) " +
-            "VALUES (?, ?, ?)";
+            "INSERT INTO feed_posts (user_id, post_content, post_type, post_image) " +
+            "VALUES (?, ?, ?, ?)";
 
         Connection con = null;
         PreparedStatement pst = null;
@@ -29,6 +29,7 @@ public class FeedDAO {
             pst.setInt(1, userId);
             pst.setString(2, content);
             pst.setString(3, postType);
+            pst.setString(4, imageFile);  
             pst.executeUpdate();
         } finally {
             if (pst != null) { try { pst.close(); } catch (Exception ignored) {} }
@@ -36,15 +37,15 @@ public class FeedDAO {
         }
     }
 
-    // GET POSTS
+    // GET ALL POSTS
 
     public List<FeedModel> getAllPosts() throws Exception {
 
         List<FeedModel> posts = new ArrayList<>();
 
         String sql =
-            "SELECT fp.post_id, fp.user_id, u.username, " +
-            "       fp.post_content, fp.post_type, fp.post_created_at " +
+            "SELECT fp.post_id, fp.user_id, u.username, u.image AS user_image, " +
+            "       fp.post_content, fp.post_type, fp.post_image, fp.post_created_at " +
             "FROM feed_posts fp " +
             "JOIN users u ON fp.user_id = u.user_id " +
             "ORDER BY fp.post_created_at DESC";
@@ -63,9 +64,19 @@ public class FeedDAO {
                 post.setPostId(rs.getInt("post_id"));
                 post.setUserId(rs.getInt("user_id"));
                 post.setUserName(rs.getString("username"));
+                post.setUserImage(rs.getString("user_image"));
                 post.setContent(rs.getString("post_content"));
                 post.setPostType(rs.getString("post_type"));
                 post.setCreatedAt(rs.getString("post_created_at"));
+                post.setPostTime(formatTime(rs.getTimestamp("post_created_at")));
+
+                // Remove extension
+                String img = rs.getString("post_image");
+                if (img != null && img.contains(".")) {
+                    img = img.substring(0, img.lastIndexOf('.'));
+                }
+                post.setPostImage(img);
+
                 posts.add(post);
             }
         } finally {
@@ -77,8 +88,23 @@ public class FeedDAO {
         return posts;
     }
 
-    // VOTE   
-    
+    // FORMAT TIMESTAMP
+
+    private String formatTime(java.sql.Timestamp ts) {
+        if (ts == null) return "Just now";
+        long diff  = System.currentTimeMillis() - ts.getTime();
+        long mins  = diff / 60000;
+        long hours = mins / 60;
+        long days  = hours / 24;
+        if (mins  < 1)  return "Just now";
+        if (mins  < 60) return mins  + "m ago";
+        if (hours < 24) return hours + "h ago";
+        if (days  < 7)  return days  + "d ago";
+        return new java.text.SimpleDateFormat("MMM d").format(ts);
+    }
+
+    // GET VOTE
+
     public String getUserVote(int postId, int userId) throws Exception {
 
         String sql =
@@ -108,6 +134,8 @@ public class FeedDAO {
         return result;
     }
 
+    // VOTE
+
     public void vote(int postId, int userId, String voteType)
             throws Exception {
 
@@ -132,7 +160,7 @@ public class FeedDAO {
         }
     }
 
-    // UNVOTE 
+    // UNVOTE
 
     public void unvote(int postId, int userId) throws Exception {
 
@@ -155,9 +183,7 @@ public class FeedDAO {
         }
     }
 
-    
-
-    //  VOTE COUNT 
+    // VOTE COUNT
 
     public int[] getVoteCounts(int postId) throws Exception {
 
@@ -177,8 +203,8 @@ public class FeedDAO {
             pst.setInt(1, postId);
             rs = pst.executeQuery();
             while (rs.next()) {
-                if ("up".equals(rs.getString("vote_type")))   up   = rs.getInt("cnt");
-                else                                           down = rs.getInt("cnt");
+                if ("up".equals(rs.getString("vote_type"))) up   = rs.getInt("cnt");
+                else                                         down = rs.getInt("cnt");
             }
         } finally {
             if (rs  != null) { try { rs.close();  } catch (Exception ignored) {} }
@@ -189,10 +215,9 @@ public class FeedDAO {
         return new int[]{ up, down };
     }
 
-    // TOGGLE SAVE 
+    // SAVE
 
     public boolean toggleSave(int postId, int userId) throws Exception {
-
         if (isSaved(postId, userId)) {
             unsavePost(postId, userId);
             return false;

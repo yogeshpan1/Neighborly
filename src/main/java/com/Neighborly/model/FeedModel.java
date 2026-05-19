@@ -8,11 +8,14 @@ public class FeedModel {
     private String  content;
     private String  postType;
     private String  createdAt;
+    private String  postTime;
     private String  userVote;
     private int     upCount;
     private int     downCount;
     private boolean savedByUser;
-
+    private String postImage;
+    private String userImage;
+    
     // --- Getters ---
 
     public int getPostId() {
@@ -38,6 +41,10 @@ public class FeedModel {
     public String getCreatedAt() {
         return createdAt;
     }
+    
+    public String  getPostTime() {
+    	return postTime;
+    }
 
     public String getUserVote() {
         return userVote;
@@ -57,6 +64,14 @@ public class FeedModel {
 
     public int getNetScore() {
         return upCount - downCount;
+    }
+    
+    public String getPostImage() { 
+    	return postImage;
+    }
+    
+    public String getUserImage() {
+        return userImage;
     }
 
     // --- Setters ---
@@ -84,6 +99,10 @@ public class FeedModel {
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
+    
+    public void setPostTime(String postTime) { 
+    	this.postTime = postTime; 
+    }
 
     public void setUserVote(String userVote) {
         this.userVote = userVote;
@@ -99,5 +118,13 @@ public class FeedModel {
 
     public void setSavedByUser(boolean savedByUser) {
         this.savedByUser = savedByUser;
+    }
+    
+    public void setPostImage(String postImage) {
+    	this.postImage = postImage; 
+    }
+    
+    public void setUserImage(String userImage) {
+        this.userImage = userImage;
     }
 }
