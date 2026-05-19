@@ -7,6 +7,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Neighborly</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/login.css">
+        <style>
+            .field-error {
+                display: block;
+                color: #e74c3c;
+                font-size: 0.78rem;
+                margin-top: 4px;
+            }
+            .input-error {
+                outline: 2px solid #e74c3c;
+                border-color: #e74c3c;
+            }
+        </style>
     </head>
 
     <body>
@@ -26,18 +38,14 @@
                 <div class="loginForm">
                     <h2>Welcome back</h2>
 
-                    <c:if test="${not empty error}">
-                        <div class="errorMessage">
-                            ${error}
-                        </div>
-                    </c:if>
-
                     <form action="${pageContext.request.contextPath}/login" method="post">
+
                         <div class="formGroup">
                             <div class="formLabel">
                                 <label for="username">USERNAME</label>
                             </div>
-                            <input type="text" id="username" name="username" class="formControl"
+                            <input type="text" id="username" name="username"
+                                   class="formControl ${not empty errors.general ? 'input-error' : ''}"
                                    placeholder="Enter your username"
                                    value="${not empty typedUser ? typedUser : ''}">
                         </div>
@@ -46,7 +54,12 @@
                             <div class="formLabel">
                                 <label for="password">PASSWORD</label>
                             </div>
-                            <input type="password" id="password" name="password" class="formControl" placeholder="........">
+                            <input type="password" id="password" name="password"
+                                   class="formControl ${not empty errors.general ? 'input-error' : ''}"
+                                   placeholder="........">
+                            <c:if test="${not empty errors.general}">
+                                <span class="field-error">${errors.general}</span>
+                            </c:if>
                             <a href="forgotPassword.jsp" class="forgotLink">Forgot password?</a>
                         </div>
 
@@ -62,8 +75,8 @@
                         </div>
 
                         <a href="${pageContext.request.contextPath}/register" class="loginButton loginBtnSecondary">Create new account</a>
-                    </form>
 
+                    </form>
                 </div>
             </div>
         </div>

@@ -295,4 +295,129 @@ public class FeedDAO {
             if (con != null) { try { con.close(); } catch (Exception ignored) {} }
         }
     }
+    
+ // GET POSTS BY USER
+
+ public List<FeedModel> getPostsByUser(int userId) throws Exception {
+
+     List<FeedModel> posts = new ArrayList<>();
+
+     String sql =
+         "SELECT fp.post_id, fp.user_id, u.username, u.image AS user_image, " +
+         "       fp.post_content, fp.post_type, fp.post_image, fp.post_created_at " +
+         "FROM feed_posts fp " +
+         "JOIN users u ON fp.user_id = u.user_id " +
+         "WHERE fp.user_id = ? " +
+         "ORDER BY fp.post_created_at DESC";
+
+     Connection con = null;
+     PreparedStatement pst = null;
+     ResultSet rs = null;
+
+     try {
+         con = DBconfig.getConnection();
+         pst = con.prepareStatement(sql);
+         pst.setInt(1, userId);
+         rs = pst.executeQuery();
+
+         while (rs.next()) {
+
+             FeedModel post = new FeedModel();
+
+             post.setPostId(rs.getInt("post_id"));
+             post.setUserId(rs.getInt("user_id"));
+             post.setUserName(rs.getString("username"));
+             post.setUserImage(rs.getString("user_image"));
+             post.setContent(rs.getString("post_content"));
+             post.setPostType(rs.getString("post_type"));
+             post.setCreatedAt(rs.getString("post_created_at"));
+             post.setPostTime(formatTime(rs.getTimestamp("post_created_at")));
+
+             String img = rs.getString("post_image");
+
+             if (img != null && img.contains(".")) {
+                 img = img.substring(0, img.lastIndexOf('.'));
+             }
+
+             post.setPostImage(img);
+
+             int[] counts = getVoteCounts(post.getPostId());
+             post.setUpCount(counts[0]);
+             post.setDownCount(counts[1]);
+
+             posts.add(post);
+         }
+
+     } finally {
+         if (rs  != null) { try { rs.close();  } catch (Exception ignored) {} }
+         if (pst != null) { try { pst.close(); } catch (Exception ignored) {} }
+         if (con != null) { try { con.close(); } catch (Exception ignored) {} }
+     }
+
+     return posts;
+ }
+
+ // GET SAVED POSTS BY USER
+
+ public List<FeedModel> getSavedPosts(int userId) throws Exception {
+
+     List<FeedModel> posts = new ArrayList<>();
+
+     String sql =
+         "SELECT fp.post_id, fp.user_id, u.username, u.image AS user_image, " +
+         "       fp.post_content, fp.post_type, fp.post_image, fp.post_created_at " +
+         "FROM feed_saved_posts sp " +
+         "JOIN feed_posts fp ON sp.post_id = fp.post_id " +
+         "JOIN users u ON fp.user_id = u.user_id " +
+         "WHERE sp.user_id = ? " +
+         "ORDER BY fp.post_created_at DESC";
+
+     Connection con = null;
+     PreparedStatement pst = null;
+     ResultSet rs = null;
+
+     try {
+         con = DBconfig.getConnection();
+         pst = con.prepareStatement(sql);
+         pst.setInt(1, userId);
+         rs = pst.executeQuery();
+
+         while (rs.next()) {
+
+             FeedModel post = new FeedModel();
+
+             post.setPostId(rs.getInt("post_id"));
+             post.setUserId(rs.getInt("user_id"));
+             post.setUserName(rs.getString("username"));
+             post.setUserImage(rs.getString("user_image"));
+             post.setContent(rs.getString("post_content"));
+             post.setPostType(rs.getString("post_type"));
+             post.setCreatedAt(rs.getString("post_created_at"));
+             post.setPostTime(formatTime(rs.getTimestamp("post_created_at")));
+
+             String img = rs.getString("post_image");
+
+             if (img != null && img.contains(".")) {
+                 img = img.substring(0, img.lastIndexOf('.'));
+             }
+
+             post.setPostImage(img);
+
+             int[] counts = getVoteCounts(post.getPostId());
+             post.setUpCount(counts[0]);
+             post.setDownCount(counts[1]);
+
+             post.setSavedByUser(true);
+
+             posts.add(post);
+         }
+
+     } finally {
+         if (rs  != null) { try { rs.close();  } catch (Exception ignored) {} }
+         if (pst != null) { try { pst.close(); } catch (Exception ignored) {} }
+         if (con != null) { try { con.close(); } catch (Exception ignored) {} }
+     }
+
+     return posts;
+ }
 }

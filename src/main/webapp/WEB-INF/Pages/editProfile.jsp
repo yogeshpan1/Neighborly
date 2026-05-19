@@ -88,7 +88,7 @@
                     <div class="input-group">
                         <label>Username</label>
                         <input type="text" name="username" value="${user.userName}" required>
-                        <span class="hint-text">*This is unique handle on Neighborly</span>
+                        <span class="hint-text">*This is your unique handle on Neighborly</span>
                     </div>
                     <div class="input-group">
                         <label>Email Address</label>
