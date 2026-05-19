@@ -15,14 +15,14 @@
 </head>
 <body>
 	<!-- SIDEBAR component -->
-	<jsp:include page="/components/admin-sidebar.jsp" />
+	<jsp:include page="/Components/admin-sidebar.jsp" />
 
 	<div class="mainContent">
 		<!-- TOPBAR component -->
 		<%
 		request.setAttribute("pageTitle", "Admin Dashboard");
 		%>
-		<jsp:include page="/components/admin-topbar.jsp" />
+		<jsp:include page="/Components/admin-topbar.jsp" />
 
 		<div class="dashboardBody">
 			<div class="twoColumnLayout">

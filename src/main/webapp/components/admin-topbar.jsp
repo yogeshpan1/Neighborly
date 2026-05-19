@@ -22,7 +22,7 @@
 <header class="topbar">
     <div class="topbarLeft">
         <a href="<%= request.getContextPath() %>/admindashboard" class="topbarLogo">
-            <img src="<%= request.getContextPath() %>/images/Logo.png" alt="Neighborly Logo" style="width: 140px; height: auto;">
+            <img src="<%= request.getContextPath() %>/Images/Logo.png" alt="Neighborly Logo" style="width: 140px; height: auto;">
         </a>
         <h1 style="border-left: 1px solid #323639; padding-left: 24px; margin-left: 48px;"><%= title %></h1>
     </div>
@@ -61,7 +61,6 @@
         </div>
         
         <div class="dropdownMenu" id="profileDropdown">
-            <button class="dropdownItem" onclick="window.location.href='<%= request.getContextPath() %>/profile'">Profile Information</button>
             <button class="dropdownItem" onclick="window.location.href='<%= request.getContextPath() %>/logout'" style="color: #ef4444;">Logout</button>
         </div>
     </div>

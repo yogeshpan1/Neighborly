@@ -14,8 +14,8 @@
 </head>
 <body>
 
-	<jsp:include page="/components/admin-sidebar.jsp" />
-	<jsp:include page="/components/admin-topbar.jsp" />
+	<jsp:include page="/Components/admin-sidebar.jsp" />
+	<jsp:include page="/Components/admin-topbar.jsp" />
 
 	<div class="main">
 

@@ -96,13 +96,13 @@
 <body>
 
 	<!-- SIDEBAR COMPONENT -->
-	<jsp:include page="/components/admin-sidebar.jsp" />
+	<jsp:include page="/Components/admin-sidebar.jsp" />
 
 	<div class="mainContent">
 
 		<!-- TOPBAR COMPONENT -->
 
-		<jsp:include page="/components/admin-topbar.jsp" />
+		<jsp:include page="/Components/admin-topbar.jsp" />
 
 		<main class="dashboardBody">
 

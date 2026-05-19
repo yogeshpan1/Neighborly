@@ -14,13 +14,13 @@
 </head>
 <body>
 
-	<jsp:include page="/components/admin-sidebar.jsp" />
+	<jsp:include page="/Components/admin-sidebar.jsp" />
 
 	<div class="mainContent">
 		<%
 		request.setAttribute("pageTitle", "Issue Management");
 		%>
-		<jsp:include page="/components/admin-topbar.jsp" />
+		<jsp:include page="/Components/admin-topbar.jsp" />
 
 		<div class="dashboardBody">
 			<div class="issuePageWrapper">
