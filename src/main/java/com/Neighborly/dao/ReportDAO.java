@@ -61,10 +61,7 @@ public class ReportDAO {
 
 		Connection con = DBconfig.getConnection();
 
-		String sql = "SELECT r.report_id, r.user_id, u.first_name, u.last_name, "
-				+ "r.title, r.category, r.location, r.description, "
-				+ "r.reportPhoto, r.status, r.created_at, r.staff_notes " + "FROM issueReports r "
-				+ "JOIN users u ON r.user_id = u.user_id " + "ORDER BY r.created_at DESC";
+		String sql = "SELECT r.report_id, r.user_id, u.first_name, u.last_name, r.title, r.category, r.location, r.description, r.reportPhoto, r.status, r.created_at, r.staff_notes FROM issueReports r JOIN users u ON r.user_id = u.user_id ORDER BY r.created_at DESC";
 
 		PreparedStatement pst = con.prepareStatement(sql);
 

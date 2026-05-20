@@ -46,6 +46,7 @@ public class NoticeManagement extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		request.setAttribute("activePage", "Notices");
 		request.getRequestDispatcher("/WEB-INF/Pages/NoticeManagement.jsp").forward(request, response);
 
 	}

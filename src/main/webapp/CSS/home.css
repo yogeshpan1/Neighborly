@@ -3,378 +3,369 @@
 }
 
 body {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     font-family: 'Inter', sans-serif;
-    background-color: #FFFFFF;
-    color: #333333;
+    background: #FFFFFF;
+    color: #222222;
 }
 
+/* MAIN LAYOUT */
 .mainContent {
     margin-left: 250px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-height: 1000px;
-    padding-top: 70px;
-}
-
-@media (max-width: 768px) {
-    .mainContent { margin-left: 0px; }
+    padding-top: 72px;
+    min-height: 100vh;
+    background: #FFFFFF;
 }
 
 .dashboardArea {
-    padding: 32px 48px;
-    max-width: 1400px;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 28px 24px 60px;
 }
 
+/* SEARCH */
 .searchContainer {
     display: flex;
     justify-content: center;
-    margin-top: 8px;
-    margin-bottom: 48px;
+    margin-bottom: 42px;
 }
 
 .searchWrapper {
+    width: 100%;
+    max-width: 640px;
+    height: 48px;
     display: flex;
     align-items: center;
-    width: 100%;
-    max-width: 560px;
-    padding: 12px 18px;
-    border: 1px solid #E0E0E0;
-    border-radius: 48px;
-    background-color: #FFFFFF;
-    transition: box-shadow 0.2s, border-color 0.2s;
+    gap: 12px;
+    padding: 0 18px;
+    background: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    border-radius: 14px;
+    transition: 0.2s ease;
 }
 
 .searchWrapper:focus-within {
-    border-color: #E86A33;
-    box-shadow: 0 0 0 3px rgba(232, 106, 51, 0.1);
+    border-color: #C05A2A;
+    box-shadow: 0 0 0 3px rgba(192, 90, 42, 0.08);
 }
 
 .searchIcon {
-    margin-right: 12px;
-    color: #999999;
+    color: #C05A2A;
+    flex-shrink: 0;
 }
 
 .searchInput {
-    flex: 1;
+    width: 100%;
     border: none;
     outline: none;
+    background: transparent;
     font-size: 14px;
     color: #333333;
-    background: transparent;
 }
 
 .searchInput::placeholder {
-    color: #AAAAAA;
+    color: #9A9A9A;
 }
 
-.servicesSection {
-    margin-bottom: 56px;
-}
-
+/* TITLES */
 .sectionTitle {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
-    color: #333333;
-    margin: 0 0 20px 0;
-}
-
-.servicesList {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 24px;
-    padding: 0;
-}
-
-.serviceItem {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    flex: 1;
-    min-width: 80px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.serviceItem:hover {
-    transform: translateY(-4px);
-}
-
-.serviceIconBox {
-    background-color: #FEF3E9;
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.2s;
-}
-
-.serviceItem:hover .serviceIconBox {
-    background-color: #FDE2D4;
-}
-
-.serviceLabel {
-    font-size: 13px;
-    font-weight: 500;
-    color: #333333;
-    text-align: center;
-}
-
-.applicationsSection {
-    margin-bottom: 40px;
+    color: #1E1E1E;
+    margin: 0;
 }
 
 .sectionHeader {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 20px;
-}
-
-.sectionHeader .sectionTitle {
-    margin-bottom: 0;
+    align-items: center;
+    margin-bottom: 18px;
 }
 
 .viewAllLink {
-    font-size: 13px;
-    color: #E86A33;
     text-decoration: none;
-    font-weight: 500;
-    transition: opacity 0.2s;
+    color: #C05A2A;
+    font-size: 13px;
+    font-weight: 600;
 }
 
 .viewAllLink:hover {
     opacity: 0.8;
-    text-decoration: underline;
 }
 
-.appList {
+/* SERVICES */
+.servicesSection {
+    margin-bottom: 48px;
+}
+
+.servicesList {
     display: flex;
-    flex-direction: column;
-    border: 1px solid #E0E0E0;
-    border-radius: 16px;
-    background-color: #FFFFFF;
-    overflow: hidden;
+    justify-content: space-between;
+    gap: 22px;
+    flex-wrap: wrap;
 }
 
-.appListItem {
-    display: flex;
-    align-items: center;
-    padding: 18px 24px;
-    border-bottom: 1px solid #F0F0F0;
-    transition: background-color 0.2s;
-}
-
-.appListItem:hover {
-    background-color: #FEFCFA;
-}
-
-.appListItem:last-child {
-    border-bottom: none;
-}
-
-.appStatusLine {
-    width: 4px;
-    height: 44px;
-    border-radius: 4px;
-    margin-right: 18px;
-}
-
-.lineYellow {
-    background-color: #F5B042;
-}
-
-.lineGreen {
-    background-color: #4CAF50;
-}
-
-.lineRed {
-    background-color: #F44336;
-}
-
-.appInfo {
-    display: flex;
-    flex-direction: column;
+.serviceItem {
     flex: 1;
+    min-width: 170px;
+    max-width: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    cursor: pointer;
+    transition: 0.2s ease;
 }
 
-.appTitle {
-    font-size: 14px;
-    font-weight: 600;
-    color: #333333;
-    margin-bottom: 6px;
+.serviceItem:hover {
+    transform: translateY(-3px);
 }
 
-.appDesc {
-    font-size: 12px;
-    color: #888888;
-}
-
-.appStatusBadge {
-    padding: 4px 14px;
-    border-radius: 30px;
-    font-size: 12px;
-    font-weight: 500;
-}
-
-.badgeYellow {
-    background-color: #FFF8E1;
-    color: #B76E0A;
-}
-
-.badgeGreen {
-    background-color: #E8F5E9;
-    color: #2E7D32;
-}
-
-.badgeRed {
-    background-color: #FFEBEE;
-    color: #C62828;
-}
-
-.finesSection {
-    margin-bottom: 56px;
-}
-
-.fineListItem {
+.serviceIconBox {
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    background: #F8F2EE;
     display: flex;
     align-items: center;
-    padding: 20px 24px;
-    border: 1px solid #E0E0E0;
-    border-radius: 16px;
-    background-color: #FFFFFF;
-    transition: box-shadow 0.2s;
+    justify-content: center;
+    color: #C05A2A;
+    transition: 0.2s ease;
 }
 
-.fineListItem:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+.serviceItem:hover .serviceIconBox {
+    background: #F3E6DF;
+}
+
+.serviceIconBox svg {
+    stroke: #C05A2A;
+}
+
+.serviceLabel {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1F1F1F;
+    text-align: center;
+}
+
+/* ACTIVITY */
+.activityContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+    margin-bottom: 36px;
+}
+
+.activitySection {
+    width: 100%;
+}
+
+/* APPLICATIONS */
+.applicationsList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.applicationCard {
+    width: 100%;
+    min-height: 72px;
+    border: 1px solid #ECECEC;
+    border-radius: 12px;
+    background: #FFFFFF;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.applicationCard:hover {
+    border-color: #C05A2A;
+    background: #FFF9F6;
+}
+
+.applicationTitle {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333333;
+}
+
+.applicationStatusBadge {
+    min-width: 120px;
+    text-align: center;
+    padding: 7px 16px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* STATUS COLORS */
+.badgePending {
+    background: #FFF6E8;
+    color: #B7791F;
+}
+
+.badgeApproved {
+    background: #EAF5E3;
+    color: #4F7D35;
+}
+
+.badgeRejected {
+    background: #FCEAEA;
+    color: #C0392B;
+}
+
+.badgeUnderReview {
+    background: #FFF6E8;
+    color: #B7791F;
+}
+
+/* FINES */
+.fineCard {
+    width: 100%;
+    border: 1px solid #ECECEC;
+    border-radius: 12px;
+    background: #FFFFFF;
+    padding: 18px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .fineInfo {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    gap: 3px;
 }
 
 .fineTitle {
-    font-size: 14px;
-    font-weight: 600;
-    color: #333333;
-    margin-bottom: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #222222;
 }
 
 .fineDesc {
-    font-size: 12px;
-    color: #888888;
-    margin-bottom: 10px;
+    font-size: 13px;
+    color: #999999;
 }
 
-.fineBadge {
-    display: inline-block;
-    padding: 4px 14px;
-    border-radius: 30px;
+.fineStatusBadge {
+    width: fit-content;
+    margin-top: 6px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: #FCEAEA;
+    color: #D93025;
     font-size: 12px;
     font-weight: 500;
-    width: fit-content;
 }
 
 .fineAction {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 10px;
+    gap: 6px;
 }
 
 .fineAmount {
-    font-size: 18px;
-    font-weight: 700;
-    color: #D32F2F;
+    font-size: 32px;
+    font-weight: 500;
+    color: #D93025;
 }
 
 .payFineButton {
-    background-color: #D32F2F;
-    color: #FFFFFF;
     border: none;
-    padding: 8px 20px;
-    border-radius: 30px;
-    font-size: 12px;
+    background: #D93025;
+    color: #FFFFFF;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 13px;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s;
 }
 
 .payFineButton:hover {
-    background-color: #B71C1C;
+    opacity: 0.9;
 }
 
+/* BOTTOM CARDS */
 .bottomCards {
     display: flex;
-    gap: 32px;
-    flex-wrap: wrap;
+    gap: 22px;
 }
 
+/* POLL */
 .pollCard {
     flex: 2;
-    min-width: 280px;
-    border: 1px solid #E0E0E0;
-    border-radius: 20px;
-    padding: 28px;
-    background-color: #FFFFFF;
-    transition: box-shadow 0.2s;
-}
-
-.pollCard:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    border: 1px solid #ECECEC;
+    border-radius: 18px;
+    background: #FFFFFF;
+    padding: 26px 34px;
 }
 
 .cardHeader {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.pollIconWrap,
+.reportIconBox {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: #F8F2EE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pollIconWrap svg,
+.reportIconBox svg {
+    stroke: #C05A2A;
 }
 
 .cardTitle {
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 700;
-    color: #E86A33;
+    color: #222222;
     margin: 0;
 }
 
 .pollQuestion {
     font-size: 15px;
-    font-weight: 500;
+    line-height: 1.7;
     color: #333333;
-    margin: 0 0 20px 0;
-    line-height: 1.4;
+    margin-bottom: 28px;
 }
 
 .pollOptions {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
 }
 
 .pollOption {
+    width: 100%;
+    min-height: 54px;
+    border: 1px solid #E8E8E8;
+    border-radius: 8px;
+    background: #FFFFFF;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 14px 18px;
-    border: 1px solid #E0E0E0;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: background-color 0.2s, border-color 0.2s;
+    justify-content: space-between;
+    padding: 0 20px;
+    transition: 0.2s ease;
 }
 
 .pollOption:hover {
-    background-color: #FEFCFA;
-    border-color: #E86A33;
+    border-color: #C05A2A;
+    background: #FFF9F6;
 }
 
 .pollOptionText {
@@ -383,69 +374,165 @@ body {
 }
 
 .radioCircle {
-    width: 18px;
-    height: 18px;
-    border: 2px solid #CCB2A4;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #9B7766;
     border-radius: 50%;
-    transition: border-color 0.2s;
 }
 
-.pollOption:hover .radioCircle {
-    border-color: #E86A33;
-}
-
+/* REPORT CARD */
 .reportCard {
     flex: 1;
-    min-width: 260px;
-    border: 1px solid #E0E0E0;
-    border-radius: 20px;
-    padding: 32px 28px;
-    background-color: #FFFFFF;
+    border: 1px solid #ECECEC;
+    border-radius: 18px;
+    background: #FFFFFF;
+    padding: 24px 30px;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    transition: box-shadow 0.2s;
-}
-
-.reportCard:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-}
-
-.reportIconWrapper {
-    margin-bottom: 20px;
+    justify-content: center;
 }
 
 .reportTitle {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
-    color: #333333;
-    margin: 0 0 12px 0;
+    color: #222222;
+    margin: 20px 0 16px;
+    line-height: 1.4;
 }
 
 .reportDesc {
-    font-size: 13px;
-    color: #666666;
-    line-height: 1.5;
-    margin: 0 0 28px 0;
+    font-size: 14px;
+    color: #6E5A50;
+    line-height: 1.7;
+    margin-bottom: 28px;
 }
 
 .reportButton {
-    background-color: #E86A33;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 164px;
+    height: 48px;
+    background: #B24A00;
     color: #FFFFFF;
-    border: none;
-    padding: 12px 28px;
-    border-radius: 40px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.2s ease;
 }
 
 .reportButton:hover {
-    background-color: #CC5520;
+    background: #953D00;
 }
 
-.reportButton:active {
-    transform: scale(0.98);
+/* EMPTY STATE */
+.emptyState {
+    width: 100%;
+    min-height: 220px;
+    border: 1px dashed #DADADA;
+    border-radius: 18px;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    padding: 30px;
+}
+
+.emptyState svg {
+    stroke: #C05A2A;
+}
+
+.emptyState p {
+    margin: 0;
+    font-size: 15px;
+    color: #666666;
+}
+
+.emptyState a {
+    color: #C05A2A;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.emptyState a:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+
+    .servicesList {
+        justify-content: flex-start;
+    }
+
+    .bottomCards {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .mainContent {
+        margin-left: 0;
+        padding-top: 70px;
+    }
+
+    .dashboardArea {
+        padding: 24px 16px 50px;
+    }
+
+    .servicesList {
+        gap: 26px;
+        justify-content: center;
+    }
+
+    .serviceItem {
+        min-width: 140px;
+    }
+
+    .applicationCard,
+    .fineCard {
+        padding: 18px;
+    }
+
+    .fineCard {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .fineAction {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 520px) {
+
+    .serviceItem {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .applicationCard {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 18px;
+    }
+
+    .applicationStatusBadge {
+        min-width: unset;
+    }
+
+    .pollCard,
+    .reportCard {
+        padding: 22px 18px;
+    }
 }

@@ -3,7 +3,7 @@ package com.Neighborly.model;
 import java.util.Date;
 
 public class UserModel {
-	
+
 	private int userId;
 	private String firstName;
 	private String lastName;
@@ -14,11 +14,9 @@ public class UserModel {
 	private String number;
 	private String password;
 	private String role;
-    private String image;
-    private String status;
-    private java.util.Date registrationDate;
-
-
+	private String image;
+	private String status;
+	private java.util.Date registrationDate;
 
 	// Getters
 	public int getUserId() {
@@ -60,15 +58,14 @@ public class UserModel {
 	public String getRole() {
 		return role;
 	}
-	
-    public String getImage() { 
-    	return image; 
-    }
 
-    public String getStatus() {
-        return status;
-    }
+	public String getImage() {
+		return image;
+	}
 
+	public String getStatus() {
+		return status;
+	}
 
 	// Setters
 	public void setUserId(int userId) {
@@ -110,14 +107,14 @@ public class UserModel {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
-    public void setImage(String image) { 
-    	this.image = image; 
-    }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	public java.util.Date getRegistrationDate() {
 		return registrationDate;
@@ -125,6 +122,16 @@ public class UserModel {
 
 	public void setRegistrationDate(java.util.Date registrationDate) {
 		this.registrationDate = registrationDate;
+	}
+
+	public String getInitials() {
+	    if (userName != null && userName.length() >= 2) {
+	    	
+	        String initials = userName.substring(0, 2).toUpperCase();
+	        
+	        return initials;
+	    }
+	    return "";
 	}
 
 }

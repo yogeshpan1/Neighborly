@@ -7,19 +7,19 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import com.Neighborly.dao.JobDAO;
+import com.Neighborly.dao.DocumentDAO;
 
 /**
- * Servlet implementation class DeleteJobServlet
+ * Servlet implementation class AcceptDocumentServlet
  */
-@WebServlet("/deletejob")
-public class DeleteJobServlet extends HttpServlet {
+@WebServlet(asyncSupported = true, urlPatterns = { "/acceptdocument" })
+public class AcceptDocumentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteJobServlet() {
+    public AcceptDocumentServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,15 +35,20 @@ public class DeleteJobServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 int jobId = Integer.parseInt(request.getParameter("jobId"));
-		    try {
-		        JobDAO dao = new JobDAO();
-		        dao.deleteJob(jobId);
-		    } catch (Exception e) {
-		        e.printStackTrace();
-		    }
-		    response.sendRedirect(request.getContextPath() + "/joblisting");
-	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+        	
+            int documentId = Integer.parseInt(request.getParameter("documentId"));
+            DocumentDAO dao = new DocumentDAO();
+            
+            dao.approveDocument(documentId);
+            
+            response.sendRedirect(request.getContextPath() + "/documentlist");
+            
+        } catch (Exception e) {
+            throw new ServletException("Error approving document", e);
+        }
+    }
 
 }

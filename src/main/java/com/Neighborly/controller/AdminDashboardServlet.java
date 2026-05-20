@@ -84,7 +84,7 @@ public class AdminDashboardServlet extends HttpServlet {
             request.setAttribute("recentPolls", polls);
 
 
-
+            request.setAttribute("activePage", "Home");
             request.getRequestDispatcher("/WEB-INF/Pages/AdminDashboard.jsp").forward(request, response);
 
         } catch (Exception e) {

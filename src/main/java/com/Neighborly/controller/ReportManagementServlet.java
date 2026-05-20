@@ -148,7 +148,7 @@ public class ReportManagementServlet extends HttpServlet {
 					}
 				}
 			}
-
+			request.setAttribute("activePage", "Report Issues");
 			request.getRequestDispatcher("/WEB-INF/Pages/ReportIssue.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();

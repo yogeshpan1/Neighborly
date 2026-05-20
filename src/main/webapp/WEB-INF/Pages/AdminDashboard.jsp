@@ -116,7 +116,7 @@
 							</thead>
 							<c:forEach var="r" items="${recentIssues}">
 								<tr>
-									<td class="primaryText">${r.firstName}${r.lastName}</td>
+									<td class="primaryText">${r.firstName} ${r.lastName}</td>
 									<td class="secondaryText">${r.category}</td>
 									<td class="secondaryText">${r.createdAt}</td>
 									<td><c:choose>
@@ -169,7 +169,7 @@
 								href="<%=request.getContextPath()%>/pollmanagement"
 								class="viewAllLink">View all</a>
 						</div>
-						<c:forEach var="p" items="${recentPolls}">
+						<c:forEach var="p" items="${recentPolls}" end="2">
 							<c:if test="${p.status == 'Active'}">
 								<div class="pollItem">
 									<div class="pollIconBox">

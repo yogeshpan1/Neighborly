@@ -7,19 +7,19 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import com.Neighborly.dao.JobDAO;
+import com.Neighborly.dao.DocumentDAO;
 
 /**
- * Servlet implementation class UpdateJobServlet
+ * Servlet implementation class RejectDocumentServlet
  */
-@WebServlet(asyncSupported = true, urlPatterns = { "/updatejob" })
-public class UpdateJobServlet extends HttpServlet {
+@WebServlet(asyncSupported = true, urlPatterns = { "/rejectdocument" })
+public class RejectDocumentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public UpdateJobServlet() {
+	public RejectDocumentServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -40,21 +40,17 @@ public class UpdateJobServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		int jobId = Integer.parseInt(request.getParameter("jobId"));
-		String jobTitle = request.getParameter("job_title");
-		String department = request.getParameter("department");
-		String jobDescription = request.getParameter("job_description");
-		String contactEmail = request.getParameter("contact_email");
-		String contactPhone = request.getParameter("contact_phone");
-
 		try {
-			JobDAO dao = new JobDAO();
-			dao.updateJob(jobId, jobTitle, department, jobDescription, contactEmail, contactPhone);
+			int docId = Integer.parseInt(request.getParameter("documentId"));
+			
+			DocumentDAO dao = new DocumentDAO();
+			
+			dao.deleteDocument(docId);
+			
+			response.sendRedirect(request.getContextPath() + "/documentlist");
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new ServletException("Error deleting document", e);
 		}
-		 response.sendRedirect(request.getContextPath() + "/joblisting");
-	}
 
+	}
 }

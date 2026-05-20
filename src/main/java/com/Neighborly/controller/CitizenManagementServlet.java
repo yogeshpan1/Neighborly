@@ -38,25 +38,30 @@ public class CitizenManagementServlet extends HttpServlet {
 			UserDAO dao = new UserDAO();
 
 			List<UserModel> citizens = dao.getAllUsers();
+			List<UserModel> activeCitizenList = dao.getActiveCitizens();
+			List<UserModel> inactiveCitizenList = dao.getInactiveCitizens();
+			
+			request.setAttribute("activeCitizen", activeCitizenList);
+			request.setAttribute("inactiveCitizen", inactiveCitizenList);
 
 			request.setAttribute("citizens", citizens);
 			request.setAttribute("totalCitizens", citizens.size());
 
-			int activeCitizens = 0;
-			int suspendedCitizens = 0;
+			int activeCount = 0;
+			int suspendedCount = 0;
 
 			for (UserModel citizen : citizens) {
 				String Status = citizen.getStatus();
 
 				if ("Active".equalsIgnoreCase(Status)) {
-					activeCitizens++;
+					activeCount++;
 				} else {
-					suspendedCitizens++;
+					suspendedCount++;
 				}
 			}
 			
-			request.setAttribute("activeCitizens", activeCitizens);
-			request.setAttribute("suspendedCitizens", suspendedCitizens);
+			request.setAttribute("activeCount", activeCount);
+			request.setAttribute("suspendedCount", suspendedCount);
 
 			String previewUserId = request.getParameter("userId");
 
@@ -82,8 +87,8 @@ public class CitizenManagementServlet extends HttpServlet {
 				request.setAttribute("openSuspendId", openSuspendId);
 			}
 
-			request.getRequestDispatcher("/WEB-INF/Pages/CitizenManagement.jsp").forward(request, response);
-		} catch (Exception e) {
+			request.setAttribute("activePage", "Citizen");
+			request.getRequestDispatcher("/WEB-INF/Pages/CitizenManagement.jsp").forward(request, response);		} catch (Exception e) {
 			throw new ServletException("Database error", e);
 		}
 	}

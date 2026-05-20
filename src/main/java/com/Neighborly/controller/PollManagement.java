@@ -105,7 +105,8 @@ public class PollManagement extends HttpServlet {
 				request.setAttribute("deleteQuestion", request.getParameter("deleteQuestion"));
 			}
 
-			request.getRequestDispatcher("/WEB-INF/Pages/PollManagement.jsp").forward(request, response);
+			request.setAttribute("activePage", "Polls");
+			request.getRequestDispatcher("/WEB-INF/Pages/Polls.jsp").forward(request, response);
 		} catch (Exception e) {
 			throw new ServletException("Database error", e);
 		}

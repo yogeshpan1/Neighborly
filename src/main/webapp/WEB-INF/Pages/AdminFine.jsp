@@ -10,7 +10,8 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/CSS/AdminFine.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/CSS/Admin-Side.css">f
+	href="${pageContext.request.contextPath}/CSS/Admin-Side.css">
+f
 </head>
 <body>
 
@@ -53,8 +54,8 @@
 						<label>Citizen</label> <select class="form-design" name="userId">
 							<option value="">Select citizen...</option>
 							<c:forEach var="u" items="${users}">
-								<option value="${u.userId}"><c:out
-										value="${u.firstName} ${u.lastName}" /></option>
+								<option value="${u.userId}">
+									<c:out value="${u.firstName} ${u.lastName}" /></option>
 							</c:forEach>
 						</select>
 					</div>

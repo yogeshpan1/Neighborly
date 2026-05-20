@@ -37,6 +37,7 @@ public class NewsManagementServlet extends HttpServlet {
 			List<NewsModel> newsList = dao.getAllNews();
 			request.setAttribute("newsList", newsList);
 			request.setAttribute("totalNews", newsList.size());
+			request.setAttribute("activePage", "News");
 			request.getRequestDispatcher("/WEB-INF/Pages/NewsManagement.jsp").forward(request, response);
 		} catch (Exception e) {
 			throw new ServletException("Database error", e);

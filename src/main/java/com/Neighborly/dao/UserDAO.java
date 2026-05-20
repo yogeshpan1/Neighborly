@@ -138,6 +138,79 @@ public class UserDAO {
 
 		return u;
 	}
+	
+	// Active Citizens
+	public List<UserModel> getActiveCitizens() throws Exception {
+		
+	    List<UserModel> users = new ArrayList<>();
+	    
+	    String sql = "SELECT * FROM users WHERE role = 'citizen' AND status = 'Active'";
+
+	    Connection con = DBconfig.getConnection();
+	    
+	    PreparedStatement pst = con.prepareStatement(sql);
+	    
+	    ResultSet rs = pst.executeQuery();
+
+	    while (rs.next()) {
+	        UserModel u = new UserModel();
+	        u.setUserId(rs.getInt("user_id"));
+	        u.setFirstName(rs.getString("first_name"));
+	        u.setLastName(rs.getString("last_name"));
+	        u.setUserName(rs.getString("username"));
+	        u.setDob(rs.getDate("dob"));
+	        u.setGender(rs.getString("gender"));
+	        u.setEmail(rs.getString("email"));
+	        u.setNumber(rs.getString("number"));
+	        u.setRole(rs.getString("role"));
+	        u.setImage(rs.getString("image"));
+	        u.setStatus(rs.getString("status"));
+	        u.setRegistrationDate(rs.getDate("registration_date"));
+	        users.add(u);
+	    }
+
+	    rs.close();
+	    pst.close();
+	    con.close();
+	    return users;
+	}
+
+	// Inactive/Suspended Citizens
+	public List<UserModel> getInactiveCitizens() throws Exception {
+		
+	    List<UserModel> users = new ArrayList<>();
+	    
+	    String sql = "SELECT * FROM users WHERE role = 'citizen' AND status = 'Inactive'";
+	    
+
+	    Connection con = DBconfig.getConnection();
+	    
+	    PreparedStatement pst = con.prepareStatement(sql);
+	    
+	    ResultSet rs = pst.executeQuery();
+
+	    while (rs.next()) {
+	        UserModel u = new UserModel();
+	        u.setUserId(rs.getInt("user_id"));
+	        u.setFirstName(rs.getString("first_name"));
+	        u.setLastName(rs.getString("last_name"));
+	        u.setUserName(rs.getString("username"));
+	        u.setDob(rs.getDate("dob"));
+	        u.setGender(rs.getString("gender"));
+	        u.setEmail(rs.getString("email"));
+	        u.setNumber(rs.getString("number"));
+	        u.setRole(rs.getString("role"));
+	        u.setImage(rs.getString("image"));
+	        u.setStatus(rs.getString("status"));
+	        u.setRegistrationDate(rs.getDate("registration_date"));
+	        users.add(u);
+	    }
+
+	    rs.close();
+	    pst.close();
+	    con.close();
+	    return users;
+	}
 
 	// Update User
 	public int updateUser(int userId, String firstName, String lastName, String email, String number) throws Exception {

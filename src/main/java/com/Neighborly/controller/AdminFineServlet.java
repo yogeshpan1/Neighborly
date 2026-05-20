@@ -64,6 +64,7 @@ public class AdminFineServlet extends HttpServlet {
 			request.setAttribute("unpaidFines", unpaidFines);
 			request.setAttribute("paidFines", paidFines);
 
+			request.setAttribute("activePage", "Fines");
 			request.getRequestDispatcher("/WEB-INF/Pages/AdminFine.jsp").forward(request, response);
 		} catch (Exception e) {
 			throw new ServletException("Database error", e);
