@@ -13,13 +13,14 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
+import com.Neighborly.model.UserModel;
 import com.Neighborly.utils.SessionUtil;
 
 /**
  * Servlet Filter implementation class AuthenticationFilter
  */
 
-@WebFilter(urlPatterns = {"/home","/feed","/news","/documents","/payments","/payments","/report","/polls","/notices","/contact","/profile","/aboutus","/logout"})
+@WebFilter(urlPatterns = {"/home","/feed","/news","/documents","/payments","/report","/polls","/notices","/contact","/profile","/aboutus","/logout","/admindashboard","/noticelist","/pollmanagement","/issuefine","/reportissue","/newslist","/generatereport","/createnews","/updatenews","/deletenews","/createjob","/updatejob","/deletejob","/createpoll","/deletepoll","/deletenotice","/updatenotice","/moderateissue","/deleteissue","/documentmanagement","/citizenmanagement","/suspendcitizen","/unsuspendcitizen"})
 public class AuthenticationFilter extends HttpFilter implements Filter {
        
     private static final long serialVersionUID = 1L;
@@ -37,18 +38,37 @@ public class AuthenticationFilter extends HttpFilter implements Filter {
 	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
-		HttpServletRequest httpRequest = (HttpServletRequest) request;
-		HttpServletResponse httpResponse = (HttpServletResponse) response;
+	    HttpServletRequest httpRequest = (HttpServletRequest) request;
+	    HttpServletResponse httpResponse = (HttpServletResponse) response;
+	    boolean isLoggedIn = SessionUtil.getAttribute(httpRequest, "user") != null;
 
-		boolean isLoggedIn = SessionUtil.getAttribute(httpRequest, "user") != null;
+	    if (isLoggedIn) {
+	        UserModel user = (UserModel) SessionUtil.getAttribute(httpRequest, "user");
+	        boolean isAdmin = "admin".equalsIgnoreCase(user.getRole());
+	        String path = httpRequest.getServletPath();
 
-		if (isLoggedIn) {
-			chain.doFilter(request, response);
-		} else {
+	        String[] citizenPages = {"/home","/feed","/polls","/notices","/report","/documents","/payments","/profile","/contact","/aboutus"};
+	        String[] adminPages = {"/admindashboard","/noticelist","/pollmanagement","/issuefine","/reportissue","/newslist","/citizenmanagement","/generatereport"};
 
-			httpResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-			httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
-		}
+	        for (String p : citizenPages) {
+	            if (path.equals(p) && isAdmin) {
+	                httpResponse.sendRedirect(httpRequest.getContextPath() + "/admindashboard");
+	                return;
+	            }
+	        }
+
+	        for (String p : adminPages) {
+	            if (path.equals(p) && !isAdmin) {
+	                httpResponse.sendRedirect(httpRequest.getContextPath() + "/home");
+	                return;
+	            }
+	        }
+
+	        chain.doFilter(request, response);
+	    } else {
+	        httpResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+	        httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
+	    }
 	}
 
 	public void init(FilterConfig fConfig) throws ServletException {

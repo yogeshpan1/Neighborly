@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Dashboard - Neighborly</title>
-<!-- MUST use scriptlet here if your server is blocking EL evaluation! -->
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/CSS/Admin-Side.css">
 </head>
@@ -26,6 +25,11 @@
 
 		<!-- DASHBOARD BODY -->
 		<main class="dashboardBody">
+
+			<div class="report-bar">
+				<a href="<%=request.getContextPath()%>/generatereport"
+					class="download"> Download </a>
+			</div>
 
 			<!-- STAT CARDS -->
 			<div class="statsFlex">
@@ -109,7 +113,7 @@
 							</thead>
 							<c:forEach var="r" items="${recentIssues}">
 								<tr>
-									<td class="primaryText">${r.firstName} ${r.lastName}</td>
+									<td class="primaryText">${r.firstName}  ${r.lastName}</td>
 									<td class="secondaryText">${r.category}</td>
 									<td class="secondaryText">${r.createdAt}</td>
 									<td><c:choose>

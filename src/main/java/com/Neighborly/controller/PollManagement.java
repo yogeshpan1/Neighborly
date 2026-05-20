@@ -37,6 +37,8 @@ public class PollManagement extends HttpServlet {
 		try {
 			PollDAO dao = new PollDAO();
 			List<PollModel> polls = dao.getAllPolls();
+			List<PollModel> Totalpolls = dao.getTotalPolls();
+			
 			int activeCount = 0;
 			for (PollModel p : polls)
 			{
@@ -46,7 +48,7 @@ public class PollManagement extends HttpServlet {
 				}
 			}
 			request.setAttribute("polls", polls);
-			request.setAttribute("totalPolls", polls.size());
+			request.setAttribute("totalPolls", Totalpolls.size());
 			request.setAttribute("activePolls", activeCount);
 			request.getRequestDispatcher("/WEB-INF/Pages/PollManagement.jsp").forward(request, response);
 		} catch (Exception e) {
@@ -64,7 +66,10 @@ public class PollManagement extends HttpServlet {
 		try {
 			PollDAO dao = new PollDAO();
 			List<PollModel> polls = dao.getAllPolls();
+			List<PollModel> Totalpolls = dao.getTotalPolls();
+			
 			int activeCount = 0;
+			
 			for (PollModel p : polls) {
 				if ("Active".equals(p.getStatus())) 
 				{
@@ -77,7 +82,7 @@ public class PollManagement extends HttpServlet {
 			    request.setAttribute("openCreatePoll", true);
 			}
 			request.setAttribute("polls", polls);
-			request.setAttribute("totalPolls", polls.size());
+			request.setAttribute("totalPolls", Totalpolls.size());
 			request.setAttribute("activePolls", activeCount);
 
 			String editRequestId = request.getParameter("editPollId");

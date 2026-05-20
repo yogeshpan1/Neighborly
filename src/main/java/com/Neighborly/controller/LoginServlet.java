@@ -68,10 +68,17 @@ public class LoginServlet extends HttpServlet {
                 CookieUtil.addCookie(response, "last_login", loginTime, 3600);
                 CookieUtil.addCookie(response, "logged_user", userModel.getUserName(), 3600);
                 CookieUtil.addCookie(response, "user_role", userModel.getRole(), 3600);
+                
+                if ("admin".equalsIgnoreCase(userModel.getRole())) {
+                    response.sendRedirect(request.getContextPath() + "/admindashboard");
+                } else {
+                    response.sendRedirect(request.getContextPath() + "/home");
+                }
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            response.sendRedirect(request.getContextPath() + "/home");
+           
         } else {
             request.setAttribute("error", status);
             request.setAttribute("typedUser", username);
