@@ -17,10 +17,6 @@
 
 	<div class="mainContent">
 
-		<!-- TOPBAR component -->
-		<%
-		request.setAttribute("pageTitle", "Admin Dashboard");
-		%>
 		<jsp:include page="/Components/admin-topbar.jsp" />
 
 		<!-- DASHBOARD BODY -->

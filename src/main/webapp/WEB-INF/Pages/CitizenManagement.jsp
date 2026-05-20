@@ -21,9 +21,7 @@
 	<div class="mainContent">
 
 		<!-- TOPBAR component -->
-		<%
-		request.setAttribute("pageTitle", "Admin Dashboard");
-		%>
+
 		<jsp:include page="/Components/admin-topbar.jsp" />
 
 		<div class="dashboardBody">
@@ -178,7 +176,7 @@
 
 								<div class="profileHeader">
 									<div class="profileTitle">Citizen Profile</div>
-									<a href="<%=request.getContextPath()%>/citizenlist"
+									<a href="${pageContext.request.contextPath}/citizenlist"
 										class="closeProfileButton" title="Close Profile"> <svg
 											width="18" height="18" viewBox="0 0 24 24" fill="none"
 											stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -232,7 +230,7 @@
 													value="${selectedCitizen.userId}"> <input
 													type="hidden" name="openSuspendId"
 													value="${selectedCitizen.userId}">
-												<button type="submit" class="buttonSuspend">Suspend
+												<button type="submit" class="buttonSuspend">DeActivate
 													User</button>
 											</form>
 										</c:when>
@@ -244,7 +242,7 @@
 												method="POST">
 												<input type="hidden" name="userId"
 													value="${selectedCitizen.userId}">
-												<button type="submit" class="buttonUnsuspend">Unsuspend
+												<button type="submit" class="buttonUnsuspend">Activate
 													User</button>
 											</form>
 										</c:otherwise>

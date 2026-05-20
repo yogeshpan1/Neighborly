@@ -8,17 +8,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document Management - Neighborly</title>
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/CSS/Admin-Side.css">
+	href="${pageContext.request.contextPath}/CSS/Admin-Side.css">
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/CSS/DocumentManagement.css">
+	href="${pageContext.request.contextPath}/CSS/DocumentManagement.css">
 </head>
 <body>
 	<jsp:include page="/Components/admin-sidebar.jsp" />
 
 	<div class="mainContent">
-		<%
-		request.setAttribute("pageTitle", "Admin Dashboard");
-		%>
 		<jsp:include page="/Components/admin-topbar.jsp" />
 
 		<div class="dashboardBody">
@@ -133,15 +130,23 @@
 							<c:forEach var="doc" items="${documents}">
 								<c:if test="${doc.status == 'Approved'}">
 									<tr>
-										<td>${doc.firstName}${doc.lastName}</td>
+										<td>${doc.fullName}</td>
 										<td>${doc.documentType}</td>
 										<td>${doc.submittedAt}</td>
 										<td class="docActionCell">
-											<form action="<%=request.getContextPath()%>/documentlist"
+											<form action="${pageContext.request.contextPath}/documentlist"
 												method="GET">
 												<input type="hidden" name="editDoc"
 													value="${doc.documentId}">
-												<button type="submit" class="buttonDocEdit">Edit</button>
+												<td class="docActionCell">
+													<form
+														action="${pageContext.request.contextPath}/documentlist"
+														method="GET">
+														<input type="hidden" name="editDoc"
+															value="${doc.documentId}">
+														<button type="submit" class="buttonDocReject">Delete</button>
+													</form>
+												</td>
 											</form>
 										</td>
 									</tr>
@@ -168,15 +173,14 @@
             </svg>
 				<h2>Confirm Approval</h2>
 			</div>
-			<form action="<%=request.getContextPath()%>/acceptdocument"
+			<form action="${pageContext.request.contextPath}/acceptdocument"
 				method="POST">
 				<input type="hidden" name="documentId"
 					value="${viewDocument.documentId}">
 				<div class="modalBodyContent">
 					<div class="docFormGroup">
 						<label class="docFormLabel">Full Name</label>
-						<p style="color: #ffffff; font-size: 14px; margin: 0;">${viewDocument.firstName}
-							${viewDocument.lastName}</p>
+						<p style="color: #ffffff; font-size: 14px; margin: 0;">${viewDocument.fullName}</p>
 					</div>
 					<div class="docFormGroup">
 						<label class="docFormLabel">Date of Birth</label>
@@ -196,7 +200,7 @@
 					</div>
 				</div>
 				<div class="modalFooterActions">
-					<a href="<%=request.getContextPath()%>/documentlist"
+					<a href="${pageContext.request.contextPath}/documentlist"
 						class="buttonModalCancel" style="text-decoration: none;">Cancel</a>
 					<button type="submit" class="buttonModalAccept">Confirm
 						Approval</button>
@@ -206,79 +210,52 @@
 	</div>
 
 	<!-- REJECT MODAL -->
-	<div class="modalOverlay" id="rejectDocModal"
-		style="${not empty deleteDocument ? 'display:flex;' : ''}">
+	<!-- DELETE VERIFIED DOCUMENT MODAL -->
+	<div class="modalOverlay" id="editDocModal"
+		style="${not empty editDocument ? 'display:flex;' : ''}">
 		<div class="modalBox">
 			<div class="modalHeaderDanger">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
 					stroke="currentColor" stroke-width="2" stroke-linecap="round"
 					stroke-linejoin="round" style="color: #ffbba6;">
-				<path
+                <path
 						d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-				<line x1="12" y1="9" x2="12" y2="13"></line>
-				<line x1="12" y1="17" x2="12.01" y2="17"></line>
-			</svg>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
 				<h2>Confirm Deletion</h2>
 			</div>
-			<form action="<%=request.getContextPath()%>/deletedocument"
+			<form action="${pageContext.request.contextPath}/deletedocument"
 				method="POST">
 				<input type="hidden" name="documentId"
-					value="${deleteDocument.documentId}">
+					value="${editDocument.documentId}">
 				<div class="modalBodyContent">
-					<p class="modalDescriptionText">
-						You are about to delete the document for <strong
-							style="color: #ffffff; font-weight: 700;">${deleteDocument.firstName}
-							${deleteDocument.lastName}</strong> (${deleteDocument.documentType}). This
-						action cannot be undone.
-					</p>
+					<div class="docFormGroup">
+						<label class="docFormLabel">Full Name</label>
+						<p style="color: #ffffff; font-size: 14px; margin: 0;">${editDocument.fullName}</p>
+					</div>
+					<div class="docFormGroup">
+						<label class="docFormLabel">Document Type</label>
+						<p style="color: #ffffff; font-size: 14px; margin: 0;">${editDocument.documentType}</p>
+					</div>
+					<div class="docFormGroup">
+						<label class="docFormLabel">Address</label>
+						<p style="color: #ffffff; font-size: 14px; margin: 0;">${editDocument.address}</p>
+					</div>
+					<div class="docFormGroup">
+						<label class="docFormLabel">Phone</label>
+						<p style="color: #ffffff; font-size: 14px; margin: 0;">${editDocument.phone}</p>
+					</div>
+					<div class="docFormGroup">
+						<label class="docFormLabel">Submitted</label>
+						<p style="color: #ffffff; font-size: 14px; margin: 0;">${editDocument.submittedAt}</p>
+					</div>
 				</div>
 				<div class="modalFooterActions">
-					<a href="<%=request.getContextPath()%>/documentlist"
+					<a href="${pageContext.request.contextPath}/documentlist"
 						class="buttonModalCancel" style="text-decoration: none;">Cancel</a>
 					<button type="submit" class="buttonModalDanger">Confirm
 						Deletion</button>
-				</div>
-			</form>
-		</div>
-	</div>
-	<!-- EDIT DOCUMENT MODAL -->
-	<div class="modalOverlay" id="editDocModal">
-		<div class="modalBox">
-			<div class="modalHeaderEdit">
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-					stroke="currentColor" stroke-width="2" stroke-linecap="round"
-					stroke-linejoin="round" style="color: #93c5fd;">
-                    <path
-						d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                    <path
-						d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                </svg>
-				<h2>Edit Document</h2>
-			</div>
-			<form action="<%=request.getContextPath()%>/editDocument"
-				method="POST">
-				<input type="hidden" name="documentId" id="editDocId">
-				<div class="modalBodyContent">
-					<div class="docFormGroup">
-						<label class="docFormLabel">Citizen Name</label> <input
-							type="text" class="docFormInput" id="editDocCitizen"
-							name="citizenName" required>
-					</div>
-					<div class="docFormGroup">
-						<label class="docFormLabel">Document Type</label> <input
-							type="text" class="docFormInput" id="editDocType"
-							name="documentType" required>
-					</div>
-					<div class="docFormGroup">
-						<label class="docFormLabel">Submitted Date</label> <input
-							type="text" class="docFormInput" id="editDocDate"
-							name="submittedDate" required>
-					</div>
-				</div>
-				<div class="modalFooterActions">
-					<a href="<%=request.getContextPath()%>/documentlist"
-						class="buttonModalCancel" style="text-decoration: none;">Cancel</a>
-					<button type="submit" class="buttonModalEdit">Save Changes</button>
 				</div>
 			</form>
 		</div>
