@@ -10,7 +10,9 @@ import java.util.List;
 
 import com.Neighborly.dao.NoticeDAO;
 import com.Neighborly.model.NoticeModel;
+import com.Neighborly.model.UserModel;
 import com.Neighborly.service.NoticeService;
+import com.Neighborly.utils.SessionUtil;
 
 /**
  * Servlet implementation class NoticeManagement
@@ -58,6 +60,15 @@ public class NoticeManagement extends HttpServlet {
 		 try {
 			 
 			    NoticeDAO dao = new NoticeDAO();
+				
+			    UserModel user = (UserModel) SessionUtil.getAttribute(request, "user");
+	        	if (user == null) {
+	        	    response.sendRedirect(request.getContextPath() + "/login");
+	        	    return;
+	        	}
+	        	
+	        	int userId = user.getUserId();
+	        	
 		        String editRequestId = request.getParameter("editNoticeId");
 		        if (editRequestId != null && !editRequestId.isEmpty()) {
 		            
@@ -113,7 +124,7 @@ public class NoticeManagement extends HttpServlet {
 		            return;
 		        }
 		        
-		        dao.insertNotice(1, title.trim(), category, description.trim());
+		        dao.insertNotice(userId, title.trim(), category, description.trim());
 
 		    } catch (Exception e) {
 		        e.printStackTrace();

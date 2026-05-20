@@ -5,6 +5,7 @@ import com.Neighborly.model.ReportModel;
 import com.Neighborly.model.UserModel;
 import com.Neighborly.service.ReportService;
 import com.Neighborly.utils.FileUploadUtil;
+import com.Neighborly.utils.SessionUtil;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -77,7 +78,14 @@ public class ReportServlet extends HttpServlet {
 
 			} else {
 
-				int userId = 1;
+				UserModel user = (UserModel) SessionUtil.getAttribute(request, "user");
+				
+				if (user == null) {
+					
+				    response.sendRedirect(request.getContextPath() + "/login");
+				    return;
+				}
+				int userId = user.getUserId();
 
 				String reportPhoto = null;
 

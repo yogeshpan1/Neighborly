@@ -11,43 +11,68 @@ import com.Neighborly.utils.DBconfig;
 
 public class ContactDAO {
 
-    public void insertContact(String fullName, String email, String subject, String message) throws Exception {
-        Connection con = DBconfig.getConnection();
-        String sql = "INSERT INTO contactMessages (full_name, email, subject, message) "
-                + "VALUES (?, ?, ?, ?)";
-        PreparedStatement pst = con.prepareStatement(sql);
-        pst.setString(1, fullName);
-        pst.setString(2, email);
-        pst.setString(3, subject);
-        pst.setString(4, message);
-        pst.executeUpdate();
-        pst.close();
-        con.close();
-    }
+	public void insertContact(String fullName, String email, String subject, String message) throws Exception {
+		
+		Connection con = DBconfig.getConnection();
+		
+		String sql = "INSERT INTO contactMessages (full_name, email, subject, message) " + "VALUES (?, ?, ?, ?)";
+		
+		PreparedStatement pst = con.prepareStatement(sql);
+		
+		pst.setString(1, fullName);
+		pst.setString(2, email);
+		pst.setString(3, subject);
+		pst.setString(4, message);
+		pst.executeUpdate();
+		pst.close();
+		con.close();
+	}
 
-    public List<ContactModel> getAllContacts() throws Exception {
-        List<ContactModel> contacts = new ArrayList<>();
-        Connection con = DBconfig.getConnection();
-        String sql = "SELECT contact_id, full_name, email, subject, message, created_at "
-                + "FROM contactMessages ORDER BY created_at DESC";
+	public List<ContactModel> getAllContacts() throws Exception {
+		
+		List<ContactModel> contacts = new ArrayList<>();
+		
+		Connection con = DBconfig.getConnection();
+		
+		String sql = "SELECT contact_id, full_name, email, subject, message, created_at "
+				+ "FROM contactMessages ORDER BY created_at DESC";
 
-        PreparedStatement pst = con.prepareStatement(sql);
-        ResultSet rs = pst.executeQuery();
+		PreparedStatement pst = con.prepareStatement(sql);
+		ResultSet rs = pst.executeQuery();
 
-        while (rs.next()) {
-            ContactModel c = new ContactModel();
-            c.setContactId(rs.getInt("contact_id"));
-            c.setFullName(rs.getString("full_name"));
-            c.setEmail(rs.getString("email"));
-            c.setSubject(rs.getString("subject"));
-            c.setMessage(rs.getString("message"));
-            c.setCreatedAt(rs.getString("created_at"));
-            contacts.add(c);
-        }
+		while (rs.next()) {
+			
+			ContactModel c = new ContactModel();
+			
+			c.setContactId(rs.getInt("contact_id"));
+			c.setFullName(rs.getString("full_name"));
+			c.setEmail(rs.getString("email"));
+			c.setSubject(rs.getString("subject"));
+			c.setMessage(rs.getString("message"));
+			c.setCreatedAt(rs.getString("created_at"));
+			contacts.add(c);
+		}
 
-        rs.close();
-        pst.close();
-        con.close();
-        return contacts;
-    }
+		rs.close();
+		pst.close();
+		con.close();
+		return contacts;
+	}
+
+	public boolean deleteContact(int contactId) throws Exception {
+
+		Connection con = DBconfig.getConnection();
+
+		String sql = "DELETE FROM contactMessages WHERE contact_id = ?";
+
+		PreparedStatement pst = con.prepareStatement(sql);
+
+		pst.setInt(1, contactId);
+		
+		int rows = pst.executeUpdate();
+		
+		pst.close();
+		con.close();
+		return rows > 0;
+	}
 }

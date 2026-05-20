@@ -43,8 +43,8 @@ public class UserDAO {
 
 		List<UserModel> users = new ArrayList<>();
 
-		String sql = "SELECT * FROM users";
-
+		String sql = "SELECT * FROM users WHERE role = 'citizen'";
+		
 		Connection con = DBconfig.getConnection();
 		PreparedStatement pst = con.prepareStatement(sql);
 		ResultSet rs = pst.executeQuery();

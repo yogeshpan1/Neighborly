@@ -109,7 +109,7 @@ public class ReportManagementServlet extends HttpServlet {
 			    	
 			        if (r.getReportId() == id) {
 			        	
-			            selectedIssue = r;  // ← THIS LINE IS MISSING IN YOUR CODE
+			            selectedIssue = r; 
 			            
 			            request.setAttribute("selectedIssue", r);
 			            

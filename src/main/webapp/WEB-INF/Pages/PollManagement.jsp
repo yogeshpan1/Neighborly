@@ -11,87 +11,9 @@
 <!-- Link to Admin CSS-->
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/CSS/Admin-Side.css?v=<%=System.currentTimeMillis()%>">
-<style>
-.subHeader {
-	display: flex;
-	align-items: center;
-	gap: 12px;
-	font-size: 18px;
-	font-weight: 700;
-	color: #ffffff;
-	margin-bottom: 24px;
-	margin-top: 24px;
-}
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/CSS/PollManagement.css">
 
-.pillBadge {
-	font-size: 11px;
-	padding: 4px 10px;
-	background-color: #323639;
-	border-radius: 12px;
-	color: #CFD3D6;
-	font-weight: 600;
-}
-
-.modalHeaderDanger {
-	background-color: #7f1d1d;
-	padding: 20px 24px;
-	display: flex;
-	align-items: center;
-	gap: 12px;
-	border-radius: 12px 12px 0 0;
-}
-
-.modalHeaderDanger h2 {
-	color: white;
-	font-size: 18px;
-	font-weight: 600;
-	margin: 0;
-}
-
-.btnCancelDark {
-	background-color: #323639;
-	color: white;
-	border: none;
-	border-radius: 6px;
-	padding: 10px 20px;
-	font-weight: 600;
-	font-size: 14px;
-	cursor: pointer;
-	transition: background-color 0.2s;
-}
-
-.btnCancelDark:hover {
-	background-color: #4a4d51;
-}
-
-.btnDangerBright {
-	background-color: #ff3b3b;
-	color: white;
-	border: none;
-	border-radius: 6px;
-	padding: 10px 20px;
-	font-weight: 600;
-	font-size: 14px;
-	cursor: pointer;
-	transition: background-color 0.2s;
-	box-shadow: 0 4px 12px rgba(255, 59, 59, 0.3);
-}
-
-.btnDangerBright:hover {
-	background-color: #e63535;
-}
-
-.error-message {
-	background-color: rgba(255, 59, 59, 0.1);
-	border: 1px solid #ff3b3b;
-	color: #ff3b3b;
-	border-radius: 6px;
-	padding: 10px 16px;
-	font-size: 13px;
-	font-weight: 500;
-	margin-top: 12px;
-}
-</style>
 </head>
 <body>
 
@@ -304,7 +226,6 @@
 						style="color: #CFD3D6; font-size: 14px; margin-top: 0; margin-bottom: 24px; line-height: 1.5;">
 						You are about to permanently delete the poll. <strong
 							style="color: #ffffff; font-weight: 700;">${deleteQuestion}</strong>.
-						For transparency please define the reason for deletion.
 					</p>
 
 					<div class="formGroup">

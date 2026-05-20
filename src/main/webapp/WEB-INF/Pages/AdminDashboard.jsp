@@ -26,9 +26,12 @@
 		<!-- DASHBOARD BODY -->
 		<main class="dashboardBody">
 
-			<div class="report-bar">
+			<div class="report-bar" style="display: flex; gap: 10px;">
 				<a href="<%=request.getContextPath()%>/generatereport"
-					class="download"> Download </a>
+					class="download"> Download </a> <a
+					href="<%=request.getContextPath()%>/contactmessage"
+					class="download">Contact Messages</a>
+
 			</div>
 
 			<!-- STAT CARDS -->
@@ -113,7 +116,7 @@
 							</thead>
 							<c:forEach var="r" items="${recentIssues}">
 								<tr>
-									<td class="primaryText">${r.firstName}  ${r.lastName}</td>
+									<td class="primaryText">${r.firstName}${r.lastName}</td>
 									<td class="secondaryText">${r.category}</td>
 									<td class="secondaryText">${r.createdAt}</td>
 									<td><c:choose>

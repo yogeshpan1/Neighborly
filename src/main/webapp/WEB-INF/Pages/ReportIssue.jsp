@@ -310,15 +310,8 @@
 				<div class="dangerModalBody">
 					<p>
 						You are about to permanently delete the issue: <strong
-							style="color: #ffffff;">${deleteIssueTitle}</strong>. For
-						transparency, please provide the reason for deletion.
+							style="color: #ffffff;">${deleteIssueTitle}</strong>
 					</p>
-					<div class="formGroup" style="margin-bottom: 0;">
-						<label class="formLabel">Reason for Deletion</label>
-						<textarea class="staffNotes" name="deleteReason"
-							placeholder="Provide a detailed explanation for this deletion..."
-							required style="height: 100px;"></textarea>
-					</div>
 				</div>
 				<div class="dangerModalFooter">
 					<a href="<%=request.getContextPath()%>/reportissue"

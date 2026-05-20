@@ -20,7 +20,7 @@ import com.Neighborly.utils.SessionUtil;
  * Servlet Filter implementation class AuthenticationFilter
  */
 
-@WebFilter(urlPatterns = {"/home","/feed","/news","/documents","/payments","/report","/polls","/notices","/contact","/profile","/aboutus","/logout","/admindashboard","/noticelist","/pollmanagement","/issuefine","/reportissue","/newslist","/generatereport","/createnews","/updatenews","/deletenews","/createjob","/updatejob","/deletejob","/createpoll","/deletepoll","/deletenotice","/updatenotice","/moderateissue","/deleteissue","/documentmanagement","/citizenmanagement","/suspendcitizen","/unsuspendcitizen"})
+@WebFilter(urlPatterns = {"/home","/feed","/news","/documents","/payments","/report","/polls","/notices","/contact","/profile","/aboutus","/logout","/admindashboard","/noticelist","/pollmanagement","/issuefine","/reportissue","/newslist","/generatereport","/createnews","/updatenews","/deletenews","/createjob","/updatejob","/deletejob","/createpoll","/deletepoll","/deletenotice","/updatenotice","/moderateissue","/deleteissue","/documentmanagement","/citizenmanagement","/suspendcitizen","/unsuspendcitizen","/contactmessage"})
 public class AuthenticationFilter extends HttpFilter implements Filter {
        
     private static final long serialVersionUID = 1L;
@@ -48,7 +48,7 @@ public class AuthenticationFilter extends HttpFilter implements Filter {
 	        String path = httpRequest.getServletPath();
 
 	        String[] citizenPages = {"/home","/feed","/polls","/notices","/report","/documents","/payments","/profile","/contact","/aboutus"};
-	        String[] adminPages = {"/admindashboard","/noticelist","/pollmanagement","/issuefine","/reportissue","/newslist","/citizenmanagement","/generatereport"};
+	        String[] adminPages = {"/admindashboard","/noticelist","/pollmanagement","/issuefine","/reportissue","/newslist","/citizenmanagement","/generatereport","/contactmessage"};
 
 	        for (String p : citizenPages) {
 	            if (path.equals(p) && isAdmin) {

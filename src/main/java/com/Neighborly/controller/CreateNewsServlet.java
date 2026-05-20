@@ -12,7 +12,9 @@ import java.io.File;
 import java.io.IOException;
 
 import com.Neighborly.dao.NewsDAO;
+import com.Neighborly.model.UserModel;
 import com.Neighborly.utils.FileUploadUtil;
+import com.Neighborly.utils.SessionUtil;
 
 
 
@@ -27,7 +29,6 @@ import com.Neighborly.utils.FileUploadUtil;
 	)
 public class CreateNewsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final int DEFAULT_ADMIN_USER_ID = 1;
     private static final String UPLOAD_DIR = System.getProperty("user.home") + File.separator + "news_uploads";
 
        
@@ -59,16 +60,31 @@ public class CreateNewsServlet extends HttpServlet {
 	        String imageName = null;
 	        
 	        Part filePart = request.getPart("newsImage");
+	        
 	        if (filePart != null && filePart.getSize() > 0) {
+	        	
 	            if (FileUploadUtil.isImage(filePart)) {
+	            	
 	                String extension = FileUploadUtil.getFileExtension(filePart.getSubmittedFileName());
+	                
 	                imageName = System.currentTimeMillis() + extension;
+	                
 	                FileUploadUtil.saveFile(filePart, UPLOAD_DIR, imageName);
+	                
 	            }
 	        } 
 	        try {
+	        	UserModel user = (UserModel) SessionUtil.getAttribute(request, "user");
+	        	if (user == null) {
+	        	    response.sendRedirect(request.getContextPath() + "/login");
+	        	    return;
+	        	}
+	        	
+	        	int userId = user.getUserId();
+	        	
 	            NewsDAO dao = new NewsDAO();
-	            dao.insertNews(DEFAULT_ADMIN_USER_ID, title.trim(), content, category, imageName);
+	            
+	            dao.insertNews(userId, title.trim(), content, category, imageName);
 
 	        } catch (Exception e) {
 	            e.printStackTrace();
