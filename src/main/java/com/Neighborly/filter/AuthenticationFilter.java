@@ -35,7 +35,6 @@ public class AuthenticationFilter extends HttpFilter implements Filter {
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
-	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
 	    HttpServletRequest httpRequest = (HttpServletRequest) request;
@@ -48,7 +47,7 @@ public class AuthenticationFilter extends HttpFilter implements Filter {
 	        String path = httpRequest.getServletPath();
 
 	        String[] citizenPages = {"/home","/feed","/polls","/notices","/report","/documents","/payments","/profile","/contact","/aboutus"};
-	        String[] adminPages = {"/admindashboard","/noticelist","/pollmanagement","/issuefine","/reportissue","/newslist","/citizenmanagement","/generatereport","/contactmessage","/documentlist","/newsmanagement","/noticemanagement","/documentmanagement","/reportmanagement","/createnews","/updatenews","/deletenews","/createpoll","/updatepoll","/deletepoll","/updatenotice","/deletenotice","/moderateissue","/suspendcitizen","/unsuspenduser","/deletedocument","/rejectdocument"};
+	        String[] adminPages = {"/admindashboard","/noticelist","/pollmanagement","/issuefine","/reportissue","/newslist","/citizenmanagement","/generatereport","/contactmessage","/documentlist","/newsmanagement","/noticemanagement","/documentmanagement","/reportmanagement","/createnews","/updatenews","/deletenews","/createpoll","/updateupdatepoll","/deletepoll","/updatenotice","/deletenotice","/moderateissue","/suspendcitizen","/unsuspenduser","/deletedocument","/rejectdocument"};
 
 	        for (String p : citizenPages) {
 	            if (path.equals(p) && isAdmin) {
