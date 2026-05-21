@@ -1,5 +1,9 @@
 package com.Neighborly.model;
 
+/**
+ * Model class for storing user documents and applications.
+ */
+
 public class DocumentModel {
 
 	private int documentId;
@@ -15,6 +19,7 @@ public class DocumentModel {
 	private String status;
 	private String submittedAt;
 
+	// Getters
 	public int getDocumentId() {
 		return documentId;
 	}
@@ -35,6 +40,7 @@ public class DocumentModel {
 		return firstName;
 	}
 
+	// Setters
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
