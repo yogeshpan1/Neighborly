@@ -11,6 +11,19 @@ import com.Neighborly.utils.DBconfig;
 
 public class NoticeDAO {
 
+	/**
+	 * Inserts a new notice.
+	 *
+	 * Input: userId, title, category, description
+	 * Output: void
+	 * Function: Adds a notice record to the notices table with the provided details.
+	 *
+	 * @param userId the ID of the user posting the notice
+	 * @param title the notice title
+	 * @param category the notice category
+	 * @param description the notice text
+	 * @throws Exception if a database error occurs
+	 */
 	public void insertNotice(int userId, String title, String category, String description) throws Exception {
 
 		String sql = "INSERT INTO notices (user_id, notice_title, notice_category, notice_description) VALUES (?, ?, ?, ?)";
@@ -26,11 +39,20 @@ public class NoticeDAO {
 		con.close();
 	}
 
+	/**
+	 * Retrieves all notices.
+	 *
+	 * Input: none
+	 * Output: List<NoticeModel>
+	 * Function: Loads all notices with the posting user's username and formats the posting time.
+	 *
+	 * @return a list of all notices
+	 * @throws Exception if a database error occurs
+	 */
 	public List<NoticeModel> getAllNotices() throws Exception {
 
 		List<NoticeModel> notices = new ArrayList<>();
-
-		String sql = "SELECT n.notice_id, n.user_id, u.username, " + "       n.notice_title, n.notice_category, "
+		String sql = "SELECT n.notice_id, n.user_id, u.username, " + " n.notice_title, n.notice_category, "
 				+ "       n.notice_description, n.notice_posted_at " + "FROM notices n "
 				+ "JOIN users u ON n.user_id = u.user_id " + "ORDER BY n.notice_posted_at DESC";
 
@@ -53,7 +75,6 @@ public class NoticeDAO {
 		rs.close();
 		pst.close();
 		con.close();
-
 		return notices;
 	}
 
@@ -75,6 +96,19 @@ public class NoticeDAO {
 		return new java.text.SimpleDateFormat("MMM d").format(ts);
 	}
 
+	/**
+	 * Updates an existing notice.
+	 *
+	 * Input: noticeId, title, category, description
+	 * Output: void
+	 * Function: Updates the title, category, and description of the specified notice.
+	 *
+	 * @param noticeId the ID of the notice
+	 * @param title the updated title
+	 * @param category the updated category
+	 * @param description the updated notice description
+	 * @throws Exception if a database error occurs
+	 */
 	public void updateNotice(int noticeId, String title, String category, String description) throws Exception {
 
 		String sql = "UPDATE notices SET notice_title = ?, notice_category = ?, notice_description = ? WHERE notice_id = ?";
@@ -90,6 +124,17 @@ public class NoticeDAO {
 		con.close();
 	}
 
+	/**
+	 * Deletes a notice from the database.
+	 *
+	 * Input: noticeId
+	 * Output: boolean
+	 * Function: Permanently removes the notice record and returns whether the deletion succeeded.
+	 *
+	 * @param noticeId the ID of the notice
+	 * @return true if the notice was deleted, otherwise false
+	 * @throws Exception if a database error occurs
+	 */
 	public boolean deleteNotice(int noticeId) throws Exception {
 
 		String sql = "DELETE FROM notices WHERE notice_id = ?";

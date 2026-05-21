@@ -11,6 +11,20 @@ import com.Neighborly.utils.DBconfig;
 
 public class FineDAO {
 
+	/**
+	 * Adds a new fine record for a user.
+	 *
+	 * Input: userId, violationType, fineAmount, violationDate, reason
+	 * Output: void
+	 * Function: Inserts a fine entry into the fines table with the provided violation details.
+	 *
+	 * @param userId the ID of the user being fined
+	 * @param violationType the type of violation
+	 * @param fineAmount the amount of the fine
+	 * @param violationDate the date of the violation
+	 * @param reason the explanation for the fine
+	 * @throws Exception if a database error occurs
+	 */
 	public void insertFine(int userId, String violationType, double fineAmount, String violationDate, String reason)
 			throws Exception {
 
@@ -28,10 +42,18 @@ public class FineDAO {
 		con.close();
 	}
 
+	/**
+	 * Retrieves all fines that are not deleted.
+	 *
+	 * Input: none
+	 * Output: List<FineModel>
+	 * Function: Fetches all active fine records with user details, sorted by newest first.
+	 *
+	 * @return a list of all fines
+	 * @throws Exception if a database error occurs
+	 */
 	public List<FineModel> getAllFines() throws Exception {
-
 		List<FineModel> fines = new ArrayList<>();
-
 		String sql = "SELECT f.fine_id, f.user_id, u.first_name, u.last_name, f.violation_type, f.fine_amount, "
 				+ "       f.violation_date, f.reason, f.fine_status, f.issued_at " + "FROM fines f "
 				+ "JOIN users u ON f.user_id = u.user_id " + "WHERE f.fine_status != 'Deleted' "
@@ -63,6 +85,16 @@ public class FineDAO {
 		return fines;
 	}
 
+	/**
+	 * Marks a fine as paid.
+	 *
+	 * Input: fineId
+	 * Output: void
+	 * Function: Updates the selected fine status to 'Paid'.
+	 *
+	 * @param fineId the ID of the fine to mark as paid
+	 * @throws Exception if a database error occurs
+	 */
 	public void markPaid(int fineId) throws Exception {
 
 		String sql = "UPDATE fines SET fine_status = 'Paid' WHERE fine_id = ?";
@@ -75,6 +107,16 @@ public class FineDAO {
 		con.close();
 	}
 
+	/**
+	 * Soft-deletes a fine record.
+	 *
+	 * Input: fineId
+	 * Output: void
+	 * Function: Changes the fine status to 'Deleted' instead of removing the row permanently.
+	 *
+	 * @param fineId the ID of the fine to delete
+	 * @throws Exception if a database error occurs
+	 */
 	public void deleteFine(int fineId) throws Exception {
 
 		String sql = "UPDATE fines SET fine_status = 'Deleted' WHERE fine_id = ?";
@@ -87,6 +129,17 @@ public class FineDAO {
 		con.close();
 	}
 
+	/**
+	 * Retrieves fines for a specific user.
+	 *
+	 * Input: userId
+	 * Output: List<FineModel>
+	 * Function: Loads all non-deleted fines belonging to the given user.
+	 *
+	 * @param userId the ID of the user
+	 * @return a list of fines for the user
+	 * @throws Exception if a database error occurs
+	 */
 	public List<FineModel> getFinesByUser(int userId) throws Exception {
 
 		List<FineModel> fines = new ArrayList<>();
@@ -120,7 +173,43 @@ public class FineDAO {
 		rs.close();
 		pst.close();
 		con.close();
-
 		return fines;
 	}
+
+	/**
+	 * Retrieves unpaid fines for a specific user.
+	 *
+	 * Input: userId
+	 * Output: List<FineModel>
+	 * Function: Returns only fines with status 'Unpaid' for the given user.
+	 *
+	 * @param userId the ID of the user
+	 * @return a list of unpaid fines
+	 * @throws Exception if a database error occurs
+	 */
+    public List<FineModel> getPendingFinesByUser(int userId) throws Exception {
+        List<FineModel> fines = new ArrayList<>();
+        String sql = "SELECT fine_id, user_id, violation_type, fine_amount, violation_date, reason, fine_status, issued_at " +
+                     "FROM fines WHERE user_id = ? AND fine_status = 'Unpaid' ORDER BY issued_at DESC";
+
+        try (Connection con = DBconfig.getConnection();
+             PreparedStatement pst = con.prepareStatement(sql)) {
+            pst.setInt(1, userId);
+            try (ResultSet rs = pst.executeQuery()) {
+                while (rs.next()) {
+                    FineModel f = new FineModel();
+                    f.setFineId(rs.getInt("fine_id"));
+                    f.setUserId(rs.getInt("user_id"));
+                    f.setViolationType(rs.getString("violation_type"));
+                    f.setFineAmount(rs.getDouble("fine_amount"));
+                    f.setViolationDate(rs.getString("violation_date"));
+                    f.setReason(rs.getString("reason"));
+                    f.setStatus(rs.getString("fine_status"));
+                    f.setIssuedAt(rs.getString("issued_at"));
+                    fines.add(f);
+                }
+            }
+        }
+        return fines;
+    }
 }

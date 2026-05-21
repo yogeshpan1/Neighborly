@@ -4,54 +4,77 @@ import jakarta.servlet.http.Part;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
+import java.nio.file.*;
 
+/**
+ * Utility class for handling file uploads in the application.
+ *
+ * This class provides methods for:
+ * - Extracting file extensions
+ * - Validating uploaded files (especially images)
+ * - Creating safe filenames
+ * - Saving files to the server filesystem
+ *
+ * It ensures uploaded files are handled safely and consistently.
+ */
 public class FileUploadUtil {
 
     /**
-     * Extracts the extension from a filename (e.g., "photo.jpg" -> ".jpg")
+     * Extracts file extension from a filename.
+     *
+     * @param fileName the original file name
+     * @return file extension including dot, or empty string if none
      */
     public static String getFileExtension(String fileName) {
-        if (fileName == null || !fileName.contains(".")) {
-            return "";
-        }
+        if (fileName == null || !fileName.contains(".")) return "";
         return fileName.substring(fileName.lastIndexOf("."));
     }
 
     /**
-     * Validates if the uploaded part is actually an image based on MIME type
+     * Checks whether the uploaded file is an image.
+     *
+     * @param part uploaded file part
+     * @return true if file is an image, false otherwise
      */
     public static boolean isImage(Part part) {
-        String contentType = part.getContentType(); // e.g., "image/jpeg"
-        return contentType != null && contentType.startsWith("image/");
+        return part.getContentType() != null &&
+               part.getContentType().startsWith("image/");
     }
 
     /**
-     * Builds the final filename: uniqueID + extension
+     * Builds a safe filename using an identifier and extension.
+     *
+     * @param identifier unique id or name
+     * @param extension file extension
+     * @return combined safe filename
      */
     public static String buildFileName(String identifier, String extension) {
         return identifier + extension;
     }
 
     /**
-     * Handles the physical saving of the file to the disk
+     * Saves an uploaded file to the server directory.
+     *
+     * This method:
+     * 1. Creates upload directory if it doesn't exist
+     * 2. Resolves full file path
+     * 3. Writes file using input stream
+     * 4. Overwrites existing file if needed
+     *
+     * @param part uploaded file part
+     * @param uploadDir directory to save file
+     * @param fileName name to save file as
+     * @throws IOException if file saving fails
      */
     public static void saveFile(Part part, String uploadDir, String fileName) throws IOException {
-        // 1. Convert String path to Path object
-        Path uploadPath = Paths.get(uploadDir);
+        Path path = Paths.get(uploadDir);
 
-        // 2. Requirement: Create directory if it doesn't exist
-        if (!Files.exists(uploadPath)) {
-            Files.createDirectories(uploadPath);
+        if (!Files.exists(path)) {
+            Files.createDirectories(path);
         }
 
-        // 3. Resolve the full path (root_path + filename)
-        Path filePath = uploadPath.resolve(fileName);
+        Path filePath = path.resolve(fileName);
 
-        // 4. Save the file (Overwrite if it already exists)
         try (InputStream inputStream = part.getInputStream()) {
             Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
         }

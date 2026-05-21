@@ -13,7 +13,24 @@ import com.Neighborly.utils.DBconfig;
 
 public class UserDAO {
 
-	// Add New User
+	/**
+	 * Inserts a new user into the database.
+	 *
+	 * Input: firstName, lastName, username, dob, gender, email, number, password, image
+	 * Output: void
+	 * Function: Converts the date of birth to SQL format and stores the new user in the users table.
+	 *
+	 * @param firstName the user's first name
+	 * @param lastName the user's last name
+	 * @param username the account username
+	 * @param dob the date of birth in string format
+	 * @param gender the user's gender
+	 * @param email the user's email address
+	 * @param number the user's phone number
+	 * @param password the account password
+	 * @param image the profile image filename or path
+	 * @throws Exception if a database error occurs
+	 */
 	public void insertUsers(String firstName, String lastName, String username, String dob, String gender, String email,
 			String number, String password, String image) throws Exception {
 		LocalDate localDate = LocalDate.parse(dob);
@@ -38,7 +55,16 @@ public class UserDAO {
 		con.close();
 	}
 
-	// All Users
+	/**
+	 * Retrieves all citizen users.
+	 *
+	 * Input: none
+	 * Output: List<UserModel>
+	 * Function: Loads all users whose role is citizen and maps each row into a UserModel object.
+	 *
+	 * @return a list of all citizen users
+	 * @throws Exception if a database error occurs
+	 */
 	public List<UserModel> getAllUsers() throws Exception {
 
 		List<UserModel> users = new ArrayList<>();
@@ -73,7 +99,17 @@ public class UserDAO {
 		return users;
 	}
 
-	// Filter User for Login
+	/**
+	 * Retrieves an active user by username for login.
+	 *
+	 * Input: username
+	 * Output: UserModel
+	 * Function: Finds a matching active user account and returns the full user record if found.
+	 *
+	 * @param username the username to search for
+	 * @return the matching user, or null if not found
+	 * @throws Exception if a database error occurs
+	 */
 	public UserModel getUserByUsername(String username) throws Exception {
 
 		String sql = "SELECT * FROM users WHERE username = ? AND status = 'Active'";
@@ -107,7 +143,17 @@ public class UserDAO {
 		return u;
 	}
 
-	// Get single user by ID
+	/**
+	 * Retrieves a single user by ID.
+	 *
+	 * Input: userId
+	 * Output: UserModel
+	 * Function: Fetches one user record from the users table using the user ID.
+	 *
+	 * @param userId the ID of the user to fetch
+	 * @return the matching user, or null if not found
+	 * @throws Exception if a database error occurs
+	 */
 	public UserModel getUserById(int userId) throws Exception {
 		String sql = "SELECT * FROM users WHERE user_id = ?";
 
@@ -135,11 +181,19 @@ public class UserDAO {
 		rs.close();
 		pst.close();
 		con.close();
-
 		return u;
 	}
 	
-	// Active Citizens
+	/**
+	 * Retrieves all active citizen users.
+	 *
+	 * Input: none
+	 * Output: List<UserModel>
+	 * Function: Loads only citizen users whose status is Active.
+	 *
+	 * @return a list of active citizen users
+	 * @throws Exception if a database error occurs
+	 */
 	public List<UserModel> getActiveCitizens() throws Exception {
 		
 	    List<UserModel> users = new ArrayList<>();
@@ -175,7 +229,16 @@ public class UserDAO {
 	    return users;
 	}
 
-	// Inactive/Suspended Citizens
+	/**
+	 * Retrieves all inactive citizen users.
+	 *
+	 * Input: none
+	 * Output: List<UserModel>
+	 * Function: Loads only citizen users whose status is Inactive.
+	 *
+	 * @return a list of inactive citizen users
+	 * @throws Exception if a database error occurs
+	 */
 	public List<UserModel> getInactiveCitizens() throws Exception {
 		
 	    List<UserModel> users = new ArrayList<>();
@@ -212,7 +275,21 @@ public class UserDAO {
 	    return users;
 	}
 
-	// Update User
+	/**
+	 * Updates a user's basic profile information.
+	 *
+	 * Input: userId, firstName, lastName, email, number
+	 * Output: int
+	 * Function: Updates the user's name, email, and phone number and returns the number of affected rows.
+	 *
+	 * @param userId the ID of the user to update
+	 * @param firstName the updated first name
+	 * @param lastName the updated last name
+	 * @param email the updated email address
+	 * @param number the updated phone number
+	 * @return the number of rows updated
+	 * @throws Exception if a database error occurs
+	 */
 	public int updateUser(int userId, String firstName, String lastName, String email, String number) throws Exception {
 
 		String sql = "UPDATE users SET first_name = ?, last_name = ?, " + "email = ?, number = ? "
@@ -232,6 +309,17 @@ public class UserDAO {
 		return rows;
 	}
 	
+	/**
+	 * Suspends a citizen account.
+	 *
+	 * Input: userId, reason
+	 * Output: void
+	 * Function: Marks the citizen as inactive and stores the suspension reason.
+	 *
+	 * @param userId the ID of the user to suspend
+	 * @param reason the suspension reason
+	 * @throws Exception if a database error occurs
+	 */
 	public void suspendCitizen(int userId, String reason) throws Exception {
 
         Connection con = DBconfig.getConnection();
@@ -247,6 +335,16 @@ public class UserDAO {
         con.close();
     }
     
+    /**
+     * Unsuspends a citizen account.
+     *
+     * Input: userId
+     * Output: void
+     * Function: Restores the user's status to Active and clears the suspension reason.
+     *
+     * @param userId the ID of the user to unsuspend
+     * @throws Exception if a database error occurs
+     */
     public void unsuspendCitizen(int userId) throws Exception {
         
     	Connection con = DBconfig.getConnection();

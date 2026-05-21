@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Neighborly - Documents</title>
+<title>Neighborly</title>
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/CSS/leftbar.css">

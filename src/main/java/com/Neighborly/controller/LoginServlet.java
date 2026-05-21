@@ -1,4 +1,5 @@
 package com.Neighborly.controller;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,13 +18,17 @@ import com.Neighborly.dao.UserDAO;
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public LoginServlet() { super(); }
+    public LoginServlet() {
+        super();
+    }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/Pages/login.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
@@ -63,22 +68,31 @@ public class LoginServlet extends HttpServlet {
             try {
                 UserDAO dao = new UserDAO();
                 UserModel userModel = dao.getUserByUsername(username);
+
+                // Store user object in session
                 SessionUtil.setAttribute(request, "user", userModel, 3600);
-                String loginTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH:mm:ss"));
+                SessionUtil.setAttribute(request, "userId", userModel.getUserId(), 3600);
+
+                // Set login time cookie
+                String loginTime = LocalDateTime.now()
+                        .format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH:mm:ss"));
                 CookieUtil.addCookie(response, "last_login", loginTime, 3600);
                 CookieUtil.addCookie(response, "logged_user", userModel.getUserName(), 3600);
                 CookieUtil.addCookie(response, "user_role", userModel.getRole(), 3600);
-                
+
+                // Redirect based on role
                 if ("admin".equalsIgnoreCase(userModel.getRole())) {
                     response.sendRedirect(request.getContextPath() + "/admindashboard");
                 } else {
                     response.sendRedirect(request.getContextPath() + "/home");
                 }
-                
+
             } catch (Exception e) {
                 e.printStackTrace();
+                // Optionally forward to error page
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             }
-           
+
         } else {
             request.setAttribute("error", status);
             request.setAttribute("typedUser", username);

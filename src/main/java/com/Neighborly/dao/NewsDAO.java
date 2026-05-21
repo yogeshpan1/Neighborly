@@ -11,6 +11,20 @@ import com.Neighborly.utils.DBconfig;
 
 public class NewsDAO {
 	
+	/**
+	 * Inserts a news article.
+	 *
+	 * Input: userId, title, content, category, imageName
+	 * Output: void
+	 * Function: Creates a new news record in the database with the provided admin/user author and image.
+	 *
+	 * @param userId the ID of the author
+	 * @param title the news title
+	 * @param content the news content
+	 * @param category the news category
+	 * @param imageName the uploaded image filename
+	 * @throws Exception if a database error occurs
+	 */
 	public void insertNews(int userId, String title, String content, String category, String imageName) throws Exception {
 	    
 		Connection con = DBconfig.getConnection();
@@ -29,13 +43,24 @@ public class NewsDAO {
 	    con.close();
 	}	
 	
+	/**
+	 * Retrieves all news articles.
+	 *
+	 * Input: none
+	 * Output: List<NewsModel>
+	 * Function: Loads every news item from the database ordered by the newest post first.
+	 *
+	 * @return a list of all news articles
+	 * @throws Exception if a database error occurs
+	 */
 	public List<NewsModel> getAllNews() throws Exception {
 
 	    List<NewsModel> newsList = new ArrayList<>();
 
 	    Connection con = DBconfig.getConnection();
 	    
-	    String sql = "SELECT news_id, user_id, news_title, news_content, news_category, news_image, news_created_at FROM news ORDER BY news_created_at DESC";
+	    String sql = "SELECT news_id, user_id, news_title, news_content, news_category, news_image, news_created_at FROM news "
+	    		+ "ORDER BY news_created_at DESC";
 
 	    PreparedStatement pst = con.prepareStatement(sql);
 
@@ -61,7 +86,19 @@ public class NewsDAO {
 	    return newsList;
 	}
 
-	 // Used when NO new image is uploaded — keeps existing image untouched
+	/**
+	 * Updates a news article without changing its image.
+	 *
+	 * Input: newsId, title, content, category
+	 * Output: void
+	 * Function: Updates the text fields of an existing news record while keeping the current image unchanged.
+	 *
+	 * @param newsId the ID of the news item
+	 * @param title the updated news title
+	 * @param content the updated news content
+	 * @param category the updated category
+	 * @throws Exception if a database error occurs
+	 */
     public void updateNews(int newsId, String title, String content, String category) throws Exception {
     	
         Connection con = DBconfig.getConnection();
@@ -79,7 +116,20 @@ public class NewsDAO {
         con.close();
     }
 
-    // Used when a NEW image is uploaded — replaces the image too
+    /**
+     * Updates a news article and replaces its image.
+     *
+     * Input: newsId, title, content, category, imageName
+     * Output: void
+     * Function: Updates the news record including the new image filename.
+     *
+     * @param newsId the ID of the news item
+     * @param title the updated news title
+     * @param content the updated news content
+     * @param category the updated category
+     * @param imageName the new image filename
+     * @throws Exception if a database error occurs
+     */
     public void updateNewsWithImage(int newsId, String title, String content, String category, String imageName) throws Exception {
     	
         Connection con = DBconfig.getConnection();
@@ -98,7 +148,17 @@ public class NewsDAO {
         con.close();
     }
 
-
+    /**
+     * Deletes a news article from the database.
+     *
+     * Input: newsId
+     * Output: boolean
+     * Function: Permanently removes the selected news record and returns whether the delete succeeded.
+     *
+     * @param newsId the ID of the news item
+     * @return true if the record was deleted, otherwise false
+     * @throws Exception if a database error occurs
+     */
 	public boolean deleteNews(int newsId) throws Exception {
 		Connection con = DBconfig.getConnection();
 
