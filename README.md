@@ -130,19 +130,19 @@ Neighborly/
 ## Screenshots
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/yogeshpan1/Neighborly/main/src/main/webapp/Images/readme/home.png" alt="Home Page" width="600"/>
+  <img src="src/main/webapp/Images/readme/Home.jpeg" alt="Home Page" width="600"/>
 </p>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/yogeshpan1/Neighborly/main/src/main/webapp/Images/readme/feed.png" alt="Feed Page" width="600"/>
+  <img src="/src/main/webapp/Images/readme/Feed.jpeg" alt="Feed Page" width="600"/>
 </p>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/yogeshpan1/Neighborly/main/src/main/webapp/Images/readme/admin.png" alt="Admin Dashboard" width="600"/>
+  <img src="/src/main/webapp/Images/readme/Admin Dashboard.jpeg" alt="Admin Dashboard" width="600"/>
 </p>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/yogeshpan1/Neighborly/main/src/main/webapp/Images/readme/polls.png" alt="Polls Page" width="600"/>
+  <img src="/src/main/webapp/Images/readme/Poll.jpeg" alt="Polls Page" width="600"/>
 </p>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/yogeshpan1/Neighborly/main/src/main/webapp/Images/readme/notices.png" alt="Notices Page" width="600"/>
+  <img src="/main/webapp/Images/readme/Notice.jpeg" alt="Notices Page" width="600"/>
 </p>
 
 ---
