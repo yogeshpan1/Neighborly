@@ -1,5 +1,9 @@
 package com.Neighborly.model;
 
+/**
+ * Model class for opinion poll.
+ */
+
 public class PollModel {
 	private int pollId;
 	private String question;
