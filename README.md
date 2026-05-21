@@ -1,29 +1,19 @@
 <p align="center">
-  <img src="Images/Logo.png" alt="Neighborly Logo" width="300"/>
+  <img src="src/main/webapp/Images/Logo.png" alt="Neighborly Logo" width="300"/>
 </p>
-
-<h1 align="center">Neighborly</h1>
 
 <p align="center">
   A full-stack citizen portal web application built as a group project for the <b>Advanced Programming and Technologies (CS5054NI)</b> module.
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white"/>
-  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Apache%20Tomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=black"/>
-  <img src="https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=eclipseide&logoColor=white"/>
-</p>
-
-<p align="center">
-  <a href="#">🏠 Home</a> •
-  <a href="#">📋 Feed</a> •
-  <a href="#">📰 News</a> •
-  <a href="#">🗳️ Polls</a> •
-  <a href="#">🔔 Notices</a> •
-  <a href="#">⚠️ Report Issue</a> •
-  <a href="#">👤 About Us</a>
+  <a href="#"> Home</a> •
+  <a href="#"> Feed</a> •
+  <a href="#"> News</a> •
+  <a href="#"> Polls</a> •
+  <a href="#"> Notices</a> •
+  <a href="#"> Report Issue</a> •
+  <a href="#"> About Us</a>
 </p>
 
 ---
