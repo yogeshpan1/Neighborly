@@ -1,11 +1,19 @@
 <p align="center">
-  <img src="/Images/Logo.png" alt="Neighborly Logo" width="300"/>
+  <img src="Images/Logo.png" alt="Neighborly Logo" width="300"/>
 </p>
 
 <h1 align="center">Neighborly</h1>
 
 <p align="center">
   A full-stack citizen portal web application built as a group project for the <b>Advanced Programming and Technologies (CS5054NI)</b> module.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white"/>
+  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Apache%20Tomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=black"/>
+  <img src="https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=eclipseide&logoColor=white"/>
 </p>
 
 <p align="center">
@@ -19,6 +27,23 @@
 </p>
 
 ---
+
+## 📖 About
+
+Neighborly is a full-stack citizen portal developed by a team of four students at Islington College as part of the CS5054NI Advanced Programming and Technologies module. The system provides two distinct experiences — a citizen-facing portal and an administrator dashboard — connected through a shared MySQL database and built entirely on Java EE technologies following the MVC architectural pattern.
+
+The idea came from observing how many civic interactions in Nepal still require physical visits to government offices. Neighborly attempts to digitise that experience, letting citizens report local problems, apply for official documents, pay fines, participate in community polls, and read local news — all from a single web application.
+
+The project was built using Jakarta Servlets, JSP, JDBC, and MySQL, with no external CSS frameworks — all styling was written from scratch using Flexbox and media queries.
+
+---
+
+## 💡 Inspiration
+
+Neighborly was inspired by **[Nagarik App](https://nagarikapp.gov.np/)**, Nepal's official government mobile application that provides citizens with access to civic services digitally. We wanted to bring a similar experience to the web — giving citizens a single platform to report issues, track applications, pay fines, vote on community polls, and stay informed through news and notices, all without visiting a government office in person.
+
+---
+
 ## ✨ Features
 
 ### 👨‍💼 Citizen Side
@@ -48,7 +73,107 @@
 
 ---
 
+## 🚀 Tech Stack
 
+| Layer | Technology |
+|---|---|
+| **Frontend** | JSP, HTML, CSS (Flexbox, Media Queries) |
+| **Backend** | Java, Jakarta Servlets, MVC Architecture |
+| **Database** | MySQL (via XAMPP) |
+| **Connectivity** | JDBC (MySQL Connector/J) |
+| **Server** | Apache Tomcat 10 |
+| **Build Tool** | Maven |
+| **Security** | BCrypt password hashing, Session management, Filter-based auth |
+| **Version Control** | Git & GitHub |
+
+---
+
+## 📂 Project Structure
+
+<pre>
+Neighborly/
+├── src/main/java/com/Neighborly/
+│   ├── controller/        # Servlets (one per feature)
+│   ├── dao/               # Data Access Objects
+│   ├── model/             # Entity classes
+│   ├── service/           # Business logic layer
+│   ├── filter/            # Authentication & Guest filters
+│   └── utils/             # DBconfig, PasswordUtil, SessionUtil, CookieUtil, FileUploadUtil
+├── src/main/webapp/
+│   ├── WEB-INF/Pages/     # JSP views
+│   ├── Components/        # Reusable JSP includes (sidebar, navbar, topbar)
+│   ├── CSS/               # Stylesheets per page
+│   └── Images/            # Static assets
+└── pom.xml
+</pre>
+
+---
+
+## ⚙️ Installation & Setup
+
+1. **Clone this repository**
+```bash
+   git clone https://github.com/yogeshpan1/Neighborly.git
+   cd Neighborly
+```
+
+2. **Set up the database**
+   - Start XAMPP and ensure MySQL is running on port 3306
+   - Import the SQL schema file into phpMyAdmin to create the Neighborly database
+
+3. **Add MySQL Connector/J**
+   - Download the MySQL Connector/J JAR from https://dev.mysql.com/downloads/connector/j/
+   - Add the JAR to the project build path and copy it to `src/main/webapp/WEB-INF/lib/`
+
+4. **Configure the database connection**
+   - Open `src/main/java/com/Neighborly/utils/DBconfig.java`
+   - Update the URL, username, and password to match your XAMPP MySQL setup
+
+5. **Deploy to Apache Tomcat**
+   - Open the project in Eclipse as a Dynamic Web Module
+   - Add Tomcat 10 via Window > Preferences > Server > Runtime Environments
+   - Right-click the project → Run As → Run on Server
+   - Access the app at `http://localhost:8080/Neighborly`
+
+---
+
+## 📸 Screenshots
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/yogeshpan1/Neighborly/main/src/main/webapp/Images/readme/home.png" alt="Home Page" width="600"/>
+</p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/yogeshpan1/Neighborly/main/src/main/webapp/Images/readme/feed.png" alt="Feed Page" width="600"/>
+</p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/yogeshpan1/Neighborly/main/src/main/webapp/Images/readme/admin.png" alt="Admin Dashboard" width="600"/>
+</p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/yogeshpan1/Neighborly/main/src/main/webapp/Images/readme/polls.png" alt="Polls Page" width="600"/>
+</p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/yogeshpan1/Neighborly/main/src/main/webapp/Images/readme/notices.png" alt="Notices Page" width="600"/>
+</p>
+
+---
+
+## 👥 Team Members
+
+| Name | Role & Contributions |
+|---|---|
+| Yogesh Pant | Team Lead, Poll Management, Notice Management, Document Management, Citizen Management, About Us, Sidebar |
+| Prayush Shrestha | Home Page, Feed, Payments & Fines, Profile, Edit Profile, Document Vault, Notices (citizen side) |
+| Arjan Regmi | Authentication, Admin Dashboard, Fine Management, News Management, Issue Management, Contact Management |
+| Rikesh Adhikari | News Page, Polls (citizen side), Report Issue, Application Page, Contact Us |
+
+---
+
+## 🎯 Project Goals
+
+- Build a fully functional full-stack web application using Java EE technologies
+- Apply the MVC architectural pattern in a real-world project
+- Implement role-based access control for admin and citizen user roles
+- Practice team-based development using Git branching and GitHub collaboration
 - Gain practical experience with database design, JDBC, session management, and server-side validation
 
 ---
