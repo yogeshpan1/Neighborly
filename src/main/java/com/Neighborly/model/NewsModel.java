@@ -1,5 +1,9 @@
 package com.Neighborly.model;
 
+/**
+ * Model class for news & article
+ */
+
 public class NewsModel {
 	private int newsId;
 	private int adminId;
@@ -10,6 +14,7 @@ public class NewsModel {
 	private String newsStatus;
 	private String postedAt;
 
+	// Getters
 	public int getNewsId() {
 		return newsId;
 	}
@@ -34,6 +39,7 @@ public class NewsModel {
 		return postedAt;
 	}
 
+	// Setters
 	public void setNewsId(int newsId) {
 		this.newsId = newsId;
 	}
