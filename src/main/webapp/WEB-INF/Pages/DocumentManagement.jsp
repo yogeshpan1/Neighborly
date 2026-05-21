@@ -15,9 +15,11 @@
 <body>
 	<input type="checkbox" id="sidebarToggle" class="sidebarToggleInput" />
 
+	<!-- sidebar -->
 	<jsp:include page="/Components/admin-sidebar.jsp" />
 
 	<div class="mainContent">
+		<!-- topbar -->
 		<jsp:include page="/Components/admin-topbar.jsp" />
 
 		<div class="dashboardBody">
@@ -25,8 +27,9 @@
 				<h1 class="docPageTitle">Document Management</h1>
 			</div>
 
-			<!-- STAT CARDS -->
+			<!-- stat cards -->
 			<div class="statsFlex" style="margin-bottom: 24px;">
+				<!-- total -->
 				<div class="statCard">
 					<div class="statIconWrap">
 						<div class="statBars barsGreen">
@@ -42,6 +45,7 @@
 							class="statValue">${totalDocuments}</span>
 					</div>
 				</div>
+				<!-- approved -->
 				<div class="statCard">
 					<div class="statIconWrap">
 						<div class="statBars barsOrange">
@@ -56,6 +60,7 @@
 							class="statValue">${approvedDocuments}</span>
 					</div>
 				</div>
+				<!-- pending -->
 				<div class="statCard">
 					<div class="statIconWrap">
 						<div class="statBars barsBlue">
@@ -73,8 +78,8 @@
 
 			<hr class="docDivider">
 
-			<!-- TWO COLUMN LAYOUT -->
 			<div class="docTwoColumn">
+				<!-- pending documents table -->
 				<div class="docTableCard">
 					<h2 class="docTableTitle">Pending Documents</h2>
 					<table class="docTable">
@@ -94,6 +99,7 @@
 										<td>${doc.documentType}</td>
 										<td>${doc.submittedAt}</td>
 										<td class="docActionCell">
+											<!-- open approval modal -->
 											<form
 												action="${pageContext.request.contextPath}/documentlist"
 												method="GET" style="display: inline;">
@@ -101,6 +107,7 @@
 													value="${doc.documentId}">
 												<button type="submit" class="buttonDocAccept">Accept</button>
 											</form>
+											<!-- reject and delete -->
 											<form
 												action="${pageContext.request.contextPath}/documentlist"
 												method="GET" style="display: inline;">
@@ -116,7 +123,7 @@
 					</table>
 				</div>
 
-				<!-- VERIFIED DOCUMENTS TABLE -->
+				<!-- verified documents table -->
 				<div class="docTableCard">
 					<h2 class="docTableTitle">Verified Documents</h2>
 					<table class="docTable">
@@ -146,6 +153,7 @@
 														method="GET">
 														<input type="hidden" name="editDoc"
 															value="${doc.documentId}">
+														<!-- open delete modal -->
 														<button type="submit" class="buttonDocReject">Delete</button>
 													</form>
 												</td>
@@ -163,6 +171,7 @@
 		</div>
 	</div>
 
+	<!-- approval modal -->
 	<div class="modalOverlay" id="acceptDocModal"
 		style="${not empty viewDocument ? 'display:flex;' : ''}">
 		<div class="modalBox">
@@ -180,6 +189,7 @@
 				<input type="hidden" name="documentId"
 					value="${viewDocument.documentId}">
 				<div class="modalBodyContent">
+					<!-- document details -->
 					<div class="docFormGroup">
 						<label class="docFormLabel">Full Name</label>
 						<p style="color: #ffffff; font-size: 14px; margin: 0;">${viewDocument.fullName}</p>
@@ -211,8 +221,7 @@
 		</div>
 	</div>
 
-	<!-- REJECT MODAL -->
-	<!-- DELETE VERIFIED DOCUMENT MODAL -->
+	<!-- delete document modal -->
 	<div class="modalOverlay" id="editDocModal"
 		style="${not empty editDocument ? 'display:flex;' : ''}">
 		<div class="modalBox">
@@ -232,6 +241,7 @@
 				<input type="hidden" name="documentId"
 					value="${editDocument.documentId}">
 				<div class="modalBodyContent">
+					<!-- document details -->
 					<div class="docFormGroup">
 						<label class="docFormLabel">Full Name</label>
 						<p style="color: #ffffff; font-size: 14px; margin: 0;">${editDocument.fullName}</p>
@@ -262,7 +272,6 @@
 			</form>
 		</div>
 	</div>
-
 
 </body>
 </html>
