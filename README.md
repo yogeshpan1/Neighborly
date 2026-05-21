@@ -20,11 +20,11 @@
 
 ## About
 
-Neighborly is a full-stack citizen portal developed by a team of four students at Islington College as part of the CS5054NI Advanced Programming and Technologies module. The system provides two distinct experiences — a citizen-facing portal and an administrator dashboard — connected through a shared MySQL database and built entirely on Java EE technologies following the MVC architectural pattern.
+Neighborly is a full-stack citizen portal developed by a team of four students at Islington College as part of the CS5054NI Advanced Programming and Technologies module. The system provides two distinct experiences — a citizen-facing portal and an administrator dashboard connected through a shared MySQL database and built entirely on Java EE technologies following the MVC architectural pattern.
 
-The idea came from observing how many civic interactions in Nepal still require physical visits to government offices. Neighborly attempts to digitise that experience, letting citizens report local problems, apply for official documents, pay fines, participate in community polls, and read local news — all from a single web application.
+The idea came from observing how many civic interactions in Nepal still require physical visits to government offices. Neighborly attempts to digitise that experience, letting citizens report local problems, apply for official documents, pay fines, participate in community polls, and read local news all from a single web application.
 
-The project was built using Jakarta Servlets, JSP, JDBC, and MySQL, with no external CSS frameworks — all styling was written from scratch using Flexbox and media queries.
+The project was built using Jakarta Servlets, JSP, JDBC, and MySQL, with no external CSS frameworks all styling was written from scratch using Flexbox and media queries.
 
 ---
 
@@ -171,4 +171,4 @@ Neighborly/
 
 ## License
 
-This project is for educational purposes only — submitted as coursework for CS5054NI at Islington College.
+This project is for educational purposes only submitted as coursework for CS5054NI at Islington College.
