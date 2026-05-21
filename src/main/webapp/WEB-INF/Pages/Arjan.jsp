@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="avatarBox">
-                    <img src="${pageContext.request.contextPath}/Images/Arjan.jpeg" alt="Arjan Regmi" class="avatarImg">
+                    <img src="${pageContext.request.contextPath}/Images/Arjan.png" alt="Arjan Regmi" class="avatarImg">
                 </div>
                 <h1 class="memberName">Arjan Regmi</h1>
                 <div class="memberRole">BSc (Hons) Computing Student</div>

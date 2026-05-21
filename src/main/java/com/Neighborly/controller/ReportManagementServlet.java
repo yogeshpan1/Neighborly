@@ -62,6 +62,7 @@ public class ReportManagementServlet extends HttpServlet {
 			request.setAttribute("pendingReports", pending);
 			request.setAttribute("inProgressReports", inProgress);
 
+			request.setAttribute("activePage", "Report Issues");
 			request.getRequestDispatcher("/WEB-INF/Pages/ReportIssue.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();

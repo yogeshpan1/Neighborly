@@ -23,7 +23,7 @@
                     <!-- Yogesh Pant -->
                     <a href="${pageContext.request.contextPath}/portfolio?member=yogesh" class="memberCard">
                         <div class="memberImgBox">
-                            <img src="${pageContext.request.contextPath}/Images/Yogesh.jpeg" alt="Yogesh Pant" class="memberImg">
+                            <img src="${pageContext.request.contextPath}/Images/Yogesh.png" alt="Yogesh Pant" class="memberImg">
                         </div>
                         <h3 class="memberName">Yogesh Pant</h3>
                         <p class="memberDesc">BSc (Hons) Computing student specializing in AI &amp; Digital Marketing.</p>
@@ -33,7 +33,7 @@
                     <!-- Arjan Regmi -->
                     <a href="${pageContext.request.contextPath}/portfolio?member=arjan" class="memberCard">
                         <div class="memberImgBox">
-                            <img src="${pageContext.request.contextPath}/Images/Arjan.jpeg" alt="Arjan Regmi" class="memberImg">
+                            <img src="${pageContext.request.contextPath}/Images/Arjan.png" alt="Arjan Regmi" class="memberImg">
                         </div>
                         <h3 class="memberName">Arjan Regmi</h3>
                         <p class="memberDesc">BSc (Hons) Computing student passionate about UI/UX &amp; Multimedia.</p>
@@ -43,7 +43,7 @@
                     <!-- Rikesh Adhikari -->
                     <a href="${pageContext.request.contextPath}/portfolio?member=rikesh" class="memberCard">
                         <div class="memberImgBox">
-                            <img src="${pageContext.request.contextPath}/Images/Rikesh.jpeg" alt="Rikesh Adhikari" class="memberImg">
+                            <img src="${pageContext.request.contextPath}/Images/Rikesh.png" alt="Rikesh Adhikari" class="memberImg">
                         </div>
                         <h3 class="memberName">Rikesh Adhikari</h3>
                         <p class="memberDesc">BSc (Hons) Computing student focused on Cloud &amp; Full-Stack Development.</p>

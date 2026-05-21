@@ -186,19 +186,15 @@
 					<div class="panel">
 						<div class="panelHeader">
 							<span class="panelTitle">Document vault</span> <a
-								href="DocumentList.jsp" class="viewAllLink">View all</a>
+								href="<%=request.getContextPath()%>/documentlist"class="viewAllLink">View all</a>
 						</div>
 						<div class="statRow">
 							<span class="statRowLabel">Total documents</span><span
-								class="statRowValue">407</span>
+								class="statRowValue">${totalDocuments}</span>
 						</div>
 						<div class="statRow">
 							<span class="statRowLabel">Pending verification</span><span
-								class="statRowValue valueOrange">14</span>
-						</div>
-						<div class="statRow">
-							<span class="statRowLabel">Verified</span><span
-								class="statRowValue valueGreen">393</span>
+								class="statRowValue valueOrange">${pendingDocuments}</span>
 						</div>
 					</div>
 					<div class="panel">
