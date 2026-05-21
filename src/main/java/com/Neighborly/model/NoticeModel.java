@@ -1,4 +1,9 @@
 package com.Neighborly.model;
+
+/**
+ * Model class for notices.
+ */
+
 public class NoticeModel {
     private int noticeId;
     private int userId;
@@ -7,7 +12,8 @@ public class NoticeModel {
     private String noticeDescription;
     private String createdAt;
     private String postTime;
-    
+
+    // Getters
     public int getNoticeId() {
         return noticeId;
     }
@@ -29,6 +35,8 @@ public class NoticeModel {
     public String getNoticeCategory() {
         return noticeCategory;
     }
+
+    // Setters
     public void setNoticeCategory(String noticeCategory) {
         this.noticeCategory = noticeCategory;
     }
