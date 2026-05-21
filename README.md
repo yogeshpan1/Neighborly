@@ -130,19 +130,19 @@ Neighborly/
 ## Screenshots
 
 <p align="center">
-  <img src="src/main/webapp/Images/readme/Home.jpeg" alt="Home Page" width="600"/>
+  <img src="src/main/webapp/Images/Home.jpeg" alt="Home Page" width="600"/>
 </p>
 <p align="center">
-  <img src="/src/main/webapp/Images/readme/Feed.jpeg" alt="Feed Page" width="600"/>
+  <img src="src/main/webapp/Images/Feed.jpeg" alt="Feed Page" width="600"/>
 </p>
 <p align="center">
-  <img src="/src/main/webapp/Images/readme/Admin Dashboard.jpeg" alt="Admin Dashboard" width="600"/>
+  <img src="src/main/webapp/Images/Admin Dashboard.jpeg" alt="Admin Dashboard" width="600"/>
 </p>
 <p align="center">
-  <img src="/src/main/webapp/Images/readme/Poll.jpeg" alt="Polls Page" width="600"/>
+  <img src="src/main/webapp/Images/Poll.jpeg" alt="Polls Page" width="600"/>
 </p>
 <p align="center">
-  <img src="/main/webapp/Images/readme/Notice.jpeg" alt="Notices Page" width="600"/>
+  <img src="src/main/webapp/Images/Notice.jpeg" alt="Notices Page" width="600"/>
 </p>
 
 ---
