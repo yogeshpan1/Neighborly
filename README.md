@@ -161,10 +161,11 @@ Neighborly/
 
 | Name | Role & Contributions |
 |---|---|
-| Yogesh Pant | Team Lead, Poll Management, Notice Management, Document Management, Citizen Management, About Us, Sidebar |
-| Prayush Shrestha | Home Page, Feed, Payments & Fines, Profile, Edit Profile, Document Vault, Notices (citizen side) |
-| Arjan Regmi | Authentication, Admin Dashboard, Fine Management, News Management, Issue Management, Contact Management |
-| Rikesh Adhikari | News Page, Polls (citizen side), Report Issue, Application Page, Contact Us |
+| Rikesh Adhikari | News Page, Polls Page (citizen side), Report Issue, Document Vault, Contact Us, Register & Login Page |
+| Prayush Shrestha | Home Page, Feed, Payments & Fines, Profile Page, Notices (citizen side) |
+| Arjan Regmi | Admin Dashboard, Fine Management, News Management, Issue Management, Contact Management |
+| Yogesh Pant | Team Lead, Poll Management, Notice Management, Document Management, Citizen Management |
+
 
 ---
 
