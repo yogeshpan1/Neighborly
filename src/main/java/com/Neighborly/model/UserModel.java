@@ -1,5 +1,9 @@
 package com.Neighborly.model;
 
+/**
+ * Model class for storing profile information and credentials of a User.
+ */
+
 import java.util.Date;
 
 public class UserModel {
