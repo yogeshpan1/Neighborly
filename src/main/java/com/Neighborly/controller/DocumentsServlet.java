@@ -58,6 +58,22 @@ public class DocumentsServlet extends HttpServlet {
 
 		DocumentService service = new DocumentService();
 
+		// FIX: Handle "View" button in My Applications table.
+		// The form POSTs openViewDoc but doPost had no handler for it — modal never opened.
+		String openViewDoc = request.getParameter("openViewDoc");
+		if (openViewDoc != null && !openViewDoc.isEmpty()) {
+			try {
+				request.setAttribute("myDocuments", service.getDocumentsByUserId(userId));
+				DocumentModel viewDoc = service.getDocumentByIdAndUser(Integer.parseInt(openViewDoc), userId);
+				request.setAttribute("viewDocument", viewDoc);
+				request.setAttribute("showViewModal", "true");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			request.getRequestDispatcher("/WEB-INF/Pages/documents.jsp").forward(request, response);
+			return;
+		}
+
 		// 1) Open apply modal
 		if ("true".equals(request.getParameter("openApply"))) {
 			try {

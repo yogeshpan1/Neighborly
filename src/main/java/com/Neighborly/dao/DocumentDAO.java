@@ -291,6 +291,29 @@ public class DocumentDAO {
 		con.close();
 	}
 
+
+	/**
+	 * Rejects a document application.
+	 *
+	 * Input: documentId
+	 * Output: void
+	 * Function: Updates the document status to 'Rejected' in the database.
+	 *
+	 * @param documentId the ID of the document application to reject
+	 * @throws Exception if a database error occurs
+	 */
+	public void rejectDocument(int documentId) throws Exception {
+
+		String sql = "UPDATE document_applications SET status = 'Rejected' WHERE document_id = ?";
+
+		Connection con = DBconfig.getConnection();
+		PreparedStatement pst = con.prepareStatement(sql);
+		pst.setInt(1, documentId);
+		pst.executeUpdate();
+		pst.close();
+		con.close();
+	}
+
 	/**
 	 * Deletes a document application from the database.
 	 *
