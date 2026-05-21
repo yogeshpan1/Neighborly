@@ -1,5 +1,9 @@
 package com.Neighborly.model;
 
+/**
+ * Model class for Reporting incident or issuing reports.
+ */
+
 public class ReportModel {
 
     private int reportId;
