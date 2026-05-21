@@ -1,17 +1,21 @@
 package com.Neighborly.model;
 
+/**
+ * Model class for storing feed posts, interactionand saved posts.
+ */
+
 public class FeedModel {
 
-    private int     postId;
-    private int     userId;
-    private String  userName;
-    private String  content;
-    private String  postType;
-    private String  createdAt;
-    private String  postTime;
-    private String  userVote;
-    private int     upCount;
-    private int     downCount;
+    private int postId;
+    private int userId;
+    private String userName;
+    private String content;
+    private String postType;
+    private String createdAt;
+    private String postTime;
+    private String userVote;
+    private int upCount;
+    private int downCount;
     private boolean savedByUser;
     private String postImage;
     private String userImage;
