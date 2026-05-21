@@ -1,5 +1,9 @@
 package com.Neighborly.model;
 
+/**
+ * Model class for submitting feedback or questions.
+ */
+
 public class ContactModel {
 
     private int contactId;
