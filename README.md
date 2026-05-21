@@ -18,7 +18,7 @@
 
 ---
 
-## 📖 About
+## About
 
 Neighborly is a full-stack citizen portal developed by a team of four students at Islington College as part of the CS5054NI Advanced Programming and Technologies module. The system provides two distinct experiences — a citizen-facing portal and an administrator dashboard — connected through a shared MySQL database and built entirely on Java EE technologies following the MVC architectural pattern.
 
@@ -28,42 +28,42 @@ The project was built using Jakarta Servlets, JSP, JDBC, and MySQL, with no exte
 
 ---
 
-## 💡 Inspiration
+## Inspiration
 
 Neighborly was inspired by **[Nagarik App](https://nagarikapp.gov.np/)**, Nepal's official government mobile application that provides citizens with access to civic services digitally. We wanted to bring a similar experience to the web — giving citizens a single platform to report issues, track applications, pay fines, vote on community polls, and stay informed through news and notices, all without visiting a government office in person.
 
 ---
 
-## ✨ Features
+## Features
 
-### 👨‍💼 Citizen Side
-- 🔐 **User Authentication** – Register, Login with encrypted passwords, Remember Me via cookies
-- 🏠 **Home Dashboard** – Service shortcuts, pending fines overview, application status, community polls
-- 📋 **Community Feed** – Post updates, share thoughts, upvote and save community posts
-- 📰 **News Page** – Stay informed with featured and regular news articles
-- 🗳️ **Polls** – Vote on active community polls, view live vote counts
-- 🔔 **Notices** – Browse admin-published notices with relative timestamps
-- 📁 **Document Vault** – View official documents linked to your account
-- 💳 **Payments & Fines** – View payment history and outstanding fines
-- ⚠️ **Report Issues** – Submit community issues with optional photo evidence
-- 📝 **Applications** – Apply for civic documents and track application status
-- 👤 **Profile & Edit Profile** – View and update personal account details
-- 📞 **Contact Us** – Send enquiries directly to administrators
+### Citizen Side
+- **User Authentication** – Register, Login with encrypted passwords, Remember Me via cookies
+- **Home Dashboard** – Service shortcuts, pending fines overview, application status, community polls
+- **Community Feed** – Post updates, share thoughts, upvote and save community posts
+- **News Page** – Stay informed with featured and regular news articles
+- **Polls** – Vote on active community polls, view live vote counts
+- **Notices** – Browse admin-published notices with relative timestamps
+- **Document Vault** – View official documents linked to your account
+- **Payments & Fines** – View payment history and outstanding fines
+- **Report Issues** – Submit community issues with optional photo evidence
+- **Applications** – Apply for civic documents and track application status
+- **Profile & Edit Profile** – View and update personal account details
+- **Contact Us** – Send enquiries directly to administrators
 
-### 🛠️ Admin Side
-- 📊 **Admin Dashboard** – Live counts of citizens, issues, news, notices, and polls
-- 👥 **Citizen Management** – View, suspend, and unsuspend citizen accounts
-- ⚖️ **Fine Management** – Issue, mark paid, and delete fines
-- 📰 **News Management** – Create, edit, and delete news articles
-- 🔔 **Notice Management** – Publish and manage system notices
-- 🗳️ **Poll Management** – Create, update, and deactivate polls
-- 📁 **Document Management** – Issue and manage citizen documents
-- ⚠️ **Issue Management** – Review reported issues and update their status
-- 📩 **Contact Management** – View and delete citizen enquiries
+### Admin Side
+- **Admin Dashboard** – Live counts of citizens, issues, news, notices, and polls
+- **Citizen Management** – View, suspend, and unsuspend citizen accounts
+- **Fine Management** – Issue, mark paid, and delete fines
+- **News Management** – Create, edit, and delete news articles
+- **Notice Management** – Publish and manage system notices
+- **Poll Management** – Create, update, and deactivate polls
+- **Document Management** – Issue and manage citizen documents
+- **Issue Management** – Review reported issues and update their status
+- **Contact Management** – View and delete citizen enquiries
 
 ---
 
-## 🚀 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -78,7 +78,7 @@ Neighborly was inspired by **[Nagarik App](https://nagarikapp.gov.np/)**, Nepal'
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 <pre>
 Neighborly/
@@ -99,7 +99,7 @@ Neighborly/
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 1. **Clone this repository**
 ```bash
@@ -127,7 +127,7 @@ Neighborly/
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/yogeshpan1/Neighborly/main/src/main/webapp/Images/readme/home.png" alt="Home Page" width="600"/>
@@ -147,7 +147,7 @@ Neighborly/
 
 ---
 
-## 👥 Team Members
+## Team Members
 
 | Name | Role & Contributions |
 |---|---|
@@ -159,7 +159,7 @@ Neighborly/
 
 ---
 
-## 🎯 Project Goals
+## Project Goals
 
 - Build a fully functional full-stack web application using Java EE technologies
 - Apply the MVC architectural pattern in a real-world project
@@ -169,6 +169,6 @@ Neighborly/
 
 ---
 
-## 📜 License
+## License
 
-This project is for educational purposes only — submitted as coursework for CS5054NI at Islington College (London Metropolitan University).
+This project is for educational purposes only — submitted as coursework for CS5054NI at Islington College.
