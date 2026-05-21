@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Neighborly</title>
-
+<!-- citizen facing page styles -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/CSS/leftbar.css">
 <link rel="stylesheet"
@@ -19,16 +19,18 @@
 
 <body>
 
+	<!-- left sidebar -->
 	<jsp:include page="/Components/leftbar.jsp" />
 
 	<main class="mainContent">
+		<!-- top navbar -->
 		<jsp:include page="/Components/navbar.jsp" />
 
 		<section class="documentTitleSection">
 
+			<!-- page header with new application button -->
 			<div class="docPageHeader">
 				<h1 class="docPageTitle"></h1>
-
 				<form method="post" action="${pageContext.request.contextPath}/documents">
 					<input type="hidden" name="openApply" value="true">
 					<button type="submit" class="docApplyBtn">
@@ -43,6 +45,7 @@
 				</form>
 			</div>
 
+			<!-- success banner after submitting an application -->
 			<c:if test="${param.success == 'applied'}">
 				<div class="docBanner docBannerSuccess">
 					<svg width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -55,8 +58,10 @@
 				</div>
 			</c:if>
 
+			<!-- document type cards grid -->
 			<div class="documentsGrid">
 
+				<!-- national identity card -->
 				<article class="documentItem">
 					<div class="documentIcon">
 						<svg width="28" height="28" viewBox="0 0 24 24" fill="none"
@@ -76,6 +81,7 @@
 					</form>
 				</article>
 
+				<!-- passport -->
 				<article class="documentItem">
 					<div class="documentIcon">
 						<svg width="28" height="28" viewBox="0 0 24 24" fill="none"
@@ -92,6 +98,7 @@
 					</form>
 				</article>
 
+				<!-- citizenship -->
 				<article class="documentItem">
 					<div class="documentIcon">
 						<svg width="28" height="28" viewBox="0 0 24 24" fill="none"
@@ -109,6 +116,7 @@
 					</form>
 				</article>
 
+				<!-- driving license -->
 				<article class="documentItem">
 					<div class="documentIcon">
 						<svg width="28" height="28" viewBox="0 0 24 24" fill="none"
@@ -127,6 +135,7 @@
 					</form>
 				</article>
 
+				<!-- voters id -->
 				<article class="documentItem">
 					<div class="documentIcon">
 						<svg width="28" height="28" viewBox="0 0 24 24" fill="none"
@@ -144,6 +153,7 @@
 					</form>
 				</article>
 
+				<!-- bluebook -->
 				<article class="documentItem">
 					<div class="documentIcon">
 						<svg width="28" height="28" viewBox="0 0 24 24" fill="none"
@@ -165,10 +175,12 @@
 
 			</div>
 
+			<!-- citizen's own application history -->
 			<div class="myApplicationsSection">
 				<h2 class="myAppTitle">My Applications</h2>
 
 				<c:choose>
+					<!-- no applications yet -->
 					<c:when test="${empty myDocuments}">
 						<div class="emptyApplications">
 							<svg width="44" height="44" viewBox="0 0 24 24" fill="none"
@@ -181,6 +193,7 @@
 						</div>
 					</c:when>
 					<c:otherwise>
+						<!-- application list table -->
 						<div class="appList">
 							<div class="appListRow appListHeader">
 								<span>Document Type</span>
@@ -203,6 +216,7 @@
 									</span>
 									<span>${doc.fullName}</span>
 									<span>${doc.submittedAt}</span>
+									<!-- status badge -->
 									<span>
 										<c:choose>
 											<c:when test="${doc.status == 'Approved'}">
@@ -216,6 +230,7 @@
 											</c:otherwise>
 										</c:choose>
 									</span>
+									<!-- view button opens detail modal -->
 									<span class="appActionCell">
 										<form method="post" action="${pageContext.request.contextPath}/documents">
 											<input type="hidden" name="openViewDoc" value="${doc.documentId}">
@@ -232,6 +247,7 @@
 		</section>
 	</main>
 
+	<!-- new application modal -->
 	<c:if test="${not empty openApply}">
 		<div class="docModalOverlay" style="display:flex;">
 			<div class="docModalBox">
@@ -247,6 +263,7 @@
 						</svg>
 					</div>
 					<h2>New Document Application</h2>
+					<!-- close modal -->
 					<a href="${pageContext.request.contextPath}/documents" class="docModalClose">
 						<svg width="18" height="18" viewBox="0 0 24 24" fill="none"
 							stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -259,6 +276,7 @@
 
 				<form action="${pageContext.request.contextPath}/documents" method="POST" novalidate>
 
+					<!-- show server side validation error -->
 					<c:if test="${not empty error}">
 						<div class="docModalError">
 							<svg width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -274,6 +292,7 @@
 
 					<div class="docModalBody">
 
+						<!-- document type dropdown -->
 						<div class="docFormGroup">
 							<label class="docFormLabel">
 								Document Type <span class="required">*</span>
@@ -300,12 +319,12 @@
 						</div>
 
 						<div class="docFormRow">
+							<!-- full name input -->
 							<div class="docFormGroup">
 								<label class="docFormLabel">
 									Full Name <span class="required">*</span>
 								</label>
-								<input type="text"
-									name="fullName"
+								<input type="text" name="fullName"
 									class="docFormInput ${not empty error && (empty param.fullName || fn:contains(error, 'Full name')) ? 'inputError' : ''}"
 									placeholder="As on official records"
 									value="${param.fullName}">
@@ -317,12 +336,12 @@
 								</c:if>
 							</div>
 
+							<!-- date of birth input -->
 							<div class="docFormGroup">
 								<label class="docFormLabel">
 									Date of Birth <span class="required">*</span>
 								</label>
-								<input type="date"
-									name="dateOfBirth"
+								<input type="date" name="dateOfBirth"
 									class="docFormInput ${not empty error && empty param.dateOfBirth ? 'inputError' : ''}"
 									value="${param.dateOfBirth}">
 								<c:if test="${not empty error && empty param.dateOfBirth}">
@@ -331,12 +350,12 @@
 							</div>
 						</div>
 
+						<!-- address input -->
 						<div class="docFormGroup">
 							<label class="docFormLabel">
 								Address <span class="required">*</span>
 							</label>
-							<input type="text"
-								name="address"
+							<input type="text" name="address"
 								class="docFormInput ${not empty error && empty param.address ? 'inputError' : ''}"
 								placeholder="Current residential address"
 								value="${param.address}">
@@ -345,12 +364,12 @@
 							</c:if>
 						</div>
 
+						<!-- phone number input -->
 						<div class="docFormGroup">
 							<label class="docFormLabel">
 								Phone Number <span class="required">*</span>
 							</label>
-							<input type="tel"
-								name="phone"
+							<input type="tel" name="phone"
 								class="docFormInput ${not empty error && (empty param.phone || fn:contains(error, 'Phone number')) ? 'inputError' : ''}"
 								placeholder="98XXXXXXXX"
 								value="${param.phone}">
@@ -362,6 +381,7 @@
 							</c:if>
 						</div>
 
+						<!-- optional additional info -->
 						<div class="docFormGroup">
 							<label class="docFormLabel">Additional Information</label>
 							<textarea name="additionalInfo" class="docFormTextarea"
@@ -379,6 +399,7 @@
 		</div>
 	</c:if>
 
+	<!-- view application detail modal -->
 	<c:if test="${not empty viewDocument or (not empty param.docType)}">
 		<div class="docModalOverlay" style="display:flex;">
 			<div class="docModalBox docModalBoxView">
@@ -395,6 +416,7 @@
 						</svg>
 					</div>
 					<h2>Application Details</h2>
+					<!-- close modal -->
 					<a href="${pageContext.request.contextPath}/documents" class="docModalClose">
 						<svg width="18" height="18" viewBox="0 0 24 24" fill="none"
 							stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -406,7 +428,9 @@
 				</div>
 
 				<c:choose>
+					<!-- show document details if found -->
 					<c:when test="${not empty viewDocument}">
+						<!-- status badge -->
 						<div class="docViewStatusRow">
 							<c:choose>
 								<c:when test="${viewDocument.status == 'Approved'}">
@@ -421,6 +445,7 @@
 							</c:choose>
 						</div>
 
+						<!-- document field values -->
 						<div class="docViewBody">
 							<div class="docDetailRow">
 								<span class="docDetailLabel">Document Type</span>
@@ -459,6 +484,7 @@
 								class="docBtnCancel" style="text-decoration:none;">Close</a>
 						</div>
 					</c:when>
+					<!-- no application found for selected doc type -->
 					<c:otherwise>
 						<div class="docNoAppBody">
 							<svg width="44" height="44" viewBox="0 0 24 24" fill="none"
