@@ -7,13 +7,13 @@
 </p>
 
 <p align="center">
-  <a href="#">🏠 Home</a> •
-  <a href="#">📋 Feed</a> •
-  <a href="#">📰 News</a> •
-  <a href="#">🗳️ Polls</a> •
-  <a href="#">🔔 Notices</a> •
-  <a href="#">⚠️ Report Issue</a> •
-  <a href="#">👤 About Us</a>
+  <a href="#"> Home</a> •
+  <a href="#"> Feed</a> •
+  <a href="#"> News</a> •
+  <a href="#"> Polls</a> •
+  <a href="#"> Notices</a> •
+  <a href="#"> Report Issue</a> •
+  <a href="#"> About Us</a>
 </p>
 
 ---
