@@ -5,7 +5,11 @@
 
 <header class="topbar">
 	<div class="topbarLeft">
-		<a href="${pageContext.request.contextPath}/admindashboard"
+		<label class="hamburgerBtn" for="sidebarToggle"> <svg
+				width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+    </svg>
+		</label> <a href="${pageContext.request.contextPath}/admindashboard"
 			class="topbarLogo"> <img
 			src="${pageContext.request.contextPath}/Images/Logo.png"
 			alt="Neighborly Logo" style="width: 140px; height: auto;">

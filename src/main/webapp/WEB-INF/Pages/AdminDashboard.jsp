@@ -11,7 +11,7 @@
 	href="<%=request.getContextPath()%>/CSS/Admin-Side.css">
 </head>
 <body>
-
+	<input type="checkbox" id="sidebarToggle" class="sidebarToggleInput" />
 	<!-- SIDEBAR component -->
 	<jsp:include page="/Components/admin-sidebar.jsp" />
 
@@ -112,7 +112,7 @@
 							</thead>
 							<c:forEach var="r" items="${recentIssues}">
 								<tr>
-									<td class="primaryText">${r.firstName} ${r.lastName}</td>
+									<td class="primaryText">${r.firstName}${r.lastName}</td>
 									<td class="secondaryText">${r.category}</td>
 									<td class="secondaryText">${r.createdAt}</td>
 									<td><c:choose>

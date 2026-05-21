@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +14,7 @@
 	href="<%=request.getContextPath()%>/CSS/ReportIssue.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
+	<input type="checkbox" id="sidebarToggle" class="sidebarToggleInput" />
 
 	<jsp:include page="/Components/admin-sidebar.jsp" />
 
@@ -176,7 +178,7 @@
 					<c:choose>
 						<c:when test="${not empty selectedIssue.reportPhoto}">
 							<img
-								src="<%=request.getContextPath()%>/uploads/${selectedIssue.reportPhoto}"
+								src="${pageContext.request.contextPath}/getimage?name=${fn:substringBefore(selectedIssue.reportPhoto, '.')}"
 								style="max-width: 100%; border-radius: 8px; margin-top: 6px;">
 						</c:when>
 						<c:otherwise>
@@ -246,8 +248,9 @@
 
 				<div class="formGroup">
 					<label class="formLabel">Internal Staff Notes</label>
-					<textarea class="staffNotes" name="notes" id="notesField" form="moderateForm">${selectedIssue.staffNotes}</textarea>
-					
+					<textarea class="staffNotes" name="notes" id="notesField"
+						form="moderateForm">${selectedIssue.staffNotes}</textarea>
+
 				</div>
 
 			</div>
@@ -270,8 +273,8 @@
 					</button>
 				</form>
 
-				<form id="moderateForm" action="<%=request.getContextPath()%>/moderateissue"
-					method="POST"
+				<form id="moderateForm"
+					action="<%=request.getContextPath()%>/moderateissue" method="POST"
 					style="display: flex; padding-left: 150px; gap: 30px; align-items: center; margin: 0;">
 					<input type="hidden" name="reportId"
 						value="${selectedIssue.reportId}"> <input type="hidden"

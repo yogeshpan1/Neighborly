@@ -8,11 +8,13 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+import com.Neighborly.dao.DocumentDAO;
 import com.Neighborly.dao.NewsDAO;
 import com.Neighborly.dao.NoticeDAO;
 import com.Neighborly.dao.PollDAO;
 import com.Neighborly.dao.ReportDAO;
 import com.Neighborly.dao.UserDAO;
+import com.Neighborly.model.DocumentModel;
 import com.Neighborly.model.NewsModel;
 import com.Neighborly.model.NoticeModel;
 import com.Neighborly.model.PollModel;
@@ -44,7 +46,9 @@ public class AdminDashboardServlet extends HttpServlet {
             NewsDAO newsDAO = new NewsDAO();
             NoticeDAO noticeDAO = new NoticeDAO();
             PollDAO pollDAO = new PollDAO();
+            DocumentDAO documentDAO = new DocumentDAO();
             
+          
             // Citizens
             List<UserModel> users = userDAO.getAllUsers();
             request.setAttribute("totalCitizens", users.size());
@@ -59,6 +63,20 @@ public class AdminDashboardServlet extends HttpServlet {
             }
             request.setAttribute("openIssues", openIssues);
             request.setAttribute("recentIssues", reports);
+            
+            List<DocumentModel> documents = documentDAO.getAllDocuments();
+
+            int pendingDocuments = 0;
+
+            for (DocumentModel d : documents) {
+                if (!"Approved".equalsIgnoreCase(d.getStatus())) {
+                    pendingDocuments++;
+                }
+            }
+
+            request.setAttribute("totalDocuments", documents.size());
+            request.setAttribute("pendingDocuments", pendingDocuments);
+            request.setAttribute("recentDocuments", documents);
 
             // News
             List<NewsModel> newsList = newsDAO.getAllNews();

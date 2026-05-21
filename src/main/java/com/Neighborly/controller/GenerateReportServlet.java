@@ -10,12 +10,14 @@ import java.io.PrintWriter;
 import java.util.Date;
 import java.util.List;
 
+import com.Neighborly.dao.DocumentDAO;
 import com.Neighborly.dao.FineDAO;
 import com.Neighborly.dao.NewsDAO;
 import com.Neighborly.dao.NoticeDAO;
 import com.Neighborly.dao.PollDAO;
 import com.Neighborly.dao.ReportDAO;
 import com.Neighborly.dao.UserDAO;
+import com.Neighborly.model.DocumentModel;
 import com.Neighborly.model.FineModel;
 import com.Neighborly.model.NewsModel;
 import com.Neighborly.model.NoticeModel;
@@ -118,6 +120,56 @@ public class GenerateReportServlet extends HttpServlet {
 				}
 
 			}
+			
+			// ===== DOCUMENTS =====
+			DocumentDAO documentDAO = new DocumentDAO();
+
+			List<DocumentModel> documents = documentDAO.getAllDocuments();
+
+			int approvedDocuments = 0;
+			int pendingDocuments = 0;
+
+			for (DocumentModel d : documents) {
+
+				String status = d.getStatus();
+
+				if ("Approved".equalsIgnoreCase(status)) {
+					approvedDocuments++;
+				} else {
+					pendingDocuments++;
+				}
+			}
+
+			w.println("-------------------------DOCUMENTS SUMMARY-----------------------------------------");
+
+			w.println("Total Documents," + documents.size());
+			w.println("Approved," + approvedDocuments);
+			w.println("Pending," + pendingDocuments);
+			w.println();
+
+			w.println("Document ID,Citizen Name,Document Type,Phone,Status,Submitted At");
+
+			for (DocumentModel d : documents) {
+
+				String fullName = d.getFullName();
+
+				if (fullName == null || fullName.isEmpty()) {
+					fullName = d.getFirstName() + " " + d.getLastName();
+				}
+
+				fullName = fullName.replace(",", ";");
+
+				w.println(
+					d.getDocumentId() + "," +
+					fullName + "," +
+					d.getDocumentType() + "," +
+					d.getPhone() + "," +
+					d.getStatus() + "," +
+					d.getSubmittedAt()
+				);
+			}
+
+			w.println();
 
 			w.println("-------------------------FINES SUMMARY-----------------------------------------");
 			w.println("Total Fines," + fines.size());

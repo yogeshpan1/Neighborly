@@ -260,4 +260,39 @@ public class UserDAO {
         pst.close();
         con.close();
     }
+    
+    public List<UserModel> searchCitizens(String query) throws Exception {
+    	
+        List<UserModel> users = new ArrayList<>();
+        
+        String sql = "SELECT * FROM users WHERE role = 'citizen' AND (first_name LIKE ? OR last_name LIKE ? OR username LIKE ? OR email LIKE ?)";
+
+        Connection con = DBconfig.getConnection();
+        
+        PreparedStatement pst = con.prepareStatement(sql);
+        
+        String like = "%" + query + "%";
+        
+        pst.setString(1, like);
+        pst.setString(2, like);
+        pst.setString(3, like);
+        pst.setString(4, like);
+
+        ResultSet rs = pst.executeQuery();
+        
+        while (rs.next()) {
+        	
+            UserModel u = new UserModel();
+            
+            u.setUserId(rs.getInt("user_id"));
+            u.setFirstName(rs.getString("first_name"));
+            u.setLastName(rs.getString("last_name"));
+            u.setUserName(rs.getString("username"));
+            u.setEmail(rs.getString("email"));
+            u.setNumber(rs.getString("number"));
+            u.setStatus(rs.getString("status"));
+            users.add(u);
+        }
+        return users;
+    }
 }

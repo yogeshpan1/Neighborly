@@ -186,3 +186,22 @@
     background-color: #323639;
     color: #ffffff;
 }
+
+.hamburgerBtn {
+    display: none;
+    cursor: pointer;
+    padding: 6px;
+    margin-right: 8px;
+    border-radius: 6px;
+    color: #ffffff;
+    transition: background 0.2s;
+}
+
+.hamburgerBtn:hover { background-color: #323639; }
+
+@media (max-width: 768px) {
+    .hamburgerBtn { display: flex; align-items: center; }
+    .topbarSearch { display: none; }
+    .userDetails { display: none; }
+    .topbar { padding: 0 16px; }
+}

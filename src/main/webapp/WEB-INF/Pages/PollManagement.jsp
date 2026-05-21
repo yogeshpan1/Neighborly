@@ -10,12 +10,13 @@
 
 <!-- Link to Admin CSS-->
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/CSS/Admin-Side.css?v=<%=System.currentTimeMillis()%>">
+	href="${pageContext.request.contextPath}/CSS/Admin-Side.css?v=<%=System.currentTimeMillis()%>">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/CSS/PollManagement.css">
 
 </head>
 <body>
+	<input type="checkbox" id="sidebarToggle" class="sidebarToggleInput" />
 
 	<!-- SIDEBAR COMPONENT -->
 	<jsp:include page="/Components/admin-sidebar.jsp" />
@@ -32,7 +33,7 @@
 
 				<div class="pageHeader">
 					<h1 class="pageTitle">Polls Management</h1>
-					<form action="<%=request.getContextPath()%>/pollmanagement"
+					<form action="${pageContext.request.contextPath}/pollmanagement"
 						method="POST">
 						<input type="hidden" name="openCreatePoll" value="true">
 						<button type="submit" class="button buttonPrimary">+ Create New
@@ -114,7 +115,7 @@
 								<p>Created ${p.createdAt}</p>
 							</div>
 							<div class="pollActions">
-								<form action="<%=request.getContextPath()%>/pollmanagement"
+								<form action="${pageContext.request.contextPath}/pollmanagement"
 									method="POST">
 									<input type="hidden" name="editPollId" value="${p.pollId}">
 									<button type="submit" class="button buttonEdit">
@@ -130,7 +131,7 @@
 									</button>
 								</form>
 
-								<form action="<%=request.getContextPath()%>/pollmanagement"
+								<form action="${pageContext.request.contextPath}/pollmanagement"
 									method="POST">
 									<input type="hidden" name="openDeletePollId"
 										value="${p.pollId}"> <input type="hidden"
@@ -163,7 +164,7 @@
 					define choices.</p>
 			</div>
 
-			<form action="<%=request.getContextPath()%>/createpoll" method="POST"
+			<form action="${pageContext.request.contextPath}/createpoll" method="POST"
 				id="createPollForm">
 				<div class="modalBody">
 					<div class="formGroup">
@@ -191,7 +192,7 @@
 					</c:if>
 				</div>
 				<div class="modalFooter">
-					<a href="<%=request.getContextPath()%>/pollmanagement"
+					<a href="${pageContext.request.contextPath}/pollmanagement"
 						class="buttonGhost" style="text-decoration: none;">Cancel</a>
 
 					<button type="submit" class="button buttonPrimary">Create Poll</button>
@@ -218,7 +219,7 @@
 				<h2>Confirm Deletion</h2>
 			</div>
 
-			<form action="<%=request.getContextPath()%>/deletepoll" method="POST">
+			<form action="${pageContext.request.contextPath}/deletepoll" method="POST">
 				<input type="hidden" name="pollId" value="${openDeletePollId}">
 
 				<div class="modalBody" style="padding: 24px 28px;">
@@ -228,19 +229,11 @@
 							style="color: #ffffff; font-weight: 700;">${deleteQuestion}</strong>.
 					</p>
 
-					<div class="formGroup">
-						<label
-							style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #75787D; font-weight: 700; margin-bottom: 2px;">Reason
-							for Deletion</label>
-						<textarea class="formInput" name="deletionReason"
-							placeholder="Provide a detailed explanation for this deletion context."
-							required style="min-height: 110px;"></textarea>
-					</div>
 				</div>
 
 				<div class="modalFooter"
 					style="padding: 18px 28px; border-top: 1px solid #323639; display: flex; justify-content: flex-end; gap: 14px;">
-					<a href="<%=request.getContextPath()%>/pollmanagement"
+					<a href="${pageContext.request.contextPath}/pollmanagement"
 						class="buttonGhost" style="text-decoration: none;">Cancel</a>
 					<button type="submit" class="button buttonDelete">Confirm
 						Deletion</button>
@@ -257,7 +250,7 @@
 				<p class="modalSubtitle">Modify poll details and update
 					available choices.</p>
 			</div>
-			<form action="<%=request.getContextPath()%>/updatepoll" method="POST"
+			<form action="${pageContext.request.contextPath}/updatepoll" method="POST"
 				id="editPollForm">
 				<input type="hidden" name="pollId" value="${editPoll.pollId}">
 				<div class="modalBody">
@@ -283,7 +276,7 @@
 					</div>
 				</div>
 				<div class="modalFooter">
-					<a href="<%=request.getContextPath()%>/pollmanagement"
+					<a href="${pageContext.request.contextPath}/pollmanagement"
 						class="buttonGhost" style="text-decoration: none;">Cancel</a>
 					<button type="submit" class="button buttonPrimary">Update Poll</button>
 				</div>

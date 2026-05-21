@@ -14,6 +14,7 @@
 	href="${pageContext.request.contextPath}/CSS/CitizenManagement.css">
 </head>
 <body>
+	<input type="checkbox" id="sidebarToggle" class="sidebarToggleInput" />
 
 	<!-- SIDEBAR component -->
 	<jsp:include page="/Components/admin-sidebar.jsp" />
@@ -94,60 +95,103 @@
 					<!-- CITIZEN LIST -->
 					<div class="citizenList">
 
-						<h2 class="citizenSectionTitle">Active Citizens</h2>
-						<c:forEach var="c" items="${activeCitizen}">
-							<div class="citizenCard">
-								<div class="citizenInfo">
-									<div class="avatarBox">
-										<svg width="24" height="24" viewBox="0 0 24 24"
-											fill="currentColor">
-                                            <path
-												d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                                        </svg>
-									</div>
-									<div class="nameGroup">
-										<h3>
-											<c:out value="${c.firstName} ${c.lastName}" />
-										</h3>
-										<p>ID: #${c.userId} &bull; Active</p>
-									</div>
-									<span class="roleTag">Resident</span>
-								</div>
-								<form action="${pageContext.request.contextPath}/citizenlist"
-									method="GET">
-									<input type="hidden" name="userId" value="${c.userId}">
-									<button type="submit" class="buttonReview">Review</button>
-								</form>
-							</div>
-						</c:forEach>
+						<form action="${pageContext.request.contextPath}/citizenlist"
+							method="GET" class="searchForm">
+							<input type="text" name="search" class="searchInput"
+								placeholder="Search citizens..." value="${searchQuery}" />
+							<button type="submit" class="buttonReview">Search</button>
+							<c:if test="${not empty searchQuery}">
+								<a href="${pageContext.request.contextPath}/citizenlist"
+									class="buttonCancel">Clear</a>
+							</c:if>
+						</form>
 
-						<h2 class="citizenSectionTitle">Inactive Citizens</h2>
-						<c:forEach var="c" items="${inactiveCitizen}">
-							<div class="citizenCard">
-								<div class="citizenInfo">
-									<div class="avatarBox">
-										<svg width="24" height="24" viewBox="0 0 24 24"
-											fill="currentColor">
-                                            <path
-												d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                                        </svg>
+						<c:choose>
+							<c:when test="${not empty searchQuery}">
+								<h2 class="citizenSectionTitle">Search Results</h2>
+								<c:forEach var="c" items="${citizens}">
+									<div class="citizenCard">
+										<div class="citizenInfo">
+											<div class="avatarBox">
+												<svg width="24" height="24" viewBox="0 0 24 24"
+													fill="currentColor">
+                                <path
+														d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                            </svg>
+											</div>
+											<div class="nameGroup">
+												<h3>
+													<c:out value="${c.firstName} ${c.lastName}" />
+												</h3>
+												<p>ID: #${c.userId} &bull; ${c.status}</p>
+											</div>
+											<span class="roleTag">Resident</span>
+										</div>
+										<form action="${pageContext.request.contextPath}/citizenlist"
+											method="GET">
+											<input type="hidden" name="userId" value="${c.userId}">
+											<button type="submit" class="buttonReview">Review</button>
+										</form>
 									</div>
-									<div class="nameGroup">
-										<h3>
-											<c:out value="${c.firstName} ${c.lastName}" />
-										</h3>
-										<p>ID: #${c.userId} &bull; Inactive</p>
-									</div>
-									<span class="roleTag">Resident</span>
-								</div>
-								<form action="${pageContext.request.contextPath}/citizenlist"
-									method="GET">
-									<input type="hidden" name="userId" value="${c.userId}">
-									<button type="submit" class="buttonReview">Review</button>
-								</form>
-							</div>
-						</c:forEach>
+								</c:forEach>
+							</c:when>
+							<c:otherwise>
 
+								<h2 class="citizenSectionTitle">Active Citizens</h2>
+								<c:forEach var="c" items="${activeCitizen}">
+									<div class="citizenCard">
+										<div class="citizenInfo">
+											<div class="avatarBox">
+												<svg width="24" height="24" viewBox="0 0 24 24"
+													fill="currentColor">
+                                            <path
+														d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                                        </svg>
+											</div>
+											<div class="nameGroup">
+												<h3>
+													<c:out value="${c.firstName} ${c.lastName}" />
+												</h3>
+												<p>ID: #${c.userId} &bull; Active</p>
+											</div>
+											<span class="roleTag">Resident</span>
+										</div>
+										<form action="${pageContext.request.contextPath}/citizenlist"
+											method="GET">
+											<input type="hidden" name="userId" value="${c.userId}">
+											<button type="submit" class="buttonReview">Review</button>
+										</form>
+									</div>
+								</c:forEach>
+
+								<h2 class="citizenSectionTitle">Inactive Citizens</h2>
+								<c:forEach var="c" items="${inactiveCitizen}">
+									<div class="citizenCard">
+										<div class="citizenInfo">
+											<div class="avatarBox">
+												<svg width="24" height="24" viewBox="0 0 24 24"
+													fill="currentColor">
+                                            <path
+														d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                                        </svg>
+											</div>
+											<div class="nameGroup">
+												<h3>
+													<c:out value="${c.firstName} ${c.lastName}" />
+												</h3>
+												<p>ID: #${c.userId} &bull; Inactive</p>
+											</div>
+											<span class="roleTag">Resident</span>
+										</div>
+										<form action="${pageContext.request.contextPath}/citizenlist"
+											method="GET">
+											<input type="hidden" name="userId" value="${c.userId}">
+											<button type="submit" class="buttonReview">Review</button>
+										</form>
+									</div>
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 

@@ -38,9 +38,22 @@ public class CitizenManagementServlet extends HttpServlet {
 			UserDAO dao = new UserDAO();
 
 			List<UserModel> citizens = dao.getAllUsers();
+			
+			String searchQuery = request.getParameter("search");
+
+			if (searchQuery != null && !searchQuery.trim().isEmpty()) {
+				
+				citizens = dao.searchCitizens(searchQuery.trim());
+				
+				request.setAttribute("searchQuery", searchQuery);
+				
+			} else {
+				citizens = dao.getAllUsers();
+			}
+
 			List<UserModel> activeCitizenList = dao.getActiveCitizens();
 			List<UserModel> inactiveCitizenList = dao.getInactiveCitizens();
-			
+
 			request.setAttribute("activeCitizen", activeCitizenList);
 			request.setAttribute("inactiveCitizen", inactiveCitizenList);
 
@@ -59,9 +72,11 @@ public class CitizenManagementServlet extends HttpServlet {
 					suspendedCount++;
 				}
 			}
-			
+
 			request.setAttribute("activeCount", activeCount);
 			request.setAttribute("suspendedCount", suspendedCount);
+			request.setAttribute("citizens", citizens);
+			request.setAttribute("totalCitizens", citizens.size());
 
 			String previewUserId = request.getParameter("userId");
 
@@ -88,7 +103,8 @@ public class CitizenManagementServlet extends HttpServlet {
 			}
 
 			request.setAttribute("activePage", "Citizen");
-			request.getRequestDispatcher("/WEB-INF/Pages/CitizenManagement.jsp").forward(request, response);		} catch (Exception e) {
+			request.getRequestDispatcher("/WEB-INF/Pages/CitizenManagement.jsp").forward(request, response);
+		} catch (Exception e) {
 			throw new ServletException("Database error", e);
 		}
 	}

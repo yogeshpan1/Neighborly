@@ -14,6 +14,7 @@
 	href="${pageContext.request.contextPath}/CSS/NewsManagement.css">
 </head>
 <body>
+	<input type="checkbox" id="sidebarToggle" class="sidebarToggleInput" />
 
 	<!-- SIDEBAR component -->
 	<jsp:include page="/Components/admin-sidebar.jsp" />

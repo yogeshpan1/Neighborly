@@ -62,3 +62,35 @@
     align-items: center;
     justify-content: center;
 }
+.sidebarToggleInput { display: none; }
+
+.sidebarOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 99;
+    cursor: pointer;
+}
+
+.sidebar { transition: transform 0.3s ease; }
+
+@media (max-width: 768px) {
+    .sidebar { transform: translateX(-100%); z-index: 200; }
+
+    .sidebarOverlay {
+        display: block;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .sidebarToggleInput:checked ~ .sidebarOverlay {
+        pointer-events: all;
+        opacity: 1;
+    }
+
+    .sidebarToggleInput:checked ~ .sidebar {
+        transform: translateX(0);
+    }
+}

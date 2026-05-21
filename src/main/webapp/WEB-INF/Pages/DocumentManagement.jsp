@@ -13,6 +13,8 @@
 	href="${pageContext.request.contextPath}/CSS/DocumentManagement.css">
 </head>
 <body>
+	<input type="checkbox" id="sidebarToggle" class="sidebarToggleInput" />
+
 	<jsp:include page="/Components/admin-sidebar.jsp" />
 
 	<div class="mainContent">
@@ -88,7 +90,7 @@
 							<c:forEach var="doc" items="${documents}">
 								<c:if test="${doc.status == 'Pending'}">
 									<tr>
-										<td>${doc.firstName}${doc.lastName}</td>
+										<td>${doc.fullName}</td>
 										<td>${doc.documentType}</td>
 										<td>${doc.submittedAt}</td>
 										<td class="docActionCell">
