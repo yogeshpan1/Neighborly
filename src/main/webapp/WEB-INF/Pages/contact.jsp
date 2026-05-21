@@ -26,11 +26,15 @@
 			<div class="contactContainer">
 
 				<c:if test="${not empty errorMessage}">
-					<div class="alertError">${errorMessage}</div>
+					<div class="alertError">
+						<span>${errorMessage}</span>
+					</div>
 				</c:if>
 
 				<c:if test="${not empty successMessage}">
-					<div class="alertSuccess">${successMessage}</div>
+					<div class="alertSuccess">
+						<span>${successMessage}</span>
+					</div>
 				</c:if>
 
 				<form action="${pageContext.request.contextPath}/contact"
