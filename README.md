@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Images/Logo.png" alt="Neighborly Logo" width="120"/>
+  <img src="/Images/Logo.png" alt="Neighborly Logo" width="300"/>
 </p>
 
 <h1 align="center">Neighborly</h1>
