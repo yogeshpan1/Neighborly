@@ -1,5 +1,9 @@
 package com.Neighborly.model;
 
+/**
+ * Model class for fines issued to a user.
+ */
+
 public class FineModel {
 	
 	private int fineId;
@@ -17,6 +21,7 @@ public class FineModel {
 		return fineId;
 	}
 
+	// --- Getters
 	public void setFineId(int fineId) {
 		this.fineId = fineId;
 	}
@@ -41,6 +46,7 @@ public class FineModel {
 		return lastName;
 	}
 
+	// Setters
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
