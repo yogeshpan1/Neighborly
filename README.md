@@ -2,9 +2,6 @@
   <img src="src/main/webapp/Images/Logo.png" alt="Neighborly Logo" width="300"/>
 </p>
 
-
-<h1 align="center">Neighborly</h1>
-
 <p align="center">
   A full-stack citizen portal web application built as a group project for the <b>Advanced Programming and Technologies (CS5054NI)</b> module.
 </p>
