@@ -20,7 +20,7 @@
 
 ## About
 
-Neighborly is a full-stack citizen portal developed by a team of four students at Islington College as part of the CS5054NI Advanced Programming and Technologies module. The system provides two distinct experiences — a citizen-facing portal and an administrator dashboard connected through a shared MySQL database and built entirely on Java EE technologies following the MVC architectural pattern.
+Neighborly is a full-stack citizen portal developed by a team of four students at Islington College as part of the CS5054NI Advanced Programming and Technologies module. The system provides two distinct experiences a citizen-facing portal and an administrator dashboard connected through a shared MySQL database and built entirely on Java EE technologies following the MVC architectural pattern.
 
 The idea came from observing how many civic interactions in Nepal still require physical visits to government offices. Neighborly attempts to digitise that experience, letting citizens report local problems, apply for official documents, pay fines, participate in community polls, and read local news all from a single web application.
 
@@ -30,7 +30,7 @@ The project was built using Jakarta Servlets, JSP, JDBC, and MySQL, with no exte
 
 ## Inspiration
 
-Neighborly was inspired by **[Nagarik App](https://nagarikapp.gov.np/)**, Nepal's official government mobile application that provides citizens with access to civic services digitally. We wanted to bring a similar experience to the web — giving citizens a single platform to report issues, track applications, pay fines, vote on community polls, and stay informed through news and notices, all without visiting a government office in person.
+Neighborly was inspired by **[Nagarik App](https://nagarikapp.gov.np/)**, Nepal's official government mobile application that provides citizens with access to civic services digitally. We wanted to bring a similar experience to the web giving citizens a single platform to report issues, track applications, pay fines, vote on community polls, and stay informed through news and notices, all without visiting a government office in person.
 
 ---
 
