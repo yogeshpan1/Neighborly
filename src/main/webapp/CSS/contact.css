@@ -105,3 +105,40 @@ body {
         width: 504px;
     }
 }
+
+.alertError {
+    background-color: #FCEBEB;
+    border: 1px solid #F7C1C1;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    width: 704px;
+}
+
+.alertError span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #A32D2D;
+}
+
+
+.alertSuccess {
+    background-color: #EAF3DE;
+    border: 1px solid #C0DD97;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    width: 704px;
+}
+
+.alertSuccess span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #27500A;
+}
+
+@media (max-width: 1100px) {
+    .alertSuccess {
+        width: 504px;
+    }
+}
