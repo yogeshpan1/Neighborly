@@ -34,6 +34,29 @@ public class DocumentManagement extends HttpServlet {
 			throws ServletException, IOException {
 		try {
 			DocumentDAO dao = new DocumentDAO();
+
+			// FIX: deleteDoc was only loading a modal — now actually deletes and redirects.
+			// Triggered by the Reject button in the pending documents table.
+			String deleteDoc = request.getParameter("deleteDoc");
+
+			if (deleteDoc != null && !deleteDoc.isEmpty()) {
+				int docId = Integer.parseInt(deleteDoc);
+				dao.deleteDocument(docId);
+				response.sendRedirect(request.getContextPath() + "/documentlist");
+				return;
+			}
+
+			// FIX: editDoc was used by the verified-table Delete button but only loaded
+			// a modal — now actually deletes and redirects.
+			String editDoc = request.getParameter("editDoc");
+
+			if (editDoc != null && !editDoc.isEmpty()) {
+				int docId = Integer.parseInt(editDoc);
+				dao.deleteDocument(docId);
+				response.sendRedirect(request.getContextPath() + "/documentlist");
+				return;
+			}
+
 			List<DocumentModel> documents = dao.getAllDocuments();
 
 			int total = 0;
@@ -57,28 +80,12 @@ public class DocumentManagement extends HttpServlet {
 			request.setAttribute("pendingDocuments", pending);
 
 			String openDoc = request.getParameter("openDoc");
-			
+
 			if (openDoc != null && !openDoc.isEmpty()) {
-				
-			    int docId = Integer.parseInt(openDoc);
-			    request.setAttribute("viewDocument", dao.getDocumentById(docId));
+				int docId = Integer.parseInt(openDoc);
+				request.setAttribute("viewDocument", dao.getDocumentById(docId));
 			}
 
-			String deleteDoc = request.getParameter("deleteDoc");
-			
-			if (deleteDoc != null && !deleteDoc.isEmpty()) {
-				
-			    int docId = Integer.parseInt(deleteDoc);
-			    request.setAttribute("deleteDocument", dao.getDocumentById(docId));
-			}
-
-			String editDoc = request.getParameter("editDoc");
-			
-			if (editDoc != null && !editDoc.isEmpty()) {
-				
-			    int docId = Integer.parseInt(editDoc);
-			    request.setAttribute("editDocument", dao.getDocumentById(docId));
-			}
 			request.setAttribute("activePage", "Documents");
 			request.setAttribute("pageTitle", "Document Management");
 

@@ -238,8 +238,10 @@ public class DocumentDAO {
 	 */
 	public DocumentModel getDocumentById(int documentId) throws Exception {
 
+		// FIX: Removed stray " + " that was embedded inside the SQL string, causing a syntax error
 		String sql = "SELECT da.document_id, da.user_id, u.first_name, u.last_name, da.document_type, da.full_name, da.address, da.phone, "
-				+ "da.additional_info, da.status, da.submitted_at  + FROM document_applications da JOIN users u ON da.user_id = u.user_id " + "WHERE da.document_id = ?";
+				+ "da.additional_info, da.status, da.submitted_at FROM document_applications da JOIN users u ON da.user_id = u.user_id "
+				+ "WHERE da.document_id = ?";
 
 		Connection con = DBconfig.getConnection();
 		PreparedStatement pst = con.prepareStatement(sql);

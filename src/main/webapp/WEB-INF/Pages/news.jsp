@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Neighborly - News</title>
+    <title>Neighborly</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/news.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/leftbar.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/navbar.css">
@@ -30,8 +30,7 @@
                                 <c:choose>
                                     <c:when test="${not empty featured.newsImage}">
                                         <div class="featuredImage"
-                                             style="background: linear-gradient(to top, rgba(30,60,40,0.9), rgba(50,90,60,0.2)),
-                                                    url('${pageContext.request.contextPath}/getimage?name=${featured.newsImage}')
+                                             style="background: url('${pageContext.request.contextPath}/newsimage/${featured.newsImage}') center/cover;"
                                                     center/cover;">
                                             <h2 class="featuredTitle">${featured.newsTitle}</h2>
                                         </div>
@@ -82,7 +81,7 @@
                                         <!-- IMAGE or placeholder -->
                                         <c:choose>
                                             <c:when test="${not empty news.newsImage}">
-                                                <img src="${pageContext.request.contextPath}/getimage?name=${news.newsImage}"
+												<img src="${pageContext.request.contextPath}/newsimage/${news.newsImage}"
                                                      alt="${news.newsTitle}"
                                                      style="width:100px; height:100px;
                                                             object-fit:cover; border-radius:8px;

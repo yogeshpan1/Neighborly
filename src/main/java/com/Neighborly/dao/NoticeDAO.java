@@ -52,9 +52,14 @@ public class NoticeDAO {
 	public List<NoticeModel> getAllNotices() throws Exception {
 
 		List<NoticeModel> notices = new ArrayList<>();
-		String sql = "SELECT n.notice_id, n.user_id, u.username, " + " n.notice_title, n.notice_category, "
-				+ "       n.notice_description, n.notice_posted_at " + "FROM notices n "
-				+ "JOIN users u ON n.user_id = u.user_id " + "ORDER BY n.notice_posted_at DESC";
+		// FIX: Changed JOIN from `admins` (non-existent) to `users` which is the actual
+		// table that stores all users including admins (identified by role = 'admin').
+		String sql = "SELECT n.notice_id, n.user_id, u.username, "
+				+ "       n.notice_title, n.notice_category, "
+				+ "       n.notice_description, n.notice_posted_at "
+				+ "FROM notices n "
+				+ "JOIN users u ON n.user_id = u.user_id "
+				+ "ORDER BY n.notice_posted_at DESC";
 
 		Connection con = DBconfig.getConnection();
 		PreparedStatement pst = con.prepareStatement(sql);

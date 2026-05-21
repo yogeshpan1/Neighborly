@@ -61,15 +61,15 @@ public class NoticeManagement extends HttpServlet {
 		 try {
 			 
 			    NoticeDAO dao = new NoticeDAO();
-				
+			
 			    UserModel user = (UserModel) SessionUtil.getAttribute(request, "user");
-	        	if (user == null) {
-	        	    response.sendRedirect(request.getContextPath() + "/login");
-	        	    return;
-	        	}
-	        	
-	        	int userId = user.getUserId();
-	        	
+        	if (user == null) {
+        	    response.sendRedirect(request.getContextPath() + "/login");
+        	    return;
+        	}
+        	
+        	int userId = user.getUserId();
+        	
 		        String editRequestId = request.getParameter("editNoticeId");
 		        if (editRequestId != null && !editRequestId.isEmpty()) {
 		            
@@ -84,7 +84,8 @@ public class NoticeManagement extends HttpServlet {
 		                }
 		            }
 		            
-		            request.setAttribute("noticeList", noticeList);
+		            // FIX: Was "noticeList" — JSP expects the attribute named "notices"
+		            request.setAttribute("notices", noticeList);
 		            request.setAttribute("totalNotices", noticeList.size());
 		            request.getRequestDispatcher("/WEB-INF/Pages/NoticeManagement.jsp").forward(request, response);
 		            return;
