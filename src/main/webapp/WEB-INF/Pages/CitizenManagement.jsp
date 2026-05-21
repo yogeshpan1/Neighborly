@@ -8,29 +8,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Citizen Management - Neighborly</title>
+<!-- Shared admin sidebar styles -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/CSS/Admin-Side.css">
+<!-- Citizen management page specific styles -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/CSS/CitizenManagement.css">
 </head>
 <body>
+	<!-- Checkbox used to toggle sidebar open/close on smaller screens -->
 	<input type="checkbox" id="sidebarToggle" class="sidebarToggleInput" />
 
-	<!-- SIDEBAR component -->
+	<!-- Admin sidebar navigation component -->
 	<jsp:include page="/Components/admin-sidebar.jsp" />
 
 	<div class="mainContent">
 
-		<!-- TOPBAR component -->
-
+		<!-- Admin top bar component -->
 		<jsp:include page="/Components/admin-topbar.jsp" />
 
 		<div class="dashboardBody">
 			<div class="twoColumnLayout">
 
-				<!-- LEFT COLUMN -->
+				<!-- LEFT COLUMN: citizen list and search -->
 				<div class="leftColumn">
 
+					<!-- Page title and subtitle -->
 					<div class="pageHeader">
 						<h1 class="pageTitle">Citizen Management</h1>
 						<p class="pageSubtitle">Manage the Community</p>
@@ -38,9 +41,10 @@
 
 					<hr class="divider">
 
-					<!-- STAT CARDS -->
+					<!-- Stat cards showing total, active and suspended citizen counts -->
 					<div class="statsFlex smallStats" style="margin-bottom: 24px;">
 
+						<!-- Total citizens count -->
 						<div class="statCard statCardSmall">
 							<div class="statIconWrap">
 								<div class="statBars barsGreen">
@@ -58,6 +62,7 @@
 							</div>
 						</div>
 
+						<!-- Active citizens count -->
 						<div class="statCard statCardSmall">
 							<div class="statIconWrap">
 								<div class="statBars barsBlue">
@@ -75,6 +80,7 @@
 							</div>
 						</div>
 
+						<!-- Suspended citizens count -->
 						<div class="statCard statCardSmall">
 							<div class="statIconWrap">
 								<div class="statBars barsOrange">
@@ -92,14 +98,16 @@
 
 					</div>
 
-					<!-- CITIZEN LIST -->
+					<!-- Citizen list section with search functionality -->
 					<div class="citizenList">
 
+						<!-- Search form submits GET request with search query parameter -->
 						<form action="${pageContext.request.contextPath}/citizenlist"
 							method="GET" class="searchForm">
 							<input type="text" name="search" class="searchInput"
 								placeholder="Search citizens..." value="${searchQuery}" />
 							<button type="submit" class="buttonReview">Search</button>
+							<!-- Clear button only shown when a search is active -->
 							<c:if test="${not empty searchQuery}">
 								<a href="${pageContext.request.contextPath}/citizenlist"
 									class="buttonCancel">Clear</a>
@@ -107,11 +115,14 @@
 						</form>
 
 						<c:choose>
+							<!-- If search is active show search results -->
 							<c:when test="${not empty searchQuery}">
 								<h2 class="citizenSectionTitle">Search Results</h2>
+								<!-- Loop through search results -->
 								<c:forEach var="c" items="${citizens}">
 									<div class="citizenCard">
 										<div class="citizenInfo">
+											<!-- Citizen avatar icon -->
 											<div class="avatarBox">
 												<svg width="24" height="24" viewBox="0 0 24 24"
 													fill="currentColor">
@@ -127,6 +138,7 @@
 											</div>
 											<span class="roleTag">Resident</span>
 										</div>
+										<!-- Review button sends userId as GET parameter -->
 										<form action="${pageContext.request.contextPath}/citizenlist"
 											method="GET">
 											<input type="hidden" name="userId" value="${c.userId}">
@@ -137,10 +149,12 @@
 							</c:when>
 							<c:otherwise>
 
+								<!-- Default view: active citizens list -->
 								<h2 class="citizenSectionTitle">Active Citizens</h2>
 								<c:forEach var="c" items="${activeCitizen}">
 									<div class="citizenCard">
 										<div class="citizenInfo">
+											<!-- Citizen avatar icon -->
 											<div class="avatarBox">
 												<svg width="24" height="24" viewBox="0 0 24 24"
 													fill="currentColor">
@@ -156,6 +170,7 @@
 											</div>
 											<span class="roleTag">Resident</span>
 										</div>
+										<!-- Review button loads this citizen's profile in the right column -->
 										<form action="${pageContext.request.contextPath}/citizenlist"
 											method="GET">
 											<input type="hidden" name="userId" value="${c.userId}">
@@ -164,10 +179,12 @@
 									</div>
 								</c:forEach>
 
+								<!-- Inactive/suspended citizens list -->
 								<h2 class="citizenSectionTitle">Inactive Citizens</h2>
 								<c:forEach var="c" items="${inactiveCitizen}">
 									<div class="citizenCard">
 										<div class="citizenInfo">
+											<!-- Citizen avatar icon -->
 											<div class="avatarBox">
 												<svg width="24" height="24" viewBox="0 0 24 24"
 													fill="currentColor">
@@ -183,6 +200,7 @@
 											</div>
 											<span class="roleTag">Resident</span>
 										</div>
+										<!-- Review button loads this citizen's profile in the right column -->
 										<form action="${pageContext.request.contextPath}/citizenlist"
 											method="GET">
 											<input type="hidden" name="userId" value="${c.userId}">
@@ -195,9 +213,10 @@
 					</div>
 				</div>
 
-				<!-- RIGHT COLUMN -->
+				<!-- RIGHT COLUMN: selected citizen profile panel -->
 				<div class="rightColumn">
 					<c:choose>
+						<!-- No citizen selected: show empty state message -->
 						<c:when test="${empty selectedCitizen}">
 							<div class="emptyStatePanel">
 								<svg width="48" height="48" viewBox="0 0 24 24" fill="none"
@@ -215,9 +234,11 @@
 									from the list to review their details, issues, and fines.</p>
 							</div>
 						</c:when>
+						<!-- Citizen selected: show full profile panel -->
 						<c:otherwise>
 							<div class="profilePanel">
 
+								<!-- Profile panel header with close button -->
 								<div class="profileHeader">
 									<div class="profileTitle">Citizen Profile</div>
 									<a href="${pageContext.request.contextPath}/citizenlist"
@@ -233,6 +254,7 @@
 									</a>
 								</div>
 
+								<!-- Citizen avatar and full name -->
 								<div class="profileSummary">
 									<div class="largeAvatar">
 										<svg width="36" height="36" viewBox="0 0 24 24"
@@ -246,6 +268,7 @@
 										${selectedCitizen.lastName}</h2>
 								</div>
 
+								<!-- Citizen account details -->
 								<div class="profileDetails">
 									<div class="detailRow">
 										<span class="detailLabel">Username :</span> <span
@@ -265,8 +288,10 @@
 									</div>
 								</div>
 
+								<!-- Suspend or unsuspend action based on current citizen status -->
 								<div class="suspendArea">
 									<c:choose>
+										<!-- Citizen is active: show deactivate button -->
 										<c:when test="${selectedCitizen.status == 'Active'}">
 											<form action="${pageContext.request.contextPath}/citizenlist"
 												method="GET">
@@ -278,6 +303,7 @@
 													User</button>
 											</form>
 										</c:when>
+										<!-- Citizen is suspended: show activate button -->
 										<c:otherwise>
 											<p
 												style="color: #ef4444; font-size: 13px; margin-bottom: 10px;">This
@@ -302,10 +328,12 @@
 		</div>
 	</div>
 
-	<!-- SUSPENSION MODAL -->
+	<!-- Suspension confirmation modal
+	     Only displayed when openSuspendId is set in the request -->
 	<div class="modalOverlay" id="suspendModal"
 		style="${not empty openSuspendId ? 'display:flex;' : ''}">
 		<div class="modalBox">
+			<!-- Modal header with warning icon -->
 			<div class="modalHeaderRed">
 				<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                     <path
@@ -313,20 +341,24 @@
                 </svg>
 				<h2>Confirm Suspension</h2>
 			</div>
+			<!-- Suspension form submits userId and reason to /suspend -->
 			<form action="${pageContext.request.contextPath}/suspend"
 				method="POST">
 				<input type="hidden" name="userId" value="${openSuspendId}">
 				<div class="modalBody">
+					<!-- Warning message showing which citizen will be suspended -->
 					<p class="modalText">
 						You are about to suspend the account for <strong>${selectedCitizen.firstName}
 							${selectedCitizen.lastName}</strong>. Please give your reason below.
 					</p>
 					<label class="labelArea">Reason of Suspension</label>
+					<!-- Required textarea for suspension reason -->
 					<textarea class="modalTextarea" name="suspensionReason"
 						placeholder="Provide a detailed explanation for this suspension..."
 						required></textarea>
 				</div>
 				<div class="modalFooter">
+					<!-- Cancel returns to citizen list without suspending -->
 					<a href="${pageContext.request.contextPath}/citizenlist"
 						class="buttonCancel">Cancel</a>
 					<button type="submit" class="buttonConfirmRed">Confirm
